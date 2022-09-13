@@ -10,6 +10,8 @@ import {
   Route,
 } from "react-router-dom";
 
+import Layout from "./components/Layout/Layout"
+
 import Login from "./routes/login";
 import Mypage from "./routes/mypage";
 import Questionnaires from "./routes/questionnaires";
@@ -21,8 +23,10 @@ import Faq from './routes/faq';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  <Layout>
   <BrowserRouter>
   <Routes>
+ 
     <Route path="/" element={<App />} />
     <Route path="login" element={<Login />} />
     <Route path="mypage" element={<Mypage />} />
@@ -32,8 +36,10 @@ root.render(
     <Route path="notice" element={<Notice />} />
     <Route path="servicecenter" element={<Servicecenter />} />
     <Route path="faq" element={<Faq />} />
+   
   </Routes>
 </BrowserRouter>,
+</Layout>
 );
 
 // If you want to start measuring performance in your app, pass a function
