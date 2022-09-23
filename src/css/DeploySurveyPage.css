@@ -1,0 +1,35 @@
+/* 설문 공유 페이지에서 쓰일 css */
+.createSurveyPage {
+    background-image: url(../images/deploySurvey.png);
+    background-repeat: no-repeat;
+    margin: auto;
+    width: 100%;
+    height: 1700px;
+}
+  
+.loginBtn {
+position: absolute;
+top: 20px;
+right: 560px;
+width: 100px;
+height: 30px;
+opacity: 0.6;
+}
+
+.myBtn {
+position: absolute;
+top: 20px;
+right: 510px;
+width: 30px;
+height: 30px;
+opacity: 0.6;
+}
+
+.homeBtn {
+position: absolute;
+top: 95px;
+left: 20px;
+width: 150px;
+height: 30px;
+opacity: 0.6;
+}

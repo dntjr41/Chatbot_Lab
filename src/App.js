@@ -1,8 +1,13 @@
 import './App.css';
+import React from 'react';
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import CreateSurveyPage from './pages/CreateSurveyPage';
+// eslint-disable-next-line
+import SetSurveyPerTarPage from './pages/SetSurveyPerTarPage';
+
+import DeploySurveyPage from './pages/DeploySurveyPage';
+
 import NoPage from './pages/NoPage';
 
 // 페이지별 url
@@ -15,7 +20,7 @@ function App() {
       <Routes>
         <Route path="/">
           {/* <Route index element={<Home />} /> */}
-          <Route path="create-survey" element={<CreateSurveyPage />} />
+          <Route path="deploy-survey" element={<DeploySurveyPage />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
