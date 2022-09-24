@@ -10,16 +10,46 @@ import '../css/SurveyResultPage.css'
 //   └다운로드 버튼
 
 const SurveyResult = function () {
-    return (
-        <div className="finishResponse">
-            <button type="button" className="logoBtn">logo</button>
-            <button type="button" className="loginBtn">login</button>
-            <button type="button" className="myBtn">my</button>
-            <button type="button" className="homeBtn">home</button>
+    // 홈페이지로 이동
+    const gotoHome = () => {
+        alert("홈 페이지로 이동");
+    }
 
-            <button type="button" className="showStatisticBtn">통계</button>
-            <button type="button" className="showAnalysisBtn">분석</button>
-            <button type="button" className="downloadResultBtn">다운로드</button>
+    // 로그인 페이지로 이동
+    const gotoLogin = () => {
+        alert("로그인 페이지로 이동")
+    }
+
+    // 마이 페이지로 이동
+    const gotoMyPage = () => {
+        alert("마이페이지로 이동");
+    }
+
+    // 설문 통계로 보여주기
+    const showStatistic = () => {
+        alert("설문 통계 보여주기");
+    }
+
+    // 설문 분석으로 보여주기
+    const showAnalysis = () => {
+        alert("설문 분석 보여주기");
+    }
+
+    // 설문 통계 다운로드
+    const downloadResult = () => {
+        alert("설문 결과 다운로드");
+    }
+
+    return (
+        <div className="surveyResult">
+            <button type="button" className="logoBtn" onClick={gotoHome}>logo</button>
+            <button type="button" className="loginBtn" onClick={gotoLogin}>login</button>
+            <button type="button" className="myBtn" onClick={gotoMyPage}>my</button>
+            <button type="button" className="homeBtn" onClick={gotoHome}>home</button>
+
+            <button type="button" className="showStatisticBtn" onClick={showStatistic}>통계</button>
+            <button type="button" className="showAnalysisBtn" onClick={showAnalysis}>분석</button>
+            <button type="button" className="downloadResultBtn" onClick={downloadResult}>다운로드</button>
         </div>
     )
 }

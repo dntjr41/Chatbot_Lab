@@ -9,6 +9,8 @@ import NoPage from './pages/NoPage';
 
 // 페이지별 url
 // create-survey: 새 설문 작성 페이지
+// survey-response/statistic: 결과 통계 보기
+// survey-response/analysis: 결과 분석 보기
 // *: 나머지 페이지(404 띄움)
 
 function App() {

@@ -13,7 +13,6 @@
   left: 50px;
   width: 350px;
   height: 30px;
-  opacity: 0.6;
 }
 
 .loginBtn {
@@ -22,7 +21,6 @@
   right: 560px;
   width: 100px;
   height: 30px;
-  opacity: 0.6;
 }
 
 .myBtn {
@@ -31,7 +29,6 @@
   right: 510px;
   width: 30px;
   height: 30px;
-  opacity: 0.6;
 }
 
 .homeBtn {
@@ -40,7 +37,6 @@
   left: 20px;
   width: 150px;
   height: 30px;
-  opacity: 0.6;
 }
 
 .surveyTitle {
@@ -49,7 +45,6 @@
   left: 120px;
   width: 500px;
   height: 80px;
-  opacity: 0.6;
 
   font-size: 50px;
 }
@@ -60,7 +55,6 @@
   left: 120px;
   width: 500px;
   height: 50px;
-  opacity: 0.6;
 
   font-size: 30px;
 }
@@ -71,7 +65,6 @@
   left: 180px;
   width: 500px;
   height: 40px;
-  opacity: 0.6;
 
   font-size: 26px;
 }
@@ -82,7 +75,6 @@
   left: 220px;
   width: 500px;
   height: 40px;
-  opacity: 0.6;
 
   font-size: 26px;
 }
@@ -93,7 +85,6 @@
   left: 220px;
   width: 500px;
   height: 40px;
-  opacity: 0.6;
 
   font-size: 26px;
 }
@@ -104,7 +95,6 @@
   right: 650px;
   width: 30px;
   height: 30px;
-  opacity: 0.6;
 }
 
 .checkOption2 {
@@ -113,7 +103,6 @@
   right: 650px;
   width: 30px;
   height: 30px;
-  opacity: 0.6;
 }
 
 .checkOption3 {
@@ -122,7 +111,6 @@
   right: 650px;
   width: 30px;
   height: 30px;
-  opacity: 0.6;
 }
 
 .submitBtn {
@@ -131,5 +119,17 @@
   left: 650px;
   width: 140px;
   height: 50px;
-  opacity: 0.6;
+}
+
+.questionCardListLayout {
+  position: absolute;
+  top: 730px;
+  right: 80px;
+  width: 350px;
+  border: 1px black solid;
+}
+
+.questionCardLayout {
+  border: 1px black solid;
+  margin: 10px;
 }

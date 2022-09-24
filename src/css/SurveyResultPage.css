@@ -1,5 +1,5 @@
 /* 결과 분석 페이지에서 쓰일 css */
-.finishResponse {
+.surveyResult {
     background-image: url(../images/survey_result.png);
     background-repeat: no-repeat;
     margin: auto;

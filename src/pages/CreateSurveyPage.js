@@ -1,4 +1,9 @@
-import '../css/CreateSurveyPage.css'
+import { useSelector, useDispatch } from 'react-redux';
+import { changeTitleAction, changeContentAction } from "../modules/createSurveySlice";
+
+import QuestionCardList from "../components/CreateSurvey/QuestionCardList";
+
+import '../css/CreateSurveyPage.css';
 
 // 새 설문 작성 페이지
 // └헤더
@@ -11,26 +16,55 @@ import '../css/CreateSurveyPage.css'
 //   └저장 버튼
 
 const CreateSurveyPage = function () {
+    const dispatch = useDispatch();
+    const title = useSelector(state => state.surveyTitle);
+    const content = useSelector(state => state.surveyContent);
+    const surveyInfo = useSelector(state => state);
+
+    // 홈페이지로 이동
+    const gotoHome = () => {
+        alert("홈 페이지로 이동");
+    }
+
+    // 로그인 페이지로 이동
+    const gotoLogin = () => {
+        alert("로그인 페이지로 이동")
+    }
+
+    // 마이 페이지로 이동
+    const gotoMyPage = () => {
+        alert("마이페이지로 이동");
+    }
+
+    // 설문의 제목 입력 업데이트
+    const inputTitle = (title) => {
+        dispatch(changeTitleAction(title));
+    }
+
+    // 설문의 부연설명 입력 업데이트
+    const inputContent = (content) => {
+        dispatch(changeContentAction(content));
+    }
+
+    // 설문 저장 버튼 클릭시 입력한 모든 정보를 console에 띄움
+    const createSurvey = () => {
+        console.log(surveyInfo);
+    }
+
     return (
         <div className="createSurveyPage">
-            <button type="button" className="logoBtn">logo</button>
-            <button type="button" className="loginBtn">login</button>
-            <button type="button" className="myBtn">my</button>
-            <button type="button" className="homeBtn">home</button>
+            <button type="button" className="logoBtn" onClick={gotoHome}>logo</button>
+            <button type="button" className="loginBtn" onClick={gotoLogin}>login</button>
+            <button type="button" className="myBtn" onClick={gotoMyPage}>my</button>
+            <button type="button" className="homeBtn" onClick={gotoHome}>home</button>
 
-            <input type="text" className="surveyTitle" />
-            <input type="text" className="surveyContent" />
+            <input type="text" className="surveyTitle" value={title} onChange={(e) => inputTitle(e.target.value)} />
+            <input type="text" className="surveyContent" value={content} onChange={(e) => inputContent(e.target.value)} />
 
-            <input type="text" className="questionTitle" />
-            <input type="text" className="answer1" />
-            <input type="text" className="answer2" />
+            <QuestionCardList />
 
-            <input type="checkbox" className="checkOption1" />
-            <input type="checkbox" className="checkOption2" />
-            <input type="checkbox" className="checkOption3" />
-
-            <button type="button" className="submitBtn">저장</button>
-        </div>
+            < button type="button" className="submitBtn" onClick={createSurvey} > 저장</button>
+        </div >
     )
 }
 
