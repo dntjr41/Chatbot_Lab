@@ -4,9 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import CreateSurveyPage from './pages/CreateSurveyPage';
 import NoPage from './pages/NoPage';
-import QuestionnairesPage from "./pages/QuestionnairesPage";
 
-import 'bootstrap/dist/css/bootstrap.min.css';
 // 페이지별 url
 // create-survey: 새 설문 작성 페이지
 // *: 나머지 페이지(404 띄움)
@@ -18,7 +16,6 @@ function App() {
         <Route path="/">
           {/* <Route index element={<Home />} /> */}
           <Route path="create-survey" element={<CreateSurveyPage />} />
-          <Route path="questionnaires" element={<QuestionnairesPage />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
