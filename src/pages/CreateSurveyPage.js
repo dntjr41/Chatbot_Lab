@@ -10,9 +10,7 @@ import '../css/CreateSurveyPage.css';
 // └설문지 컴포넌트
 //   └설문 제목, 부연설명 입력
 //   └질문 카드 컴포넌트 리스트
-//     └질문 카드 컴포넌트(유형별 다른 컴포넌트)
-//   └질문 추가
-//     └질문 추가 버튼, 질문 유형 리스트 팝업
+//   └질문 추가 컴포넌트
 //   └저장 버튼
 
 const CreateSurveyPage = function () {
@@ -58,12 +56,16 @@ const CreateSurveyPage = function () {
             <button type="button" className="myBtn" onClick={gotoMyPage}>my</button>
             <button type="button" className="homeBtn" onClick={gotoHome}>home</button>
 
-            <input type="text" className="surveyTitle" value={title} onChange={(e) => inputTitle(e.target.value)} />
-            <input type="text" className="surveyContent" value={content} onChange={(e) => inputContent(e.target.value)} />
+            <div><input type="text" className="surveyTitle" value={title} onChange={(e) => inputTitle(e.target.value)} />
+                <input type="text" className="surveyContent" value={content} onChange={(e) => inputContent(e.target.value)} />
 
-            <QuestionCardList />
+                <QuestionCardList />
 
-            < button type="button" className="submitBtn" onClick={createSurvey} > 저장</button>
+                < button type="button" className="submitBtn" onClick={createSurvey} > 저장</button>
+            </div>
+
+
+
         </div >
     )
 }

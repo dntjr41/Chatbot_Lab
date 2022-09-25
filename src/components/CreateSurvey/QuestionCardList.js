@@ -1,10 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
-import { addAnswerAction, delAnswerAction, addCardAction, delCardAction, changeQuestionCardTitleAction, changeQuestionCardAnswerAction, checkOptionAction } from "../../modules/createSurveySlice";
+import { addAnswerAction, delAnswerAction, delCardAction, changeQuestionCardTitleAction, changeQuestionCardAnswerAction, checkOptionAction } from "../../modules/createSurveySlice";
+
+import AddQuestionComponent from "./AddQuestionComponent";
 
 import "../../css/CreateSurveyPage.css";
 
 // └질문 카드 컴포넌트 리스트
 //   └질문 카드 컴포넌트(유형별 다른 컴포넌트)
+//   └질문 추가 컴포넌트
 
 // 해야할 일: 카드 컴포넌트로 분리 시켜서 보여주기
 
@@ -20,11 +23,6 @@ const QuestionCardList = function () {
     // 객관식 응답 선택지 삭제
     const delAnswer = (listIdx, answerIdx) => {
         dispatch(delAnswerAction({ listIdx, answerIdx }));
-    }
-
-    // 질문 카드 추가
-    const addCard = () => {
-        dispatch(addCardAction());
     }
 
     //질문 카드 삭제
@@ -76,7 +74,7 @@ const QuestionCardList = function () {
                     </div>
                 )
             }
-            <button type="button" onClick={addCard}>질문 추가</button>
+            <AddQuestionComponent />
         </div>
     )
 }
