@@ -14,9 +14,9 @@ const CreateSurveyPage = function () {
     return (
         <div className="createSurveyPage">
             <button type="button" className="logoBtn">logo</button>
-            <button type="button" className="loginBtn">login</button>
-            <button type="button" className="myBtn">my</button>
-            <button type="button" className="homeBtn">home</button>
+            <a href="/login" className="loginBtn">login</a>
+            <a href="/myInfo" className="myBtn">my</a>
+            <a href="/home" className="homeBtn">home</a>
 
             <input type="text" className="surveyTitle" />
             <input type="text" className="surveyContent" />
