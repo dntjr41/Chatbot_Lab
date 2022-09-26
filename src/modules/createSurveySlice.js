@@ -2,20 +2,14 @@ import { createSlice } from '@reduxjs/toolkit'
 
 // 설문 제목, 설문 부연설명, 질문카드 배열(질문 유형, 질문 제목, 답변 배열, 옵션3개)
 const surveyState = {
-    surveyTitle: "초기 설문 제목입니다",
-    surveyContent: "초기 설문 설명입니다",
+    surveyTitle: "",
+    surveyContent: "",
     questionCardList: [{
         type: "choice",
-        title: "제목을 입력하세요",
-        answers: ["기본 응답", "기본 응답"],
-        options: [false, true, false],
-    },
-    {
-        type: "choice",
-        title: "제목을 입력하세요",
-        answers: ["기본 응답", "기본 응답"],
-        options: [true, false, false],
-    }],
+        title: "",
+        answers: [""],
+        options: [false, false, false],
+    }]
 }
 
 const createSurveySlice = createSlice({
@@ -25,7 +19,7 @@ const createSurveySlice = createSlice({
         addAnswerAction: (state, action) => {
             // action.payload: quesionCardList 배열의 index값
             // 매개변수로 받은 index값에 해당하는 questionCard의 answers배열 요소를 추가한다
-            state.questionCardList[action.payload].answers = [...state.questionCardList[action.payload].answers, "새 응답"];
+            state.questionCardList[action.payload].answers = [...state.questionCardList[action.payload].answers, ""];
         },
         delAnswerAction: (state, action) => {
             // action.payload: {quesionCardList 배열의 index값, quesionCard의 응답 배열의 index값}
@@ -36,8 +30,8 @@ const createSurveySlice = createSlice({
             // 새 질문 카드 객체를 questionCardList 배열에 추가한다
             const newCard = {
                 type: "choice",
-                title: "제목을 입력하세요",
-                answers: ["기본 응답", "기본 응답"],
+                title: "",
+                answers: [""],
                 options: [false, false, false],
 
             }

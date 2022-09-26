@@ -42,14 +42,14 @@ const SurveyResult = function () {
 
     return (
         <div className="surveyResult">
-            <button type="button" className="logoBtn" onClick={gotoHome}>logo</button>
-            <button type="button" className="loginBtn" onClick={gotoLogin}>login</button>
-            <button type="button" className="myBtn" onClick={gotoMyPage}>my</button>
-            <button type="button" className="homeBtn" onClick={gotoHome}>home</button>
+            <button type="button" className="logoBtn" onClick={gotoHome} />
+            <button type="button" className="loginBtn" onClick={gotoLogin} />
+            <button type="button" className="myBtn" onClick={gotoMyPage} />
+            <button type="button" className="homeBtn" onClick={gotoHome} />
 
-            <button type="button" className="showStatisticBtn" onClick={showStatistic}>통계</button>
-            <button type="button" className="showAnalysisBtn" onClick={showAnalysis}>분석</button>
-            <button type="button" className="downloadResultBtn" onClick={downloadResult}>다운로드</button>
+            <button type="button" className="showStatisticBtn" onClick={showStatistic} />
+            <button type="button" className="showAnalysisBtn" onClick={showAnalysis} />
+            <button type="button" className="downloadResultBtn" onClick={downloadResult} />
         </div>
     )
 }
