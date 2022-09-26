@@ -1,8 +1,12 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import createSurveyReducer from "./createSurveySlice";
 
+const rootReducer = combineReducers({
+    createSurvey: createSurveyReducer,
+})
+
 const store = configureStore({
-    reducer: createSurveyReducer,
+    reducer: rootReducer
 });
 
 

@@ -13,7 +13,7 @@ import "../../css/CreateSurveyPage.css";
 
 const QuestionCardList = function () {
     const dispatch = useDispatch();
-    const questionCardList = useSelector(state => state.questionCardList);
+    const questionCardList = useSelector(state => state.createSurvey.questionCardList);
 
     // 객관식 응답선택지를 추가
     const addAnswer = (listIdx) => {

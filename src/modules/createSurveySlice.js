@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 // 설문 제목, 설문 부연설명, 질문카드 배열(질문 유형, 질문 제목, 답변 배열, 옵션3개)
-const initialState = {
+const surveyState = {
     surveyTitle: "초기 설문 제목입니다",
     surveyContent: "초기 설문 설명입니다",
     questionCardList: [{
@@ -19,8 +19,8 @@ const initialState = {
 }
 
 const createSurveySlice = createSlice({
-    name: 'surveyInfo',
-    initialState,
+    name: 'surveyState',
+    initialState: surveyState,
     reducers: {
         addAnswerAction: (state, action) => {
             // action.payload: quesionCardList 배열의 index값

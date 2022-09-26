@@ -15,9 +15,9 @@ import '../css/CreateSurveyPage.css';
 
 const CreateSurveyPage = function () {
     const dispatch = useDispatch();
-    const title = useSelector(state => state.surveyTitle);
-    const content = useSelector(state => state.surveyContent);
-    const surveyInfo = useSelector(state => state);
+    const title = useSelector(state => state.createSurvey.surveyTitle);
+    const content = useSelector(state => state.createSurvey.surveyContent);
+    const surveyInfo = useSelector(state => state.createSurvey);
 
     // 홈페이지로 이동
     const gotoHome = () => {
