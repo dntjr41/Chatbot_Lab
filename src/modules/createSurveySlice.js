@@ -49,11 +49,11 @@ const createSurveySlice = createSlice({
             // 설문 부연설명의 값을 변경한다
             state.surveyContent = action.payload;
         },
-        changeQuestionCardTitleAction: (state, action) => {
+        changeQuestionTitleAction: (state, action) => {
             // 질문 카드의 제목 값을 변경한다
             state.questionCardList[action.payload.listIdx].title = action.payload.title;
         },
-        changeQuestionCardAnswerAction: (state, action) => {
+        changeQuestionAnswerAction: (state, action) => {
             // 질문 카드의 응답 값을 변경한다
             state.questionCardList[action.payload.listIdx].answers[action.payload.answerIdx] = action.payload.answer;
         },
@@ -64,6 +64,6 @@ const createSurveySlice = createSlice({
     }
 });
 
-export const { addAnswerAction, delAnswerAction, addCardAction, delCardAction, changeTitleAction, changeContentAction, changeQuestionCardTitleAction, changeQuestionCardAnswerAction, checkOptionAction } = createSurveySlice.actions;
+export const { addAnswerAction, delAnswerAction, addCardAction, delCardAction, changeTitleAction, changeContentAction, changeQuestionTitleAction, changeQuestionAnswerAction, checkOptionAction } = createSurveySlice.actions;
 
 export default createSurveySlice.reducer;

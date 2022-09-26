@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { addAnswerAction, delAnswerAction, delCardAction, changeQuestionCardTitleAction, changeQuestionCardAnswerAction, checkOptionAction } from "../../modules/createSurveySlice";
+import { addAnswerAction, delAnswerAction, delCardAction, changeQuestionTitleAction, changeQuestionAnswerAction, checkOptionAction } from "../../modules/createSurveySlice";
 
 import AddQuestionComponent from "./AddQuestionComponent";
 
@@ -32,12 +32,12 @@ const QuestionCardList = function () {
 
     // 질문 제목 입력 업데이트
     const inputQuestionTitle = (listIdx, title) => {
-        dispatch(changeQuestionCardTitleAction({ listIdx, title }));
+        dispatch(changeQuestionTitleAction({ listIdx, title }));
     }
 
     // 질문 응답 입력 업데이트
     const inputQuestionAnswer = (listIdx, answerIdx, answer) => {
-        dispatch(changeQuestionCardAnswerAction({ listIdx, answerIdx, answer }));
+        dispatch(changeQuestionAnswerAction({ listIdx, answerIdx, answer }));
     }
 
     // 질문 옵션 체크 업데이트
