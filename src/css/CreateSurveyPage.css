@@ -1,4 +1,5 @@
 /* 설문 제작 페이지에서 쓰일 css */
+/* CreateSurveyPage.js */
 .createSurveyPage {
   background-image: url(../images/create_survey.png);
   background-repeat: no-repeat;
@@ -13,6 +14,8 @@
   left: 50px;
   width: 350px;
   height: 30px;
+
+  opacity: 0.5;
 }
 
 .loginBtn {
@@ -21,6 +24,8 @@
   right: 560px;
   width: 100px;
   height: 30px;
+
+  opacity: 0.5;
 }
 
 .myBtn {
@@ -29,6 +34,8 @@
   right: 510px;
   width: 30px;
   height: 30px;
+
+  opacity: 0.5;
 }
 
 .homeBtn {
@@ -37,6 +44,8 @@
   left: 20px;
   width: 150px;
   height: 30px;
+
+  opacity: 0.5;
 }
 
 .surveyTitle {
@@ -119,8 +128,11 @@
   left: 650px;
   width: 140px;
   height: 50px;
+
+  opacity: 0.5;
 }
 
+/* components/CreateSurvey */
 .questionCardListLayout {
   position: absolute;
   top: 730px;

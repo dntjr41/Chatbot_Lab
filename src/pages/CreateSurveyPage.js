@@ -47,21 +47,23 @@ const CreateSurveyPage = function () {
     // 설문 저장 버튼 클릭시 입력한 모든 정보를 console에 띄움
     const createSurvey = () => {
         console.log(surveyInfo);
+        console.log(JSON.stringify(surveyInfo));
+        alert(JSON.stringify(surveyInfo));
     }
 
     return (
         <div className="createSurveyPage">
-            <button type="button" className="logoBtn" onClick={gotoHome}>logo</button>
-            <button type="button" className="loginBtn" onClick={gotoLogin}>login</button>
-            <button type="button" className="myBtn" onClick={gotoMyPage}>my</button>
-            <button type="button" className="homeBtn" onClick={gotoHome}>home</button>
+            <button type="button" className="logoBtn" onClick={gotoHome} />
+            <button type="button" className="loginBtn" onClick={gotoLogin} />
+            <button type="button" className="myBtn" onClick={gotoMyPage} />
+            <button type="button" className="homeBtn" onClick={gotoHome} />
 
-            <div><input type="text" className="surveyTitle" value={title} onChange={(e) => inputTitle(e.target.value)} />
-                <input type="text" className="surveyContent" value={content} onChange={(e) => inputContent(e.target.value)} />
+            <div><input type="text" className="surveyTitle" placeholder="제목을 입력하세요" value={title} onChange={(e) => inputTitle(e.target.value)} />
+                <input type="text" className="surveyContent" value={content} placeholder="설명을 입력하세요" onChange={(e) => inputContent(e.target.value)} />
 
                 <QuestionCardList />
 
-                < button type="button" className="submitBtn" onClick={createSurvey} > 저장</button>
+                < button type="button" className="submitBtn" onClick={createSurvey} />
             </div>
 
 

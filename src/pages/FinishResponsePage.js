@@ -23,11 +23,11 @@ const FinishResponsePage = function () {
 
     return (
         <div className="finishResponse">
-            <button type="button" className="logoBtn" onClick={gotoHome}>logo</button>
-            <button type="button" className="exitPageBtn" onClick={closeWindow}>exit</button>
+            <button type="button" className="logoBtn" onClick={gotoHome} />
+            <button type="button" className="exitPageBtn" onClick={closeWindow} />
 
-            <button type="button" className="editResponseBtn" onClick={backToResponse}>수정하기</button>
-            <button type="button" className="gotoHomeBtn" onClick={gotoHome}>알아보기</button>
+            <button type="button" className="editResponseBtn" onClick={backToResponse} />
+            <button type="button" className="gotoHomeBtn" onClick={gotoHome} />
         </div>
     )
 }

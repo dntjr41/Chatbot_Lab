@@ -50,13 +50,11 @@ const QuestionCardList = function () {
             {
                 questionCardList.map((questionCard, listIdx) =>
                     <div key={listIdx} className="questionCardLayout">
-                        {listIdx}
-                        <input type="text" value={questionCard.title} onChange={(e) => inputQuestionTitle(listIdx, e.target.value)} />
+                        <input type="text" placeholder="질문을 입력하세요" value={questionCard.title} onChange={(e) => inputQuestionTitle(listIdx, e.target.value)} />
                         {
                             questionCard.answers.map((answer, answerIdx) =>
                                 <div key={answerIdx}>
-                                    <input type="text" value={answer} onChange={(e) => inputQuestionAnswer(listIdx, answerIdx, e.target.value)} />
-                                    {answerIdx}
+                                    <input type="text" placeholder="답변을 입력하세요" value={answer} onChange={(e) => inputQuestionAnswer(listIdx, answerIdx, e.target.value)} />
                                     <button type="button" onClick={() => delAnswer(listIdx, answerIdx)}>응답 지우기</button>
                                 </div>
                             )
@@ -66,7 +64,7 @@ const QuestionCardList = function () {
                             questionCard.options.map((option, optIdx) =>
                                 <div key={optIdx}>
                                     <input type="checkbox" defaultChecked={option} onClick={() => checkOption(listIdx, optIdx)} />
-                                    {optIdx} {option ? "true" : "false"}
+                                    옵션{optIdx}
                                 </div>
                             )
                         }
