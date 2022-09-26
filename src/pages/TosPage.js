@@ -4,6 +4,7 @@ import '../css/TosPage.css'
 // └헤더
 
 const TosPage = function () {
+    
     return (
         <div className="tosPage">
             <button type="button" className="logoBtn" >logo</button>

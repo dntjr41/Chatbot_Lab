@@ -11,6 +11,15 @@ import { Link } from "react-router-dom";
 //   └제작자 정보
 
 const HomePage = function () {
+
+    const slideLeft = () => {
+        alert("Message : 슬라이딩 탭을 좌측으로 이동시킴.");
+    }
+
+    const slideRight = () => {
+        alert("Message : 슬라이딩 탭을 우측으로 이동시킴.");
+    }
+
     return (
         <div className="homePage">
             <button type="button" className="logoBtn">logo</button>
@@ -18,8 +27,8 @@ const HomePage = function () {
             <a href="/myInfo" className="myBtn">my</a>
            
 
-            <button type="button" className="slideLeftBtn">Left</button>
-            <button type="button" className="slideRightBtn">Right</button>
+            <button type="button" className="slideLeftBtn" onClick={slideLeft} >Left</button>
+            <button type="button" className="slideRightBtn" onClick={slideRight} >Right</button>
 
             <Link to="/tos" className="tosLink" >이용약관</Link>
             <Link to="/service-center" className="serviceLink" >고객센터</Link>

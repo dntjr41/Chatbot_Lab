@@ -10,6 +10,15 @@ import '../css/MyInfoPage.css'
 
 
 const MyInfoPage = function () {
+
+    const Myquestionaries = () => {
+        alert("Message : 해당 설문지가 존재하는 설문 제작함으로 이동시킴");
+    }
+
+    const secession = () => {
+        alert("Message : 로그인 유무 확인 후 로그인 되어있다면 해당 계정의 연동을 해지시킴");
+    }
+
     return (
         <div className="myInfoPage">
             <button type="button" className="logoBtn">logo</button>
@@ -17,8 +26,8 @@ const MyInfoPage = function () {
             <a href="/myInfo" className="myBtn">my</a>
             <a href="/home" className="homeBtn">home</a>
 
-            <button type="button" className="questionariesBtn">Questionaries 1</button>
-            <button type="button" className="secessionBtn">탈퇴하기</button>
+            <button type="button" className="questionariesBtn" onClick={Myquestionaries}>Questionaries 1</button>
+            <button type="button" className="secessionBtn" onClick={secession}>탈퇴하기</button>
 
         </div>
     )

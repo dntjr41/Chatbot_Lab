@@ -14,6 +14,23 @@ import { Link } from "react-router-dom";
 
 
 const LoginPage = function () {
+
+    const googleLogin = () => {
+        alert("Message : 구글 계정과의 연동 유무 확인. 만약 이미 연동되었을 시 로그인 진행, 미연동 계정일 시 연동을 설정하는 창으로 넘김.");
+    }
+
+    const facebookLogin = () => {
+        alert("Message : 페이스북 계정과의 연동 유무 확인. 만약 이미 연동되었을 시 로그인 진행, 미연동 계정일 시 연동을 설정하는 창으로 넘김.");
+    }
+
+    const kakaoLogin = () => {
+        alert("Message : 카카오 계정과의 연동 유무 확인. 만약 이미 연동되었을 시 로그인 진행, 미연동 계정일 시 연동을 설정하는 창으로 넘김.");
+    }
+
+    const naverLogin = () => {
+        alert("Message : 네이버 계정과의 연동 유무 확인. 만약 이미 연동되었을 시 로그인 진행, 미연동 계정일 시 연동을 설정하는 창으로 넘김.");
+    }
+
     return (
         <div className="loginPage">
             <button type="button" className="logoBtn">logo</button>
@@ -21,10 +38,10 @@ const LoginPage = function () {
             <a href="/myInfo" className="myBtn">my</a>
             <a href="/home" className="homeBtn">home</a>
 
-            <button type="button" className="googleLoginBtn">Continue with Google</button>
-            <button type="button" className="facebookLoginBtn">Continue with Facebook</button>
-            <button type="button" className="kakaoLoginBtn">Continue with KaKao</button>
-            <button type="button" className="naverLoginBtn">Continue with Naver</button>
+            <button type="button" className="googleLoginBtn"  onClick={googleLogin}>Continue with Google</button>
+            <button type="button" className="facebookLoginBtn" onClick={facebookLogin}>Continue with Facebook</button>
+            <button type="button" className="kakaoLoginBtn" onClick={kakaoLogin}>Continue with KaKao</button>
+            <button type="button" className="naverLoginBtn" onClick={naverLogin}>Continue with Naver</button>
 
             <Link to="/tos" className="tosLink_login" >이용약관</Link>
             <Link to="/privacy-policy" className="privacyLink_login" >개인정보처리방침</Link>
