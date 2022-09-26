@@ -18,6 +18,7 @@ const DeploySurveyPage = function () {
         <div className="deploySurveyPage">
             <div className="header">            
                 <button type="button" className="logoBtn">logo</button>
+                <button type="button" className="questionBtn">?</button>
                 <button type="button" className="loginBtn">login</button>
                 <button type="button" className="myBtn">my</button>
                 <button type="button" className="homeBtn">home</button>

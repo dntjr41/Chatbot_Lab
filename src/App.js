@@ -3,11 +3,8 @@ import React from 'react';
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-// eslint-disable-next-line
 import SetSurveyPerTarPage from './pages/SetSurveyPerTarPage';
-
 import DeploySurveyPage from './pages/DeploySurveyPage';
-
 import NoPage from './pages/NoPage';
 
 // 페이지별 url
@@ -19,8 +16,9 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/">
-          {/* <Route index element={<Home />} /> */}
+          <Route index element={<NoPage />} />
           <Route path="deploy-survey" element={<DeploySurveyPage />} />
+          <Route path="set-survey-per-tar" element={<SetSurveyPerTarPage />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
