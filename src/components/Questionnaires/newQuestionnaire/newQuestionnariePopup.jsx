@@ -11,6 +11,7 @@ function NewQuestionnairePopup(props) {
             aria-labelledby="contained-modal-title-vcenter"
             centered
             show={props.show}
+            onHide={props.hide}
         >
             <Modal.Header closeButton>
                 <Modal.Title>Modal title</Modal.Title>

@@ -11,7 +11,7 @@ const newQuestionnaireCard = (props) => {
                 className="mb-2"
             >
                 <Card.Img variant="top" src={testimg} alt="Card image" />
-                <Card.Title>{props.newQuestionnaireOption}</Card.Title>
+                <Card.Title className="text-center">{props.newQuestionnaireOption}</Card.Title>
             </Card>
         </a>
     )

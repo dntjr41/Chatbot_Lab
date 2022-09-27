@@ -2,10 +2,12 @@ import QuestionnaireCardContainer from "../components/Questionnaires/questionnai
 import NewQuestionnaireButton from "../components/Questionnaires/newQuestionnaireButton";
 import Pagination from 'react-bootstrap/Pagination';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../css/QuestionnairePage.module.css'
 
 export default function Questionnaires() {
   let active = 1;
-  let myQuestionnaireCount = 100;
+  let myQuestionnaireCount = 30;
   let items = [];
   for (let number = 1; number <= myQuestionnaireCount / 6; number++) {
     items.push(
@@ -16,19 +18,23 @@ export default function Questionnaires() {
   }
 
     return (
-      <main style={{ padding: "1rem 0" }}>
-        <h2>Questionnaires</h2>
-        <QuestionnaireCardContainer />
-        <Pagination>
-          <Pagination.First />
-          <Pagination.Prev />
+      <main>
+        <div id="questionnaire-page">
+          <h2>설문 제작함</h2>
+          <QuestionnaireCardContainer />
 
-          {items}
+          <Pagination className="Center">
+            <Pagination.First />
+            <Pagination.Prev />
 
-          <Pagination.Next />
-          <Pagination.Last />
-        </Pagination>
-        <NewQuestionnaireButton />
+              {items}
+
+            <Pagination.Next />
+            <Pagination.Last />
+          </Pagination>
+
+          <NewQuestionnaireButton />
+        </div>
       </main>
     );
   }
