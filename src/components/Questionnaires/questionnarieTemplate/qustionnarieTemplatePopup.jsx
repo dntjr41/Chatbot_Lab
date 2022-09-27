@@ -10,16 +10,12 @@ const questionnaireTemplatePopup = (props) => {
             show={props.show}
         >
             <Modal.Header closeButton>  
-                <Modal.Title>Modal title</Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <QuestionnaireTemplateNav />
                 <QuestionnaireTemplateContainer />
 
             </Modal.Body>
-
-            <Modal.Footer>
-            </Modal.Footer>
         </Modal>
     )
 }

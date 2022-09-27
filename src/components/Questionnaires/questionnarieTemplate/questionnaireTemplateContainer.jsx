@@ -6,9 +6,21 @@ import QuestionnaireTemplateCard from './questionnaireTemplateCard';
 const questionnaireTemplateContainer = (props) => {
     return (
       <div>
-        <Form variant="info" className="d-flex justify-content-around">
+        <Form variant="info" className="d-flex justify-content-around ">
         
-          <Row className="align-items-center">
+          <Row className="align-items-center  justify-content-md-center ">
+            <Col xs="auto">
+              <QuestionnaireTemplateCard />
+            </Col>
+            <Col xs="auto">
+              <QuestionnaireTemplateCard />
+            </Col>
+            <Col xs="auto">
+              <QuestionnaireTemplateCard />
+            </Col>
+            <Col xs="auto">
+              <QuestionnaireTemplateCard />
+            </Col>
             <Col xs="auto">
               <QuestionnaireTemplateCard />
             </Col>

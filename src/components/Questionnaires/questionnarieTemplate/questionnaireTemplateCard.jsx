@@ -10,14 +10,14 @@ const questionnaireTemplateCard = (props) => {
     style={{ width: '12rem' }}
     className="mb-2">
       <Card.Img variant="top" src={testimg} alt="Card image" />
-        <Card.Body>
+        <Card.Body className="text-center d-grid gap-2">
           <Card.Title>템플릿 제목</Card.Title>
           <Card.Text>
-            Text
+            템플릿 설명
           </Card.Text>
           
         </Card.Body>
-        <Card.Footer>
+        <Card.Footer className="text-center d-grid gap-2">
           <Button variant="dark" size="sg">선택</Button>
         </Card.Footer>
       </Card>

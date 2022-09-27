@@ -1,5 +1,7 @@
 import Card from 'react-bootstrap/Card';
-import testimg from '../../../../src/images/Logo square.png'
+import Button from 'react-bootstrap/Button';
+
+
 const newQuestionnaireCard = (props) => {
     return (
         <a style={{cursor:'pointer'}}>
@@ -7,11 +9,15 @@ const newQuestionnaireCard = (props) => {
                 bg='light'
                 key='Light'
                 text='dark'
-                style={{ width: '12rem' }}
+                style={{ width: '13rem' }}
                 className="mb-2"
             >
-                <Card.Img variant="top" src={testimg} alt="Card image" />
-                <Card.Title className="text-center">{props.newQuestionnaireOption}</Card.Title>
+                <Card.Img variant="top" src={props.cardImg} alt="Card image" />
+                <Card.Body className="text-center d-grid gap-2">
+                    <Button variant="dark">
+                        {props.newQuestionnaireOption}
+                    </Button>
+                </Card.Body>
             </Card>
         </a>
     )

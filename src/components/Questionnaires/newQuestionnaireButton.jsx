@@ -6,6 +6,8 @@ import QuestionnaireTemplatePopup from './questionnarieTemplate/qustionnarieTemp
 import { SET_NQPS_ON , SET_NQPS_OFF, SET_QTPS_ON, SET_QTPS_OFF } from '../../modules/questionnairesSlice';
 import { useSelector, useDispatch } from 'react-redux';
 
+import '../../css/QuestionnairePage.css';
+
 function NewQuestionnaireButton() {
     const dispatch = useDispatch();
     // 새설문 팝업 on off
@@ -30,13 +32,13 @@ function NewQuestionnaireButton() {
     }
 
     return (
-        <>  
-            <Button variant="dark" size="lg" onClick={newQuestionnaireButtonOnClick}>
+        <div className="NewQustButtonFloat">  
+            <Button variant="dark" size="lg" className="float-end" onClick={newQuestionnaireButtonOnClick}>
                 + 새 설문
             </Button>
             <NewQuestionnairePopup show={newQuestionnairePopupShow} hide={newQuestionnaireCloseButtonOnClick}/>
             <QuestionnaireTemplatePopup show={questionnaireTemplatePopupShow} hide={questionnaireTemplatePopupSetClose} />
-        </>
+        </div>
     )
 }
 

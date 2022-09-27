@@ -10,32 +10,53 @@ import QuestionnaireNav from './questionnaireNav';
 import QuestionnaireCard from './questionnaireCard';
 import QuestionnaireSetting from './questionnaireSetting';
 
+import '../../css/QuestionnairePage.css';
+
 function QuestionnaireCardContainer(props) {
     return (
-      <div >
-        <QuestionnaireNav />
-        <Form variant="info" className="d-flex justify-content-around">
-        
-          <Row className="align-items-center">
+      <div className="CardContainer">
+        <div className="NavPadding">
+          <QuestionnaireNav />
+        </div>
+
+        <Form variant="info" className="justify-content-around">
+          <Row className="align-items-center justify-content-md-center">
+            {/*
             <Col xs="auto">
             <OverlayTrigger
               placement="right"
               overlay={<QuestionnaireSetting />}
             >
               {({ ref, ...triggerHandler }) => (
+                
                 <div>
-                  <QuestionnaireCard />
+                <QuestionnaireCard />
                 </div>
-              
               )}
             </OverlayTrigger>
-          
+              */}
+            <Col xs="auto">
+              <QuestionnaireCard />
+            </Col>
+            <Col xs="auto">
+              <QuestionnaireCard />
+            </Col>
+            <Col xs="auto">
+              <QuestionnaireCard />
+            </Col>
+            <Col xs="auto">
+              <QuestionnaireCard />
+            </Col>
+            <Col xs="auto">
+              <QuestionnaireCard />
             </Col>
             <Col xs="auto">
               <QuestionnaireCard />
             </Col>
           </Row>
         </Form>
+        <br/>
+        <br/>
       </div>
     )
 }

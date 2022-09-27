@@ -2,8 +2,7 @@ import QuestionnaireCardContainer from "../components/Questionnaires/questionnai
 import NewQuestionnaireButton from "../components/Questionnaires/newQuestionnaireButton";
 import Pagination from 'react-bootstrap/Pagination';
 
-import 'bootstrap/dist/css/bootstrap.min.css';
-import '../css/QuestionnairePage.module.css'
+
 
 export default function Questionnaires() {
   let active = 1;
@@ -18,12 +17,17 @@ export default function Questionnaires() {
   }
 
     return (
-      <main>
+      <main >
         <div id="questionnaire-page">
-          <h2>설문 제작함</h2>
+          <br/>
+          <br/>
+          <h2>&nbsp;&nbsp;&nbsp;&nbsp;설문 제작함</h2>
+          <br/>
+          <br/>
+          
           <QuestionnaireCardContainer />
-
-          <Pagination className="Center">
+          <br/>
+          <Pagination className="d-flex justify-content-center" >
             <Pagination.First />
             <Pagination.Prev />
 
@@ -32,7 +36,6 @@ export default function Questionnaires() {
             <Pagination.Next />
             <Pagination.Last />
           </Pagination>
-
           <NewQuestionnaireButton />
         </div>
       </main>

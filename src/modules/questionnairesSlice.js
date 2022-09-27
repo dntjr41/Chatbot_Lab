@@ -8,7 +8,7 @@ const initialState = {
     newQuestionnairePopupShow: false,
 
     // 새 설문 눌렀을 때 템플릿 popup on/off
-    questionnaireTemplatePopupShow: false,
+    questionnaireTemplatePopupShow: true,
     // 0: 설문 템플릿, 1: 이전 템플릿
     templateSelectOption: 0,
 }
