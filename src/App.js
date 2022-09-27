@@ -3,10 +3,14 @@ import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import CreateSurveyPage from './pages/CreateSurveyPage';
+import FinishResponsePage from './pages/FinishResponsePage';
+import SurveyResult from './pages/SurveyResultPage';
 import NoPage from './pages/NoPage';
 
 // 페이지별 url
 // create-survey: 새 설문 작성 페이지
+// survey-response/statistic: 결과 통계 보기
+// survey-response/analysis: 결과 분석 보기
 // *: 나머지 페이지(404 띄움)
 
 function App() {
@@ -14,8 +18,13 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/">
-          {/* <Route index element={<Home />} /> */}
+          <Route index element={<NoPage />} />
           <Route path="create-survey" element={<CreateSurveyPage />} />
+          <Route path="finish-response" element={<FinishResponsePage />} />
+          <Route path="survey-result">
+            <Route path="statistic" element={<SurveyResult />} />
+            <Route path="analysis" element={<NoPage />} />
+          </Route>
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
