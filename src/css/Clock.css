@@ -1,0 +1,8 @@
+/* 개인과제 - 시계 API CSS */
+.todayDate {
+    position: absolute;
+    top: 30px;
+    left: 1500px;
+    font-size: xx-large;
+    font-weight: bolder;
+}

@@ -1,5 +1,7 @@
 import React from 'react';
-import '../css/SetSurveyPerTarPage.css'
+import '../css/SetSurveyPerTarPage.css';
+import Clock from '../components/clock';
+import Weather from '../components/weather';
 
 // 배포 전 날짜 및 그룹 설정 페이지
 // └헤더
@@ -18,21 +20,90 @@ import '../css/SetSurveyPerTarPage.css'
 //   └설문 공유하기 버튼
 
 const SetSurveyPerTarPage = function () {
+
+    // 홈페이지로 이동
+    const gotoHome = () => {
+        alert("홈 페이지로 이동");
+    }
+
+    // 도움말 페이지로 이동
+    const gotoQuestion = () => {
+        alert("도움말 페이지로 이동");
+    }
+
+    // 로그인 페이지로 이동
+    const gotoLogin = () => {
+        alert("로그인 페이지로 이동")
+    }
+
+    // 마이 페이지로 이동
+    const gotoMyPage = () => {
+        alert("마이페이지로 이동");
+    }
+
+    // 시작일 설정 버튼
+    const startBtn = () => {
+        alert("시작일 설정 버튼");
+    }
+
+    // 시작 시간 설정 드롭다운
+    const startTime = () => {
+        alert("시작 시간 설정 드롭다운");
+    }
+
+    // 종료일 설정 버튼
+    const endBtn = () => {
+        alert("종료일 설정 버튼");
+    }
+
+    // 종료 시간 설정 드롭다운
+    const endTime = () => {
+        alert("종료 시간 설정 드롭다운");
+    }
+
+    // 내 그룹 설정 버튼
+    const myGroupBtn = () => {
+        alert("내 그룹 설정 버튼");
+    }
+
+    // 그룹 추가 설정 버튼
+    const addGroupBtn = () => {
+        alert("그룹 추가 설정 버튼");
+    }
+
+    // 설문 대상 선택 버튼
+    const targetBtn = () => {
+        alert("설문 대상 선택 버튼");
+    }
+
+    // 대상 추가 선택 버튼
+    const addTargetBtn = () => {
+        alert("대상 추가 선택 버튼");
+    }
+
+    // 설문 공유 (Deploy Survey) 페이지로 이동
+    const gotoDeploySurvey = () => {
+        alert("설문 공유하기 페이지로 이동");
+    }
+
     return (
         <div className="setSurveyPerTarPage">
-            <div className="header">            
-                <button type="button" className="logoBtn">logo</button>
-                <button type="button" className="questionBtn">?</button>
-                <button type="button" className="loginBtn">login</button>
-                <button type="button" className="myBtn">my</button>
-                <button type="button" className="homeBtn">home</button>
+            <div className="header">
+                <Clock></Clock>            
+                <button type="button" className="logoBtn" onClick={gotoHome}>logo</button>
+                <button type="button" className="questionBtn" onClick={gotoQuestion}>?</button>
+                <button type="button" className="loginBtn" onClick={gotoLogin}>login</button>
+                <button type="button" className="myBtn" onClick={gotoMyPage}>my</button>
+                <button type="button" className="homeBtn" onClick={gotoHome}>home</button>
+                <Weather></Weather>
             </div>
+
             <div className="setPeriod">
                 <output type="date" className="startDate"></output>
-                {/* <input type="dropdown" className="startTime"></input> */}
+                {/* <input type="dropdown" className="startTime" onClick={startTime}></input> */}
                 <output type="date" className="endDate"></output>
                 {/* 
-                <input type="dropdown" className="endTime"></input>
+                <input type="dropdown" className="endTime" onClick={endTime}></input>
                 <input type="dropdown" className="setGroup">그룹 설정</input>
 
                 <input type="date" className="calender"></input>
@@ -42,22 +113,21 @@ const SetSurveyPerTarPage = function () {
                 <input type="dropdown" className="yearDrop"></input>
                 <input type="dropdown" className="monthDrop"></input>
                 */}
-                <button type="button" className="startBtn">시작일</button>
-                <button type="button" className="endBtn">종료일</button>
+                <button type="button" className="startBtn" onClick={startBtn}>시작일</button>
+                <button type="button" className="endBtn" onClick={endBtn}>종료일</button>
             </div>
 
             <div className="setTarget">
-                <button type="button" className="myGroupBtn">내 그룹</button>
-                <button type="button" className="addGroupBtn">그룹 추가</button>
+                <button type="button" className="myGroupBtn" onClick={myGroupBtn}>내 그룹</button>
+                <button type="button" className="addGroupBtn" onClick={addGroupBtn}>그룹 추가</button>
                 {/* <input type="datalist" className="myGroupList"></input> */}
 
-                <button type="button" className="targetBtn">설문 대상</button>
-                <button type="button" className="addTargetBtn">대상 추가</button>
-
+                <button type="button" className="targetBtn" onClick={targetBtn}>설문 대상</button>
+                <button type="button" className="addTargetBtn" onClick={addTargetBtn}>대상 추가</button>
                 {/* <input type="datalist" className="targetList"></input> */}
             </div>
 
-            <button type="button" className="deployBtn">2. 설문 공유하기</button>
+            <button type="button" className="deployBtn" onClick={gotoDeploySurvey}>2. 설문 공유하기</button>
         </div>
     )
 }
