@@ -1,0 +1,103 @@
+/* Login page css */
+.loginPage {
+  background-image: url(../images/Login.png);
+  background-repeat: no-repeat;
+  margin: auto;
+  width: 100%;
+  height: 1700px;
+}
+
+
+.logoBtn {
+    background-image: url(../images/Logo\ for\ banner.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: 20px;
+    left: 50px;
+    width: 350px;
+    height: 30px;
+    opacity: 0.6;
+  }
+  
+  .loginBtn {
+    position: absolute;
+    top: 20px;
+    right: 500px;
+    width: 100px;
+    height: 30px;
+    opacity: 0.6;
+  }
+  
+  .myBtn {
+    position: absolute;
+    top: 20px;
+    right: 450px;
+    width: 30px;
+    height: 30px;
+    opacity: 0.6;
+  }
+  
+  .homeBtn {
+    position: absolute;
+    top: 95px;
+    left: 20px;
+    width: 150px;
+    height: 30px;
+    opacity: 0.6;
+  }
+
+  .googleLoginBtn {
+    position: absolute;
+    top: 320px;
+    left: 475px;
+    width: 500px;
+    height: 80px;
+    opacity: 0.6;
+  }
+
+  .facebookLoginBtn {
+    position: absolute;
+    top: 420px;
+    left: 475px;
+    width: 500px;
+    height: 80px;
+    opacity: 0.6;
+  }
+
+  .kakaoLoginBtn {
+    position: absolute;
+    top: 520px;
+    left: 475px;
+    width: 500px;
+    height: 80px;
+    opacity: 0.6;
+  }
+
+  .naverLoginBtn {
+    position: absolute;
+    top: 620px;
+    left: 475px;
+    width: 500px;
+    height: 80px;
+    opacity: 0.6;
+  }
+
+  .tosLink_login {
+    position: absolute;
+    top: 940px;
+    left: 630px;
+    width: 130px;
+    height: 30px;
+    opacity: 0.6;
+  }
+
+  .privacyLink_login {
+    position: absolute;
+    top: 940px;
+    left: 750px;
+    width: 130px;
+    height: 30px;
+    opacity: 0.6;
+  }
+
