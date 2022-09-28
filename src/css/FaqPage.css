@@ -24,19 +24,19 @@ h3 {
     opacity: 0.6;
   }
   
-  .loginBtn {
+  .loginBtn_home {
     position: absolute;
     top: 20px;
-    right: 500px;
+    left: 1300px;
     width: 100px;
     height: 30px;
     opacity: 0.6;
   }
   
-  .myBtn {
+  .myBtn_home {
     position: absolute;
     top: 20px;
-    right: 450px;
+    left: 1400px;
     width: 30px;
     height: 30px;
     opacity: 0.6;
@@ -52,17 +52,23 @@ h3 {
   }
   
 
-  .movie-container {
+  .faq-container {
+    position: absolute;
+    top: 200px;
     margin: 0 auto;
-    width: 80%;
-    border: 1px solid #333;
+    width: 50%;
+    border: 5px solid #333;
     padding: 10px 0 30px 0;
+    
     border-radius: 5px;
-    margin-bottom : 50px;
+    margin-bottom : 100px;
+  
   }
   
   .form-wrapper{
-    width: 60%;
+    position: absolute;
+    top: 300px;
+    width: 50%;
     margin: 0 auto;
   }
   
@@ -73,15 +79,18 @@ h3 {
   }
   
   .submit-button {
+    position: absolute;
+    top: 900px;
     width: 200px;
     height: 50px;
     font-size: 20px;
-    padding: 20px;
-    border: none;
-    background: indianred;
+    color: rgb(255, 255, 255);
+
+    background: rgb(91, 2, 99);
     border-radius: 5px;
     margin-top: 40px;
-    vertical-align: middle;
+    left: 1000px;
+
   }
   
   .ck.ck-editor__editable:not(.ck-editor__nested-editable) {
