@@ -20,19 +20,19 @@
     opacity: 0.6;
   }
   
-  .loginBtn {
+  .loginBtn_home {
     position: absolute;
     top: 20px;
-    right: 500px;
+    left: 1300px;
     width: 100px;
     height: 30px;
     opacity: 0.6;
   }
   
-  .myBtn {
+  .myBtn_home {
     position: absolute;
     top: 20px;
-    right: 450px;
+    left: 1400px;
     width: 30px;
     height: 30px;
     opacity: 0.6;
@@ -60,7 +60,7 @@
   .slideRightBtn {
     position: absolute;
     top: 400px;
-    right: 470px;
+    left: 1350px;
     width: 30px;
     height: 30px;
     opacity: 0.6;
