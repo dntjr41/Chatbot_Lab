@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-const initialState = {
+const questionnaireState = {
     // 설문 상태에 따라 select from db: 0: 전체, 1: 제작 중, 2: 예약 중, 3: 배포 중, 4: 종료 
     questionnaireSelectionOption: 0,
 
@@ -8,14 +8,14 @@ const initialState = {
     newQuestionnairePopupShow: false,
 
     // 새 설문 눌렀을 때 템플릿 popup on/off
-    questionnaireTemplatePopupShow: true,
+    questionnaireTemplatePopupShow: false,
     // 0: 설문 템플릿, 1: 이전 템플릿
     templateSelectOption: 0,
 }
 
 const questionnaireSlice = createSlice({ 
     name: 'questionnaireState',
-    initialState: initialState,
+    initialState: questionnaireState,
     reducers: {
         SET_QSO: (state, action) =>{
             state.questionnaireSelectionOption = action.payload;
@@ -37,6 +37,8 @@ const questionnaireSlice = createSlice({
         },
         // 새 설문 버튼 popup on/off
         SET_NQPS_ON: (state, action) => {
+            console.log("clicked");
+            console.log(state.newQuestionnairePopupShow);
             state.newQuestionnairePopupShow = true;
         },
         SET_NQPS_OFF: (state, action) => {

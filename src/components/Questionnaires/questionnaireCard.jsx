@@ -16,13 +16,11 @@ const questionnaireCard = (props) => {
         <Card.Img variant="top" src={testimg} alt="Card image" />
         <Card.Body className="text-center">
         <Card.Title>설문 제목</Card.Title>
-        <Card.Text>
-          <ListGroup>
+        <ListGroup>
             <ListGroup.Item>시작일: 2022-09-27</ListGroup.Item>
             <ListGroup.Item>종료일: 2022-10-27</ListGroup.Item>
             <ListGroup.Item>상태: 제작 중</ListGroup.Item>
           </ListGroup>
-        </Card.Text>
         <div className="d-grid gap-2">
           <Button variant="dark" className="QustCardOptionButtonFloat">설정</Button>
         </div>
