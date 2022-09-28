@@ -7,8 +7,8 @@ const FaqPage = function () {
     return (
         <div className="faqPage">
             <button type="button" className="logoBtn">logo</button>
-            <a href="/login" className="loginBtn">login</a>
-            <a href="/myInfo" className="myBtn">my</a>
+            <a href="/login" className="loginBtn_home">login</a>
+            <a href="/myInfo" className="myBtn_home">my</a>
             <a href="/home" className="homeBtn">home</a>
              
             <h3>FAQ</h3>
