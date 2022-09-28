@@ -21,6 +21,8 @@ import FinishResponsePage from './pages/FinishResponsePage';
 import SurveyResult from './pages/SurveyResultPage';
 import NoPage from './pages/NoPage';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 // 페이지별 url
 // create-survey: 새 설문 작성 페이지
 // *: 나머지 페이지(404 띄움)
