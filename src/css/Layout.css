@@ -1,0 +1,22 @@
+.header-layout {
+    height: 72px;
+}
+
+.header-top {
+    height: 72px;
+    padding: 6px 0px;
+
+    background-color: greenyellow;
+}
+
+.logo-image {
+    background-image: url(../images/banner-logo.png);
+    background-size: 100% 60px;
+
+}
+
+.header-bottom {
+    height: 60px;
+
+    background-color: green;
+}
