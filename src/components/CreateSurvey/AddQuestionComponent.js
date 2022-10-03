@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { addCardAction } from "../../modules/createSurveySlice";
+import { ADD_CARD } from "../../modules/createSurveySlice";
 
 
 import "../../css/CreateSurveyPage.css";
@@ -12,7 +12,7 @@ const AddQuestionComponent = function () {
 
     // 질문 카드 추가
     const addCard = () => {
-        dispatch(addCardAction());
+        dispatch(ADD_CARD());
     }
 
     return (
