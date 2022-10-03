@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { addAnswerAction, delAnswerAction, delCardAction, changeQuestionTitleAction, changeQuestionAnswerAction, checkOptionAction } from "../../modules/createSurveySlice";
+import { ADD_ANSWER, DEL_ANSWER, DEL_CARD, CHANGE_QUE_TITLE, CHANGE_QUE_ANSWER, CHECK_OPT } from "../../modules/createSurveySlice";
 
 import AddQuestionComponent from "./AddQuestionComponent";
 
@@ -17,32 +17,32 @@ const QuestionCardList = function () {
 
     // 객관식 응답선택지를 추가
     const addAnswer = (listIdx) => {
-        dispatch(addAnswerAction(listIdx));
+        dispatch(ADD_ANSWER(listIdx));
     }
 
     // 객관식 응답 선택지 삭제
     const delAnswer = (listIdx, answerIdx) => {
-        dispatch(delAnswerAction({ listIdx, answerIdx }));
+        dispatch(DEL_ANSWER({ listIdx, answerIdx }));
     }
 
     //질문 카드 삭제
     const delCard = (listIdx) => {
-        dispatch(delCardAction(listIdx));
+        dispatch(DEL_CARD(listIdx));
     }
 
     // 질문 제목 입력 업데이트
     const inputQuestionTitle = (listIdx, title) => {
-        dispatch(changeQuestionTitleAction({ listIdx, title }));
+        dispatch(CHANGE_QUE_TITLE({ listIdx, title }));
     }
 
     // 질문 응답 입력 업데이트
     const inputQuestionAnswer = (listIdx, answerIdx, answer) => {
-        dispatch(changeQuestionAnswerAction({ listIdx, answerIdx, answer }));
+        dispatch(CHANGE_QUE_ANSWER({ listIdx, answerIdx, answer }));
     }
 
     // 질문 옵션 체크 업데이트
     const checkOption = (listIdx, optIdx) => {
-        dispatch(checkOptionAction({ listIdx, optIdx }));
+        dispatch(CHECK_OPT({ listIdx, optIdx }));
     }
 
     return (
