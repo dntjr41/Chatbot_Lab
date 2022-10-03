@@ -11,7 +11,7 @@
     background-image: url(../images/banner-logo.png);
     background-size: 100% 60px;
 
-    cursor: pointer;
+    /* cursor: pointer; */
 }
 
 .header-login {
