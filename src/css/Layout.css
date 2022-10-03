@@ -1,0 +1,40 @@
+/* 헤더 레이아웃 */
+/* 헤더의 상단 */
+.header-top {
+    height: 72px;
+    padding: 6px 0px;
+
+    /* background-color: greenyellow; */
+}
+
+.header-logo {
+    background-image: url(../images/banner-logo.png);
+    background-size: 100% 60px;
+
+    cursor: pointer;
+}
+
+.header-login {
+    color: #662D91;
+    text-decoration: none;
+}
+
+/* 헤더의 하단 */
+.header-bottom {
+    height: 60px;
+
+    box-shadow: 0px 2px 0px #E5E9F2;
+    border-radius: 0px 0px 45px 0px;
+}
+
+.header-homelink {
+    align-self: center;
+}
+
+.header-homelink a:link,
+.header-homelink a:visited,
+.header-homelink a:hover,
+.header-homelink a:active {
+    color: white;
+    text-decoration: none;
+}

@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { changeTitleAction, changeContentAction } from "../modules/createSurveySlice";
 
+import Header from "../components/Header";
 import QuestionCardList from "../components/CreateSurvey/QuestionCardList";
 
 import '../css/CreateSurveyPage.css';
@@ -53,10 +54,11 @@ const CreateSurveyPage = function () {
 
     return (
         <div className="createSurveyPage">
-            <button type="button" className="logoBtn" onClick={gotoHome} />
+            {/* <button type="button" className="logoBtn" onClick={gotoHome} />
             <button type="button" className="loginBtn" onClick={gotoLogin} />
             <button type="button" className="myBtn" onClick={gotoMyPage} />
-            <button type="button" className="homeBtn" onClick={gotoHome} />
+            <button type="button" className="homeBtn" onClick={gotoHome} /> */}
+            <Header />
 
             <div><input type="text" className="surveyTitle" placeholder="제목을 입력하세요" value={title} onChange={(e) => inputTitle(e.target.value)} />
                 <input type="text" className="surveyContent" value={content} placeholder="설명을 입력하세요" onChange={(e) => inputContent(e.target.value)} />

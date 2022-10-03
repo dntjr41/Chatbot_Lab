@@ -22,42 +22,48 @@ import SurveyResult from './pages/SurveyResultPage';
 import NoPage from './pages/NoPage';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import "./App.css";
 
 // 페이지별 url
 // create-survey: 새 설문 작성 페이지
+// survey-result
+//  └/statistic: 설문 결과 통계
+//  └/analysis: 설문 결과 분석
 // *: 나머지 페이지(404 띄움)
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/">
-          { <Route path="home" index element={<HomePage />} />}
-          
-          <Route path="login" element={<LoginPage />} />
-          <Route path="myinfo" element={<MyInfoPage />} />
+    <div className="App">
+      <BrowserRouter>
+        <Routes>
+          <Route path="/">
+            {<Route path="home" index element={<HomePage />} />}
 
-          <Route path="tos" element={<TosPage />} />
-          <Route path="service-center" element={<ServicePage />} />
-          <Route path="privacy-policy" element={<PrivacyPage />} />
-          <Route path="faq" element={<FaqPage />} />
+            <Route path="login" element={<LoginPage />} />
+            <Route path="myinfo" element={<MyInfoPage />} />
 
-          <Route path="create-survey" element={<CreateSurveyPage />} />
-          <Route path="questionnaires" element={<QuestionnairesPage />} />
-          <Route path="deploy-survey" element={<DeploySurveyPage />} />
-          <Route path="set-survey-per-tar" element={<SetSurveyPerTarPage />} />
+            <Route path="tos" element={<TosPage />} />
+            <Route path="service-center" element={<ServicePage />} />
+            <Route path="privacy-policy" element={<PrivacyPage />} />
+            <Route path="faq" element={<FaqPage />} />
 
-          <Route path="finish-response" element={<FinishResponsePage />} />
-          <Route path="survey-result">
-            <Route path="statistic" element={<SurveyResult />} />
-            <Route path="analysis" element={<NoPage />} />
+            <Route path="create-survey" element={<CreateSurveyPage />} />
+            <Route path="questionnaires" element={<QuestionnairesPage />} />
+            <Route path="deploy-survey" element={<DeploySurveyPage />} />
+            <Route path="set-survey-per-tar" element={<SetSurveyPerTarPage />} />
+
+            <Route path="finish-response" element={<FinishResponsePage />} />
+            <Route path="survey-result">
+              <Route path="statistic" element={<SurveyResult />} />
+              <Route path="analysis" element={<NoPage />} />
+            </Route>
+
+            <Route path="*" element={<NoPage />} />
+
           </Route>
-
-          <Route path="*" element={<NoPage />} />
-          
-        </Route>
-      </Routes>
-    </BrowserRouter>
+        </Routes>
+      </BrowserRouter>
+    </div>
   );
 }
 
