@@ -3,7 +3,6 @@ import "../css/Layout.css";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Stack from 'react-bootstrap/Stack';
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import { BsQuestionCircle, BsPersonSquare, BsHouseDoor } from "react-icons/bs";
 
@@ -29,7 +28,7 @@ const Header = function () {
 
             </Row>
             {/* 여기 부분은 페이지에 따라서 배경색상과 글자 색을 바꿔줘야함 */}
-            <Row className="header-bottom color-first px-5">
+            <Row className="header-bottom primary-color-grad px-5">
                 <Col className="header-homelink" md={3}>
                     <Link to="/home">
                         <Stack direction="horizontal" gap={3}>
