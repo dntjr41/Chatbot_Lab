@@ -1,19 +1,8 @@
 import QuestionnaireCardContainer from "../components/Questionnaires/questionnaireCardContainer";
 import NewQuestionnaireButton from "../components/Questionnaires/newQuestionnaireButton";
-import Pagination from 'react-bootstrap/Pagination';
+import Pager from "../components/Questionnaires/pager";
 
 function QuestionnairesPage() {
-  let active = 1;
-  let myQuestionnaireCount = 30;
-  let items = [];
-  for (let number = 1; number <= myQuestionnaireCount / 6; number++) {
-    items.push(
-      <Pagination.Item key={number} active={number === active}>
-        {number}
-      </Pagination.Item>,
-    );
-  }
-
     return (
       <main >
         <div id="questionnaire-page">
@@ -25,15 +14,7 @@ function QuestionnairesPage() {
           
           <QuestionnaireCardContainer />
           <br/>
-          <Pagination className="d-flex justify-content-center" >
-            <Pagination.First />
-            <Pagination.Prev />
-
-              {items}
-
-            <Pagination.Next />
-            <Pagination.Last />
-          </Pagination>
+          <Pager />
           <NewQuestionnaireButton />
         </div>
       </main>
