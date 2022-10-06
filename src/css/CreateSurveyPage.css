@@ -1,145 +1,37 @@
 /* 설문 제작 페이지에서 쓰일 css */
 /* CreateSurveyPage.js */
-.createSurveyPage {
-  margin: auto;
+.create-survey-layout {
+  padding-bottom: 100px;
+}
+
+.create-survey-layout input[type=text] {
   width: 100%;
-  height: 1700px;
 }
 
-.logoBtn {
-  position: absolute;
-  top: 20px;
-  left: 50px;
-  width: 350px;
-  height: 30px;
-
-  opacity: 0.5;
-}
-
-.loginBtn {
-  position: absolute;
-  top: 20px;
-  right: 560px;
-  width: 100px;
-  height: 30px;
-
-  opacity: 0.5;
-}
-
-.myBtn {
-  position: absolute;
-  top: 20px;
-  right: 510px;
-  width: 30px;
-  height: 30px;
-
-  opacity: 0.5;
-}
-
-.homeBtn {
-  position: absolute;
-  top: 95px;
-  left: 20px;
-  width: 150px;
-  height: 30px;
-
-  opacity: 0.5;
-}
-
-.surveyTitle {
-  position: absolute;
-  top: 370px;
-  left: 120px;
-  width: 500px;
-  height: 80px;
-
-  font-size: 50px;
-}
-
-.surveyContent {
-  position: absolute;
-  top: 500px;
-  left: 120px;
-  width: 500px;
-  height: 50px;
-
-  font-size: 30px;
-}
-
-.questionTitle {
-  position: absolute;
-  top: 730px;
-  left: 180px;
-  width: 500px;
-  height: 40px;
-
-  font-size: 26px;
-}
-
-.answer1 {
-  position: absolute;
-  top: 840px;
-  left: 220px;
-  width: 500px;
-  height: 40px;
-
-  font-size: 26px;
-}
-
-.answer2 {
-  position: absolute;
-  top: 900px;
-  left: 220px;
-  width: 500px;
-  height: 40px;
-
-  font-size: 26px;
-}
-
-.checkOption1 {
-  position: absolute;
-  top: 1090px;
-  right: 650px;
-  width: 30px;
-  height: 30px;
-}
-
-.checkOption2 {
-  position: absolute;
-  top: 1125px;
-  right: 650px;
-  width: 30px;
-  height: 30px;
-}
-
-.checkOption3 {
-  position: absolute;
-  top: 1160px;
-  right: 650px;
-  width: 30px;
-  height: 30px;
-}
-
-.submitBtn {
-  position: absolute;
-  top: 1505px;
-  left: 650px;
-  width: 140px;
-  height: 50px;
-
-  opacity: 0.5;
+.create-survey-form {
+  background-color: #F9F9F9
 }
 
 /* components/CreateSurvey */
-.questionCardListLayout {
-  position: absolute;
-  top: 730px;
-  right: 80px;
-  width: 350px;
-  border: 1px black solid;
+.create-survey-cardlist {
+  text-align: center;
 }
 
-.questionCardLayout {
+.create-survey-card {
   border: 1px black solid;
-  margin: 10px;
+  margin: 3rem;
+}
+
+.create-survey-addcard {
+  background-color: white;
+  width: 50%;
+  padding: 10px 12px 0px 12px;
+  margin: auto;
+  border: 2px black solid;
+  border-radius: 5px;
+}
+
+.create-survey-addcard button {
+  width: 100%;
+  border-radius:2px;
 }

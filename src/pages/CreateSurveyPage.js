@@ -5,6 +5,8 @@ import Header from "../components/Header";
 import QuestionCardList from "../components/CreateSurvey/QuestionCardList";
 
 import '../css/CreateSurveyPage.css';
+import { Col, Container, Row } from 'react-bootstrap';
+import { BsRainbow } from 'react-icons/bs';
 
 // 새 설문 작성 페이지
 // └헤더
@@ -19,21 +21,6 @@ const CreateSurveyPage = function () {
     const title = useSelector(state => state.createSurvey.surveyTitle);
     const content = useSelector(state => state.createSurvey.surveyContent);
     const surveyInfo = useSelector(state => state.createSurvey);
-
-    // 홈페이지로 이동
-    const gotoHome = () => {
-        alert("홈 페이지로 이동");
-    }
-
-    // 로그인 페이지로 이동
-    const gotoLogin = () => {
-        alert("로그인 페이지로 이동")
-    }
-
-    // 마이 페이지로 이동
-    const gotoMyPage = () => {
-        alert("마이페이지로 이동");
-    }
 
     // 설문의 제목 입력 업데이트
     const inputTitle = (title) => {
@@ -53,19 +40,21 @@ const CreateSurveyPage = function () {
     }
 
     return (
-        <div className="createSurveyPage">
+        <div className="create-survey-layout">
             <Header />
-
-            <div><input type="text" className="surveyTitle" placeholder="제목을 입력하세요" value={title} onChange={(e) => inputTitle(e.target.value)} />
-                <input type="text" className="surveyContent" value={content} placeholder="설명을 입력하세요" onChange={(e) => inputContent(e.target.value)} />
-
-                <QuestionCardList />
-
-                < button type="button" className="submitBtn" onClick={createSurvey} />
-            </div>
-
-
-
+            <div className="text-center">설문지 작성</div>
+            <Container className="create-survey-form">
+                <Row className="mt-5 mb-5">
+                    <Col className="mt-5 mx-5" ><input type="text" placeholder="설문지 제목" /></Col>
+                </Row>
+                <Row className="mb-5">
+                    <Col className="mx-5"><input type="text" placeholder="설문지 제목" /></Col>
+                </Row>
+                <Row>
+                    <QuestionCardList />
+                </Row>
+                <button type="button" onClick={createSurvey}>저장</button>
+            </Container>
         </div >
     )
 }
