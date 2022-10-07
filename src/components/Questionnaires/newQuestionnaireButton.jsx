@@ -9,6 +9,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import '../../css/QuestionnairePage.css';
 
 function NewQuestionnaireButton() {
+    /* 리덕스 */
     const dispatch = useDispatch();
     // 새설문 팝업 on off
     const {newQuestionnairePopupShow} = useSelector((state) => ({ newQuestionnairePopupShow: state.questionnairesReducer.newQuestionnairePopupShow
