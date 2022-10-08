@@ -73,12 +73,12 @@ const AddQuestionComponent = function () {
     }
 
     return (
-        <>
+        <div>
             <button type="button" onClick={addCard}>질문 추가</button>
             {
                 visible && cardMenu
             }
-        </>
+        </div>
     )
 }
 

@@ -42,13 +42,13 @@ const CreateSurveyPage = function () {
     return (
         <div className="create-survey-layout">
             <Header />
-            <div className="text-center">설문지 작성</div>
+            <div className="create-survey-title">설문지 작성</div>
             <Container className="create-survey-form">
-                <Row className="mt-5 mb-5">
+                <Row>
                     <Col className="mt-5 mx-5" ><input type="text" placeholder="설문지 제목" /></Col>
                 </Row>
-                <Row className="mb-5">
-                    <Col className="mx-5"><input type="text" placeholder="설문지 제목" /></Col>
+                <Row>
+                    <Col className="m-5"><input type="text" placeholder="설문지 제목" /></Col>
                 </Row>
                 <Row>
                     <QuestionCardList />
