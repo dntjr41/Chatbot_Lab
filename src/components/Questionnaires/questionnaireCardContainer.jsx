@@ -23,10 +23,18 @@ function QuestionnaireCardContainer(props) {
   }))
   // page에 따른 card
   let items = [];
+  
   for (let number = 1; number <= 6; number++) {
+    const currentIdx = (questionnairePageOption-1)*6 + number;
     items.push(
       <Col xs="auto">
-        <QuestionnaireCard />
+        <QuestionnaireCard 
+          id={"questionnaire["+ `currentIdx` +"].id"}
+          title={"questionnaire["+ currentIdx +"].title"}
+          startTime={"startTime"}
+          endTime={"endTime"}
+          representativeImg={"img"}
+          onDeploy={"onDeploy"}/>
       </Col>
     )
   }

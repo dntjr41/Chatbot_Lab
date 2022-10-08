@@ -4,15 +4,16 @@ import { SET_QSO } from '../../modules/questionnairesSlice';
 import { useSelector, useDispatch } from 'react-redux';
 
 function QuestionnaireNav(props) {
+    /* 리덕스 */
+    // 설문함 선택 옵션
     const {newQuestionnairePopupShow} = useSelector((state) => ({
-        newQuestionnairePopupShow: state.newQuestionnairePopupShow,
+        newQuestionnairePopupShow: state.questionnairesReducer.newQuestionnairePopupShow,
     }));
     const dispatch = useDispatch();    
     const newQuestionnaireButtonOnClick = (qsoIdx) => {
         dispatch(SET_QSO(qsoIdx));
     }
     
-
 
     return(
         <Navbar className="mb-3" bg="dark" variant="dark" expand="sm">

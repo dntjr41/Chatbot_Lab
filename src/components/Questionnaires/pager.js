@@ -16,7 +16,7 @@ function Pager() {
     }
     
     // 컨텐츠 갯수
-    let myQuestionnaireCount = 60;
+    let myQuestionnaireCount = 61;
     // 페이지 수
     let totalPage = Math.ceil(myQuestionnaireCount / 6);
     // Pagination.Item 배열
