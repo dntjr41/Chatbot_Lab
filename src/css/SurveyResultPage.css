@@ -1,35 +1,33 @@
 /* 결과 분석 페이지에서 쓰일 css */
-.surveyResult {
-    background-image: url(../images/survey_result.png);
-    background-repeat: no-repeat;
-    margin: auto;
-    width: 100%;
-    height: 5900px;
+.survey-result-layout {
+    padding-bottom: 100px;
+    background: #515151;
 }
 
-.showStatisticBtn {
-    position: absolute;
-    top: 165px;
-    right: 740px;
-    width: 100px;
-    height: 30px;
-    opacity: 0.5;
+.survey-result-tab {
+    background: white;
 }
 
-.showAnalysisBtn {
-    position: absolute;
-    top: 165px;
-    right: 590px;
-    width: 100px;
-    height: 30px;
-    opacity: 0.5;
+.survey-result-info {
+    background: white;
+    font-size: 48px;
 }
 
-.downloadResultBtn {
-    position: absolute;
-    top: 5750px;
-    left: 470px;
-    width: 500px;
-    height: 100px;
-    opacity: 0.5;
+.survey-result-statlist {}
+
+.survey-result-stat {
+    background: white;
+    border-radius: 5px;
+}
+
+.survey-result-chans {
+    margin: 0px 10px;
+    border: 1px solid black;
+}
+
+.survey-result-subans {
+    margin: 0px 10px;
+    border: 1px solid black;
+    max-height: 150px;
+    overflow-y: auto;
 }
