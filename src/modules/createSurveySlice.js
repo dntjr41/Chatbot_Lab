@@ -9,6 +9,11 @@ const surveyState = {
         title: "",
         answers: [""],
         options: [false, false, false],
+    },
+    {
+        type: "subjective",
+        title: "",
+        options: [false, false, false],
     }]
 }
 
@@ -26,16 +31,9 @@ const createSurveySlice = createSlice({
             // 해당 매개변수에 해당하는 질문의 응답을 배열에서 지운다
             state.questionCardList[action.payload.listIdx].answers.splice(action.payload.answerIdx, 1);
         },
-        ADD_CARD: (state) => {
+        ADD_CARD: (state,action) => {
             // 새 질문 카드 객체를 questionCardList 배열에 추가한다
-            const newCard = {
-                type: "choice",
-                title: "",
-                answers: [""],
-                options: [false, false, false],
-
-            }
-            state.questionCardList = [...state.questionCardList, newCard];
+            state.questionCardList = [...state.questionCardList, action.payload];
         },
         DEL_CARD: (state, action) => {
             // 질문 카드를 배열에서 지운다

@@ -5,6 +5,7 @@ import Header from "../components/Header";
 import QuestionCardList from "../components/CreateSurvey/QuestionCardList";
 
 import '../css/CreateSurveyPage.css';
+import { Col, Container, Row } from 'react-bootstrap';
 
 // 새 설문 작성 페이지
 // └헤더
@@ -20,21 +21,6 @@ const CreateSurveyPage = function () {
     const content = useSelector(state => state.createSurvey.surveyContent);
     const surveyInfo = useSelector(state => state.createSurvey);
 
-    // 홈페이지로 이동
-    const gotoHome = () => {
-        alert("홈 페이지로 이동");
-    }
-
-    // 로그인 페이지로 이동
-    const gotoLogin = () => {
-        alert("로그인 페이지로 이동")
-    }
-
-    // 마이 페이지로 이동
-    const gotoMyPage = () => {
-        alert("마이페이지로 이동");
-    }
-
     // 설문의 제목 입력 업데이트
     const inputTitle = (title) => {
         dispatch(CHANGE_TITLE(title));
@@ -48,24 +34,26 @@ const CreateSurveyPage = function () {
     // 설문 저장 버튼 클릭시 입력한 모든 정보를 console에 띄움
     const createSurvey = () => {
         console.log(surveyInfo);
-        console.log(JSON.stringify(surveyInfo));
         alert(JSON.stringify(surveyInfo));
     }
 
     return (
-        <div className="createSurveyPage">
+        // 설문 제목, 부연설명에 대한 redux 처리 필요
+        <div className="create-survey-layout">
             <Header />
-
-            <div><input type="text" className="surveyTitle" placeholder="제목을 입력하세요" value={title} onChange={(e) => inputTitle(e.target.value)} />
-                <input type="text" className="surveyContent" value={content} placeholder="설명을 입력하세요" onChange={(e) => inputContent(e.target.value)} />
-
-                <QuestionCardList />
-
-                < button type="button" className="submitBtn" onClick={createSurvey} />
-            </div>
-
-
-
+            <div className="create-survey-title">설문지 작성</div>
+            <Container className="create-survey-form">
+                <Row>
+                    <Col className="mt-5 mx-5" ><input type="text" value={title} placeholder="설문지 제목" onChange={(e) => inputTitle(e.target.value)} /></Col>
+                </Row>
+                <Row>
+                    <Col className="m-5"><input type="text" value={content} placeholder="설문지 부연설명" onChange={(e) => inputContent(e.target.value)} /></Col>
+                </Row>
+                <Row>
+                    <QuestionCardList />
+                </Row>
+                <button type="button" onClick={createSurvey}>저장</button>
+            </Container>
         </div >
     )
 }

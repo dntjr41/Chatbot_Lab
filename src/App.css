@@ -3,20 +3,22 @@
   font-size: 20px;
 }
 
-/* 공통 녹색 */
-.color-first {
+/* 공통 녹색 그라데이션*/
+.primary-color-grad {
   background: linear-gradient(264.61deg, #87DF41 -9.34%, #00AB4F 101.57%);
 }
 
-.color-first-origin {
+/* 공통 녹색*/
+.primary-color {
   background-color: #00AB4F;
 }
 
-/* 공통 보라색 */
-.color-second {
+/* 공통 보라색 그라데이션 */
+.secondary-color-grad {
   background: linear-gradient(249.5deg, #662D91 -14.02%, #A64DFF 108.18%);
 }
 
-.color-second-origin {
+/* 공통 보라색 */
+.secondary-color {
   background-color: #662D91;
 }

@@ -1,55 +1,66 @@
+import Header from "../components/Header";
+import StatisticCardList from "../components/SurveyResult/StatisticCardList";
+
 import '../css/SurveyResultPage.css'
 
-// 결과 통계 페이지
+import { Row, Col, Container } from "react-bootstrap";
+import { useSelector } from "react-redux";
+import { useState } from "react";
+
+// 설문 결과 페이지
 // └헤더
-// └결과 통계 컴포넌트
-//   └통계, 분석보기 버튼
-//   └설문 제목, 설문 기간, 설문 설명
-//   └응답별 통계 리스트
-//     └응답별 통계(유형별 다른 컴포넌트)
+// └통계, 분석보기 버튼
+// └설문 제목, 설문 기간, 설문 설명
+// └응답별 통계 리스트
+//   └응답별 통계(유형별 다른 컴포넌트)
 //   └다운로드 버튼
+// └결과 분석 컴포넌트
 
 const SurveyResult = function () {
-    // 홈페이지로 이동
-    const gotoHome = () => {
-        alert("홈 페이지로 이동");
-    }
+    const surveyTitle = useSelector(state => state.surveyStatistic.surveyTitle);
+    const surveyContent = useSelector(state => state.surveyStatistic.surveyContent);
+    const surveyTime = useSelector(state => state.surveyStatistic.surveyTime);
 
-    // 로그인 페이지로 이동
-    const gotoLogin = () => {
-        alert("로그인 페이지로 이동")
-    }
+    console.log(surveyTitle);
+    console.log(surveyContent);
+    console.log(surveyTime);
 
-    // 마이 페이지로 이동
-    const gotoMyPage = () => {
-        alert("마이페이지로 이동");
+    const [isStat, setIsStat] = useState(true);
+    const [isAnaly, setIsAnaly] = useState(false);
+    const showStat = () => {
+        setIsStat(true);
+        setIsAnaly(false);
+        console.log("통계화면으로 보여주기");
     }
-
-    // 설문 통계로 보여주기
-    const showStatistic = () => {
-        alert("설문 통계 보여주기");
-    }
-
-    // 설문 분석으로 보여주기
-    const showAnalysis = () => {
-        alert("설문 분석 보여주기");
-    }
-
-    // 설문 통계 다운로드
-    const downloadResult = () => {
-        alert("설문 결과 다운로드");
+    const showAnaly = () => {
+        setIsStat(false);
+        setIsAnaly(true);
+        console.log("분석화면으로 보여주기");
     }
 
     return (
-        <div className="surveyResult">
-            <button type="button" className="logoBtn" onClick={gotoHome} />
-            <button type="button" className="loginBtn" onClick={gotoLogin} />
-            <button type="button" className="myBtn" onClick={gotoMyPage} />
-            <button type="button" className="homeBtn" onClick={gotoHome} />
+        <div className="survey-result-layout">
+            <Header />
 
-            <button type="button" className="showStatisticBtn" onClick={showStatistic} />
-            <button type="button" className="showAnalysisBtn" onClick={showAnalysis} />
-            <button type="button" className="downloadResultBtn" onClick={downloadResult} />
+            <Container>
+                <div className="survey-result-tab my-3">
+                    <Row className="text-center">
+                        <Col md={{ offset: 8, span: 2 }}><button type="button" onClick={showStat} disabled={isStat}>통계보기</button></Col>
+                        <Col md={2}><button type="button" onClick={showAnaly} disabled={isAnaly}>분석보기</button></Col>
+                    </Row>
+                </div>
+                <div className="survey-result-info my-3">
+                    <Row><Col>설문 제목 - {surveyTitle}</Col></Row>
+                    <Row><Col>설문 기간 - {surveyTime.start} ~ {surveyTime.end}</Col></Row>
+                    <Row style={{ fontSize: "32px" }}><Col>{surveyContent}</Col></Row>
+                </div>
+
+                <div>
+                    {isStat && <StatisticCardList />}
+                    {isAnaly && <h1>분석 화면</h1>}
+                </div>
+            </Container>
+
         </div>
     )
 }
