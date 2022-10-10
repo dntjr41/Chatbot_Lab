@@ -6,7 +6,6 @@ import "../../../css/CreateSurveyPage.css";
 // 질문 카드 컴포넌트(객관식)
 
 const ChoiceCard = function ({ questionCard, listIdx }) {
-    console.log(questionCard);
     const dispatch = useDispatch();
     // 객관식 응답선택지를 추가
     const addAnswer = (listIdx) => {
@@ -25,8 +24,6 @@ const ChoiceCard = function ({ questionCard, listIdx }) {
 
     // 질문 제목 입력 업데이트
     const inputQuestionTitle = (listIdx, title) => {
-        console.log(listIdx);
-        console.log(title);
         dispatch(CHANGE_QUE_TITLE({ listIdx, title }));
     }
 

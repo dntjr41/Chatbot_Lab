@@ -6,7 +6,6 @@ import QuestionCardList from "../components/CreateSurvey/QuestionCardList";
 
 import '../css/CreateSurveyPage.css';
 import { Col, Container, Row } from 'react-bootstrap';
-import { BsRainbow } from 'react-icons/bs';
 
 // 새 설문 작성 페이지
 // └헤더
@@ -35,20 +34,20 @@ const CreateSurveyPage = function () {
     // 설문 저장 버튼 클릭시 입력한 모든 정보를 console에 띄움
     const createSurvey = () => {
         console.log(surveyInfo);
-        console.log(JSON.stringify(surveyInfo));
         alert(JSON.stringify(surveyInfo));
     }
 
     return (
+        // 설문 제목, 부연설명에 대한 redux 처리 필요
         <div className="create-survey-layout">
             <Header />
             <div className="create-survey-title">설문지 작성</div>
             <Container className="create-survey-form">
                 <Row>
-                    <Col className="mt-5 mx-5" ><input type="text" placeholder="설문지 제목" /></Col>
+                    <Col className="mt-5 mx-5" ><input type="text" value={title} placeholder="설문지 제목" onChange={(e) => inputTitle(e.target.value)} /></Col>
                 </Row>
                 <Row>
-                    <Col className="m-5"><input type="text" placeholder="설문지 제목" /></Col>
+                    <Col className="m-5"><input type="text" value={content} placeholder="설문지 부연설명" onChange={(e) => inputContent(e.target.value)} /></Col>
                 </Row>
                 <Row>
                     <QuestionCardList />
