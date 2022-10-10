@@ -1,4 +1,8 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { Link } from "react-router-dom";
+
+import Header from "../components/Header";
 import '../css/SetSurveyPerTarPage.css';
 
 // 배포 전 날짜 및 그룹 설정 페이지
@@ -18,26 +22,6 @@ import '../css/SetSurveyPerTarPage.css';
 //   └설문 공유하기 버튼
 
 const SetSurveyPerTarPage = function () {
-
-    // 홈페이지로 이동
-    const gotoHome = () => {
-        alert("홈 페이지로 이동");
-    }
-
-    // 도움말 페이지로 이동
-    const gotoQuestion = () => {
-        alert("도움말 페이지로 이동");
-    }
-
-    // 로그인 페이지로 이동
-    const gotoLogin = () => {
-        alert("로그인 페이지로 이동")
-    }
-
-    // 마이 페이지로 이동
-    const gotoMyPage = () => {
-        alert("마이페이지로 이동");
-    }
 
     // 시작일 설정 버튼
     const startBtn = () => {
@@ -81,18 +65,12 @@ const SetSurveyPerTarPage = function () {
 
     // 설문 공유 (Deploy Survey) 페이지로 이동
     const gotoDeploySurvey = () => {
-        alert("설문 공유하기 페이지로 이동");
+
     }
 
     return (
         <div className="setSurveyPerTarPage">
-            <div className="header">          
-                <button type="button" className="logoBtn" onClick={gotoHome}>logo</button>
-                <button type="button" className="questionBtn" onClick={gotoQuestion}>?</button>
-                <button type="button" className="loginBtn" onClick={gotoLogin}>login</button>
-                <button type="button" className="myBtn" onClick={gotoMyPage}>my</button>
-                <button type="button" className="homeBtn" onClick={gotoHome}>home</button>
-            </div>
+            <Header />
 
             <div className="setPeriod">
                 <output type="date" className="startDate"></output>
@@ -123,7 +101,7 @@ const SetSurveyPerTarPage = function () {
                 {/* <input type="datalist" className="targetList"></input> */}
             </div>
 
-            <button type="button" className="deployBtn" onClick={gotoDeploySurvey}>2. 설문 공유하기</button>
+            <Link to="/deploy-survey"><button type="button" className="deployBtn" onClick={gotoDeploySurvey}>2. 설문 공유하기</button></Link>
         </div>
     )
 }

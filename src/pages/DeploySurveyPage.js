@@ -1,6 +1,9 @@
 import React, {useState, useEffect} from 'react';
-import '../css/DeploySurveyPage.css';
+import { useSelector, useDispatch } from 'react-redux';
+import { Link } from "react-router-dom";
 
+import Header from "../components/Header";
+import '../css/DeploySurveyPage.css';
 
 // 배포 (설문 공유) 페이지
 // └헤더
@@ -18,22 +21,7 @@ const DeploySurveyPage = function () {
 
     // 홈페이지로 이동
     const gotoHome = () => {
-        alert("홈 페이지로 이동");
-    }
-
-    // 도움말 페이지로 이동
-    const gotoQuestion = () => {
-        alert("도움말 페이지로 이동");
-    }
-
-    // 로그인 페이지로 이동
-    const gotoLogin = () => {
-        alert("로그인 페이지로 이동")
-    }
-
-    // 마이 페이지로 이동
-    const gotoMyPage = () => {
-        alert("마이페이지로 이동");
+        
     }
 
     // 링크 복사하기
@@ -48,13 +36,7 @@ const DeploySurveyPage = function () {
 
     return (
         <div className="deploySurveyPage">
-            <div className="header">        
-                <button type="button" className="logoBtn" onClick={gotoHome}>logo</button>
-                <button type="button" className="questionBtn" onClick={gotoQuestion}>?</button>
-                <button type="button" className="loginBtn" onClick={gotoLogin}>login</button>
-                <button type="button" className="myBtn" onClick={gotoMyPage}>my</button>
-                <button type="button" className="homeBtn" onClick={gotoHome}>home</button>
-            </div>
+            <Header />
 
             <div className="deploySurvey">
                 <div className="deployInfo">
@@ -71,7 +53,7 @@ const DeploySurveyPage = function () {
                     <button type="button" className="qrBtn" onClick={downloadQR}>download</button>
                 </div>
 
-                <button type="button" className="goHomeBtn" onClick={gotoHome}>홈으로 가기</button>
+                <Link to="/home"><button type="button" className="goHomeBtn" onClick={gotoHome}>홈으로 가기</button></Link>
             </div>
         </div>
     )
