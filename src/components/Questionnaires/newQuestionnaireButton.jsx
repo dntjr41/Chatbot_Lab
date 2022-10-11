@@ -16,7 +16,6 @@ function NewQuestionnaireButton() {
     }));
     const newQuestionnaireButtonOnClick = () => {
         dispatch(SET_NQPS_ON());
-        console.log(newQuestionnairePopupShow);
     }
     const newQuestionnaireCloseButtonOnClick = () => {
         dispatch(SET_NQPS_OFF());

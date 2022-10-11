@@ -4,11 +4,8 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 
-import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
-
 import QuestionnaireNav from './questionnaireNav';
 import QuestionnaireCard from './questionnaireCard';
-import QuestionnaireSetting from './questionnaireSetting';
 
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -23,18 +20,18 @@ function QuestionnaireCardContainer(props) {
   }))
   // page에 따른 card
   let items = [];
-  
+
   for (let number = 1; number <= 6; number++) {
-    const currentIdx = (questionnairePageOption-1)*6 + number;
+    const currentIdx = (questionnairePageOption - 1) * 6 + number;
     items.push(
       <Col xs="auto">
-        <QuestionnaireCard 
-          id={"questionnaire["+ `currentIdx` +"].id"}
-          title={"questionnaire["+ currentIdx +"].title"}
+        <QuestionnaireCard
+          id={currentIdx}
+          title={"questionnaire[" + currentIdx + "].title"}
           startTime={"startTime"}
           endTime={"endTime"}
           representativeImg={"img"}
-          onDeploy={"onDeploy"}/>
+          onDeploy={"onDeploy"} />
       </Col>
     )
   }
@@ -47,20 +44,6 @@ function QuestionnaireCardContainer(props) {
 
       <Form variant="info" className="justify-content-around">
         <Row className="align-items-center justify-content-md-center">
-          {/*
-            <Col xs="auto">
-            <OverlayTrigger
-              placement="right"
-              overlay={<QuestionnaireSetting />}
-            >
-              {({ ref, ...triggerHandler }) => (
-                
-                <div>
-                <QuestionnaireCard />
-                </div>
-              )}
-            </OverlayTrigger>
-              */}
           {items}
         </Row>
       </Form>

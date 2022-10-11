@@ -3,7 +3,8 @@ import { createSlice } from '@reduxjs/toolkit'
 const questionnaireState = {
     // 설문 상태에 따라 select from db: 0: 전체, 1: 제작 중, 2: 예약 중, 3: 배포 중, 4: 종료 
     questionnaireSelectionOption: 0,
-
+    // 설문 ID
+    selectedQuestionnaireID: null,
     // 새 설문 눌렀을 때 popup on/off
     newQuestionnairePopupShow: false,
 
@@ -38,6 +39,9 @@ const questionnaireSlice = createSlice({
                 alert("종료");
             }
         },
+        SET_SQID:(state, action) => {
+            state.selectedQuestionnaireID = action.payload; // 설문 ID
+        },
         SET_QPO: (state, action) => {
             state.questionnairePageOption = action.payload; // 몇 페이지 인지
         },
@@ -45,8 +49,6 @@ const questionnaireSlice = createSlice({
 
         // 새 설문 버튼 popup on/off
         SET_NQPS_ON: (state) => {
-            console.log("clicked");
-            console.log(state.newQuestionnairePopupShow);
             state.newQuestionnairePopupShow = true;
         },
         SET_NQPS_OFF: (state) => {
@@ -63,6 +65,6 @@ const questionnaireSlice = createSlice({
     },
 });
 
-export const { SET_QSO, SET_QPO, SET_NQPS_ON, SET_NQPS_OFF, SET_QTPS_ON, SET_QTPS_OFF } = questionnaireSlice.actions;
+export const { SET_QSO, SET_SQID, SET_QPO, SET_NQPS_ON, SET_NQPS_OFF, SET_QTPS_ON, SET_QTPS_OFF } = questionnaireSlice.actions;
 
 export default questionnaireSlice.reducer;
