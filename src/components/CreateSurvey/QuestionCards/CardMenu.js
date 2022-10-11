@@ -1,28 +1,12 @@
 import { useDispatch } from "react-redux";
 import { COPY_CARD, DEL_CARD, CHECK_OPT } from "../../../modules/createSurveySlice";
 
-import { Stack, Button, OverlayTrigger, Popover } from "react-bootstrap";
+import { Stack, OverlayTrigger, Popover } from "react-bootstrap";
 import { BsSubtract, BsTrashFill, BsThreeDotsVertical } from "react-icons/bs";
 
 
 const CardMenu = function ({ questionCard, listIdx }) {
     const dispatch = useDispatch();
-
-    const popover = (
-        <Popover id="popover">
-            <Popover.Header as="h3">옵션</Popover.Header>
-            <Popover.Body>
-                {
-                    questionCard.options.map((option, optIdx) =>
-                        <div key={optIdx}>
-                            <input type="checkbox" defaultChecked={option} onClick={() => checkOption(listIdx, optIdx)} />
-                            옵션{optIdx}
-                        </div>
-                    )
-                }
-            </Popover.Body>
-        </Popover>
-    )
 
     // 질문 복사
     const copyCard = (listIdx) => {
@@ -41,25 +25,26 @@ const CardMenu = function ({ questionCard, listIdx }) {
 
     return (
         <>
-            <Stack direction="horizontal" gap={4}>
-                <BsSubtract className="ms-auto" onClick={() => copyCard(listIdx)} />
-                <BsTrashFill onClick={() => delCard(listIdx)} />
-                <OverlayTrigger trigger="click" placement="bottom" overlay={popover}>
-                    <BsThreeDotsVertical />
+            <Stack className="create-survey-cardMenu" direction="horizontal" gap={4}>
+                <button className="ms-auto" type="button"><BsSubtract onClick={() => copyCard(listIdx)} /></button>
+                <button type="button"><BsTrashFill style={{ color: "red" }} onClick={() => delCard(listIdx)} /></button>
+                <OverlayTrigger trigger="click" placement="bottom" overlay={
+                    <Popover>
+                        <Popover.Body>
+                            {
+                                questionCard.options.map((option, optIdx) =>
+                                    <div key={optIdx}>
+                                        <input type="checkbox" defaultChecked={option} onClick={() => checkOption(listIdx, optIdx)} />
+                                        옵션{optIdx}
+                                    </div>
+                                )
+                            }
+                        </Popover.Body>
+                    </Popover>
+                }>
+                    <button type="button"><BsThreeDotsVertical /></button>
                 </OverlayTrigger>
             </Stack>
-
-            <OverlayTrigger trigger="click" placement="right" overlay={
-                <Popover id="popover-basic">
-                    <Popover.Header as="h3">Popover right</Popover.Header>
-                    <Popover.Body>
-                        And here's some <strong>amazing</strong> content. It's very engaging.
-                        right?
-                    </Popover.Body>
-                </Popover>
-            }>
-                <Button variant="success">Click me to see</Button>
-            </OverlayTrigger>
         </>
 
     )

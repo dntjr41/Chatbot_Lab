@@ -44,15 +44,17 @@ const CreateSurveyPage = function () {
             <div className="create-survey-title">설문지 작성</div>
             <Container className="create-survey-form">
                 <Row>
-                    <Col className="mt-5 mx-5"><Form.Control plaintext placeholder="설문 제목을 입력하세요" value={title} onChange={(e) => inputTitle(e.target.value)} /></Col>
+                    <Col className="mt-5 mx-5" style={{ fontSize: "48px" }}><Form.Control plaintext placeholder="설문 제목을 입력하세요" value={title} onChange={(e) => inputTitle(e.target.value)} /></Col>
                 </Row>
                 <Row>
-                    <Col className="m-5 create-survey-bottomLine" ><Form.Control plaintext placeholder="설명" value={content} onChange={(e) => inputContent(e.target.value)} /></Col>
+                    <Col className="m-5 create-survey-bottomLine" style={{ fontSize: "32px" }}><Form.Control plaintext placeholder="설명" value={content} onChange={(e) => inputContent(e.target.value)} /></Col>
                 </Row>
                 <Row>
                     <QuestionCardList />
                 </Row>
-                <button type="button" onClick={createSurvey}>저장</button>
+                <div className="text-center my-5">
+                    <button className="create-survey-sumbit" type="button" onClick={createSurvey}>저장</button>
+                </div>
             </Container>
         </div >
     )

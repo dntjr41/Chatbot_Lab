@@ -24,6 +24,7 @@
   background: #F9F9F9;
   box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
+  padding-bottom: 80px;
 }
 
 .create-survey-inputTitle {
@@ -34,9 +35,19 @@
   border-bottom: 1px black solid;
 }
 
+.create-survey-sumbit {
+  background-color: #662D91;
+  text-align: center;
+  width: 160px;
+  height: 60px;
+  font-size: 36px;
+  border-radius: 15px;
+  color: white;
+}
+
 /* components/CreateSurvey */
 .create-survey-cardlist {
-  /* text-align: center; */
+  text-align: center;
 }
 
 .create-survey-card {
@@ -56,6 +67,11 @@
   padding: 5px 15px;
 
   margin: auto;
+}
+
+.create-survey-cardMenu button {
+  border: 0px;
+  background: none;
 }
 
 .create-survey-addQue {
