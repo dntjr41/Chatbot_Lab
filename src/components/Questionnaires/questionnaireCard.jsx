@@ -25,7 +25,7 @@ function QuestionnaireCard(props) {
   const qState = "전체";
   const currentTime = new Date('2022-10-08');
 
-  // 설문 상태 (선택된 옵션이 "전체" 일때만 표기)
+  // 설문 상태 (선택된 옵션이 "전체" 일때만 표기) ====> null값인지 확인
   const items = []
   if (questionnaireSelectionOption === 0) {
     items.push(

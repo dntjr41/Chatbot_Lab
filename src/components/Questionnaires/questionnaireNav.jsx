@@ -13,7 +13,6 @@ function QuestionnaireNav(props) {
     const newQuestionnaireButtonOnClick = (qsoIdx) => {
         dispatch(SET_QSO(qsoIdx));
     }
-    
 
     return(
         <Navbar className="mb-3" bg="dark" variant="dark" expand="sm">

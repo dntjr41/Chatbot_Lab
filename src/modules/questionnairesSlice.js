@@ -62,9 +62,14 @@ const questionnaireSlice = createSlice({
         SET_QTPS_OFF: (state) => {
             state.questionnaireTemplatePopupShow = false;
         },
+        // 0: 설문 템플릿, 1: 이전 템플릿
+        SET_TSO: (state, action) => {
+            state.templateSelectOption = action.payload;
+            console.log("템플릿 옵션:" + state.templateSelectOption);
+        }
     },
 });
 
-export const { SET_QSO, SET_SQID, SET_QPO, SET_NQPS_ON, SET_NQPS_OFF, SET_QTPS_ON, SET_QTPS_OFF } = questionnaireSlice.actions;
+export const { SET_QSO, SET_SQID, SET_QPO, SET_NQPS_ON, SET_NQPS_OFF, SET_QTPS_ON, SET_QTPS_OFF, SET_TSO } = questionnaireSlice.actions;
 
 export default questionnaireSlice.reducer;
