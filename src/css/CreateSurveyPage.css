@@ -2,7 +2,7 @@
 /* CreateSurveyPage.js */
 .create-survey-layout {
   padding-bottom: 100px;
-  background: #515151;
+  background: linear-gradient(264.61deg, #87DF41 -9.34%, #00AB4F 101.57%);
 }
 
 .create-survey-layout input[type=text] {
@@ -26,15 +26,43 @@
   border-radius: 10px;
 }
 
+.create-survey-inputTitle {
+  font-size: 48px;
+}
+
+.create-survey-bottomLine {
+  border-bottom: 1px black solid;
+}
+
 /* components/CreateSurvey */
 .create-survey-cardlist {
-  text-align: center;
+  /* text-align: center; */
 }
 
 .create-survey-card {
-  border: 1px black solid;
+  border-radius: 15px;
   margin: 0px 3rem 3rem;
   padding: 20px 50px;
+
+  background-color: white;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.create-survey-addAns {
+  background-color: #662D91;
+  border: 1px #662D91 solid;
+  color: white;
+  border-radius: 45px;
+  padding: 5px 15px;
+
+  margin: auto;
+}
+
+.create-survey-addQue {
+  background-color: white;
+  color: #00AB4F;
+  width: 48px;
+  height: 48px;
 }
 
 .create-survey-addcard {

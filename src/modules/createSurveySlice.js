@@ -31,9 +31,14 @@ const createSurveySlice = createSlice({
             // 해당 매개변수에 해당하는 질문의 응답을 배열에서 지운다
             state.questionCardList[action.payload.listIdx].answers.splice(action.payload.answerIdx, 1);
         },
-        ADD_CARD: (state,action) => {
+        ADD_CARD: (state, action) => {
             // 새 질문 카드 객체를 questionCardList 배열에 추가한다
             state.questionCardList = [...state.questionCardList, action.payload];
+        },
+        COPY_CARD: (state, action) => {
+            //질문 카드를 복사해 배열에 추가한다
+            const card = state.questionCardList[action.payload];
+            state.questionCardList = [...state.questionCardList, card];
         },
         DEL_CARD: (state, action) => {
             // 질문 카드를 배열에서 지운다
@@ -62,6 +67,6 @@ const createSurveySlice = createSlice({
     }
 });
 
-export const { ADD_ANSWER, DEL_ANSWER, ADD_CARD, DEL_CARD, CHANGE_TITLE, CHANGE_CONTENT, CHANGE_QUE_TITLE, CHANGE_QUE_ANSWER, CHECK_OPT } = createSurveySlice.actions;
+export const { ADD_ANSWER, DEL_ANSWER, ADD_CARD, COPY_CARD, DEL_CARD, CHANGE_TITLE, CHANGE_CONTENT, CHANGE_QUE_TITLE, CHANGE_QUE_ANSWER, CHECK_OPT } = createSurveySlice.actions;
 
 export default createSurveySlice.reducer;
