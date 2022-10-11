@@ -42,17 +42,17 @@ function QuestionnaireCard(props) {
       </ListGroup.Item>
     )
   }
-
-  const [popup, setPopup] = useState(false)
   // 설정 버튼 누르면 -> ID전달
   const { selectedQuestionnaireID } = useSelector((state) => ({
     selectedQuestionnaireID: state.questionnairesReducer.selectedQuestionnaireID,
   }))
-  const questionnaireSettingButtonOnClick = () => {
+  const questionnaireSettingButtonOnMouseEnter = () => {
     dispatch(SET_SQID(props.id));
+    setShow(true);
     console.log(props.id);
-    setPopup(true);
-    setShow(!show);
+  }
+  const questionnaireSettingButtonOnMouseLeave = () => {
+    setShow(false);
   }
   const [show, setShow] = useState(false);
   const target = useRef(null);
@@ -76,10 +76,17 @@ function QuestionnaireCard(props) {
             {items}
           </ListGroup>
           <div className="d-grid gap-2">
-            <Button ref={target} variant="dark" className="QustCardOptionButtonFloat" onClick={questionnaireSettingButtonOnClick}>설정</Button>
+            <Button 
+              ref={target} variant="dark" className="QustCardOptionButtonFloat" 
+              onMouseEnter={questionnaireSettingButtonOnMouseEnter}
+              onMouseLeave={questionnaireSettingButtonOnMouseLeave}>설정
+            </Button>
             <Overlay target={target.current} show={show} placement="right">
               {(props) => (
-                <Tooltip id="overlay-example" {...props}>
+                <Tooltip id="overlay-example" {...props} 
+                  onMouseEnter={questionnaireSettingButtonOnMouseEnter}
+                  onMouseLeave={questionnaireSettingButtonOnMouseLeave}
+                >
                   <QuestionnaireSetting />
                 </Tooltip>
               )}
