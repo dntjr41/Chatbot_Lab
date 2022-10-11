@@ -77,7 +77,7 @@ function QuestionnaireCard(props) {
           </ListGroup>
           <div className="d-grid gap-2">
             <Button 
-              ref={target} variant="dark" className="QustCardOptionButtonFloat" 
+              ref={target} variant="dark" className="QustCardOptionButtonFloat ButtonPurple" 
               onMouseEnter={questionnaireSettingButtonOnMouseEnter}
               onMouseLeave={questionnaireSettingButtonOnMouseLeave}>설정
             </Button>

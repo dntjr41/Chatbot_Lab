@@ -10,7 +10,7 @@ import QuestionnaireCard from './questionnaireCard';
 import { useSelector, useDispatch } from 'react-redux';
 
 import '../../css/QuestionnairePage.css';
-
+import '../../App.css'
 function QuestionnaireCardContainer(props) {
   /* 리덕스 */
   const dispatch = useDispatch();
@@ -37,7 +37,7 @@ function QuestionnaireCardContainer(props) {
   }
 
   return (
-    <div className="CardContainer">
+    <div className="color-second CardContainer">
       <div className="NavPadding">
         <QuestionnaireNav />
       </div>
