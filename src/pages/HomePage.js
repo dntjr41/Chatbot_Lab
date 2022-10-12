@@ -1,7 +1,7 @@
 import '../css/HomePage.css'
-import { Link } from "react-router-dom";
 import Slide from '../components/Home/Silde';
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 // 홈 페이지
 // └헤더
@@ -23,18 +23,11 @@ const HomePage = function () {
     }
 
     return (
-        <div className="homePage">
+        <div>
             <Header/>
             <Slide/>
-           
-            <button type="button" className="slideLeftBtn" onClick={slideLeft} >Left</button>
-            <button type="button" className="slideRightBtn" onClick={slideRight} >Right</button>
-
-            <Link to="/tos" className="tosLink" >이용약관</Link>
-            <Link to="/service-center" className="serviceLink" >고객센터</Link>
-            <Link to="/privacy-policy" className="privacyLink" >개인정보처리방침</Link>
-            <Link to="/faq" className="faqLink" >FAQ</Link>
-             
+            <Footer/>
+            
         </div>
     )
 }
