@@ -17,6 +17,7 @@ import SetSurveyPerTarPage from './pages/SetSurveyPerTarPage';
 import DeploySurveyPage from './pages/DeploySurveyPage';
 import CreateSurveyPage from './pages/CreateSurveyPage';
 
+import ResponseSurveyPage from './pages/ResponseSurveyPage';
 import FinishResponsePage from './pages/FinishResponsePage';
 import SurveyResult from './pages/SurveyResultPage';
 import NoPage from './pages/NoPage';
@@ -52,6 +53,7 @@ function App() {
             <Route path="deploy-survey" element={<DeploySurveyPage />} />
             <Route path="set-survey-per-tar" element={<SetSurveyPerTarPage />} />
 
+            <Route path="response" element={<ResponseSurveyPage />} />
             <Route path="finish-response" element={<FinishResponsePage />} />
             <Route path="survey-result">
               <Route path="statistic" element={<SurveyResult />} />
