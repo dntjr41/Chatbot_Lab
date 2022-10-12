@@ -69,10 +69,10 @@ function QuestionnaireCard(props) {
       >
         <Card.Img variant="top" src={testimg} alt={props.id} />
         <Card.Body className="text-center">
-          <Card.Title>{props.title}</Card.Title>
+          <Card.Title><b>{props.title}</b></Card.Title>
           <ListGroup>
             <ListGroup.Item key={props.id + props.startTime}>{props.startTime}</ListGroup.Item>
-            <ListGroup.Item>{props.endTime}</ListGroup.Item>
+            <ListGroup.Item>~ {props.endTime}</ListGroup.Item>
             {items}
           </ListGroup>
           <div className="d-grid gap-2">

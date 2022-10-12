@@ -12,7 +12,6 @@ function Pager() {
     }))
     const questionnairePageOnClick = (number) => {
         dispatch(SET_QPO(number));
-        console.log(number);
     }
     
     // 컨텐츠 갯수
