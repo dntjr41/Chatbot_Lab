@@ -1,5 +1,7 @@
 import '../css/HomePage.css'
 import { Link } from "react-router-dom";
+import Slide from '../components/Home/Silde';
+import Header from "../components/Header";
 
 // 홈 페이지
 // └헤더
@@ -22,11 +24,9 @@ const HomePage = function () {
 
     return (
         <div className="homePage">
-            <button type="button" className="logoBtn">logo</button>
-            <a href="/login" className="loginBtn_home">login</a>
-            <a href="/myInfo" className="myBtn_home">my</a>
+            <Header/>
+            <Slide/>
            
-
             <button type="button" className="slideLeftBtn" onClick={slideLeft} >Left</button>
             <button type="button" className="slideRightBtn" onClick={slideRight} >Right</button>
 
