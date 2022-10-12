@@ -3,31 +3,29 @@ import React from "react";
 import NewQuestionnairePopup from './newQuestionnaire/newQuestionnariePopup';
 import QuestionnaireTemplatePopup from './questionnarieTemplate/qustionnarieTemplatePopup';
 
-import { SET_NQPS_ON , SET_NQPS_OFF , SET_QTPS_ON , SET_QTPS_OFF } from '../../modules/questionnairesSlice';
+import { SET_NQPS_ON , SET_NQPS_OFF , SET_QTPS_OFF } from '../../modules/questionnairesSlice';
 import { useSelector, useDispatch } from 'react-redux';
 
 import '../../css/QuestionnairePage.css';
 
 function NewQuestionnaireButton() {
+    /* 리덕스 */
     const dispatch = useDispatch();
     // 새설문 팝업 on off
-    const {newQuestionnairePopupShow} = useSelector((state) => ({ newQuestionnairePopupShow: state.questionnairesReducer.newQuestionnairePopupShow
-    }));
+    const {newQuestionnairePopupShow} = useSelector((state) => ({ 
+        newQuestionnairePopupShow: state.questionnairesReducer.newQuestionnairePopupShow
+    })) 
+    // 템플릿 팝업 on off
+    const {questionnaireTemplatePopupShow} = useSelector((state) => ({
+        questionnaireTemplatePopupShow: state.questionnairesReducer.questionnaireTemplatePopupShow,
+    }))
     const newQuestionnaireButtonOnClick = () => {
         dispatch(SET_NQPS_ON());
-        console.log(newQuestionnairePopupShow);
     }
     const newQuestionnaireCloseButtonOnClick = () => {
         dispatch(SET_NQPS_OFF());
     }
-    // 템플릿 팝업 on off
-    const {questionnaireTemplatePopupShow} = useSelector((state) => ({
-        questionnaireTemplatePopupShow: state.questionnairesReducer.questionnaireTemplatePopupShow,
-    }));  
-    const questionnaireTemplatePopupSetShow = () => {
-        dispatch(SET_QTPS_ON());
-    }
-    const questionnaireTemplatePopupSetClose = () => {
+    const questionnaireTemplateCloseButtonOnClick = () => {
         dispatch(SET_QTPS_OFF());
     }
 
@@ -37,7 +35,7 @@ function NewQuestionnaireButton() {
                 + 새 설문
             </Button>
             <NewQuestionnairePopup show={newQuestionnairePopupShow} hide={newQuestionnaireCloseButtonOnClick}/>
-            <QuestionnaireTemplatePopup show={questionnaireTemplatePopupShow} hide={questionnaireTemplatePopupSetClose} />
+            <QuestionnaireTemplatePopup show={questionnaireTemplatePopupShow} hide={questionnaireTemplateCloseButtonOnClick} />
         </div>
     )
 }

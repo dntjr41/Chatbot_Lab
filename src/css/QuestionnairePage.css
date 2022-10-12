@@ -4,7 +4,6 @@
   max-width: 1000px;
   margin: auto;
   padding: 10px;
-  background: rgba(33, 33, 33, 0.975);
 }
 
 .NewQustButtonFloat{
@@ -13,6 +12,14 @@
   right: 30px;
 }
 
-.QustCardOptionButtonFloat{
-  
+.NavTransparent{
+  background-color:transparent;
+}
+
+.NavItem{
+  color: white;
+}
+
+.ButtonPurple{
+  background-color: #662D91;
 }

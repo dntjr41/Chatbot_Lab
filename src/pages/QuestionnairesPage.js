@@ -2,14 +2,16 @@ import QuestionnaireCardContainer from "../components/Questionnaires/questionnai
 import NewQuestionnaireButton from "../components/Questionnaires/newQuestionnaireButton";
 import Pager from "../components/Questionnaires/pager";
 
+import Header from "../components/Header";
+import "../css/QuestionnairePage.css"
+
 function QuestionnairesPage() {
     return (
       <main >
+        <Header />
         <div id="questionnaire-page">
           <br/>
-          <br/>
-          <h2>&nbsp;&nbsp;&nbsp;&nbsp;설문 제작함</h2>
-          <br/>
+          <h1 className="Title"><b>&nbsp;&nbsp;&nbsp;&nbsp;설문 제작함</b></h1>
           <br/>
           
           <QuestionnaireCardContainer />

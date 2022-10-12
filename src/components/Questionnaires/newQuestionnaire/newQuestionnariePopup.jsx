@@ -4,12 +4,10 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import NewQuestionnarieCard from './newQuestionnarieCard';
 
-import testimg from '../../../images/Logo square.png';
-
-
 import newQust from '../../../images/newQuestionnaireButton/newQust.png';
 import prevQustTemp from '../../../images/newQuestionnaireButton/prevQustTemp.png';
 import qustTemp from '../../../images/newQuestionnaireButton/qustTemp.png';
+
 function NewQuestionnairePopup(props) {
     return (
         <Modal 
@@ -32,7 +30,7 @@ function NewQuestionnairePopup(props) {
                             <NewQuestionnarieCard newQuestionnaireOption="설문 템플릿 탐색" cardImg={prevQustTemp} />
                         </Col>
                         <Col xs="auto">
-                            <NewQuestionnarieCard newQuestionnaireOption="이전 설문 가져오기" cardImg={qustTemp}/>
+                            <NewQuestionnarieCard newQuestionnaireOption="이전 설문 가져오기" cardImg={qustTemp} />
                         </Col>
                     </Row>
                 </Form>
