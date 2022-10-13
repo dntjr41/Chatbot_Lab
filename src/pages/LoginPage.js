@@ -1,5 +1,7 @@
 import '../css/LoginPage.css'
 import { Link } from "react-router-dom";
+import Header from "../components/Header";
+import KakaoLogin from "../components/Login/KakaoLogin";
 
 // 로그인 페이지
 // └헤더
@@ -23,28 +25,29 @@ const LoginPage = function () {
         alert("Message : 페이스북 계정과의 연동 유무 확인. 만약 이미 연동되었을 시 로그인 진행, 미연동 계정일 시 연동을 설정하는 창으로 넘김.");
     }
 
-    const kakaoLogin = () => {
-        alert("Message : 카카오 계정과의 연동 유무 확인. 만약 이미 연동되었을 시 로그인 진행, 미연동 계정일 시 연동을 설정하는 창으로 넘김.");
-    }
 
     const naverLogin = () => {
         alert("Message : 네이버 계정과의 연동 유무 확인. 만약 이미 연동되었을 시 로그인 진행, 미연동 계정일 시 연동을 설정하는 창으로 넘김.");
     }
 
     return (
-        <div className="loginPage">
-            <button type="button" className="logoBtn">logo</button>
-            <a href="/login" className="loginBtn_home">login</a>
-            <a href="/myInfo" className="myBtn_home">my</a>
-            <a href="/home" className="homeBtn">home</a>
-
+        <div >
+            <Header/>
+            <KakaoLogin />
             <button type="button" className="googleLoginBtn"  onClick={googleLogin}>Continue with Google</button>
             <button type="button" className="facebookLoginBtn" onClick={facebookLogin}>Continue with Facebook</button>
-            <button type="button" className="kakaoLoginBtn" onClick={kakaoLogin}>Continue with KaKao</button>
             <button type="button" className="naverLoginBtn" onClick={naverLogin}>Continue with Naver</button>
+            <p>이용약관 및 개인정보처리방침 동의</p>
+            <p>
+                회원가입 하시면 본 서비스의 
+                <Link to="/tos" >이용약관</Link>
+                및
+                <Link to="/privacy-policy" >개인정보처리방침</Link>
+                에 동의하는 것입니다.
 
-            <Link to="/tos" className="tosLink_login" >이용약관</Link>
-            <Link to="/privacy-policy" className="privacyLink_login" >개인정보처리방침</Link>
+            </p>
+            
+            
            
              
         </div>

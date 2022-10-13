@@ -14,13 +14,6 @@ import Footer from "../components/Footer";
 
 const HomePage = function () {
 
-    const slideLeft = () => {
-        alert("Message : 슬라이딩 탭을 좌측으로 이동시킴.");
-    }
-
-    const slideRight = () => {
-        alert("Message : 슬라이딩 탭을 우측으로 이동시킴.");
-    }
 
     return (
         <div>

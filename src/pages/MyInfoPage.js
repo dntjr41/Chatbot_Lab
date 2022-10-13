@@ -1,3 +1,6 @@
+import React, { useEffect, useState } from "react";
+
+import Header from "../components/Header";
 import '../css/MyInfoPage.css'
 
 // 내 정보 페이지
@@ -8,29 +11,51 @@ import '../css/MyInfoPage.css'
 //   └설문지 
 // └탈퇴하기 버튼
 
+const kakaoUnlink = () => {
+    window.Kakao.API.request({
+      url: '/v1/user/unlink',
+      success: function(response) {
+        console.log(response);
+      },
+      fail: function(error) {
+        console.log(error);
+      },
+    });
+  } 
 
 const MyInfoPage = function () {
 
-    const Myquestionaries = () => {
-        alert("Message : 해당 설문지가 존재하는 설문 제작함으로 이동시킴");
-    }
+    const [user_id, setUserId] = useState();
+    const [nickName, setNickName] = useState();
+    const [profileImage, setProfileImage] = useState();
 
-    const secession = () => {
-        alert("Message : 로그인 유무 확인 후 로그인 되어있다면 해당 계정의 연동을 해지시킴");
-    }
-
-    return (
-        <div className="myInfoPage">
-            <button type="button" className="logoBtn">logo</button>
-            <a href="/login" className="loginBtn_home">login</a>
-            <a href="/myInfo" className="myBtn_home">my</a>
-            <a href="/home" className="homeBtn">home</a>
-
-            <button type="button" className="questionariesBtn" onClick={Myquestionaries}>Questionaries 1</button>
-            <button type="button" className="secessionBtn" onClick={secession}>탈퇴하기</button>
-
+    const getProfile = async () => {
+        try {
+          // Kakao SDK API를 이용해 사용자 정보 획득
+          let data = await window.Kakao.API.request({
+            url: "/v2/user/me",
+          });
+          // 사용자 정보 변수에 저장
+          setUserId(data.id);
+          setNickName(data.properties.nickname);
+          setProfileImage(data.properties.profile_image);
+        } catch (err) {
+          console.log(err);
+        }
+      };
+      useEffect(() => {
+        getProfile();
+      }, []);
+      return (
+        <div>
+          <Header/>
+          <img src={profileImage}></img>
+          <h2>My ID : {user_id}</h2>
+          <h2>NickName : {nickName}</h2>        
         </div>
-    )
-}
+      );
+
+};
+
 
 export default MyInfoPage;
