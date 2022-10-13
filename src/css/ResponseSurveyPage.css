@@ -42,20 +42,23 @@
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
 }
 
-/* .response-survey-choice {
-    border: 1px blue solid;
-}
-
 .response-survey-choice input[type="checkbox"] {
     display: none;
-} */
+}
 
 .response-survey-choice input[type="checkbox"]+label {
-    border: 1px black solid;
+    margin-left: -10px;
+    cursor: pointer;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    width: 100%;
+    padding: 4px 8px;
 }
 
 .response-survey-choice input[type="checkbox"]:checked+label {
-    border: 1px red 00AB4F;
+    border: 2px solid #00AB4F;
+    border-radius: 10px;
+    color: #00AB4F;
 }
 
 .response-survey-subjective {

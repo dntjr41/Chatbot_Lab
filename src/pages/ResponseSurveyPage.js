@@ -13,12 +13,11 @@ import { Container, Row, Col } from "react-bootstrap";
 //   └제출 버튼
 
 const ResponsePage = function () {
-    const title = useSelector(state => state.responseSurvey.surveyTitle);
-    const content = useSelector(state => state.responseSurvey.surveyContent);
+    const responseInfo = useSelector(state => state.responseSurvey);
 
     // 설문 제출
     const submitSurvey = () => {
-        alert("응답 제출");
+        console.log(responseInfo);
     }
 
     return (
@@ -27,10 +26,10 @@ const ResponsePage = function () {
             <div className="response-title">설문지 응답</div>
             <Container className="response-survey-form">
                 <Row>
-                    <Col className="mt-5 mx-5" style={{ fontSize: "48px" }}><div>{title}</div></Col>
+                    <Col className="mt-5 mx-5" style={{ fontSize: "48px" }}><div>{responseInfo.surveyTitle}</div></Col>
                 </Row>
                 <Row>
-                    <Col className="m-5" style={{ fontSize: "32px" }}><div>{content}</div></Col>
+                    <Col className="m-5" style={{ fontSize: "32px" }}><div>{responseInfo.surveyContent}</div></Col>
                 </Row>
                 <Row>
                     <QuestionCardList />
