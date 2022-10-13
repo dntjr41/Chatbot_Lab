@@ -1,35 +1,23 @@
 /* 응답 완료 페이지에서 쓰일 css */
-.finishResponse {
-    background-image: url(../images/finish_response.png);
-    background-repeat: no-repeat;
-    margin: auto;
-    width: 100%;
-    height: 1100px;
+.finish-response-layout {
+    padding-bottom: 100px;
+    background: linear-gradient(264.61deg, #87DF41 -9.34%, #00AB4F 101.57%);
 }
 
-.exitPageBtn {
-    position: absolute;
-    top: 20px;
-    right: 500px;
-    width: 100px;
-    height: 30px;
-    opacity: 0.5;
+.finish-response-thankBox {
+    width: 500px;
+    height: 530px;
+    margin: 170px auto 250px;
+    padding: 120px 55px;
+    text-align: center;
+    background-color: white;
 }
 
-.editResponseBtn {
-    position: absolute;
-    top: 530px;
-    left: 670px;
-    width: 100px;
-    height: 30px;
-    opacity: 0.5;
-}
+.finish-response-exit {
+    background-color: #662D91;
+    color: white;
 
-.gotoHomeBtn {
-    position: absolute;
-    top: 625px;
-    left: 570px;
-    width: 300px;
-    height: 30px;
-    opacity: 0.5;
+    width:100%;
+    height: 45px;
+    border-radius: 15px;
 }

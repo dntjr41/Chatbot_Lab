@@ -56,9 +56,10 @@
 }
 
 .response-survey-choice input[type="checkbox"]:checked+label {
-    border: 2px solid #00AB4F;
+    border: 3px solid #662D91;
+    font-weight: 600;
     border-radius: 10px;
-    color: #00AB4F;
+    color: #662D91;
 }
 
 .response-survey-subjective {

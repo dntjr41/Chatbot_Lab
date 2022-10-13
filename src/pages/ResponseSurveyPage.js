@@ -5,6 +5,7 @@ import QuestionCardList from "../components/ResponseSurvey/QuestionCardList";
 
 import "../css/ResponseSurveyPage.css";
 import { Container, Row, Col } from "react-bootstrap";
+import { Link } from 'react-router-dom';
 // 피설문자관점 응답 페이지
 // └헤더
 // └설문지 컴포넌트
@@ -17,6 +18,7 @@ const ResponsePage = function () {
 
     // 설문 제출
     const submitSurvey = () => {
+        alert("응답 제출")
         console.log(responseInfo);
     }
 
@@ -35,7 +37,7 @@ const ResponsePage = function () {
                     <QuestionCardList />
                 </Row>
                 <div className="text-center my-5">
-                    <button className="response-survey-sumbit" type="button" onClick={submitSurvey}>제출</button>
+                    <Link to="/finish-response"><button className="response-survey-sumbit" type="button" onClick={submitSurvey}>제출</button></Link>
                 </div>
             </Container>
         </div>
