@@ -5,6 +5,7 @@ import { ADD_CARD } from "../../modules/createSurveySlice";
 import "../../css/CreateSurveyPage.css";
 import { useState } from "react";
 import { Col, Row } from "react-bootstrap";
+import { BsPlusSquare } from "react-icons/bs";
 
 // └질문 추가 컴포넌트
 //   └질문 추가 버튼, 질문 유형 리스트 팝업
@@ -74,7 +75,7 @@ const AddQuestionComponent = function () {
 
     return (
         <div>
-            <button type="button" onClick={addCard}>질문 추가</button>
+            <BsPlusSquare className="create-survey-addQue" onClick={addCard} />
             {
                 visible && cardMenu
             }
