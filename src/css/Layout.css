@@ -22,8 +22,6 @@
 /* 헤더의 하단 */
 .header-bottom {
     height: 60px;
-
-    box-shadow: 0px 2px 0px #E5E9F2;
     border-radius: 0px 0px 45px 0px;
 }
 
