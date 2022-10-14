@@ -14,7 +14,7 @@ const ChoiceStat = function ({ statCard }) {
             {
                 statCard.answers.map((answer, answerIdx) =>
                     <Stack className="survey-result-choiceAnswer mb-4 fs-5" key={answerIdx} direction="horizontal">
-                        <div className="survey-result-choiceBar" style={{ width: "inherit*" + (answer.cnt / total * 100) + "%" }} />
+                        <div className="survey-result-choiceBar" style={{ width: (answer.cnt / total * 100) + "%" }} />
                         <div>{answer.value}</div>
                         <div className="ms-auto">{(answer.cnt / total * 100).toFixed(1) + "%"}</div>
                     </Stack>
