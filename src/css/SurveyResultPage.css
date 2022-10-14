@@ -57,9 +57,9 @@
 
 .survey-result-subjectiveAnswer {
     position: relative;
-    border: 1px solid #000000;
+    /* border: 1px solid #000000; */
     width: 100%;
-    padding: 4px 8px;
-    max-height: 150px;
+    padding: 4px 0px;
+    max-height: 200px;
     overflow-y: auto;
 }
