@@ -9,16 +9,19 @@ const CardMenu = function ({ questionCard, listIdx }) {
     const dispatch = useDispatch();
 
     // 질문 복사
+    // listIdx(int): 질문 리스트의 몇번째인지
     const copyCard = (listIdx) => {
         dispatch(COPY_CARD(listIdx));
     }
 
     //질문 카드 삭제
+    // listIdx(int): 질문 리스트의 몇번째인지
     const delCard = (listIdx) => {
         dispatch(DEL_CARD(listIdx));
     }
 
     // 질문 옵션 체크 업데이트
+    // listIdx(int): 질문 리스트의 몇번째인지, optIdx(int): 옵션 리스트의 몇번째인지
     const checkOption = (listIdx, optIdx) => {
         dispatch(CHECK_OPT({ listIdx, optIdx }));
     }
@@ -34,8 +37,8 @@ const CardMenu = function ({ questionCard, listIdx }) {
                             {
                                 questionCard.options.map((option, optIdx) =>
                                     <div key={optIdx}>
-                                        <input type="checkbox" defaultChecked={option} onClick={() => checkOption(listIdx, optIdx)} />
-                                        옵션{optIdx}
+                                        <input type="checkbox" checked={option.isCheck} onClick={() => checkOption(listIdx, optIdx)} />
+                                        {option.opt}
                                     </div>
                                 )
                             }

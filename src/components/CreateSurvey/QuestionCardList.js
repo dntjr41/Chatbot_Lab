@@ -17,7 +17,8 @@ const QuestionCardList = function () {
         <div className="create-survey-cardlist">
             {
                 questionCardList.map((questionCard, listIdx) => {
-                    if (questionCard.type === "choice") {
+                    // 질문 유형ID 1: 객관식, 2: 객관식 이미지, 3: 드롭다운, 4: 주관식, 5: 감정바, 6: 날짜, 7: 시간 8: 동영상
+                    if (questionCard.type === 1) {
                         return <ChoiceCard questionCard={questionCard} listIdx={listIdx} key={listIdx} />
                     }
                     else{
