@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import { Button } from 'react-bootstrap';
 import Header from "../components/Header";
 import '../css/MyInfoPage.css'
 
@@ -22,6 +22,19 @@ const kakaoUnlink = () => {
       },
     });
   } 
+
+  const kakaoLogout = () => {
+    window.Kakao.API.request({
+      url: '/v1/user/logout',
+      success: function(response) {
+        console.log(response);
+      },
+      fail: function(error) {
+        console.log(error);
+      },
+    });
+  } 
+  
 
 const MyInfoPage = function () {
 
@@ -47,11 +60,13 @@ const MyInfoPage = function () {
         getProfile();
       }, []);
       return (
-        <div>
+        <div className="UserInfo">
           <Header/>
           <img src={profileImage}></img>
-          <h2>My ID : {user_id}</h2>
-          <h2>NickName : {nickName}</h2>        
+         
+          <div className="user_info">{nickName}님의 마이페이지</div>
+          <div className="user_info">회원 ID : {user_id}</div>
+          <Button type="button" variant="danger" className="secessionBtn" onClick={kakaoUnlink}>탈퇴하기</Button>       
         </div>
       );
 

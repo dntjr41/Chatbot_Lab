@@ -9,8 +9,9 @@ const Footer = () => {
         return year
     };
 
-    return (
-        <div id="main-footer" className="text-center p-2"> 
+    return (    
+      <div className='wrapper'> 
+        <div id="main-footer" className="contentWrapper"> 
             <Row>
                 <Col>
                     <p>
@@ -24,6 +25,7 @@ const Footer = () => {
                 </Col>
             </Row>
         </div>
+      </div>  
     )
 };
 

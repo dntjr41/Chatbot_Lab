@@ -22,3 +22,13 @@
     color: #d5eef3;
     text-decoration: none;
 }
+
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    height: 10vh;
+  }
+  
+  .contentWrapper{
+    flex: 1;
+  }
