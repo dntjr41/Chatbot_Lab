@@ -22,7 +22,7 @@ const FinishResponsePage = function () {
 
     return (
         <div className="finish-response-layout">
-            <Header />
+            <Header color="green"/>
             <div className="finish-response-thankBox">
                 <Row style={{ marginBottom: "120px", fontSize: "24px", fontWeight: "600" }}>
                     <Col>설문에 응답해주셔서 감사합니다.</Col>

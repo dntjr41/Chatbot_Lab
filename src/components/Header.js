@@ -10,7 +10,7 @@ import { BsQuestionCircle, BsPersonSquare, BsHouseDoor } from "react-icons/bs";
 // └헤더 상단바
 // └헤더 하단바(페이지별에 따라 다른 색상구성)
 
-const Header = function () {
+const Header = function (props) {
     return (
         <div>
             <Row className="header-top px-5">
@@ -27,8 +27,7 @@ const Header = function () {
 
 
             </Row>
-            {/* 여기 부분은 페이지에 따라서 배경색상과 글자 색을 바꿔줘야함 */}
-            <Row className="header-bottom primary-color-grad px-5">
+            <Row className={props.color === "green" ? "header-bottom px-5 primary-color-grad" : "header-bottom px-5 secondary-color-grad"}>
                 <Col className="header-homelink" md={3}>
                     <Link to="/home">
                         <Stack direction="horizontal" gap={3}>
@@ -38,7 +37,7 @@ const Header = function () {
                     </Link>
                 </Col>
             </Row>
-        </div>
+        </div >
     )
 }
 

@@ -24,7 +24,7 @@ const ResponsePage = function () {
 
     return (
         <div className="response-layout">
-            <Header />
+            <Header color="green"/>
             <div className="response-title">설문지 응답</div>
             <Container className="response-survey-form">
                 <Row>

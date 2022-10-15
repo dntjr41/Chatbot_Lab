@@ -36,7 +36,7 @@ const SurveyResult = function () {
 
     return (
         <div className="survey-result-layout">
-            <Header />
+            <Header color="green" />
 
             <Container>
                 <Tab.Container

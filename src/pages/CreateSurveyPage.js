@@ -46,7 +46,7 @@ const CreateSurveyPage = function () {
     return (
         // 설문 제목, 부연설명에 대한 redux 처리 필요
         <div className="create-survey-layout">
-            <Header />
+            <Header color="green"/>
             <div className="create-survey-title">설문지 작성</div>
             <Container className="create-survey-form">
                 <Row>
