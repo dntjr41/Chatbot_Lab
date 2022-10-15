@@ -1,0 +1,34 @@
+#main-footer {
+    background: #343a40;
+    color : #fff;
+}
+
+.footer-tos {
+    color: #d5eef3;
+    text-decoration: none;
+}
+
+.footer-service {
+    color: #d5eef3;
+    text-decoration: none;
+}
+
+.footer-privacy {
+    color: #d5eef3;
+    text-decoration: none;
+}
+
+.footer-faq {
+    color: #d5eef3;
+    text-decoration: none;
+}
+
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    height: 10vh;
+  }
+  
+  .contentWrapper{
+    flex: 1;
+  }

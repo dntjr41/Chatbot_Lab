@@ -1,54 +1,97 @@
 import '../css/LoginPage.css'
 import { Link } from "react-router-dom";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import KakaoLogin from "../components/Login/KakaoLogin";
+import NaverLogin from "../components/Login/NaverLogin";
+import GoogleLogin from "../components/Login/GoogleLogin";
+import FaceBookLogin from "../components/Login/FaceBookLogin";
 
-// 로그인 페이지
-// └헤더
-// └로그인 버튼
-//   └1 구글 로그인
-//   └2 페이스북 로그인
-//   └3 카카오 로그인
-//   └4 네이버 로그인
-// └로그인 약관 알림말
-//   └1 이용약관 링크
-//   └2 개인정보 처리방침 링크
+import React from "react";
+
+// reactstrap components
+import {
+  Button,
+  Card,
+  CardHeader,
+  CardBody,
+  FormGroup,
+  Form,
+  Input,
+  InputGroupText,
+  InputGroup,
+  Container,
+  Row,
+  Col
+} from "reactstrap";
+
+// core components
 
 
-const LoginPage = function () {
-
-    const googleLogin = () => {
-        alert("Message : 구글 계정과의 연동 유무 확인. 만약 이미 연동되었을 시 로그인 진행, 미연동 계정일 시 연동을 설정하는 창으로 넘김.");
-    }
-
-    const facebookLogin = () => {
-        alert("Message : 페이스북 계정과의 연동 유무 확인. 만약 이미 연동되었을 시 로그인 진행, 미연동 계정일 시 연동을 설정하는 창으로 넘김.");
-    }
-
-    const kakaoLogin = () => {
-        alert("Message : 카카오 계정과의 연동 유무 확인. 만약 이미 연동되었을 시 로그인 진행, 미연동 계정일 시 연동을 설정하는 창으로 넘김.");
-    }
-
-    const naverLogin = () => {
-        alert("Message : 네이버 계정과의 연동 유무 확인. 만약 이미 연동되었을 시 로그인 진행, 미연동 계정일 시 연동을 설정하는 창으로 넘김.");
-    }
-
+class Login extends React.Component {
+  componentDidMount() {
+    document.documentElement.scrollTop = 0;
+    document.scrollingElement.scrollTop = 0;
+    this.refs.main.scrollTop = 0;
+  }
+  render() {
     return (
-        <div className="loginPage">
-            <button type="button" className="logoBtn">logo</button>
-            <a href="/login" className="loginBtn_home">login</a>
-            <a href="/myInfo" className="myBtn_home">my</a>
-            <a href="/home" className="homeBtn">home</a>
+      <>
+        <main ref="main">
+          <section className="section section-shaped section-lg">
+            <div className="shape shape-style-1 bg-gradient-default">
+              <span />
+              <span />
+              <span />
+              <span />
+              <span />
+              <span />
+              <span />
+              <span />
+            </div>
+            <Header color="green"/>
+            <Container className="pt-lg-7">
+              <Row className="justify-content-center">
+                <Col lg="5">
+                  <Card className="bg-secondary shadow border-0">
+                    <CardHeader className="bg-white pb-5">
+                      <div className="text-muted text-center mb-3">
+                        <small>소셜 로그인을 통해 간편하게 SurMoonVey와 함께하세요!</small>
+                      </div>
+                      <div className="btn-wrapper text-center">
+                     
+                      <GoogleLogin/>
+                      <FaceBookLogin/>
+                      <NaverLogin/>
+                      <KakaoLogin />
+                        
+                      </div>
+                    </CardHeader>
+                    <CardBody className="px-lg-5 py-lg-5" >
+                      <div className="text-center text-white">
+                      
+                        <p>이용약관 및 개인정보처리방침 동의</p>
+                        <small>
+                            회원가입 하시면 본 서비스의 
+                            <Link to="/tos" style={{ textDecoration: 'none' }} >이용약관 </Link>
+                            및 
+                            <Link to="/privacy-policy" style={{ textDecoration: 'none' }} > 개인정보처리방침</Link>
+                            에 동의하는 것입니다.
 
-            <button type="button" className="googleLoginBtn"  onClick={googleLogin}>Continue with Google</button>
-            <button type="button" className="facebookLoginBtn" onClick={facebookLogin}>Continue with Facebook</button>
-            <button type="button" className="kakaoLoginBtn" onClick={kakaoLogin}>Continue with KaKao</button>
-            <button type="button" className="naverLoginBtn" onClick={naverLogin}>Continue with Naver</button>
-
-            <Link to="/tos" className="tosLink_login" >이용약관</Link>
-            <Link to="/privacy-policy" className="privacyLink_login" >개인정보처리방침</Link>
-           
-             
-        </div>
-    )
+                        </small>
+                      </div>
+                    </CardBody>
+                  </Card>
+              
+                </Col>
+              </Row>
+            </Container>
+         
+          </section>
+        </main>
+      </>
+    );
+  }
 }
 
-export default LoginPage;
+export default Login;

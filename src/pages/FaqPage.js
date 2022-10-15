@@ -1,3 +1,4 @@
+import Header from "../components/Header";
 import '../css/FaqPage.css'
 
 // FAQ 페이지
@@ -5,11 +6,8 @@ import '../css/FaqPage.css'
 
 const FaqPage = function () {
     return (
-        <div className="faqPage">
-            <button type="button" className="logoBtn">logo</button>
-            <a href="/login" className="loginBtn_home">login</a>
-            <a href="/myInfo" className="myBtn_home">my</a>
-            <a href="/home" className="homeBtn">home</a>
+        <div >
+            <Header/>
              
             <h3>FAQ</h3>
         </div>
