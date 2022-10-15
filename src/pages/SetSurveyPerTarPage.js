@@ -1,9 +1,14 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { Row, Col, Container } from 'react-bootstrap';
+import surveyInfo, { SET_PERIOD, ADD_GROUP, ADD_TARGET, DEPLOY_METHOD, CREATE_LINK} from '../modules/surveyInfo.js';
 import { Link } from "react-router-dom";
 
 import Header from "../components/Header";
 import '../css/SetSurveyPerTarPage.css';
+
+import PeriodNav from '../components/SetSurveyPerTar/PeriodNav.js';
+import GroupNav from '../components/SetSurveyPerTar/GroupNav.js';
 
 // 배포 전 날짜 및 그룹 설정 페이지
 // └헤더
@@ -21,87 +26,74 @@ import '../css/SetSurveyPerTarPage.css';
 //     └설문 대상 리스트
 //   └설문 공유하기 버튼
 
+// 공유하기 버튼 클릭시 Json 생성
+// Json - 사용자 ID (PK), 설문 ID (FK), 설문 제목, 설문 기간, 
+//        설문 대상, 설문 응답 문구, 설문 응답 딥링크
+
 const SetSurveyPerTarPage = function () {
+    const dispatch = useDispatch();
+    const surveyId = useSelector(state => state.surveyId);
+    const userId = useSelector(state => state.userId);
+    const surveyTime = useSelector(state => state.surveyTime);
+    const userGroup = useSelector(state => state.userGroup);
+    const target = useSelector(state => state.target);
+    const deployMethod = useSelector(state => state.deployMethod);
+    const link = useSelector(state => state.link);
+    const surveyInfo = useSelector(state => state.surveyInfo);
 
-    // 시작일 설정 버튼
-    const startBtn = () => {
-        alert("시작일 설정 버튼");
+    // 기간 설정 업데이트
+    const inputPeriod = (surveyTime) => {
+        dispatch(SET_PERIOD(surveyTime));
     }
 
-    // 시작 시간 설정 드롭다운
-    const startTime = () => {
-        alert("시작 시간 설정 드롭다운");
+    // 그룹 업데이트
+    const groupUpdate = (userGroup) => {
+        dispatch(ADD_GROUP(userGroup));
     }
 
-    // 종료일 설정 버튼
-    const endBtn = () => {
-        alert("종료일 설정 버튼");
+    // 대상 업데이트
+    const targetUpdate = (target) => {
+        dispatch(ADD_TARGET(target));
     }
 
-    // 종료 시간 설정 드롭다운
-    const endTime = () => {
-        alert("종료 시간 설정 드롭다운");
+    // 공유 방법 선택
+    const deployMethodUpdate = (deployMethod) => {
+        dispatch(DEPLOY_METHOD(deployMethod));
     }
 
-    // 내 그룹 설정 버튼
-    const myGroupBtn = () => {
-        alert("내 그룹 설정 버튼");
-    }
-
-    // 그룹 추가 설정 버튼
-    const addGroupBtn = () => {
-        alert("그룹 추가 설정 버튼");
-    }
-
-    // 설문 대상 선택 버튼
-    const targetBtn = () => {
-        alert("설문 대상 선택 버튼");
-    }
-
-    // 대상 추가 선택 버튼
-    const addTargetBtn = () => {
-        alert("대상 추가 선택 버튼");
+    // 링크 생성
+    const linkUpdate = (link) => {
+        link = "/response" + surveyId;
+        dispatch(CREATE_LINK(link));
     }
 
     // 설문 공유 (Deploy Survey) 페이지로 이동
     const gotoDeploySurvey = () => {
-
+        console.log(surveyInfo);
+        alert(JSON.stringify(surveyInfo));
     }
 
     return (
         <div className="setSurveyPerTarPage">
             <Header />
+            
+            <Container className="setPeriodFrame">
+                <Row className="periodFirstText">1. 설문 기간과 대상 설정</Row>
 
-            <div className="setPeriod">
-                <output type="date" className="startDate"></output>
-                {/* <input type="dropdown" className="startTime" onClick={startTime}></input> */}
-                <output type="date" className="endDate"></output>
-                {/* 
-                <input type="dropdown" className="endTime" onClick={endTime}></input>
-                <input type="dropdown" className="setGroup">그룹 설정</input>
+                <Col className="setPeriod">
+                    <Row><PeriodNav /></Row>
+                </Col>
+            </Container>
 
-                <input type="date" className="calender"></input>
-                */}
+            <Container className="setTargetFrame">
+                <Row className="setTarget">
+                    <Col><GroupNav></GroupNav></Col>
+                </Row>
+            </Container>
 
-                {/* 
-                <input type="dropdown" className="yearDrop"></input>
-                <input type="dropdown" className="monthDrop"></input>
-                */}
-                <button type="button" className="startBtn" onClick={startBtn}>시작일</button>
-                <button type="button" className="endBtn" onClick={endBtn}>종료일</button>
-            </div>
-
-            <div className="setTarget">
-                <button type="button" className="myGroupBtn" onClick={myGroupBtn}>내 그룹</button>
-                <button type="button" className="addGroupBtn" onClick={addGroupBtn}>그룹 추가</button>
-                {/* <input type="datalist" className="myGroupList"></input> */}
-
-                <button type="button" className="targetBtn" onClick={targetBtn}>설문 대상</button>
-                <button type="button" className="addTargetBtn" onClick={addTargetBtn}>대상 추가</button>
-                {/* <input type="datalist" className="targetList"></input> */}
-            </div>
-
-            <Link to="/deploy-survey"><button type="button" className="deployBtn" onClick={gotoDeploySurvey}>2. 설문 공유하기</button></Link>
+            <Link to="/deploy-survey">
+                <button className="deployBtn" onClick={gotoDeploySurvey}>2. 설문 공유하기</button>
+            </Link>
         </div>
     )
 }
