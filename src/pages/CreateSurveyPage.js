@@ -5,7 +5,8 @@ import Header from "../components/Header";
 import QuestionCardList from "../components/CreateSurvey/QuestionCardList";
 
 import '../css/CreateSurveyPage.css';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Col, Container, Form, Row } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 // 새 설문 작성 페이지
 // └헤더
@@ -17,24 +18,29 @@ import { Col, Container, Row } from 'react-bootstrap';
 
 const CreateSurveyPage = function () {
     const dispatch = useDispatch();
-    const title = useSelector(state => state.createSurvey.surveyTitle);
-    const content = useSelector(state => state.createSurvey.surveyContent);
     const surveyInfo = useSelector(state => state.createSurvey);
 
     // 설문의 제목 입력 업데이트
+    // title(string): 입력된 값
     const inputTitle = (title) => {
         dispatch(CHANGE_TITLE(title));
     }
 
     // 설문의 부연설명 입력 업데이트
+    // content(string): 입력된 값
     const inputContent = (content) => {
         dispatch(CHANGE_CONTENT(content));
     }
 
+    const saveSurvey = () => {
+        alert("설문 임시 저장 및 홈 페이지로 이동");
+        console.log(surveyInfo);
+    }
+
     // 설문 저장 버튼 클릭시 입력한 모든 정보를 console에 띄움
     const createSurvey = () => {
+        alert("설문 저장 및 공유 페이지로 이동");
         console.log(surveyInfo);
-        alert(JSON.stringify(surveyInfo));
     }
 
     return (
@@ -44,15 +50,19 @@ const CreateSurveyPage = function () {
             <div className="create-survey-title">설문지 작성</div>
             <Container className="create-survey-form">
                 <Row>
-                    <Col className="mt-5 mx-5" ><input type="text" value={title} placeholder="설문지 제목" onChange={(e) => inputTitle(e.target.value)} /></Col>
+                    <Col className="mt-5 mx-5 fs-1"><Form.Control plaintext placeholder="설문 제목을 입력하세요" value={surveyInfo.surveyTitle} onChange={(e) => inputTitle(e.target.value)} /></Col>
                 </Row>
                 <Row>
-                    <Col className="m-5"><input type="text" value={content} placeholder="설문지 부연설명" onChange={(e) => inputContent(e.target.value)} /></Col>
+                    <Col className="m-5 create-survey-bottomLine fs-2"><Form.Control plaintext placeholder="설명" value={surveyInfo.surveyContent} onChange={(e) => inputContent(e.target.value)} /></Col>
                 </Row>
                 <Row>
                     <QuestionCardList />
                 </Row>
-                <button type="button" onClick={createSurvey}>저장</button>
+                <div className="text-center my-5">
+                    <Link to="/home"><button className="create-survey-submit mx-5 fs-2" type="button" onClick={saveSurvey}>임시저장</button></Link>
+
+                    <Link to="/deploy-survey"><button className="create-survey-submit mx-5 fs-2" type="button" onClick={createSurvey}>공유</button></Link>
+                </div>
             </Container>
         </div >
     )

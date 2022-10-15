@@ -1,16 +1,23 @@
 // 응답 카드 컴포넌트(주관식)
 
+import { Col, Table } from "react-bootstrap";
+
 const SubjectiveStat = function ({ statCard }) {
     return (
-        <div className="survey-result-stat py-2 my-3">
-            <p>Q1: {statCard.title}</p>
-            <div className="survey-result-subans">
-                {
-                    statCard.answers.map((answer, ansIdx) => {
-                        return <div key={ansIdx}>{answer} < br /></div>
-                    })
-                }
+        <div className="survey-result-stat">
+            <Col className="mb-5 fs-4">Q{statCard.questionOrder}. {statCard.title}</Col>
+            <div className="survey-result-subjectiveAnswer mb-4 fs-5">
+                <Table striped bordered hover>
+                    <tbody  >
+                        {
+                            statCard.answers.map((answer, answerIdx) => {
+                                return <tr className="py-1" key={answerIdx}><td>{answer.value}</td></tr>
+                            })
+                        }
+                    </tbody>
+                </Table>
             </div>
+
         </div >
     )
 }

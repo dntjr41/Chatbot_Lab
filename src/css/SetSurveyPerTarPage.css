@@ -1,71 +1,66 @@
 /* 배포 전 날짜 및 그룹 설정 페이지에서 쓰일 css */
 .setSurveyPerTarPage {
-    background-image: url(../images/setSurveyPerTarPage2.png);
-    background-repeat: no-repeat;
-    margin: auto;
-    width: 100%;
+    background-color: #e0dfdf;
+    width: auto;
     height: 2300px;
+    text-align: center;
 }
 
-.startBtn {
-    position: absolute;
-    top: 515px;
-    left: 1190px;
-    width: 80px;
-    height: 40px;
-    opacity: 0.5; 
+.setPeriodFrame {
+    background-color: white;
+    position: relative;
+    top: 30px;
+    margin: 10px 10px 10px 10px;
+    padding: 30px 10px 10px 10px;
+    border-radius: 15px 15px 15px 15px;
 }
 
-.endBtn {
-    position: absolute;
-    top: 515px;
-    left: 1270px;
-    width: 80px;
-    height: 40px;
-    opacity: 0.5;
+.setPeriod {
+    background-color: #883ECC;
+    position: relative;
+    top: 10px;
+    margin: 10px 10px 10px 10px;
+    padding: 10px 10px 10px 10px;
+    border-radius: 15px 15px 15px 15px;
 }
 
-.myGroupBtn {
-    position: absolute;
-    top: 1360px;
-    left: 190px;
-    width: 270px;
-    height: 90px;
-    opacity: 0.5;
+.periodFirstText {
+    position: relative;
+    color: #464A56;
+    font-size: 50px;
+    align-content: center;
+    margin: 10px 10px 10px 10px;
+    border: 10px 10px 10px 10px;
+    text-indent: 8em;
 }
 
-.addGroupBtn {
-    position: absolute;
-    top: 1360px;
-    left: 470px;
-    width: 270px;
-    height: 90px;
-    opacity: 0.5;
+.setTargetFrame {
+    background-color: white;
+    position: relative;
+    top: 50px;
+    margin: 10px 10px 10px 10px;
+    padding: 10px 10px 10px 10px;
+    border-radius: 15px 15px 15px 15px;
 }
 
-.targetBtn {
-    position: absolute;
-    top: 1360px;
-    left: 820px;
-    width: 270px;
-    height: 90px;
-    opacity: 0.5;
-}
-
-.addTargetBtn {
-    position: absolute;
-    top: 1360px;
-    left: 1100px;
-    width: 270px;
-    height: 90px;
-    opacity: 0.5;
+.setTarget {
+    background-color: #883ECC;
+    position: relative;
+    top: 10px;
+    margin: 10px 10px 10px 10px;
+    padding: 10px 10px 10px 10px;
+    border-radius: 15px 15px 15px 15px;
 }
 
 .deployBtn {
-    position: absolute;
-    top: 2100px;
-    left: 430px;
-    width: 700px;
-    height: 120px;
-    opacity: 0.5;
+    position: relative;
+    top: 70px;
+    width: 600px;
+    height: 100px;
+    padding: 5px 5px 5px 5px;
+    margin: 10px 10px 10px 10px;
+    background-color: #662D91;
+    color: white;
+    font-size: 45px;
+    border-radius: 15px 15px 15px 15px;
 }

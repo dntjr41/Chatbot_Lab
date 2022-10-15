@@ -3,7 +3,7 @@ import StatisticCardList from "../components/SurveyResult/StatisticCardList";
 
 import '../css/SurveyResultPage.css'
 
-import { Row, Col, Container } from "react-bootstrap";
+import { Row, Col, Container, Tabs, Tab, Nav } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 
@@ -17,13 +17,9 @@ import { useState } from "react";
 // └결과 분석 컴포넌트
 
 const SurveyResult = function () {
-    const surveyTitle = useSelector(state => state.surveyStatistic.surveyTitle);
-    const surveyContent = useSelector(state => state.surveyStatistic.surveyContent);
-    const surveyTime = useSelector(state => state.surveyStatistic.surveyTime);
-
-    console.log(surveyTitle);
-    console.log(surveyContent);
-    console.log(surveyTime);
+    const surveyTitle = useSelector(state => state.surveyResult.surveyTitle);
+    const surveyContent = useSelector(state => state.surveyResult.surveyContent);
+    const surveyTime = useSelector(state => state.surveyResult.surveyTime);
 
     const [isStat, setIsStat] = useState(true);
     const [isAnaly, setIsAnaly] = useState(false);
@@ -43,25 +39,36 @@ const SurveyResult = function () {
             <Header />
 
             <Container>
-                <div className="survey-result-tab my-3">
-                    <Row className="text-center">
-                        <Col md={{ offset: 8, span: 2 }}><button type="button" onClick={showStat} disabled={isStat}>통계보기</button></Col>
-                        <Col md={2}><button type="button" onClick={showAnaly} disabled={isAnaly}>분석보기</button></Col>
-                    </Row>
-                </div>
-                <div className="survey-result-info my-3">
-                    <Row><Col>설문 제목 - {surveyTitle}</Col></Row>
-                    <Row><Col>설문 기간 - {surveyTime.start} ~ {surveyTime.end}</Col></Row>
-                    <Row style={{ fontSize: "32px" }}><Col>{surveyContent}</Col></Row>
-                </div>
-
-                <div>
-                    {isStat && <StatisticCardList />}
-                    {isAnaly && <h1>분석 화면</h1>}
-                </div>
+                <Tab.Container
+                    defaultActiveKey="statistic"
+                    id="result-tab"
+                    fill
+                >
+                    <Nav className="justify-content-end mx-5 px-3" variant="tabs">
+                        <Nav.Item>
+                            <Nav.Link eventKey="statistic">통계보기</Nav.Link>
+                        </Nav.Item>
+                        <Nav.Item>
+                            <Nav.Link eventKey="analysis">분석보기</Nav.Link>
+                        </Nav.Item>
+                    </Nav>
+                    <div className="survey-result-info p-3 fs-1">
+                        <Col className="mb-3">설문 제목 - {surveyTitle}</Col>
+                        <Col className="mb-3">설문 기간 - {surveyTime.start} ~ {surveyTime.end}</Col>
+                        <Col className="survey-result-bottomLine fs-2">{surveyContent}</Col>
+                    </div>
+                    <Tab.Content>
+                        <Tab.Pane eventKey="statistic">
+                            <StatisticCardList />
+                        </Tab.Pane>
+                        <Tab.Pane eventKey="analysis">
+                            <h1>분석 화면</h1>
+                        </Tab.Pane>
+                    </Tab.Content>
+                </Tab.Container>
             </Container>
 
-        </div>
+        </div >
     )
 }
 

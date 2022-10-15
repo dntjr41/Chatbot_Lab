@@ -1,3 +1,7 @@
+import { Col, Row } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import Header from "../components/Header";
+
 import '../css/FinishResponsePage.css'
 
 // 피설문자의 응답 완료 페이지
@@ -11,23 +15,25 @@ const FinishResponsePage = function () {
         alert("홈 페이지로 이동");
     }
 
-    // 설문창 닫기
-    const closeWindow = () => {
-        alert("창 닫기");
-    }
-
     // 이전 페이지로 돌아가서 응닫 수정하기
     const backToResponse = () => {
         alert("이전 페이지로 돌아가기");
     }
 
     return (
-        <div className="finishResponse">
-            <button type="button" className="logoBtn" onClick={gotoHome} />
-            <button type="button" className="exitPageBtn" onClick={closeWindow} />
-
-            <button type="button" className="editResponseBtn" onClick={backToResponse} />
-            <button type="button" className="gotoHomeBtn" onClick={gotoHome} />
+        <div className="finish-response-layout">
+            <Header />
+            <div className="finish-response-thankBox">
+                <Row style={{ marginBottom: "120px", fontSize: "24px", fontWeight: "600" }}>
+                    <Col>설문에 응답해주셔서 감사합니다.</Col>
+                </Row>
+                <Row style={{ marginBottom: "65px" }}>
+                    <Link to="/response" onClick={backToResponse}>응답 수정하기</Link>
+                </Row>
+                <Row>
+                    <Link to="/home"><button className="finish-response-exit" type="button" onClick={gotoHome}>SurMoonVey알아보기</button></Link>
+                </Row>
+            </div>
         </div>
     )
 }
