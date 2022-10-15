@@ -5,6 +5,7 @@ import Col from 'react-bootstrap/Col';
 import Stack from 'react-bootstrap/Stack';
 import { Link } from "react-router-dom";
 import { BsQuestionCircle, BsPersonSquare, BsHouseDoor } from "react-icons/bs";
+import { Container } from "react-bootstrap";
 
 // 헤더 컴포넌트
 // └헤더 상단바
@@ -13,7 +14,7 @@ import { BsQuestionCircle, BsPersonSquare, BsHouseDoor } from "react-icons/bs";
 const Header = function (props) {
     return (
         <div>
-            <Row className="header-top px-5">
+            <div className="header-top px-5">
                 <Col className="header-logo" md={3}>
                     <Link to="/home"></Link>
                 </Col>
@@ -26,8 +27,8 @@ const Header = function (props) {
                 </Col>
 
 
-            </Row>
-            <Row className={props.color === "green" ? "header-bottom px-5 primary-color-grad" : "header-bottom px-5 secondary-color-grad"}>
+            </div>
+            <div className={props.color === "green" ? "header-bottom px-5 primary-color-grad" : "header-bottom px-5 secondary-color-grad"}>
                 <Col className="header-homelink" md={3}>
                     <Link to="/home">
                         <Stack direction="horizontal" gap={3}>
@@ -36,7 +37,7 @@ const Header = function (props) {
                         </Stack>
                     </Link>
                 </Col>
-            </Row>
+            </div>
         </div >
     )
 }

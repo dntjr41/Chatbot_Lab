@@ -3,8 +3,9 @@
 .header-top {
     height: 72px;
     padding: 6px 0px;
-
     background-color: white;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .header-logo {
@@ -23,6 +24,8 @@
 .header-bottom {
     height: 60px;
     border-radius: 0px 0px 45px 0px;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .header-homelink {
