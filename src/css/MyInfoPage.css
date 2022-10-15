@@ -14,12 +14,16 @@
 }
 
 .UserInfo{
-    text-align: center;
+    text-align: left;
     padding-top: 30px;
 }
 
+.link_info{
+  text-align: center;
+  padding-top: 30px;
+}
 .user_info {
-    font-size: 23px;
+    font-size: 15px;
     font-weight: bold;
     margin: 10px 0;
 }
