@@ -61,7 +61,7 @@ const MyInfoPage = function () {
       }, []);
       return (
         <div className="UserInfo">
-          <Header/>
+          <Header color="green"/>
           <img src={profileImage}></img>
          
           <div className="user_info">{nickName}님의 마이페이지</div>

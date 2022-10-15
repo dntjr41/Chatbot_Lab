@@ -3,42 +3,37 @@
 
 
   .googleLoginBtn {
-    position: absolute;
-    top: 320px;
-    left: 475px;
-    width: 500px;
-    height: 80px;
-    opacity: 0.6;
+    position: static;
+    margin: auto;
   }
 
   .facebookLoginBtn {
-    position: absolute;
-    top: 420px;
-    left: 475px;
-    width: 500px;
-    height: 80px;
+    background-image: url(../images/login/Facebook.png);
+    position: static;
+    width: 205px;
+    height: 40px;
     margin: auto;
+    background-size: contain;
+    background-repeat: no-repeat;
   }
 
   .kakaoLoginBtn {
     background-image: url(../images/login/Kakao.png);
-    position: absolute;
-    top: 520px;
-    left: 475px;
-    width: 500px;
-    height: 75px;
+    position: static;
+    width: 205px;
+    height: 50px;
     margin: auto;
-    background-size: contain;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 
   .naverLoginBtn {
-    position: absolute;
+    position: static;
     top: 620px;
     left: 475px;
-    width: 500px;
-    height: 80px;
-    opacity: 0.6;
+
   }
+
 
   .tosLink_login {
     position: absolute;

@@ -61,7 +61,7 @@ const NaverLogin = ()=> {
 
     return (
         <div>
-    <div id="naverIdLogin" className="naverLoginBtn"/>
+    <div id="naverIdLogin" display="none" className="naverLoginBtn"/>
     </div>
     );
 }

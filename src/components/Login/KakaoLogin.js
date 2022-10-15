@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { Button } from 'react-bootstrap';
 import '../../css/LoginPage.css'
 
 const KakaoLogin = () => {
@@ -60,8 +61,8 @@ const KakaoLogin = () => {
 
   return (
     <>
-      <div >
-        <a href={KAKAO_AUTH_URI} className="kakaoLoginBtn"></a>
+      <div>
+        <Button className="kakaoLoginBtn" href={KAKAO_AUTH_URI} ></Button>
       </div>
     </>
   );

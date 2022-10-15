@@ -17,7 +17,7 @@ const HomePage = function () {
 
     return (
         <div>
-            <Header/>
+            <Header color="green"/>
             <Slide/>
             <Footer/>
             
