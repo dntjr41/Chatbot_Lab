@@ -1,0 +1,14 @@
+
+
+.periodOKButton {
+    position: relative;
+    top: 5px;
+    width: 500px;
+    height: 100px;
+    padding: 15px 15px 15px 15px;
+    margin: 10px 10px 10px 10px;
+    background-color: white;
+    color: #662D91;
+    font-size: 45px;
+    border-radius: 15px 15px 15px 15px;
+}

@@ -2,7 +2,7 @@
 .setSurveyPerTarPage {
     background-color: #e0dfdf;
     width: auto;
-    height: 2300px;
+    height: 1300px;
     text-align: center;
 }
 
@@ -10,8 +10,8 @@
     background-color: white;
     position: relative;
     top: 30px;
-    margin: 10px 10px 10px 10px;
-    padding: 30px 10px 10px 10px;
+    margin: 15px 15px 15px 15px;
+    padding: 15px 15px 15px 15px;
     border-radius: 15px 15px 15px 15px;
 }
 
@@ -19,8 +19,8 @@
     background-color: #883ECC;
     position: relative;
     top: 10px;
-    margin: 10px 10px 10px 10px;
-    padding: 10px 10px 10px 10px;
+    margin: 15px 15px 15px 15px;
+    padding: 15px 15px 15px 15px;
     border-radius: 15px 15px 15px 15px;
 }
 
@@ -31,7 +31,7 @@
     align-content: center;
     margin: 10px 10px 10px 10px;
     border: 10px 10px 10px 10px;
-    text-indent: 8em;
+    text-align: center;
 }
 
 .setTargetFrame {
@@ -54,13 +54,42 @@
 
 .deployBtn {
     position: relative;
-    top: 70px;
+    top: 30px;
     width: 600px;
-    height: 100px;
-    padding: 5px 5px 5px 5px;
+    height: 120px;
+    padding: 15px 15px 15px 15px;
     margin: 10px 10px 10px 10px;
     background-color: #662D91;
     color: white;
     font-size: 45px;
     border-radius: 15px 15px 15px 15px;
 }
+
+.periodText {
+    text-align: left;
+    display: flex;
+    padding: 10px 10px 10px 10px;
+  }
+  
+  .periodTxt {
+    color:white;
+    font-size:20px;
+  }
+  
+  .periodBtnNav {
+    background-color: white;
+    position: relative;
+    top: 5px;
+    margin: 10px 10px 10px 10px;
+    padding: 10px 10px 10px 10px;
+    border-radius: 15px 15px 15px 15px;
+  }
+  
+  .calender {
+    background-color: white;
+    position: relative;
+    top: 10px;
+    margin: 10px 10px 10px 10px;
+    padding: 10px 10px 10px 10px;
+    border-radius: 15px 15px 15px 15px;
+  }

@@ -7,8 +7,10 @@ import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import '../css/SetSurveyPerTarPage.css';
 
-import PeriodNav from '../components/SetSurveyPerTar/PeriodNav.js';
+import 'react-date-range/dist/styles.css'; // main style file
+import 'react-date-range/dist/theme/default.css'; // theme css file
 import GroupNav from '../components/SetSurveyPerTar/GroupNav.js';
+import Calendar from '../components/SetSurveyPerTar/Calender.js';
 
 // 배포 전 날짜 및 그룹 설정 페이지
 // └헤더
@@ -30,47 +32,35 @@ import GroupNav from '../components/SetSurveyPerTar/GroupNav.js';
 // Json - 사용자 ID (PK), 설문 ID (FK), 설문 제목, 설문 기간, 
 //        설문 대상, 설문 응답 문구, 설문 응답 딥링크
 
-const SetSurveyPerTarPage = function () {
+const SetSurveyPerTarPage = function (name) {
     const dispatch = useDispatch();
     const surveyId = useSelector(state => state.surveyId);
     const userId = useSelector(state => state.userId);
     const surveyTime = useSelector(state => state.surveyTime);
-    const userGroup = useSelector(state => state.userGroup);
-    const target = useSelector(state => state.target);
-    const deployMethod = useSelector(state => state.deployMethod);
     const link = useSelector(state => state.link);
     const surveyInfo = useSelector(state => state.surveyInfo);
 
     // 기간 설정 업데이트
-    const inputPeriod = (surveyTime) => {
+    const inputPeriod = () => {
         dispatch(SET_PERIOD(surveyTime));
-    }
-
-    // 그룹 업데이트
-    const groupUpdate = (userGroup) => {
-        dispatch(ADD_GROUP(userGroup));
-    }
-
-    // 대상 업데이트
-    const targetUpdate = (target) => {
-        dispatch(ADD_TARGET(target));
-    }
-
-    // 공유 방법 선택
-    const deployMethodUpdate = (deployMethod) => {
-        dispatch(DEPLOY_METHOD(deployMethod));
+        console.log(surveyTime);
     }
 
     // 링크 생성
-    const linkUpdate = (link) => {
-        link = "/response" + surveyId;
+    const linkUpdate = () => {
+        var link = "localhost:3000/response/" + surveyId;
         dispatch(CREATE_LINK(link));
+        console.log(link);
     }
 
     // 설문 공유 (Deploy Survey) 페이지로 이동
     const gotoDeploySurvey = () => {
+        inputPeriod();
+        linkUpdate();
+
+        console.log(name);
         console.log(surveyInfo);
-        alert(JSON.stringify(surveyInfo));
+        alert(JSON.stringify(surveyInfo.link));
     }
 
     return (
@@ -78,17 +68,18 @@ const SetSurveyPerTarPage = function () {
             <Header />
             
             <Container className="setPeriodFrame">
-                <Row className="periodFirstText">1. 설문 기간과 대상 설정</Row>
+                <Col className="periodFirstText">1. 설문 기간 설정</Col>
 
                 <Col className="setPeriod">
-                    <Row><PeriodNav /></Row>
-                </Col>
-            </Container>
+                    <Container>
+                    <Row className="periodText">
+                        <Col><text className="periodTxt">설문 시작일 설정</text></Col>
+                        <Col><text className="periodTxt">설문 종료일 설정</text></Col>
+                    </Row>
 
-            <Container className="setTargetFrame">
-                <Row className="setTarget">
-                    <Col><GroupNav></GroupNav></Col>
-                </Row>
+                    <Row><Calendar className="peroidText"/></Row>
+                    </Container>
+                </Col>
             </Container>
 
             <Link to="/deploy-survey">

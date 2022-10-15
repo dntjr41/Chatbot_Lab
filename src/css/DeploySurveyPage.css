@@ -3,15 +3,15 @@
 .deploySurveyPage {
     background-color: #e0dfdf;
     width: auto;
-    height: 1150px;
+    height: 930px;
     align-content: center;
 }
 
 .MainFrame {
     background-color: white;
     position: relative;
-    top: 40px;
-    height: 800px;
+    top: 20px;
+    height: 610px;
     margin: 10px 10px 10px 10px;
     padding: 10px 10px 10px 10px;
     border-radius: 15px 15px 15px 15px;
@@ -21,7 +21,7 @@
     background-color: #883ECC;
     position: relative;
     top: 5px;
-    height: 750px;
+    height: 565px;
     margin: 10px 10px 10px 10px;
     padding: 10px 10px 10px 10px;
     border-radius: 15px 15px 15px 15px;
@@ -29,7 +29,6 @@
 
 .deployInfo {
     position: relative;
-
     margin: 10px 10px 10px 10px;
     padding: 10px 10px 10px 10px;
     border-radius: 15px 15px 15px 15px;
@@ -38,7 +37,7 @@
 
 .info {
     position: relative;
-    text-align: center;
+    text-align: left;
     height: auto;
     margin: 10px 10px 10px 10px;
     padding: 5px 5px 5px 5px; 
@@ -46,68 +45,72 @@
     line-height: 80px;
     background-color: #A76BD3;
     border-radius: 15px 15px 15px 15px;
-    text-indent: 2em;
+    font-size: x-large;
+    text-indent: 1em;
 }
 
 .deployLink {
     position: relative;
-    top: 20px;
+    top: 15px;
     height: auto;
     padding: 5px 5px 5px 5px;
     margin: 10px 10px 10px 10px;
     background-color:white;
     border-radius: 15px 15px 15px 15px;
-    text-align: center;
-    font-size: 20px;
+    text-align: left;
+    font-size: 25px;
+    text-indent: 1em;
 }
 
 .linkBtn {
     position: relative;
     background-image: url('../images/deployButton/linkBtn.png');
+    background-color: white;
     background-repeat: no-repeat;
-    float:right;
-    
-    width: 50px;
-    height: 50px;
+    border: none;
+    float: right;
+    top:4px;
+    width: 30px;
+    height: 30px;
     opacity: 0.5;
 }
 
 .deployQR {
     position: relative;
-    top: 30px;
-    width: auto;
+    width: max-content;
     height: auto;
-    padding: 5px 5px 5px 5px;
+    top:30px;
+    padding: 15px 15px 15px 15px;
     margin: 10px 10px 10px 10px;
     background-color:white;
     border-radius: 15px 15px 15px 15px;
-    float: center;
-    display: flex;
-    justify-self: center;
-    align-items: center;
-}
-
-.QRcode {
-    position: relative;
-    top: 10px;
-    padding: 5px 5px 5px 5px;
-    margin: 10px 10px 10px 10px;
+    left:40%;
 }
 
 .qrBtn {
     position: relative;
     background-image: url('../images/deployButton/qrBtn.png');
+    background-color: white;
     background-repeat: no-repeat;
+    border: none;
+    float: right;
 
     float:right;    
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
     opacity: 0.5;
+}
+
+.homeBtnFrame {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-content: center;
 }
 
 .goDeployHomeBtn {
     position: relative;
-    top: 50px;
+    top: 25px;
     width: 600px;
     height: 100px;
     padding: 5px 5px 5px 5px;

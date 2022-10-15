@@ -1,16 +1,22 @@
+import '../css/ServicePage.css';
 import Header from "../components/Header";
-import '../css/ServicePage.css'
+import { Row, Col, Container} from 'react-bootstrap';
 
 // 고객 센터 페이지
 // └헤더
 
 const ServicePage = function () {
     return (
-        <div >
-            <Header/>
-             
-            <h3>고객 센터</h3>
+        <div className="servicePage">
+            <Header color="purple"/>
 
+            <Container className="MainFrame">
+                <Col><h3>고객 센터</h3></Col>
+                
+                <div className="SubFrame">
+
+                </div>
+            </Container>
         </div>
     )
 }
