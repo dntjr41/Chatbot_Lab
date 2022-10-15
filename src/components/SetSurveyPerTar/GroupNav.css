@@ -1,0 +1,27 @@
+/* Group Frame 에서 쓰일 css */
+
+.groupFrame {
+    background-color: white;
+    position: relative;
+    margin: 10px 10px 10px 10px;
+    padding: 10px 10px 10px 10px;
+    border-radius: 15px 15px 15px 15px;
+}
+
+.groupButton {
+    background-color: #e0dfdf;
+    position: relative;
+    top: 5px;
+    margin: 10px 10px 10px 10px;
+    padding: 10px 10px 10px 10px;
+    border-radius: 15px 15px 15px 15px;
+}
+
+.groupAddBtn {
+    position: relative;
+    background-color: #9142DB;
+    border-color: #9142DB;
+    width: 265px;
+    color: white;
+    font-size: 30px;
+}

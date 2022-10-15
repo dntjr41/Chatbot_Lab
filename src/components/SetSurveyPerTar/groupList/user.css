@@ -1,0 +1,54 @@
+#cont {
+    /* border: 1px solid blue; */
+    width: 80%;
+    margin: auto;
+  }
+  .flex {
+    display: flex;
+    gap: 18%;
+    /* border: 1px solid blue; */
+    width: 90%;
+    margin: auto;
+    margin-bottom: -15px;
+  }
+  .userdata-flex {
+    display: flex;
+    gap: 15%;
+    /* border: 1px solid blue; */
+    width: 90%;
+    margin: auto;
+    margin-bottom: -15px;
+  }
+  
+  .flex > h3,
+  p {
+    margin-top: -2px;
+  }
+  form > input {
+    /* cursor: pointer; */
+    width: 95%;
+    margin-top: 50px;
+    padding: 10px;
+  }
+  .table {
+    border: 1px solid black;
+    width: 100%;
+  }
+  .head {
+    font-weight: 600;
+  }
+  .btn {
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  .edit {
+    background-color: green;
+  }
+  .selected {
+    background-color: #ff5171;
+    padding: 5px;
+  }
+  

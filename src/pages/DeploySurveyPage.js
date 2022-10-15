@@ -1,9 +1,13 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { Row, Col, Container} from 'react-bootstrap';
 import { Link } from "react-router-dom";
+import QRCode from 'qrcode.react';
 
 import Header from "../components/Header";
 import '../css/DeploySurveyPage.css';
+
+import surveyInfo from '../modules/surveyInfo';
 
 // 배포 (설문 공유) 페이지
 // └헤더
@@ -19,42 +23,72 @@ import '../css/DeploySurveyPage.css';
 
 const DeploySurveyPage = function () {
 
-    // 홈페이지로 이동
-    const gotoHome = () => {
-        
-    }
+    const surveyTitle = useSelector(state => state.surveyTitle);
+    const surveyTime = useSelector(state => state.surveyTime);
+    // Target에 대해서도 말해야함
+
+    const deployMethod = useSelector(state => state.deployMethod);
+    const link = useSelector(state => state.link);
 
     // 링크 복사하기
     const downloadLink = () => {
+        navigator.clipboard.writeText(link);
         alert("링크 복사하기");
     }
 
     // QR코드 다운로드하기
     const downloadQR = () => {
-        alert("QR코드 다운로드하기");
+        const qrCodeURL = document.getElementById('qrCodeEl')
+        .toDataURL("image/png").replace("image/png", "image/octet-stream");
+    
+        console.log(qrCodeURL)
+        let aEl = document.createElement("a");
+        aEl.href = qrCodeURL;
+        aEl.download = "QR_Code.png";
+        document.body.appendChild(aEl);
+        aEl.click();
+        document.body.removeChild(aEl);
     }
+
+
 
     return (
         <div className="deploySurveyPage">
             <Header />
 
-            <div className="deploySurvey">
-                <div className="deployInfo">
-                    <output type="text" className="surveyTitle"></output>
-                    <output type="text" className="surveyPeriod"></output>
-                    <output type="text" className="surveyTarget"></output>
-                </div>
-                
-                <div>
-                    <link className="deployLink" rel=""></link>
-                    <button type="button" className="linkBtn" onClick={downloadLink}>link</button>
+            <Container className="MainFrame">
+                <div className="deploySurvey">
+                    <Col className="deployInfo">
+                        <Row className="info">설문 제목 - {surveyTitle}</Row>
+                        <Row className="info">설문 기간 - {surveyTime}</Row>
+                        <Row className="info">설문 대상 - 그룹 </Row>
+                    </Col>
+                    
+                    <Row className="deployLink">
+                        <Col>링크 - {link}</Col>
+                        <Col><button className="linkBtn" onClick={downloadLink}/></Col>
+                    </Row>
 
-                    <output type="img" className="deployQR" src=""></output>
-                    <button type="button" className="qrBtn" onClick={downloadQR}>download</button>
-                </div>
+                    {/*
+                    <Col className="deployQR">
+                        <Row><QRCode className="QRCode" id="qr-gen" value={qrValue} /></Row>
+                        <Row><Col>QR 코드</Col>
+                             <Col><button className="qrBtn" onClick={downloadQR} /></Col></Row>
+                    </Col>
+                    */}
 
-                <Link to="/home"><button type="button" className="goHomeBtn" onClick={gotoHome}>홈으로 가기</button></Link>
-            </div>
+                    <Col className="deployQR">
+                        <Row><QRCode id="qrCodeEl" value="https://github.com/dntjr41/KAKAO_Chatbot_Lab"/></Row>
+                        <Row>
+                            <Col>QR 코드</Col>
+                            <Col><button className="qrBtn" onClick={downloadQR}></button></Col>
+                        </Row>
+                    </Col>
+
+
+                </div>
+            </Container>
+            <Link to="/home"><button type="button" className="goDeployHomeBtn">홈으로 가기</button></Link>
         </div>
     )
 }
