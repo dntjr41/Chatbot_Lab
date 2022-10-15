@@ -6,8 +6,8 @@ import { useSelector, useDispatch } from 'react-redux';
 function QuestionnaireNav(props) {
     /* 리덕스 */
     // 설문함 선택 옵션
-    const { newQuestionnairePopupShow } = useSelector((state) => ({
-        newQuestionnairePopupShow: state.questionnairesReducer.newQuestionnairePopupShow,
+    const { questionnaireSelectionOption } = useSelector((state) => ({
+        questionnaireSelectionOption: state.questionnairesReducer.questionnaireSelectionOption,
     }));
     const dispatch = useDispatch();
     const newQuestionnaireButtonOnClick = (qsoIdx) => {
@@ -22,37 +22,47 @@ function QuestionnaireNav(props) {
                 <Nav fill variant="tabs">
                     <Nav.Item >
                         <Nav.Link onClick={(e) => { newQuestionnaireButtonOnClick(0, e) }}>
-                            <text className="NavItem">
-                                &nbsp;&nbsp;&nbsp;전체&nbsp;&nbsp;&nbsp;
-                            </text>
+                            {
+                                questionnaireSelectionOption !== 0 ?
+                                    <text className="NavItem">&nbsp;&nbsp;&nbsp;전체&nbsp;&nbsp;&nbsp;</text>
+                                    : <b className="NavItem">&nbsp;&nbsp;&nbsp;전체&nbsp;&nbsp;&nbsp;</b>
+                            }
                         </Nav.Link>
                     </Nav.Item>
                     <Nav.Item className="NavItem">
                         <Nav.Link onClick={(e) => { newQuestionnaireButtonOnClick(1, e) }}>
-                            <text className="NavItem">
-                                &nbsp;제작 중&nbsp;
-                            </text>
+                            {
+                                questionnaireSelectionOption !== 1 ?
+                                    <text className="NavItem">&nbsp;제작 중&nbsp;</text>
+                                    : <b className="NavItem">&nbsp;제작 중&nbsp;</b>
+                            }
                         </Nav.Link>
                     </Nav.Item>
                     <Nav.Item className="NavItem">
                         <Nav.Link onClick={(e) => { newQuestionnaireButtonOnClick(2, e) }}>
-                            <text className="NavItem">
-                                &nbsp;예약 중&nbsp;
-                            </text>
+                            {
+                                questionnaireSelectionOption !== 2 ?
+                                    <text className="NavItem">&nbsp;예약 중&nbsp;</text>
+                                    : <b className="NavItem">&nbsp;예약 중&nbsp;</b>
+                            }
                         </Nav.Link>
                     </Nav.Item>
                     <Nav.Item className="NavItem">
                         <Nav.Link onClick={(e) => { newQuestionnaireButtonOnClick(3, e) }}>
-                            <text className="NavItem">
-                                &nbsp;배포 중&nbsp;
-                            </text>
+                            {
+                                questionnaireSelectionOption !== 3 ?
+                                    <text className="NavItem">&nbsp;배포 중&nbsp;</text>
+                                    : <b className="NavItem">&nbsp;배포 중&nbsp;</b>
+                            }
                         </Nav.Link>
                     </Nav.Item>
                     <Nav.Item className="NavItem">
                         <Nav.Link onClick={(e) => { newQuestionnaireButtonOnClick(4, e) }}>
-                            <text className="NavItem">
-                                &nbsp;&nbsp;&nbsp;종료&nbsp;&nbsp;&nbsp;
-                            </text>
+                            {
+                                questionnaireSelectionOption !== 4 ?
+                                    <text className="NavItem">&nbsp;&nbsp;&nbsp;종료&nbsp;&nbsp;&nbsp;</text>
+                                    : <b className="NavItem">&nbsp;&nbsp;&nbsp;종료&nbsp;&nbsp;&nbsp;</b>
+                            }
                         </Nav.Link>
                     </Nav.Item>
                 </Nav>

@@ -8,7 +8,7 @@ import "../css/QuestionnairePage.css"
 function QuestionnairesPage() {
     return (
       <main >
-        <Header />
+        <Header color="purple" />
         <div id="questionnaire-page">
           <br/>
           <h1 className="Title"><b>&nbsp;&nbsp;&nbsp;&nbsp;설문 제작함</b></h1>
