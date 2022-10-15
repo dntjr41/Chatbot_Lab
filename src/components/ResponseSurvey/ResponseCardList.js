@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 
-import ChoiceCard from "./QuestionCards/ChoiceCard";
-import SubjectiveCard from "./QuestionCards/SubjectiveCard";
+import ChoiceCard from "./ResponseCards/ChoiceCard";
+import SubjectiveCard from "./ResponseCards/SubjectiveCard";
 
 import "../../css/ResponseSurveyPage.css";
 
@@ -16,7 +16,7 @@ const QuestionCardList = function () {
         <div className="response-survey-cardlist">
             {
                 questionCardList.map((questionCard, listIdx) => {
-                    if (questionCard.type === "choice") {
+                    if (questionCard.type === 1) {
                         return <ChoiceCard questionCard={questionCard} listIdx={listIdx} key={listIdx} />
                     }
                     else {

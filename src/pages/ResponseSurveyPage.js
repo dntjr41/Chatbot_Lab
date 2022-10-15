@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 
 import Header from "../components/Header";
-import QuestionCardList from "../components/ResponseSurvey/QuestionCardList";
+import ResponseCardList from "../components/ResponseSurvey/ResponseCardList";
 
 import "../css/ResponseSurveyPage.css";
 import { Container, Row, Col } from "react-bootstrap";
@@ -28,16 +28,16 @@ const ResponsePage = function () {
             <div className="response-title">설문지 응답</div>
             <Container className="response-survey-form">
                 <Row>
-                    <Col className="mt-5 mx-5" style={{ fontSize: "48px" }}><div>{responseInfo.surveyTitle}</div></Col>
+                    <Col className="mt-5 mx-5 fs-1"><div>{responseInfo.surveyTitle}</div></Col>
                 </Row>
                 <Row>
-                    <Col className="m-5" style={{ fontSize: "32px" }}><div>{responseInfo.surveyContent}</div></Col>
+                    <Col className="m-5 fs-2"><div>{responseInfo.surveyContent}</div></Col>
                 </Row>
                 <Row>
-                    <QuestionCardList />
+                    <ResponseCardList />
                 </Row>
                 <div className="text-center my-5">
-                    <Link to="/finish-response"><button className="response-survey-sumbit" type="button" onClick={submitSurvey}>제출</button></Link>
+                    <Link to="/finish-response"><button className="response-survey-sumbit fs-2" type="button" onClick={submitSurvey}>제출</button></Link>
                 </div>
             </Container>
         </div>
