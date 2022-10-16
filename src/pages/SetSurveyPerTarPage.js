@@ -67,20 +67,18 @@ const SetSurveyPerTarPage = function (name) {
         <div className="setSurveyPerTarPage">
             <Header />
             
-            <Container className="setPeriodFrame">
+            <div className="setPerTarMainFrame">
                 <Col className="periodFirstText">1. 설문 기간 설정</Col>
 
-                <Col className="setPeriod">
-                    <Container>
-                    <Row className="periodText">
+                <div className="perTarContainer">
+                    <Col className="periodText">
                         <Col><text className="periodTxt">설문 시작일 설정</text></Col>
                         <Col><text className="periodTxt">설문 종료일 설정</text></Col>
-                    </Row>
+                    </Col>
 
-                    <Row><Calendar className="peroidText"/></Row>
-                    </Container>
-                </Col>
-            </Container>
+                    <Calendar className="calender"/>
+                </div>
+            </div>
 
             <Link to="/deploy-survey">
                 <button className="deployBtn" onClick={gotoDeploySurvey}>2. 설문 공유하기</button>

@@ -1,31 +1,31 @@
 .tosPage {
   background-color: #e0dfdf;
   width: auto;
-  height: 8500px;
+  height: max-content;
   align-content: center;
 }
 
-.MainFrame {
+.TosMainFrame {
   background-color: white;
   position: relative;
   top: 20px;
-  height: 8000px;
-  margin: 10px 10px 10px 10px;
-  padding: 10px 10px 10px 10px;
+  height: max-content;
+  margin: 20px 20px 20px 20px;
+  padding: 15px 15px 15px 15px;
   border-radius: 15px 15px 15px 15px;
 }
 
-.SubFrame {
+.TosSubFrame {
   background-color: #883ECC;
   position: relative;
   top: 5px;
-  height: 1000px;
+  height: max-content;
   margin: 10px 10px 10px 10px;
   padding: 10px 10px 10px 10px;
   border-radius: 15px 15px 15px 15px;
 }
 
-.ContentFrame {
+.TosContentFrame {
   position: relative;
   margin: 10px 10px 10px 10px;
   padding: 10px 10px 10px 10px;
@@ -33,7 +33,7 @@
   background-color: white;
 }
 
-.ContentLink {
+.TosContentLink {
   position: relative;
   margin: 10px 10px 10px 10px;
   padding: 10px 10px 10px 10px;

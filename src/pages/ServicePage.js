@@ -10,10 +10,10 @@ const ServicePage = function () {
         <div className="servicePage">
             <Header color="purple"/>
 
-            <Container className="MainFrame">
+            <Container className="TosMainFrame">
                 <Col><h3>고객 센터</h3></Col>
                 
-                <div className="SubFrame">
+                <div className="TosSubFrame">
 
                 </div>
             </Container>

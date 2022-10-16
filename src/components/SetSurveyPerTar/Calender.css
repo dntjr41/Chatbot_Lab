@@ -1,4 +1,11 @@
-
+.periodNavigationFrame {
+    background-color: white;
+    position: relative;
+    top: 5px;
+    margin: 10px 10px 10px 10px;
+    padding: 10px 10px 10px 10px;
+    border-radius: 15px 15px 15px 15px;
+}
 
 .periodOKButton {
     position: relative;
@@ -12,3 +19,4 @@
     font-size: 45px;
     border-radius: 15px 15px 15px 15px;
 }
+

@@ -1,45 +1,6 @@
 .privacyPage {
   background-color: #e0dfdf;
   width: auto;
-  height: 8500px;
+  height: max-content;
   align-content: center;
-}
-
-.MainFrame {
-  background-color: white;
-  position: relative;
-  top: 20px;
-  height: 8000px;
-  margin: 10px 10px 10px 10px;
-  padding: 10px 10px 10px 10px;
-  border-radius: 15px 15px 15px 15px;
-}
-
-.SubFrame {
-  background-color: #883ECC;
-  position: relative;
-  top: 5px;
-  height: 1000px;
-  margin: 10px 10px 10px 10px;
-  padding: 10px 10px 10px 10px;
-  border-radius: 15px 15px 15px 15px;
-}
-
-.ContentFrame {
-  position: relative;
-  margin: 10px 10px 10px 10px;
-  padding: 10px 10px 10px 10px;
-  border-radius: 15px 15px 15px 15px;
-  background-color: white;
-}
-
-.ContentLink {
-  position: relative;
-  margin: 10px 10px 10px 10px;
-  padding: 10px 10px 10px 10px;
-  border-radius: 15px 15px 15px 15px;
-  background-color: white;
-
-  color: #883ECC;
-  line-height: 1.8em;
 }

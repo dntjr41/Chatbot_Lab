@@ -1,26 +1,6 @@
 .servicePage {
   background-color: #e0dfdf;
   width: auto;
-  height: 930px;
+  height: max-content;
   align-content: center;
-}
-
-.MainFrame {
-  background-color: white;
-  position: relative;
-  top: 20px;
-  height: 610px;
-  margin: 10px 10px 10px 10px;
-  padding: 10px 10px 10px 10px;
-  border-radius: 15px 15px 15px 15px;
-}
-
-.SubFrame {
-  background-color: #883ECC;
-  position: relative;
-  top: 5px;
-  height: 565px;
-  margin: 10px 10px 10px 10px;
-  padding: 10px 10px 10px 10px;
-  border-radius: 15px 15px 15px 15px;
 }

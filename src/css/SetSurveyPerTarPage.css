@@ -6,18 +6,20 @@
     text-align: center;
 }
 
-.setPeriodFrame {
+.setPerTarMainFrame {
     background-color: white;
     position: relative;
     top: 30px;
+    width: min-content;
     margin: 15px 15px 15px 15px;
     padding: 15px 15px 15px 15px;
     border-radius: 15px 15px 15px 15px;
 }
 
-.setPeriod {
+.perTarContainer {
     background-color: #883ECC;
     position: relative;
+    width: min-content;
     top: 10px;
     margin: 15px 15px 15px 15px;
     padding: 15px 15px 15px 15px;
@@ -66,30 +68,21 @@
 }
 
 .periodText {
-    text-align: left;
+    text-align: center;
     display: flex;
     padding: 10px 10px 10px 10px;
-  }
+}
   
-  .periodTxt {
+.periodTxt {
     color:white;
     font-size:20px;
-  }
+}
   
-  .periodBtnNav {
-    background-color: white;
-    position: relative;
-    top: 5px;
-    margin: 10px 10px 10px 10px;
-    padding: 10px 10px 10px 10px;
-    border-radius: 15px 15px 15px 15px;
-  }
-  
-  .calender {
+.calender {
     background-color: white;
     position: relative;
     top: 10px;
     margin: 10px 10px 10px 10px;
     padding: 10px 10px 10px 10px;
     border-radius: 15px 15px 15px 15px;
-  }
+}

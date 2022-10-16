@@ -32,10 +32,18 @@ export default function Calendar() {
 
   return (
     <div>
-      <Container>
-        <Row className="periodBtnNav">
-        <Col><Dropdown title="시작 시간 선택"> <Dropdown.Item>오전(AM)
-            <Dropdown.Submenu className="AM">
+      <div>
+        <Col className="periodNavigationFrame">
+            <DateRange months={2} direction={"horizontal"}
+            onChange={item => setState([item.selection])}
+            editableDateInputs={true}
+            moveRangeOnFirstSelection={false}
+            ranges={state}/>
+          </Col>
+
+        <Col className="periodNavigationFrame">
+        <Col><Dropdown title="시작 시간 선택" position='right'> <Dropdown.Item>오전(AM)
+            <Dropdown.Submenu className="AM" position='right'>
                 <Dropdown.Item onClick={(e)=>{startTimeBtn("1:00", e)}} children="1:00"/><Dropdown.Item onClick={(e)=>{startTimeBtn("2:00", e)}} children="2:00"/>
                 <Dropdown.Item onClick={(e)=>{startTimeBtn("3:00", e)}} children="3:00"/><Dropdown.Item onClick={(e)=>{startTimeBtn("4:00", e)}} children="4:00"/>
                 <Dropdown.Item onClick={(e)=>{startTimeBtn("5:00", e)}} children="5:00"/><Dropdown.Item onClick={(e)=>{startTimeBtn("6:00", e)}} children="6:00"/>
@@ -44,7 +52,7 @@ export default function Calendar() {
                 <Dropdown.Item onClick={(e)=>{startTimeBtn("11:00", e)}} children="11:00"/><Dropdown.Item onClick={(e)=>{startTimeBtn("12:00", e)}} children="12:00"/>         
             </Dropdown.Submenu></Dropdown.Item>
             <Dropdown.Item >오후(PM)
-            <Dropdown.Submenu className="AM">
+            <Dropdown.Submenu className="AM" position='right'>
                 <Dropdown.Item onClick={(e)=>{startTimeBtn("13:00", e)}} children="1:00"/><Dropdown.Item onClick={(e)=>{startTimeBtn("14:00", e)}} children="2:00"/>
                 <Dropdown.Item onClick={(e)=>{startTimeBtn("15:00", e)}} children="3:00"/><Dropdown.Item onClick={(e)=>{startTimeBtn("16:00", e)}} children="4:00"/>
                 <Dropdown.Item onClick={(e)=>{startTimeBtn("17:00", e)}} children="5:00"/><Dropdown.Item onClick={(e)=>{startTimeBtn("18:00", e)}} children="6:00"/>
@@ -55,8 +63,8 @@ export default function Calendar() {
         </Dropdown></Col>
         <Col className="timeText" onChange={state.startT}></Col>
 
-        <Col><Dropdown title="종료 시간 선택"> <Dropdown.Item>오전(AM)
-        <Dropdown.Submenu className="AM">
+        <Col><Dropdown title="종료 시간 선택" position='right'> <Dropdown.Item>오전(AM)
+        <Dropdown.Submenu className="AM" position='right'>
                 <Dropdown.Item onClick={(e)=>{endTimeBtn("1:00", e)}} children="1:00"/><Dropdown.Item onClick={(e)=>{endTimeBtn("2:00", e)}} children="2:00"/>
                 <Dropdown.Item onClick={(e)=>{endTimeBtn("3:00", e)}} children="3:00"/><Dropdown.Item onClick={(e)=>{endTimeBtn("4:00", e)}} children="4:00"/>
                 <Dropdown.Item onClick={(e)=>{endTimeBtn("5:00", e)}} children="5:00"/><Dropdown.Item onClick={(e)=>{endTimeBtn("6:00", e)}} children="6:00"/>
@@ -65,7 +73,7 @@ export default function Calendar() {
                 <Dropdown.Item onClick={(e)=>{endTimeBtn("11:00", e)}} children="11:00"/><Dropdown.Item onClick={(e)=>{endTimeBtn("12:00", e)}} children="12:00"/>         
             </Dropdown.Submenu></Dropdown.Item>
             <Dropdown.Item >오후(PM)
-            <Dropdown.Submenu className="AM">
+            <Dropdown.Submenu className="AM" position='right'>
                 <Dropdown.Item onClick={(e)=>{endTimeBtn("13:00", e)}} children="1:00"/><Dropdown.Item onClick={(e)=>{endTimeBtn("14:00", e)}} children="2:00"/>
                 <Dropdown.Item onClick={(e)=>{endTimeBtn("15:00", e)}} children="3:00"/><Dropdown.Item onClick={(e)=>{endTimeBtn("16:00", e)}} children="4:00"/>
                 <Dropdown.Item onClick={(e)=>{endTimeBtn("17:00", e)}} children="5:00"/><Dropdown.Item onClick={(e)=>{endTimeBtn("18:00", e)}} children="6:00"/>
@@ -75,16 +83,8 @@ export default function Calendar() {
             </Dropdown.Submenu></Dropdown.Item>
         </Dropdown></Col>
         <Col className="timeText">{state.endT}</Col>
-        </Row>
-
-        <Col className="periodBtnNav">
-          <DateRange months={2} direction={"horizontal"}
-          onChange={item => setState([item.selection])}
-          editableDateInputs={true}
-          moveRangeOnFirstSelection={false}
-          ranges={state}/>
         </Col>
-      </Container>
+      </div>
     </div>
   )
 }

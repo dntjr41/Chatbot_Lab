@@ -10,10 +10,10 @@ const FaqPage = function () {
         <div className="faqPage">
             <Header color="purple"/>
 
-            <Container className="MainFrame">
+            <Container className="TosMainFrame">
                 <Col><h3>FAQ</h3></Col>
     
-                <div className="SubFrame">
+                <div className="TosSubFrame">
 
                 </div>
             </Container>
