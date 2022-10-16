@@ -64,14 +64,14 @@ const MyInfoPage = function () {
       return (
         <div className="UserInfo">
           <Header color="green"/>
-          <section className="section-profile-cover section-shaped my-0">
+          <section className="section-profile-cover section-shaped my-0 ">
             <div className="shape shape-style-1 shape-default alpha-4">
             </div>
        
           </section>
           <section className="section">
-            <Container>
-              <Card className="card-profile shadow mt--300">
+            <Container className="pt-lg-7 py-5">
+              <Card className="card-profile shadow mt--300 ">
                 <div className="px-4">
                   <Row className="justify-content-center">
                     <Col className="order-lg-3" lg="1">
@@ -115,12 +115,14 @@ const MyInfoPage = function () {
                   </div>
 
               
-                  <div className="mt-5 py-5 border-top text-left">
-                    <Row className="justify-content-center">
+                  <div className="mt-5 py-5 border-top">
+                  <div className="text-end">
+                        <Link to="/questionnaires" className="link_info" style={{ textDecoration: 'none'}} >바로가기 </Link>
+                        </div>
+                    <Row className="justify-content-right">
                       <Col lg="9">
                         <p className="user_info">나의 설문</p>
-                        <div className="text-center">
-                        <Link to="/questionnaires" style={{ textDecoration: 'none'}} >바로가기 </Link></div>
+            
                       </Col>
                     </Row>
                   </div>

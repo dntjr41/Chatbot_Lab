@@ -50,10 +50,10 @@ class Login extends React.Component {
               <span />
             </div>
             <Header color="green"/>
-            <Container className="pt-lg-7">
+            <Container className="pt-lg-7 py-5">
               <Row className="justify-content-center">
                 <Col lg="5">
-                  <Card className="bg-secondary shadow border-0">
+                  <Card className="bg-secondary shadow border-2">
                     <CardHeader className="bg-white pb-5">
                       <div className="text-muted text-center mb-3">
                         <small>소셜 로그인을 통해 간편하게 SurMoonVey와 함께하세요!</small>
