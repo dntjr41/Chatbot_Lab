@@ -43,6 +43,7 @@ const MyInfoPage = function () {
     const [user_id, setUserId] = useState();
     const [nickName, setNickName] = useState();
     const [profileImage, setProfileImage] = useState();
+    const [email, setEmail] = useState();
 
     const getProfile = async () => {
         try {
@@ -54,6 +55,7 @@ const MyInfoPage = function () {
           setUserId(data.id);
           setNickName(data.properties.nickname);
           setProfileImage(data.properties.profile_image);
+          setEmail(data.kakao_account.email);
         } catch (err) {
           console.log(err);
         }
@@ -111,7 +113,7 @@ const MyInfoPage = function () {
                   </Row>
                   <div className="text-left">
                   <div className="user_info">회원 ID : {user_id}</div>
-                  <div className="user_info">연동된 계정 : </div>
+                  <div className="user_info">연동된 계정 : {email} / Kakao</div>
                   </div>
 
               
