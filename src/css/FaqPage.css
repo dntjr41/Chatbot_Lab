@@ -1,98 +1,36 @@
-/* FAQ page css */
 .faqPage {
-  background-image: url(../images/Temp.png);
-  background-repeat: no-repeat;
-  margin: auto;
-  width: 100%;
-  height: 1700px;
+  background-color: #e0dfdf;
+  width: auto;
+  height: max-content;
+  align-content: center;
 }
 
-h3 {
-  position: absolute;
-  top: 150px;
+.FaQContentFrame {
+  position: relative;
+  margin: 10px 10px 10px 10px;
+  padding: 10px 10px 10px 10px;
+  border-radius: 15px 15px 15px 15px;
+  background-color: white;
+  text-align: center;
 }
 
-.logoBtn {
-    background-image: url(../images/Logo\ for\ banner.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    position: absolute;
-    top: 20px;
-    left: 50px;
-    width: 350px;
-    height: 30px;
-    opacity: 0.6;
-  }
-  
-  .loginBtn_home {
-    position: absolute;
-    top: 20px;
-    left: 1300px;
-    width: 100px;
-    height: 30px;
-    opacity: 0.6;
-  }
-  
-  .myBtn_home {
-    position: absolute;
-    top: 20px;
-    left: 1400px;
-    width: 30px;
-    height: 30px;
-    opacity: 0.6;
-  }
-  
-  .homeBtn {
-    position: absolute;
-    top: 95px;
-    left: 20px;
-    width: 150px;
-    height: 30px;
-    opacity: 0.6;
-  }
-  
+.FaQBtn {
+  position: relative;
+  width: 200px;
+  height: 80px;
+  padding: 5px 5px 5px 5px;
+  margin: 10px 10px 10px 10px;
+  background-color: #662D91;
+  color: white;
+  font-size: 30px;
+  border-radius: 15px 15px 15px 15px;
+  text-align: center;
+}
 
-  .faq-container {
-    position: absolute;
-    top: 200px;
-    margin: 0 auto;
-    width: 50%;
-    border: 5px solid #333;
-    padding: 10px 0 30px 0;
-    
-    border-radius: 5px;
-    margin-bottom : 100px;
-  
-  }
-  
-  .form-wrapper{
-    position: absolute;
-    top: 300px;
-    width: 50%;
-    margin: 0 auto;
-  }
-  
-  .title-input {
-    width: 500px;
-    height: 40px;
-    margin: 10px;
-  }
-  
-  .submit-button {
-    position: absolute;
-    top: 900px;
-    width: 200px;
-    height: 50px;
-    font-size: 20px;
-    color: rgb(255, 255, 255);
+.fit-picture {
+  width: 700px;
+}
 
-    background: rgb(91, 2, 99);
-    border-radius: 5px;
-    margin-top: 40px;
-    left: 1000px;
-
-  }
-  
-  .ck.ck-editor__editable:not(.ck-editor__nested-editable) {
-    min-height: 500px;
-  }
+.surveyIconImg {
+  height: 50px;
+}

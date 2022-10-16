@@ -1,27 +1,33 @@
 /* 배포 전 날짜 및 그룹 설정 페이지에서 쓰일 css */
 .setSurveyPerTarPage {
-    background-color: #e0dfdf;
+    background-color: white;
     width: auto;
-    height: 2300px;
+    height: 1400px;
+    align-content: center;
     text-align: center;
 }
 
-.setPeriodFrame {
-    background-color: white;
+.setPerTarMainFrames {
+    background-color: #f7f7f7;
     position: relative;
     top: 30px;
-    margin: 10px 10px 10px 10px;
-    padding: 30px 10px 10px 10px;
+    width: min-content;
+    margin: 15px 15px 15px 15px;
+    padding: 15px 15px 15px 15px;
     border-radius: 15px 15px 15px 15px;
+    box-shadow: 2px 2px 2px 2px #999;
+    align-items: center;
 }
 
-.setPeriod {
+.perTarContainer {
     background-color: #883ECC;
     position: relative;
+    width: min-content;
     top: 10px;
-    margin: 10px 10px 10px 10px;
-    padding: 10px 10px 10px 10px;
+    margin: 15px 15px 15px 15px;
+    padding: 15px 15px 15px 15px;
     border-radius: 15px 15px 15px 15px;
+    align-items: center;
 }
 
 .periodFirstText {
@@ -31,7 +37,7 @@
     align-content: center;
     margin: 10px 10px 10px 10px;
     border: 10px 10px 10px 10px;
-    text-indent: 8em;
+    text-align: center;
 }
 
 .setTargetFrame {
@@ -54,13 +60,24 @@
 
 .deployBtn {
     position: relative;
-    top: 70px;
+    top: 30px;
     width: 600px;
-    height: 100px;
-    padding: 5px 5px 5px 5px;
+    height: 120px;
+    padding: 15px 15px 15px 15px;
     margin: 10px 10px 10px 10px;
     background-color: #662D91;
     color: white;
     font-size: 45px;
     border-radius: 15px 15px 15px 15px;
 }
+
+.periodText {
+    text-align: center;
+    display:inline-flex;
+}
+  
+.periodTxt {
+    color:white;
+    font-size:20px;
+}
+  

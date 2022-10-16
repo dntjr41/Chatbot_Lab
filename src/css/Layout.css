@@ -3,13 +3,23 @@
 .header-top {
     height: 72px;
     padding: 6px 0px;
-
     background-color: white;
+    display: flex;
+    flex-wrap: wrap;
 }
 
-.header-logo {
-    background-image: url(../images/banner-logo.png);
-    background-size: 100% 60px;
+.header-logo-green {
+    background-image: url(../images/logo/Icon-green.png);
+    background-size: 300px;
+    background-repeat: no-repeat;
+
+    /* cursor: pointer; */
+}
+
+.header-logo-purple {
+    background-image: url(../images/logo/Icon-purple.png);
+    background-size: 300px;
+    background-repeat: no-repeat;
 
     /* cursor: pointer; */
 }
@@ -23,6 +33,8 @@
 .header-bottom {
     height: 60px;
     border-radius: 0px 0px 45px 0px;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .header-homelink {

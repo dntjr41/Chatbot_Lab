@@ -59,25 +59,21 @@ const setSurveyInfo = createSlice({
             state.surveyTime.end = action.payload;
         },
 
+        // 링크 생성
+        CREATE_LINK: (state, action) => {
+            state.link = action.payload;
+        },
+
         // 그룹 추가
         ADD_GROUP: (state, action) => {
-
-
         },
 
         // 대상 추가
         ADD_TARGET: (state, action) => {
-
         },
 
         // 공유 방법 선택
         DEPLOY_METHOD: (state, action) => {
-            state.deployMethod = action.payload;
-        },
-
-        // 링크 생성
-        CREATE_LINK: (state, action) => {
-            state.link = action.payload;
         }
     }
 });

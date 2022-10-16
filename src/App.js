@@ -21,6 +21,7 @@ import ResponseSurveyPage from './pages/ResponseSurveyPage';
 import FinishResponsePage from './pages/FinishResponsePage';
 import SurveyResult from './pages/SurveyResultPage';
 import NoPage from './pages/NoPage';
+import ScrollTop from './components/ScrollTop';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
@@ -36,6 +37,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
+        <ScrollTop />
         <Routes>
           <Route path="/">
             {<Route path="home" index element={<HomePage />} />}
