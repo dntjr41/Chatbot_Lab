@@ -31,17 +31,17 @@ export default function Calendar() {
   }
 
   return (
-    <div>
-      <div>
-        <Col className="periodNavigationFrame">
-            <DateRange months={2} direction={"horizontal"}
-            onChange={item => setState([item.selection])}
-            editableDateInputs={true}
-            moveRangeOnFirstSelection={false}
-            ranges={state}/>
-          </Col>
-
-        <Col className="periodNavigationFrame">
+  <div>
+      <Col className="periodNavigationFrame">
+          <DateRange months={2} direction={"horizontal"}
+          onChange={item => setState([item.selection])}
+          editableDateInputs={true}
+          moveRangeOnFirstSelection={false}
+          ranges={state}/>
+        </Col>
+      
+      <Container >
+        <Col className="periodNavigationTime">
         <Col><Dropdown title="시작 시간 선택" position='right'> <Dropdown.Item>오전(AM)
             <Dropdown.Submenu className="AM" position='right'>
                 <Dropdown.Item onClick={(e)=>{startTimeBtn("1:00", e)}} children="1:00"/><Dropdown.Item onClick={(e)=>{startTimeBtn("2:00", e)}} children="2:00"/>
@@ -84,7 +84,7 @@ export default function Calendar() {
         </Dropdown></Col>
         <Col className="timeText">{state.endT}</Col>
         </Col>
-      </div>
+      </Container>
     </div>
   )
 }

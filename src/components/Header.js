@@ -15,9 +15,10 @@ const Header = function (props) {
     return (
         <div>
             <div className="header-top px-5">
-                <Col className="header-logo" md={3}>
+                <Col className={props.color === "green" ? "header-logo-green" : "header-logo-purple"} md={0}>
                     <Link to="/home"></Link>
                 </Col>
+
                 <Col className="align-self-center" md={{ span: 3, offset: 6 }}>
                     <Stack direction="horizontal" gap={4}>
                         <Link to="/faq" className="ms-auto"><BsQuestionCircle size="32" /></Link>

@@ -25,9 +25,6 @@ const DeploySurveyPage = function () {
 
     const surveyTitle = useSelector(state => state.surveyTitle);
     const surveyTime = useSelector(state => state.surveyTime);
-    // Target에 대해서도 말해야함
-
-    const deployMethod = useSelector(state => state.deployMethod);
     const link = useSelector(state => state.link);
 
     // 링크 복사하기

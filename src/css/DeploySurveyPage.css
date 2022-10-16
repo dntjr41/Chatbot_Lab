@@ -1,20 +1,21 @@
 /* 설문 공유 페이지에서 쓰일 css */
 
 .deploySurveyPage {
-    background-color: #e0dfdf;
+    background-color: white;
     width: auto;
     height: 1000px;
     align-content: center;
 }
 
 .MainFrame {
-    background-color: white;
+    background-color: #f7f7f7;
     position: relative;
     top: 20px;
     height: max-content;
     margin: 10px 10px 10px 10px;
     padding: 10px 10px 10px 10px;
     border-radius: 15px 15px 15px 15px;
+    box-shadow: 2px 2px 2px 2px #999;
 }
 
 .deploySurvey {

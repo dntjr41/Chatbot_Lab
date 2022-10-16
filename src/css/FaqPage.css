@@ -4,3 +4,33 @@
   height: max-content;
   align-content: center;
 }
+
+.FaQContentFrame {
+  position: relative;
+  margin: 10px 10px 10px 10px;
+  padding: 10px 10px 10px 10px;
+  border-radius: 15px 15px 15px 15px;
+  background-color: white;
+  text-align: center;
+}
+
+.FaQBtn {
+  position: relative;
+  width: 200px;
+  height: 80px;
+  padding: 5px 5px 5px 5px;
+  margin: 10px 10px 10px 10px;
+  background-color: #662D91;
+  color: white;
+  font-size: 30px;
+  border-radius: 15px 15px 15px 15px;
+  text-align: center;
+}
+
+.fit-picture {
+  width: 700px;
+}
+
+.surveyIconImg {
+  height: 50px;
+}

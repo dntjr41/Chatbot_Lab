@@ -1,19 +1,22 @@
 /* 배포 전 날짜 및 그룹 설정 페이지에서 쓰일 css */
 .setSurveyPerTarPage {
-    background-color: #e0dfdf;
+    background-color: white;
     width: auto;
-    height: 1300px;
+    height: 1400px;
+    align-content: center;
     text-align: center;
 }
 
-.setPerTarMainFrame {
-    background-color: white;
+.setPerTarMainFrames {
+    background-color: #f7f7f7;
     position: relative;
     top: 30px;
     width: min-content;
     margin: 15px 15px 15px 15px;
     padding: 15px 15px 15px 15px;
     border-radius: 15px 15px 15px 15px;
+    box-shadow: 2px 2px 2px 2px #999;
+    align-items: center;
 }
 
 .perTarContainer {
@@ -24,6 +27,7 @@
     margin: 15px 15px 15px 15px;
     padding: 15px 15px 15px 15px;
     border-radius: 15px 15px 15px 15px;
+    align-items: center;
 }
 
 .periodFirstText {
@@ -69,8 +73,7 @@
 
 .periodText {
     text-align: center;
-    display: flex;
-    padding: 10px 10px 10px 10px;
+    display:inline-flex;
 }
   
 .periodTxt {
@@ -78,11 +81,3 @@
     font-size:20px;
 }
   
-.calender {
-    background-color: white;
-    position: relative;
-    top: 10px;
-    margin: 10px 10px 10px 10px;
-    padding: 10px 10px 10px 10px;
-    border-radius: 15px 15px 15px 15px;
-}
