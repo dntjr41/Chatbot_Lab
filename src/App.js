@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
+import Auth from "./components/Login/KakaoAuth";
 import MyInfoPage from './pages/MyInfoPage';
 
 import TosPage from './pages/TosPage';
@@ -37,12 +38,13 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <ScrollTop />
+      <ScrollTop />
         <Routes>
           <Route path="/">
             {<Route path="home" index element={<HomePage />} />}
 
             <Route path="login" element={<LoginPage />} />
+            <Route path="auth/kakao/callback" element={<Auth/>}/>
             <Route path="myinfo" element={<MyInfoPage />} />
 
             <Route path="tos" element={<TosPage />} />

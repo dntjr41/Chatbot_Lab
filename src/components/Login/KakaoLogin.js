@@ -6,18 +6,18 @@ import '../../css/LoginPage.css'
 
 const KakaoLogin = () => {
   const REST_API_KEY = "bac376255674f663efac55e7ab39fba9"; 
-  const REDIRECT_URI = "http://localhost:3000/login"; 
+  const REDIRECT_URI = "http://localhost:3000/auth/kakao/callback";
   const KAKAO_AUTH_URI = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
   const code = new URL(window.location.href).searchParams.get("code");// 인가코드
 
-
+/*
   const navigate = useNavigate();
   useEffect(() => {
     (async () => {
       try {
         const res = await axios
           .get(
-            `http://인가코드 받을 백엔드 주소`
+            'http://localhost/user/kakao/callback?code=${code}'
           )
 
           .then((response) => {
@@ -58,7 +58,7 @@ const KakaoLogin = () => {
       }
     })();
   }, []);
-
+*/
   return (
     <>
       <div>
