@@ -25,13 +25,13 @@ function QuestionnaireCard(props) {
   const qState = "전체";
   const currentTime = new Date('2022-10-08');
 
-  // 설문 상태 (선택된 옵션이 "전체" 일때만 표기) ====> null값인지 확인
+  // 설문 상태 계산해서 push 함수
   const items = []
   if (questionnaireSelectionOption === 0) {
     items.push(
       <ListGroup.Item>
         {
-          props.onDeploy === false
+          props.startTime && props.endTime
             ? <>제작중</>
             : props.startTime < currentTime
               ? <>예약중</>
@@ -71,8 +71,7 @@ function QuestionnaireCard(props) {
         <Card.Body className="text-center">
           <Card.Title><b>{props.title}</b></Card.Title>
           <ListGroup>
-            <ListGroup.Item key={props.id + props.startTime}>{props.startTime}</ListGroup.Item>
-            <ListGroup.Item>~ {props.endTime}</ListGroup.Item>
+            <ListGroup.Item>{props.startTime? props.startTime + "~"+ props.endTime : "배포기간 미지정"}</ListGroup.Item>
             {items}
           </ListGroup>
           <div className="d-grid gap-2">

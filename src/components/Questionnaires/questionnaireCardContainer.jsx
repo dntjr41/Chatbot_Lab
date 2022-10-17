@@ -18,22 +18,33 @@ function QuestionnaireCardContainer(props) {
   const { questionnairePageOption } = useSelector((state) => ({
     questionnairePageOption: state.questionnairesReducer.questionnairePageOption
   }))
+  // 유저 ID에 따른 설문 리스트
+  const {surveyList} = useSelector((state) => ({
+    surveyList: state.questionnairesReducer.surveyList,
+  }));
+  // nav 디스플레이 옵션
+  const {questionnaireSelectionOption} = useSelector((state) => ({
+    questionnaireSelectionOption: state.questionnairesReducer.questionnaireSelectionOption,
+  }));
+  
   // page에 따른 card
   let items = [];
 
   for (let number = 1; number <= 8; number++) {
     const currentIdx = (questionnairePageOption - 1) * 8 + number;
-    items.push(
-      <Col xs="auto">
-        <QuestionnaireCard
-          id={currentIdx}
-          title={"questionnaire[" + currentIdx + "].title"}
-          startTime={"startTime"}
-          endTime={"endTime"}
-          representativeImg={"img"}
-          onDeploy={"onDeploy"} />
-      </Col>
-    )
+    if (surveyList[currentIdx] != null) {
+      items.push(
+        <Col xs="auto">
+          <QuestionnaireCard
+            id={ surveyList[currentIdx]}
+            title={ surveyList[currentIdx]["surveyTitle"]}
+            startTime={surveyList[currentIdx]["startTime"]}
+            endTime={surveyList[currentIdx]["endTime"]}
+            representativeImg={surveyList[currentIdx]["surveyTitle"]}
+            />
+        </Col>
+      )
+    }
   }
 
   return (

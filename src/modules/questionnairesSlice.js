@@ -14,6 +14,9 @@ const questionnaireState = {
     templateSelectOption: 0,
     // 설문 제작함 카드 6개 씩 display하는데 몇 페이지 인지 => default 1
     questionnairePageOption : 1,
+    // 유저 아이디에 따라 셀렉트 해온 설문 정보
+    surveyList: [{},],
+    selectedSurveyList: [{},]
 }
 
 const questionnaireSlice = createSlice({ 
@@ -24,19 +27,19 @@ const questionnaireSlice = createSlice({
         SET_QSO: (state, action) =>{
             state.questionnaireSelectionOption = action.payload;
             if (state.questionnaireSelectionOption === 0){ // 전체
-                alert("select * from questionnairetable where 작성자ID == loginID");
+                
             }
             if (state.questionnaireSelectionOption === 1){ // 제작 중
-                alert("제작 중");
+                
             }
             if (state.questionnaireSelectionOption === 2){ // 예약 중
-                alert("예약 중");
+                
             }
             if (state.questionnaireSelectionOption === 3){ // 배포 중
-                alert("배포 중");
+                
             }
             if (state.questionnaireSelectionOption === 4){ // 종료
-                alert("종료");
+                
             }
         },
         SET_SQID:(state, action) => {
@@ -66,10 +69,18 @@ const questionnaireSlice = createSlice({
         SET_TSO: (state, action) => {
             state.templateSelectOption = action.payload;
             console.log("템플릿 옵션:" + state.templateSelectOption);
-        }
+        },
+        // 유저 아이디에 따라 셀렉트 해온 설문 리스트
+        SET_SL: (state, action) => {
+            state.surveyList = action.payload;
+        },
+        // 설문 상태에 따라 셀렉트 된 설문 리스트
+        SET_SSL: (state, action) => {
+            state.selectedSurveyList = action.payload;
+        },
     },
 });
 
-export const { SET_QSO, SET_SQID, SET_QPO, SET_NQPS_ON, SET_NQPS_OFF, SET_QTPS_ON, SET_QTPS_OFF, SET_TSO } = questionnaireSlice.actions;
+export const { SET_QSO, SET_SQID, SET_QPO, SET_NQPS_ON, SET_NQPS_OFF, SET_QTPS_ON, SET_QTPS_OFF, SET_TSO, SET_SL, SET_SSL } = questionnaireSlice.actions;
 
 export default questionnaireSlice.reducer;
