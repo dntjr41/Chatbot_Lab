@@ -29,6 +29,7 @@ const Auth = () => {
       window.Kakao.init(REST_API_KEY);
       // access token 설정
       window.Kakao.Auth.setAccessToken(res.data.access_token);
+      localStorage.setItem("token", res.data.access_token);
       navigate("/myinfo");
     } catch (err) {
       console.log(err);
