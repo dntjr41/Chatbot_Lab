@@ -15,9 +15,9 @@ function Pager() {
     }
     
     // 컨텐츠 갯수
-    let myQuestionnaireCount = 61;
+    let myQuestionnaireCount = 56;
     // 페이지 수
-    let totalPage = Math.ceil(myQuestionnaireCount / 6);
+    let totalPage = Math.ceil(myQuestionnaireCount / 8);
     // Pagination.Item 배열
     let items = [];
     if (active === 1 || active === 2){

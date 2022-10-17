@@ -16,7 +16,7 @@ const QuestionCardList = function () {
         <div className="response-survey-cardlist">
             {
                 questionCardList.map((questionCard, listIdx) => {
-                    if (questionCard.type === 1) {
+                    if (questionCard.questionType === 1) {
                         return <ChoiceCard questionCard={questionCard} listIdx={listIdx} key={listIdx} />
                     }
                     else {

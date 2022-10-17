@@ -22,18 +22,18 @@ const ChoiceCard = function ({ questionCard, listIdx }) {
 
     return (
         <div className="response-survey-card">
-            <Col className="mb-5 fs-4">Q{questionCard.questionOrder}. {questionCard.title} {questionCard.options[1].isCheck ? "(중복가능)" : ""}</Col>
+            <Col className="mb-5 fs-4">Q{questionCard.questionOrder}. {questionCard.questionTitle} {questionCard.questionOptions[1] ? "(중복가능)" : ""}</Col>
             {
-                questionCard.answers.map((answer, answerIdx) =>
+                questionCard.questionAnswers.map((answer, answerIdx) =>
                     <Form.Check
                         key={answerIdx}
                         className="response-survey-choice mb-3 fs-5"
                         name={questionCard.questionId}
-                        type={questionCard.options[1].isCheck ? "checkbox" : "radio"}
+                        type={questionCard.questionOptions[1] ? "checkbox" : "radio"}
                         id={questionCard.questionId + "-" + answerIdx}
                         label={answer.value}
                         checked={answer.isCheck}
-                        onChange={() => (questionCard.options[1].isCheck) ? answerCheck(listIdx, answerIdx) : answerRadio(listIdx, answerIdx)} />
+                        onChange={() => (questionCard.questionOptions[1]) ? answerCheck(listIdx, answerIdx) : answerRadio(listIdx, answerIdx)} />
 
                 )
             }

@@ -1,18 +1,19 @@
 .tosPage {
-  background-color: #e0dfdf;
+  background-color: white;
   width: auto;
   height: max-content;
   align-content: center;
 }
 
 .TosMainFrame {
-  background-color: white;
+  background-color: #f7f7f7;
   position: relative;
   top: 20px;
   height: max-content;
   margin: 20px 20px 20px 20px;
   padding: 15px 15px 15px 15px;
   border-radius: 15px 15px 15px 15px;
+  box-shadow: 2px 2px 2px 2px #999;
 }
 
 .TosSubFrame {

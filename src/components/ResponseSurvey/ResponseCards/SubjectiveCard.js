@@ -16,12 +16,12 @@ const SubjectiveCard = function ({ questionCard, listIdx }) {
     }
     return (
         <div className="response-survey-card">
-            <Col className="mb-5 fs-4">Q{questionCard.questionOrder}. {questionCard.title}</Col>
+            <Col className="mb-5 fs-4">Q{questionCard.questionOrder}. {questionCard.questionTitle}</Col>
             <Form.Control
                 className="response-survey-subjective fs-5"
                 as="textarea"
                 placeholder="답변을 입력해주세요"
-                value={questionCard.answers}
+                value={questionCard.questionAnswers}
                 row={2}
                 onChange={(e) => inputAnswer(listIdx, e.target.value)} />
         </div>
