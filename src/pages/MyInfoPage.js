@@ -56,11 +56,17 @@ const MyInfoPage = function () {
           setNickName(data.properties.nickname);
           setProfileImage(data.properties.profile_image);
           setEmail(data.kakao_account.email);
+
+          localStorage.setItem('id', data.id);
+          localStorage.setItem('nickName', data.properties.nickname);
+          localStorage.setItem('profileImage', data.properties.profile_image);
+          localStorage.setItem('email', data.kakao_account.email);
+
         } catch (err) {
           console.log(err);
         }
       };
-      useEffect(() => {
+      useEffect(() => {    
         getProfile();
       }, []);
       return (
@@ -92,6 +98,7 @@ const MyInfoPage = function () {
                       lg="4"
                     >
                       <div className="card-profile-actions py-4 mt-lg-0">
+
                         <Button
                           variant="danger"
                           className="mr-4"

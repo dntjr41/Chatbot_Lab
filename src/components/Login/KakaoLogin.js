@@ -10,14 +10,14 @@ const KakaoLogin = () => {
   const KAKAO_AUTH_URI = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
   const code = new URL(window.location.href).searchParams.get("code");// 인가코드
 
-/*
+
   const navigate = useNavigate();
   useEffect(() => {
     (async () => {
       try {
         const res = await axios
           .get(
-            'http://localhost/user/kakao/callback?code=${code}'
+            `http://localhost:8080/user/kakao/callback?code=${code}`
           )
 
           .then((response) => {
@@ -36,7 +36,7 @@ const KakaoLogin = () => {
         const res = await axios
 
           .get(
-            "http://토큰 받을 백엔드 주소",
+            "http://localhost:8080/user/kakao/callback?code=${code}",
             {
               headers: {
                 Authorization: token,
@@ -50,7 +50,7 @@ const KakaoLogin = () => {
             console.log(data);
 
             if (data) {
-              navigate("../myPage");//유저 정보 데이터 성공 시 mypage로 이동
+              navigate("/myinfo");//유저 정보 데이터 성공 시 mypage로 이동
             }
           });
       } catch (e) {
@@ -58,7 +58,7 @@ const KakaoLogin = () => {
       }
     })();
   }, []);
-*/
+
   return (
     <>
       <div>
