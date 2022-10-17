@@ -5,25 +5,20 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const surveyState = {
+    userId: 1,
     surveyTitle: "", // 설문 제목
     surveyContent: "", // 설문 부연설명
     questionCardList: [{
         // 질문 유형ID 1: 객관식, 2: 객관식 이미지, 3: 드롭다운, 4: 주관식, 5: 감정바, 6: 날짜, 7: 시간 8: 동영상
-        type: 1,
-        title: "", // 질문 내용
-        answers: [""], // 질문 답변 배열
-        options: [
-            { opt: "필수응답", isCheck: true },
-            { opt: "중복가능", isCheck: false },
-            { opt: "응답섞기", isCheck: false }
-        ], // 질문 옵션
+        questionType: 1,
+        questionTitle: "", // 질문 내용
+        questionAnswers: [""], // 질문 답변 배열
+        questionOptions: [true, false, false], // 질문 옵션
     },
     {
-        type: 4,
-        title: "",
-        options: [
-            { opt: "필수응답", isCheck: true },
-        ],
+        questionType: 4,
+        questionTitle: "",
+        questionOptions: [true],
     }]
 }
 
@@ -44,22 +39,22 @@ const createSurveySlice = createSlice({
         ADD_ANSWER: (state, action) => {
             // action.payload: quesionCardList 배열의 index값
             // 매개변수로 받은 index값에 해당하는 questionCard의 answers배열 요소를 추가한다
-            state.questionCardList[action.payload].answers = [...state.questionCardList[action.payload].answers, ""];
+            state.questionCardList[action.payload].questionAnswers = [...state.questionCardList[action.payload].questionAnswers, ""];
         },
         DEL_ANSWER: (state, action) => {
             // 해당 매개변수에 해당하는 질문의 응답을 배열에서 지운다
             // listIdx(int): 질문 리스트의 몇번째인지, answerIdx(int): 응답 리스트의 몇번째인지
-            state.questionCardList[action.payload.listIdx].answers.splice(action.payload.answerIdx, 1);
+            state.questionCardList[action.payload.listIdx].questionAnswers.splice(action.payload.answerIdx, 1);
         },
         CHANGE_QUE_TITLE: (state, action) => {
             // 질문 카드의 제목 값을 변경한다
             // listIdx(int): 질문 리스트의 몇번째인지, title(string): 입력된 값
-            state.questionCardList[action.payload.listIdx].title = action.payload.title;
+            state.questionCardList[action.payload.listIdx].questionTitle = action.payload.title;
         },
         CHANGE_QUE_ANSWER: (state, action) => {
             // 질문 카드의 응답 값을 변경한다
             // listIdx(int): 질문 리스트의 몇번째인지, answerIdx(int): 응답 리스트의 몇번째인지, answer(string): 입력된 값
-            state.questionCardList[action.payload.listIdx].answers[action.payload.answerIdx] = action.payload.answer;
+            state.questionCardList[action.payload.listIdx].questionAnswers[action.payload.answerIdx] = action.payload.answer;
         },
         ADD_CARD: (state, action) => {
             // 새 질문 카드 객체를 questionCardList 배열에 추가한다
@@ -80,7 +75,7 @@ const createSurveySlice = createSlice({
         CHECK_OPT: (state, action) => {
             // 질문 카드의 옵션 체크여부를 변경한다
             // listIdx(int): 질문 리스트의 몇번째인지, optIdx(int): 옵션 리스트의 몇번째인지
-            state.questionCardList[action.payload.listIdx].options[action.payload.optIdx].isCheck = !state.questionCardList[action.payload.listIdx].options[action.payload.optIdx].isCheck;
+            state.questionCardList[action.payload.listIdx].questionOptions[action.payload.optIdx] = !state.questionCardList[action.payload.listIdx].questionOptions[action.payload.optIdx];
         }
     }
 });

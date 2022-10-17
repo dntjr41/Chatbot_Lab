@@ -20,7 +20,7 @@ const SubjectiveCard = function ({ questionCard, listIdx }) {
             <Form>
                 <Row className="mb-5 fs-4" >
                     <Form.Label column md="1">Q{listIdx + 1}. </Form.Label>
-                    <Col md={10} className="create-survey-bottomLine"><Form.Control plaintext placeholder="질문을 입력하세요" value={questionCard.title} onChange={(e) => inputQuestionTitle(listIdx, e.target.value)} /></Col>
+                    <Col md={10} className="create-survey-bottomLine"><Form.Control plaintext placeholder="질문을 입력하세요" value={questionCard.questionTitle} onChange={(e) => inputQuestionTitle(listIdx, e.target.value)} /></Col>
                 </Row>
                 <CardMenu questionCard={questionCard} listIdx={listIdx} />
             </Form>

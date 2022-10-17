@@ -17,14 +17,10 @@ const AddQuestionComponent = function () {
 
     const addChoicCard = () => {
         const card = {
-            type: 1,
-            title: "",
-            answers: [""],
-            options: [
-                { opt: "필수응답", isCheck: true },
-                { opt: "중복가능", isCheck: false },
-                { opt: "응답섞기", isCheck: false }
-            ],
+            questionType: 1,
+            questionTitle: "",
+            questionAnswers: [""],
+            questionOptions: [true, false, false],
         }
         dispatch(ADD_CARD(card));
         setVisible(false);
@@ -33,11 +29,9 @@ const AddQuestionComponent = function () {
     // 주관식 카드 객체 생성 후 리스트에 추가
     const addSubjectiveCard = () => {
         const card = {
-            type: 4,
-            title: "",
-            options: [
-                { opt: "필수응답", isCheck: true },
-            ],
+            questionType: 4,
+            questionTitle: "",
+            questionOptions: [true],
         }
         dispatch(ADD_CARD(card));
         setVisible(false);

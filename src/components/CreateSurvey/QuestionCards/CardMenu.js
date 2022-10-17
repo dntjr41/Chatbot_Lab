@@ -35,10 +35,10 @@ const CardMenu = function ({ questionCard, listIdx }) {
                     <Popover>
                         <Popover.Body>
                             {
-                                questionCard.options.map((option, optIdx) =>
+                                questionCard.questionOptions.map((option, optIdx) =>
                                     <div key={optIdx}>
-                                        <input type="checkbox" checked={option.isCheck} onClick={() => checkOption(listIdx, optIdx)} />
-                                        {option.opt}
+                                        <input type="checkbox" checked={option} onChange={() => checkOption(listIdx, optIdx)} />
+                                        {optIdx === 0 ? "필수응답" : optIdx === 1 ? "중복응답" : "응답섞기"}
                                     </div>
                                 )
                             }
