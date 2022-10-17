@@ -19,10 +19,10 @@ const surveyInfo = {
     surveyTitle: "",
     surveyContent: "",
     userId: "",
-    surveyTime: [{ 
+    surveyTime: { 
         start: "", 
         end: ""
-    }],
+    },
     
     uesrGroup: { 
         groupName: "", 

@@ -59,9 +59,9 @@ const CreateSurveyPage = function () {
                     <QuestionCardList />
                 </Row>
                 <div className="text-center my-5">
-                    <Link to="/home"><button className="create-survey-submit mx-5 fs-2" type="button" onClick={saveSurvey}>임시저장</button></Link>
+                    <Link to="/questionnaires"><button className="create-survey-submit mx-5 fs-2" type="button" onClick={saveSurvey}>임시저장</button></Link>
 
-                    <Link to="/deploy-survey"><button className="create-survey-submit mx-5 fs-2" type="button" onClick={createSurvey}>공유</button></Link>
+                    <Link to="/set-survey-per-tar"><button className="create-survey-submit mx-5 fs-2" type="button" onClick={createSurvey}>공유</button></Link>
                 </div>
             </Container>
         </div >

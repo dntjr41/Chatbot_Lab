@@ -1,4 +1,6 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import axios from 'axios';
+
 import { useSelector, useDispatch } from 'react-redux';
 import { Row, Col, Container } from 'react-bootstrap';
 import surveyInfo, { SET_PERIOD, ADD_GROUP, ADD_TARGET, DEPLOY_METHOD, CREATE_LINK} from '../modules/surveyInfo.js';
@@ -72,11 +74,11 @@ const SetSurveyPerTarPage = function (name) {
 
                 <Container className="perTarContainer">
                     <Col className="periodText">
-                        <Col><text className="periodTxt">설문 시작일 설정</text></Col>
+                        <Col className="periodTxt">설문 시작일 설정</Col>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <Col><text className="periodTxt">설문 종료일 설정</text></Col>
+                        <Col className="periodTxt">설문 종료일 설정</Col>
                     </Col>
 
                     <Calendar className="calender"/>

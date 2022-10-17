@@ -21,8 +21,8 @@ function QuestionnaireCardContainer(props) {
   // page에 따른 card
   let items = [];
 
-  for (let number = 1; number <= 6; number++) {
-    const currentIdx = (questionnairePageOption - 1) * 6 + number;
+  for (let number = 1; number <= 8; number++) {
+    const currentIdx = (questionnairePageOption - 1) * 8 + number;
     items.push(
       <Col xs="auto">
         <QuestionnaireCard

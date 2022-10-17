@@ -1,15 +1,18 @@
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 
+import { Link, useNavigate } from 'react-router-dom';
 import { SET_QTPS_ON, SET_TSO } from '../../../modules/questionnairesSlice';
 import { useDispatch } from 'react-redux';
 
 function NewQuestionnaireCard(props) {
     /* 리덕스 */
     const dispatch = useDispatch();
+    const navigate = useNavigate();
+
     const setTemplateSelectOption = () => {
         if (props.newQuestionnaireOption === "새 설문 작성"){
-            
+            navigate("/create-survey");   
         }
         else if (props.newQuestionnaireOption === "설문 템플릿 탐색"){
             dispatch(SET_TSO(0))

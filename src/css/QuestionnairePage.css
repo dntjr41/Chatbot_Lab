@@ -1,7 +1,7 @@
 /* 설문 제작함 페이지에서 쓰일 css */
 .CardContainer {
   border-radius: 25px;
-  max-width: 1000px;
+  max-width: 1100px;
   margin: auto;
   padding: 10px;
   background: linear-gradient(249.5deg, #662D91 -14.02%, #A64DFF 108.18%);
