@@ -54,8 +54,11 @@ const setSurveyInfo = createSlice({
         
         // 설문 기간 설정
         // 시작일, 시작시간 - 종료일, 종료시간
-        SET_PERIOD: (state, action) => {
+        SET_PERIOD_START: (state, action) => {
             state.surveyTime.start = action.payload;
+        },
+
+        SET_PERIOD_END: (state, action) => {
             state.surveyTime.end = action.payload;
         },
 
@@ -78,6 +81,6 @@ const setSurveyInfo = createSlice({
     }
 });
 
-export const { SET_PERIOD, ADD_GROUP, ADD_TARGET, DEPLOY_METHOD, CREATE_LINK } = setSurveyInfo.actions;
+export const { SET_PERIOD_START, SET_PERIOD_END, ADD_GROUP, ADD_TARGET, DEPLOY_METHOD, CREATE_LINK } = setSurveyInfo.actions;
 
 export default setSurveyInfo.reducer;

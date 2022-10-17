@@ -11,7 +11,7 @@ import './Calender.css';
 
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
-import surveyInfo, { SET_PERIOD } from '../../modules/surveyInfo';
+import surveyInfo, { SET_PERIOD_START, SET_PERIOD_END } from '../../modules/surveyInfo';
 
 export default function Calendar() {
   const dispatch = useDispatch();
@@ -34,14 +34,14 @@ export default function Calendar() {
   const startTimeBtn = (params, e) => {
     startDateValue = startDateValue.setHours(params);
 
-    dispatch(SET_PERIOD(startDateValue));
+    dispatch(SET_PERIOD_START(startDateValue));
     console.log(startDateValue);
   }
   
   const endTimeBtn = (params, e) => {
     endDateValue = endDateValue.setHours(params);
 
-    dispatch(SET_PERIOD(endDateValue));
+    dispatch(SET_PERIOD_END(endDateValue));
     console.log(endDateValue);
   }
 
@@ -76,7 +76,6 @@ export default function Calendar() {
                 <Dropdown.Item onClick={(e)=>{startTimeBtn("23", e)}} children="11:00"/><Dropdown.Item onClick={(e)=>{startTimeBtn("24", e)}} children="12:00"/>         
             </Dropdown.Submenu></Dropdown.Item>
         </Dropdown></Col>
-        <Col className="timeText" onChange={startDateValue}></Col>
 
 
         <Col><Dropdown title="종료 시간 선택" position='right'> <Dropdown.Item>오전(AM)
@@ -98,7 +97,6 @@ export default function Calendar() {
                 <Dropdown.Item onClick={(e)=>{endTimeBtn("23", e)}} children="11:00"/><Dropdown.Item onClick={(e)=>{endTimeBtn("24", e)}} children="12:00"/>         
             </Dropdown.Submenu></Dropdown.Item>
         </Dropdown></Col>
-        <Col className="timeText" onChange={endDateValue}></Col>
         </Col>
       </Container>
     </div>

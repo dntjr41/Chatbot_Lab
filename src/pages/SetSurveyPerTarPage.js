@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { Row, Col, Container } from 'react-bootstrap';
-import surveyInfo, { SET_PERIOD, ADD_GROUP, ADD_TARGET, DEPLOY_METHOD, CREATE_LINK} from '../modules/surveyInfo.js';
+import surveyInfo, { SET_PERIOD_START, SET_PERIOD_END, CREATE_LINK} from '../modules/surveyInfo.js';
 import { Link } from "react-router-dom";
 
 import Header from "../components/Header";
@@ -44,7 +44,7 @@ const SetSurveyPerTarPage = function (name) {
 
     // 기간 설정 업데이트
     const inputPeriod = () => {
-        dispatch(SET_PERIOD(surveyTime));
+        // dispatch(SET_PERIOD(surveyTime));
         console.log(surveyTime);
     }
 
