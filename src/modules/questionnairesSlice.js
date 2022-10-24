@@ -16,6 +16,7 @@ const questionnaireState = {
     questionnairePageOption : 1,
     // 유저 아이디에 따라 셀렉트 해온 설문 정보
     surveyList: [{},],
+    // 설문 상태에 따라 정렬한 설문
     selectedSurveyList: [{},]
 }
 
@@ -26,21 +27,6 @@ const questionnaireSlice = createSlice({
         // 설문 제작함 display option & 페이지
         SET_QSO: (state, action) =>{
             state.questionnaireSelectionOption = action.payload;
-            if (state.questionnaireSelectionOption === 0){ // 전체
-                
-            }
-            if (state.questionnaireSelectionOption === 1){ // 제작 중
-                
-            }
-            if (state.questionnaireSelectionOption === 2){ // 예약 중
-                
-            }
-            if (state.questionnaireSelectionOption === 3){ // 배포 중
-                
-            }
-            if (state.questionnaireSelectionOption === 4){ // 종료
-                
-            }
         },
         SET_SQID:(state, action) => {
             state.selectedQuestionnaireID = action.payload; // 설문 ID
@@ -74,9 +60,37 @@ const questionnaireSlice = createSlice({
         SET_SL: (state, action) => {
             state.surveyList = action.payload;
         },
-        // 설문 상태에 따라 셀렉트 된 설문 리스트
-        SET_SSL: (state, action) => {
-            state.selectedSurveyList = action.payload;
+        // 설문 상태에 따라 셀렉트 된 설문 리스트, 시작일 종료일 계산
+        SET_SSL: (state) => {
+            state.selectedSurveyList = []
+            var currentdatetime = Date.now();
+            console.log(currentdatetime);
+            if (state.questionnaireSelectionOption === 0){ // 전체
+                for (var i = 0; i < state.surveyList.length; i++){
+                    state.selectedSurveyList = [...state.selectedSurveyList, state.surveyList[i]];
+                    console.log(state.surveyList[i]["surveyStart"]);
+                }
+            }
+            if (state.questionnaireSelectionOption === 1){ // 제작 중
+                for (var i = 0; i < state.surveyList.length; i++){
+                    state.selectedSurveyList = [...state.selectedSurveyList, state.surveyList[i]];
+                }
+            }
+            if (state.questionnaireSelectionOption === 2){ // 예약 중
+                for (var i = 0; i < state.surveyList.length; i++){
+                    state.selectedSurveyList = [...state.selectedSurveyList, state.surveyList[i]];
+                }
+            }
+            if (state.questionnaireSelectionOption === 3){ // 배포 중
+                for (var i = 0; i < state.surveyList.length; i++){
+                    state.selectedSurveyList = [...state.selectedSurveyList, state.surveyList[i]];
+                }
+            }
+            if (state.questionnaireSelectionOption === 4){ // 종료
+                for (var i = 0; i < state.surveyList.length; i++){
+                    state.selectedSurveyList = [...state.selectedSurveyList, state.surveyList[i]];
+                }
+            }
         },
     },
 });
