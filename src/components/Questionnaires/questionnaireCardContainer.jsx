@@ -28,9 +28,8 @@ function QuestionnaireCardContainer(props) {
 
   // page에 따른 card
   let items = [];
-  console.log(selectedSurveyList)
   // card page에 디스플레이 할 것들만 생성
-  for (let number = 1; number <= 8; number++) {
+  for (let number = 0; number <= 7; number++) {
     const currentIdx = (questionnairePageOption - 1) * 8 + number;
     if (selectedSurveyList[currentIdx] != null) {
       items.push(

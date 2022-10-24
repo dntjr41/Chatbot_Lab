@@ -22,7 +22,6 @@ function QuestionnairesPage() {
       const res = await axios.get(url)
         .then(function (response) {
           dispatch(SET_SL(response.data));
-          console.log(response);
         })
     } catch (err) {
       console.log(err);
