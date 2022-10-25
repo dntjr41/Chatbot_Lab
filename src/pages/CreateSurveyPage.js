@@ -9,6 +9,7 @@ import '../css/CreateSurveyPage.css';
 import { Col, Container, Form, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
 
 // 새 설문 작성 페이지
 // └헤더
@@ -20,7 +21,18 @@ import { useEffect } from 'react';
 
 const CreateSurveyPage = function () {
     const dispatch = useDispatch();
+    const userId = useSelector(state => state.createSurvey.userId); // 나중에 유저 정보를 담고 있는 다른 store에서 가져와야함
     const surveyInfo = useSelector(state => state.createSurvey);
+
+    // 로그인한 상태(userId에 값이 있는 상태)가 아니라면 login 페이지로 리다이렉트시킴
+    const navigate = useNavigate();
+    useEffect(() => {
+        console.log("use effect");
+        if (userId === null) {
+            alert("로그인이 필요합니다");
+            navigate("/login");
+        }
+    }, [userId, navigate]);
 
     // 설문의 제목 입력 업데이트
     // title(string): 입력된 값
@@ -39,10 +51,10 @@ const CreateSurveyPage = function () {
         try {
             //응답 성공 
             axiosInstance.post('/survey', JSON.stringify(surveyInfo))
-            .then((response)=>{
-                alert("설문 임시 저장 및 홈 페이지로 이동");
-                console.log(response);
-            })
+                .then((response) => {
+                    alert("설문 임시 저장 및 홈 페이지로 이동");
+                    console.log(response);
+                })
         } catch (error) {
             //응답 실패
             console.error(error);

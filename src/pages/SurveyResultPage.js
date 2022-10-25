@@ -1,11 +1,13 @@
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router";
+import { useEffect } from "react";
+
 import Header from "../components/Header";
 import StatisticCardList from "../components/SurveyResult/StatisticCardList";
 
 import '../css/SurveyResultPage.css'
 
-import { Row, Col, Container, Tabs, Tab, Nav } from "react-bootstrap";
-import { useSelector } from "react-redux";
-import { useState } from "react";
+import { Col, Container, Tab, Nav } from "react-bootstrap";
 
 // 설문 결과 페이지
 // └헤더
@@ -17,22 +19,23 @@ import { useState } from "react";
 // └결과 분석 컴포넌트
 
 const SurveyResult = function () {
+    const userId = useSelector(state => state.createSurvey.userId); // 나중에 유저 정보를 담고 있는 다른 store에서 가져와야함
     const surveyTitle = useSelector(state => state.surveyResult.surveyTitle);
     const surveyContent = useSelector(state => state.surveyResult.surveyContent);
     const surveyTime = useSelector(state => state.surveyResult.surveyTime);
 
-    const [isStat, setIsStat] = useState(true);
-    const [isAnaly, setIsAnaly] = useState(false);
-    const showStat = () => {
-        setIsStat(true);
-        setIsAnaly(false);
-        console.log("통계화면으로 보여주기");
-    }
-    const showAnaly = () => {
-        setIsStat(false);
-        setIsAnaly(true);
-        console.log("분석화면으로 보여주기");
-    }
+    // 로그인한 상태(userId에 값이 있는 상태)가 아니라면 login 페이지로 리다이렉트시킴
+    const navigate = useNavigate();
+    useEffect(() => {
+        console.log("use effect");
+        if (userId === null) {
+            alert("로그인이 필요합니다");
+            navigate("/login");
+        }
+
+        console.log("통계 정보 가져오기");
+        // 나중에 설문지 id와 유저id를 대조하고 다르면 홈으로 리다이렉트시켜야함
+    }, [userId, navigate]);
 
     return (
         <div className="survey-result-layout">
