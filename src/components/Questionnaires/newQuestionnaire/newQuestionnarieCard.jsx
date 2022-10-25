@@ -12,7 +12,7 @@ function NewQuestionnaireCard(props) {
 
     const setTemplateSelectOption = () => {
         if (props.newQuestionnaireOption === "새 설문 작성"){
-            navigate("/create-survey");   
+            navigate("/create-survey");
         }
         else if (props.newQuestionnaireOption === "설문 템플릿 탐색"){
             dispatch(SET_TSO(0))

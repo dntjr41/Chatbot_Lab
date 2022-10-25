@@ -7,31 +7,33 @@ import "../css/QuestionnairePage.css"
 
 import axios from 'axios';
 
-import { SET_SL } from '../modules/questionnairesSlice';
+import { SET_SL, SET_SSL } from '../modules/questionnairesSlice';
 import { useSelector, useDispatch } from 'react-redux';
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 
 function QuestionnairesPage() {
-  const url = "http://localhost:8080/api/survey/userId=" + 1;
-  const { surveyList } = useSelector((state) => ({
-    surveyList: state.questionnairesReducer.surveyList,
-  }));
+  /* redux */
   const dispatch = useDispatch();
+  const {surveyList} = useSelector((state) => ({
+    surveyList: state.questionnairesReducer.surveyList
+  }));
+  // API get surveyList by user ID
+  const url = "http://localhost:8080/api/survey/userId=" + 1;
   const getSurveyListById = async () => {
     try {
       const res = await axios.get(url)
         .then(function (response) {
-          dispatch(SET_SL(response.data));
-          console.log(response);
+          dispatch(SET_SL(response.data))
+          dispatch(SET_SSL(surveyList))
         })
     } catch (err) {
       console.log(err);
     }
-    
   }
   useEffect(() => {
-    {getSurveyListById()}
+    { getSurveyListById() }
   }, []);
+  
   return (
     <main >
       <Header color="purple" />
@@ -47,7 +49,7 @@ function QuestionnairesPage() {
       </div>
     </main>
   );
-  
+
 }
 
 export default QuestionnairesPage;

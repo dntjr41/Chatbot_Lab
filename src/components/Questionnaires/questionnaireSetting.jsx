@@ -1,25 +1,25 @@
 import ListGroup from 'react-bootstrap/ListGroup';
 
 function QuestionnaireSetting(props) {
+    // to responseSurveyPage
     function preview () {
         console.log("preview");
-        alert('You clicked preview');
     }
     function surveyCopy () {
         console.log("surveyCopy");
-        alert('You clicked survey Copy');
+        // get survey info
+        // create survey info & questionlist
     }
+    // to CreateSurveyPage
     function surveyAlter () {
         console.log("surveyAlter");
-        alert('You clicked survey Alter');
     }
     function surveyDelete () {
         console.log("surveyDelete");
-        alert('You clicked survey Delete');
+        // TODO axios api delete survey & involved questionlist & involved answer list
     }
     function surveyResultAnalysis () {
         console.log("surveyResultAnalysis");
-        alert('You clicked survey Result Analysis');
     }
         
     return (
