@@ -63,30 +63,30 @@ const questionnaireSlice = createSlice({
         SET_SSL: (state) => {
             state.selectedSurveyList = []
             var currentdatetime = Date.now();
-            console.log(currentdatetime);
+            var i = 0;
             if (state.questionnaireSelectionOption === 0){ // 전체
-                for (var i = 0; i < state.surveyList.length; i++){
+                for (i = 0; i < state.surveyList.length; i++){
                     state.selectedSurveyList = [...state.selectedSurveyList, state.surveyList[i]];
                     console.log(state.surveyList[i]["surveyStart"]);
                 }
             }
             if (state.questionnaireSelectionOption === 1){ // 제작 중
-                for (var i = 0; i < state.surveyList.length; i++){
+                for (i = 0; i < state.surveyList.length; i++){
                     state.selectedSurveyList = [...state.selectedSurveyList, state.surveyList[i]];
                 }
             }
             if (state.questionnaireSelectionOption === 2){ // 예약 중
-                for (var i = 0; i < state.surveyList.length; i++){
+                for (i = 0; i < state.surveyList.length; i++){
                     state.selectedSurveyList = [...state.selectedSurveyList, state.surveyList[i]];
                 }
             }
             if (state.questionnaireSelectionOption === 3){ // 배포 중
-                for (var i = 0; i < state.surveyList.length; i++){
+                for (i = 0; i < state.surveyList.length; i++){
                     state.selectedSurveyList = [...state.selectedSurveyList, state.surveyList[i]];
                 }
             }
             if (state.questionnaireSelectionOption === 4){ // 종료
-                for (var i = 0; i < state.surveyList.length; i++){
+                for (i = 0; i < state.surveyList.length; i++){
                     state.selectedSurveyList = [...state.selectedSurveyList, state.surveyList[i]];
                 }
             }
