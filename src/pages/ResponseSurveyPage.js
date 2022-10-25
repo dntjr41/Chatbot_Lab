@@ -1,4 +1,6 @@
+import axiosInstance from '../api';
 import { useSelector } from 'react-redux';
+import { GET_TEMPLATE } from "../modules/responseSurveySlice";
 
 import Header from "../components/Header";
 import ResponseCardList from "../components/ResponseSurvey/ResponseCardList";
@@ -6,6 +8,8 @@ import ResponseCardList from "../components/ResponseSurvey/ResponseCardList";
 import "../css/ResponseSurveyPage.css";
 import { Container, Row, Col } from "react-bootstrap";
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 // 피설문자관점 응답 페이지
 // └헤더
 // └설문지 컴포넌트
@@ -14,7 +18,27 @@ import { Link } from 'react-router-dom';
 //   └제출 버튼
 
 const ResponsePage = function () {
+    const dispatch = useDispatch();
     const responseInfo = useSelector(state => state.responseSurvey);
+
+    useEffect(() => {
+        const getSurveyTemplate = async () => {
+            console.log("템플릿 가져오기");
+            try {
+                //응답 성공 
+                axiosInstance.get('/response/' + 7)
+                    .then((response) => {
+                        console.log(response.data);
+                        dispatch(GET_TEMPLATE(response.data));
+                    })
+            } catch (error) {
+                //응답 실패
+                console.error(error);
+            }
+        }
+        getSurveyTemplate();
+    }, []);
+
 
     // 설문 제출
     const submitSurvey = () => {
@@ -24,7 +48,7 @@ const ResponsePage = function () {
 
     return (
         <div className="response-layout">
-            <Header color="green"/>
+            <Header color="green" />
             <div className="response-title">설문지 응답</div>
             <Container className="response-survey-form">
                 <Row>

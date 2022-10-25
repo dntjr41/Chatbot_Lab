@@ -16,7 +16,7 @@ const responseState = {
             { id: 2, order: 2, value: "질문1에 대한 답변2", isCheck: false },
             { id: 3, order: 3, value: "질문1에 대한 답변3", isCheck: false }
         ], // (객관식 해당)질문의 답변 배열
-        questionOptions: [true,false,false], // 질문 옵션
+        questionOptions: [true, false, false], // 질문 옵션
     },
     {
         questionId: 2,
@@ -27,7 +27,7 @@ const responseState = {
             { id: 4, order: 1, value: "질문2에 대한 답변1", isCheck: false },
             { id: 5, order: 2, value: "질문2에 대한 답변2", isCheck: false },
         ],
-        questionOptions: [true,true,false],
+        questionOptions: [true, true, false],
     },
     {
         questionId: 3,
@@ -58,10 +58,23 @@ const responseSurveySlice = createSlice({
             // 주관식 응답 선택 업데이트
             // listIdx(int): 질문 리스트의 몇번째인지, answer(string): 입력한 응답 내용
             state.questionCardList[action.payload.listIdx].questionAnswers = action.payload.answer;
+        },
+        GET_TEMPLATE: (state, action) => {
+            // 설문지 템플릿 서버로부터 가져와서 업데이트
+            const responseData = action.payload;
+            state.surveyId = responseData.surveyId;
+            state.surveyTitle = responseData.surveyTitle;
+            state.surveyContent = responseData.surveyContent;
+            responseData.questionCardList.map((questionCard) => {
+                if (questionCard.questionType === 4) {
+                    questionCard.questionAnswers = "";
+                }
+                return state.questionCardList = [...state.questionCardList, questionCard];
+            })
         }
     }
 })
 
-export const { ANS_CHOICE_CHECK, ANS_CHOICE_RADIO, ANS_SUBJECTIVE_INPUT } = responseSurveySlice.actions;
+export const { ANS_CHOICE_CHECK, ANS_CHOICE_RADIO, ANS_SUBJECTIVE_INPUT, GET_TEMPLATE } = responseSurveySlice.actions;
 
 export default responseSurveySlice.reducer;
