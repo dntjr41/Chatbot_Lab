@@ -17,7 +17,7 @@ import { useDispatch } from 'react-redux';
 //   └질문 카드 컴포넌트 리스트
 //   └제출 버튼
 
-const ResponsePage = function () {
+const ResponsePage = function ({ surveyId }) {
     const dispatch = useDispatch();
     const responseInfo = useSelector(state => state.responseSurvey);
 
@@ -26,7 +26,7 @@ const ResponsePage = function () {
             console.log("템플릿 가져오기");
             try {
                 //응답 성공 
-                axiosInstance.get('/response/' + 7)
+                axiosInstance.get('/response/' + surveyId)
                     .then((response) => {
                         console.log(response.data);
                         dispatch(GET_TEMPLATE(response.data));
@@ -37,7 +37,7 @@ const ResponsePage = function () {
             }
         }
         getSurveyTemplate();
-    }, []);
+    }, [dispatch, surveyId]);
 
 
     // 설문 제출
@@ -66,6 +66,8 @@ const ResponsePage = function () {
             </Container>
         </div>
     )
-}
+};
+
+ResponsePage.defaultProps = { surveyId: 1 };
 
 export default ResponsePage;
