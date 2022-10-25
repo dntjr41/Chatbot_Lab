@@ -17,7 +17,7 @@
 }
 
 .TosSubFrame {
-  background-color: #883ECC;
+  background-color: rgba(214, 214, 214, 0.5);
   position: relative;
   top: 5px;
   height: max-content;
@@ -41,6 +41,6 @@
   border-radius: 15px 15px 15px 15px;
   background-color: white;
 
-  color: #883ECC;
+  color: rgba(214, 214, 214, 0.5);
   line-height: 1.8em;
 }

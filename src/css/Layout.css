@@ -2,26 +2,34 @@
 /* 헤더의 상단 */
 .header-top {
     height: 72px;
-    padding: 6px 0px;
+    padding: 0px 0px 0px 0px;
     background-color: white;
     display: flex;
     flex-wrap: wrap;
 }
 
 .header-logo-green {
-    background-image: url(../images/logo/Icon-green.png);
+    background-image: url(../images/logo/Icon-logo-black.png);
+    background-size: 300px;
+    background-repeat: no-repeat;
+    left: 0px;
+
+    /* cursor: pointer; */
+}
+
+.header-logo-purple {
+    background-image: url(../images/logo/Icon-logo-black.png);
     background-size: 300px;
     background-repeat: no-repeat;
 
     /* cursor: pointer; */
 }
 
-.header-logo-purple {
-    background-image: url(../images/logo/Icon-purple.png);
-    background-size: 300px;
-    background-repeat: no-repeat;
+.header-logohome {
+    width: 280px;
+    height: 55px;
+    opacity: 0;
 
-    /* cursor: pointer; */
 }
 
 .header-login {

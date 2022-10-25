@@ -12,35 +12,30 @@ import { useSelector, useDispatch } from 'react-redux';
 import '../../css/QuestionnairePage.css';
 import '../../App.css'
 function QuestionnaireCardContainer(props) {
-  /* 리덕스 */
-  const dispatch = useDispatch();
+  /* redux */
   // 현재 보여주는 페이지
   const { questionnairePageOption } = useSelector((state) => ({
     questionnairePageOption: state.questionnairesReducer.questionnairePageOption
   }))
-  // 유저 ID에 따른 설문 리스트
-  const {surveyList} = useSelector((state) => ({
-    surveyList: state.questionnairesReducer.surveyList,
+  // 유저 ID, option에 따른 설문 리스트
+  const {selectedSurveyList} = useSelector((state) => ({
+    selectedSurveyList: state.questionnairesReducer.selectedSurveyList,
   }));
-  // nav 디스플레이 옵션
-  const {questionnaireSelectionOption} = useSelector((state) => ({
-    questionnaireSelectionOption: state.questionnairesReducer.questionnaireSelectionOption,
-  }));
-  
+
   // page에 따른 card
   let items = [];
-
-  for (let number = 1; number <= 8; number++) {
+  // card page에 디스플레이 할 것들만 생성
+  for (let number = 0; number <= 7; number++) {
     const currentIdx = (questionnairePageOption - 1) * 8 + number;
-    if (surveyList[currentIdx] != null) {
+    if (selectedSurveyList[currentIdx] != null) {
       items.push(
         <Col xs="auto">
           <QuestionnaireCard
-            id={ surveyList[currentIdx]}
-            title={ surveyList[currentIdx]["surveyTitle"]}
-            startTime={surveyList[currentIdx]["startTime"]}
-            endTime={surveyList[currentIdx]["endTime"]}
-            representativeImg={surveyList[currentIdx]["surveyTitle"]}
+            id={ selectedSurveyList[currentIdx]}
+            title={ selectedSurveyList[currentIdx]["surveyTitle"]}
+            startTime={selectedSurveyList[currentIdx]["startTime"]}
+            endTime={selectedSurveyList[currentIdx]["endTime"]}
+            representativeImg={selectedSurveyList[currentIdx]["surveyTitle"]}
             />
         </Col>
       )

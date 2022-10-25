@@ -2,6 +2,7 @@ import '../css/FaqPage.css';
 import Header from "../components/Header";
 import { Row, Col, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import Flip from 'react-reveal/Flip';
 
 import gif1 from "../images/faq/resultPage.gif";
 import gif2 from "../images/faq/createSurvey.gif";
@@ -15,6 +16,8 @@ import icon3 from "../images/logo/Icon-logo-purple.png";
 import icon4 from "../images/logo/Icon-purple.png";
 import icon5 from "../images/Logo square.png";
 import icon6 from "../images/Logo for banner.png";
+import icon7 from "../images/logo/Icon-logo-black.png";
+import icon8 from "../images/logo/Icon-black.png";
 // FAQ 페이지
 // └헤더
 
@@ -71,6 +74,9 @@ const FaqPage = function () {
 
                     <Col className="FaQContentFrame">
                         <h2>설문베이의 로고 및 배너</h2><br></br>
+                            <p><img className="surveyIconImg" src={icon8}/>&nbsp;
+                                <img className="surveyIconImg" src={icon7}/>
+                            - 설문베이 아이콘 (Black)</p>                        
                             <p><img className="surveyIconImg" src={icon1}/>&nbsp;
                                 <img className="surveyIconImg" src={icon2}/>
                             - 설문베이 아이콘 (Green)</p>

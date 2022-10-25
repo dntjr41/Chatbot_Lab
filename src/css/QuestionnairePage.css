@@ -21,6 +21,10 @@
   color: white;
 }
 
+.TemplateUnknown{
+  color:grey;
+}
+
 .ButtonPurple{
   background-color: #662D91;
 }

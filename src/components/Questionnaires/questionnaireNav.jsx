@@ -1,6 +1,6 @@
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { SET_QSO } from '../../modules/questionnairesSlice';
+import { SET_QSO, SET_SSL } from '../../modules/questionnairesSlice';
 import { useSelector, useDispatch } from 'react-redux';
 
 function QuestionnaireNav(props) {
@@ -12,6 +12,7 @@ function QuestionnaireNav(props) {
     const dispatch = useDispatch();
     const newQuestionnaireButtonOnClick = (qsoIdx) => {
         dispatch(SET_QSO(qsoIdx));
+        dispatch(SET_SSL());
     }
 
     return (

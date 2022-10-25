@@ -1,9 +1,28 @@
+import '../css/ToggleStyles.css';
 import '../css/TosPage.css';
 import Header from "../components/Header";
 import { Row, Col, Container} from 'react-bootstrap';
+import React from "react";
+import { useState } from "react";
+import { SubWrap, motion, AnimateSharedLayout, AnimatePresence } from 'framer-motion';
 
 // 이용약관 페이지
 // └헤더
+
+function Item({ item }) {
+    const [isOpen, setIsOpen] = useState(false);
+  
+    const toggleOpen = () => setIsOpen(!isOpen);
+  
+    return (
+      <motion.li className="AnimateLi" layout onClick={toggleOpen} initial={{ borderRadius: 10 }}>
+        <motion.h2>{item.title}</motion.h2>
+        
+        <motion.div layout />
+        <AnimatePresence>{isOpen && (<motion.h5>{item.subtitle}</motion.h5>)}</AnimatePresence>
+      </motion.li>
+    );
+}
 
 const TosPage = function () {
     

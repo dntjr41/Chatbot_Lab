@@ -53,12 +53,12 @@ const DeploySurveyPage = function () {
             <Container className="MainFrame">
                 <div className="deploySurvey">
                     <Col className="deployInfo">
-                        <Col className="info">설문 제목 - {surveyTitle}</Col>
-                        <Col className="info">설문 기간 - {surveyTime}</Col>
+                        <Col className="info">설문 제목 - {surveyTitle}Test Survey 01</Col>
+                        <Col className="info">설문 기간 - {surveyTime}2022년 10월 15일 오후 11:00 ~ 2022년 10월 16일 오전 11:00</Col>
                     </Col>
                     
                     <Col className="deployLink">                     
-                        <Col>링크 - {link} <button className="linkBtn" onClick={downloadLink}/> &nbsp;</Col>
+                        <Col>링크 - {link}https://github.com/dntjr41/KAKAO_Chatbot_Lab <button className="linkBtn" onClick={downloadLink}/> &nbsp;</Col>
                     </Col>
 
                     <div className="deployQR">

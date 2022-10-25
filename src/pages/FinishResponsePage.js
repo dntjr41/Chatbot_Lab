@@ -12,12 +12,12 @@ import '../css/FinishResponsePage.css'
 const FinishResponsePage = function () {
     // 홈페이지로 이동
     const gotoHome = () => {
-        alert("홈 페이지로 이동");
+        // alert("홈 페이지로 이동");
     }
 
     // 이전 페이지로 돌아가서 응닫 수정하기
     const backToResponse = () => {
-        alert("이전 페이지로 돌아가기");
+        // alert("이전 페이지로 돌아가기");
     }
 
     return (
