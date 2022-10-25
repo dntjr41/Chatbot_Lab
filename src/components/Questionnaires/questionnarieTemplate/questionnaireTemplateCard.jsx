@@ -5,15 +5,18 @@ const questionnaireTemplateCard = (props) => {
   return (
     <Card
     bg='light'
-    key='Light'
+    key={props.id}
     text='dark'
     style={{ width: '12rem' }}
     className="mb-2">
       <Card.Img variant="top" src={testimg} alt="Card image" />
         <Card.Body className="text-center d-grid gap-2">
-          <Card.Title>템플릿 제목</Card.Title>
+          <Card.Title><b>{props.title}</b></Card.Title>
           <Card.Text>
-            템플릿 설명
+            {props.surveyDescription ?
+              props.surveyDescription.substring(0,20)
+              :"설문 설명이 없습니다"
+            }
           </Card.Text>
           
         </Card.Body>

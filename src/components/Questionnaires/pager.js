@@ -20,10 +20,8 @@ function Pager() {
 
     // 컨텐츠 갯수
     let myQuestionnaireCount = selectedSurveyList.length;
-    console.log(myQuestionnaireCount);
     // 페이지 수
     let totalPage = Math.ceil(myQuestionnaireCount / 8);
-    console.log(totalPage); 
     // Pagination.Item 배열
     let items = [];
     if (active === 1 || active === 2) {

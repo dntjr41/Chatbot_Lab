@@ -54,7 +54,6 @@ const questionnaireSlice = createSlice({
         // 0: 설문 템플릿, 1: 이전 템플릿
         SET_TSO: (state, action) => {
             state.templateSelectOption = action.payload;
-            console.log("템플릿 옵션:" + state.templateSelectOption);
         },
         // 유저 아이디에 따라 셀렉트 해온 설문 리스트
         SET_SL: (state, action) => {

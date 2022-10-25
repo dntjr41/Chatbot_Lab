@@ -21,10 +21,6 @@ function QuestionnaireCardContainer(props) {
   const {selectedSurveyList} = useSelector((state) => ({
     selectedSurveyList: state.questionnairesReducer.selectedSurveyList,
   }));
-  // 유저 ID, option에 따른 설문 리스트
-  const {surveyList} = useSelector((state) => ({
-    surveyList: state.questionnairesReducer.surveyList
-  }));
 
   // page에 따른 card
   let items = [];
