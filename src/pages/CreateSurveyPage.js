@@ -1,3 +1,4 @@
+import axiosInstance from '../api';
 import { useSelector, useDispatch } from 'react-redux';
 import { CHANGE_TITLE, CHANGE_CONTENT } from "../modules/createSurveySlice";
 
@@ -7,6 +8,7 @@ import QuestionCardList from "../components/CreateSurvey/QuestionCardList";
 import '../css/CreateSurveyPage.css';
 import { Col, Container, Form, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
 
 // 새 설문 작성 페이지
 // └헤더
@@ -32,9 +34,19 @@ const CreateSurveyPage = function () {
         dispatch(CHANGE_CONTENT(content));
     }
 
-    const saveSurvey = () => {
-        alert("설문 임시 저장 및 홈 페이지로 이동");
-        console.log(surveyInfo);
+    const saveSurvey = async () => {
+        console.log(JSON.stringify(surveyInfo));
+        try {
+            //응답 성공 
+            axiosInstance.post('/survey', JSON.stringify(surveyInfo))
+            .then((response)=>{
+                alert("설문 임시 저장 및 홈 페이지로 이동");
+                console.log(response);
+            })
+        } catch (error) {
+            //응답 실패
+            console.error(error);
+        }
     }
 
     // 설문 저장 버튼 클릭시 입력한 모든 정보를 console에 띄움
@@ -46,7 +58,7 @@ const CreateSurveyPage = function () {
     return (
         // 설문 제목, 부연설명에 대한 redux 처리 필요
         <div className="create-survey-layout">
-            <Header color="green"/>
+            <Header color="green" />
             <div className="create-survey-title">설문지 작성</div>
             <Container className="create-survey-form">
                 <Row>
