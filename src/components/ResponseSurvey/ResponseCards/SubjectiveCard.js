@@ -21,7 +21,7 @@ const SubjectiveCard = function ({ questionCard, listIdx }) {
                 className="response-survey-subjective fs-5"
                 as="textarea"
                 placeholder="답변을 입력해주세요"
-                value={questionCard.questionAnswers}
+                value={questionCard.questionAnswer}
                 row={2}
                 onChange={(e) => inputAnswer(listIdx, e.target.value)} />
         </div>

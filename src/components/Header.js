@@ -16,7 +16,7 @@ const Header = function (props) {
         <div>
             <div className="header-top px-5">
                 <Col className={props.color === "green" ? "header-logo-green" : "header-logo-purple"} md={0}>
-                    <Link to="/home"><button class="header-logohome"></button></Link>
+                    <Link to="/home"><button className="header-logohome"></button></Link>
                 </Col>
 
                 <Col className="align-self-center" md={{ span: 3, offset: 6 }}>

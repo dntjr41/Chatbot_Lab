@@ -38,13 +38,14 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-      <ScrollTop />
+        <ScrollTop />
         <Routes>
           <Route path="/">
-            {<Route path="home" index element={<HomePage />} />}
+            <Route path={"/"} index element={<HomePage />} />
+            <Route path={"home"} element={<HomePage />} />
 
             <Route path="login" element={<LoginPage />} />
-            <Route path="auth/kakao/callback" element={<Auth/>}/>
+            <Route path="auth/kakao/callback" element={<Auth />} />
             <Route path="myinfo" element={<MyInfoPage />} />
 
             <Route path="tos" element={<TosPage />} />

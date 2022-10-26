@@ -33,7 +33,7 @@ const responseSurveySlice = createSlice({
         ANS_SUBJECTIVE_INPUT: (state, action) => {
             // 주관식 응답 선택 업데이트
             // listIdx(int): 질문 리스트의 몇번째인지, answer(string): 입력한 응답 내용
-            state.questionCardList[action.payload.listIdx].questionAnswers = action.payload.answer;
+            state.questionCardList[action.payload.listIdx].questionAnswer = action.payload.answer;
         },
         GET_TEMPLATE: (state, action) => {
             // 설문지 템플릿 서버로부터 가져와서 업데이트
@@ -43,7 +43,7 @@ const responseSurveySlice = createSlice({
             state.surveyContent = responseData.surveyContent;
             responseData.questionCardList.map((questionCard) => {
                 if (questionCard.questionType === 4) {
-                    questionCard.questionAnswers = "";
+                    questionCard.questionAnswer = "";
                 }
                 return state.questionCardList = [...state.questionCardList, questionCard];
             })
