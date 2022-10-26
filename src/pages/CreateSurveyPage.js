@@ -61,10 +61,20 @@ const CreateSurveyPage = function () {
         }
     }
 
-    // 설문 저장 버튼 클릭시 입력한 모든 정보를 console에 띄움
-    const createSurvey = () => {
-        alert("설문 저장 및 공유 페이지로 이동");
-        console.log(surveyInfo);
+    const createSurvey = async () => {
+        console.log(JSON.stringify(surveyInfo));
+        try {
+            //응답 성공 
+            axiosInstance.post('/survey', JSON.stringify(surveyInfo))
+                .then((response) => {
+                    alert("설문 저장 및 공유 페이지로 이동");
+                    console.log(response.data);
+                    navigate("/set-survey-per-tar", { state: { surveyId: response.data } });
+                })
+        } catch (error) {
+            //응답 실패
+            console.error(error);
+        }
     }
 
     return (
@@ -84,8 +94,7 @@ const CreateSurveyPage = function () {
                 </Row>
                 <div className="text-center my-5">
                     <Link to="/questionnaires"><button className="create-survey-submit mx-5 fs-2" type="button" onClick={saveSurvey}>임시저장</button></Link>
-
-                    <Link to="/set-survey-per-tar"><button className="create-survey-submit mx-5 fs-2" type="button" onClick={createSurvey}>공유</button></Link>
+                    <button className="create-survey-submit mx-5 fs-2" type="button" onClick={createSurvey}>공유</button>
                 </div>
             </Container>
         </div >
