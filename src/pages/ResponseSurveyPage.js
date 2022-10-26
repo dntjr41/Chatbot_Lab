@@ -44,6 +44,20 @@ const ResponsePage = function ({ surveyId }) {
     const submitSurvey = () => {
         // alert("응답 제출")
         console.log(responseInfo);
+        const submit = async () => {
+            console.log("응답 제출");
+            try {
+                //응답 성공 
+                axiosInstance.post('/response/submit',responseInfo)
+                    .then((response) => {
+                        console.log(response.data);
+                    })
+            } catch (error) {
+                //응답 실패
+                console.error(error);
+            }
+        }
+        submit();
     }
 
     return (
@@ -68,6 +82,6 @@ const ResponsePage = function ({ surveyId }) {
     )
 };
 
-ResponsePage.defaultProps = { surveyId: 1 };
+ResponsePage.defaultProps = { surveyId: 8 };
 
 export default ResponsePage;
