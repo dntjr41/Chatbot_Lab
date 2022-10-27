@@ -41,7 +41,6 @@ function QuestionnairesPage() {
         <br />
         <h1 className="Title"><b>&nbsp;&nbsp;&nbsp;&nbsp;설문 제작함</b></h1>
         <br />
-
         <QuestionnaireCardContainer />
         <br />
         <Pager />
