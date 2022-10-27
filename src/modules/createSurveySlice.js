@@ -76,10 +76,14 @@ const createSurveySlice = createSlice({
             // 질문 카드의 옵션 체크여부를 변경한다
             // listIdx(int): 질문 리스트의 몇번째인지, optIdx(int): 옵션 리스트의 몇번째인지
             state.questionCardList[action.payload.listIdx].questionOptions[action.payload.optIdx] = !state.questionCardList[action.payload.listIdx].questionOptions[action.payload.optIdx];
+        },
+        RESET_STATE: (state) => {
+            // state 초기화
+            Object.assign(state, surveyState);
         }
     }
 });
 
-export const { ADD_ANSWER, DEL_ANSWER, ADD_CARD, COPY_CARD, DEL_CARD, CHANGE_TITLE, CHANGE_CONTENT, CHANGE_QUE_TITLE, CHANGE_QUE_ANSWER, CHECK_OPT } = createSurveySlice.actions;
+export const { ADD_ANSWER, DEL_ANSWER, ADD_CARD, COPY_CARD, DEL_CARD, CHANGE_TITLE, CHANGE_CONTENT, CHANGE_QUE_TITLE, CHANGE_QUE_ANSWER, CHECK_OPT, RESET_STATE } = createSurveySlice.actions;
 
 export default createSurveySlice.reducer;

@@ -2,6 +2,7 @@ import './App.css';
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+import PrivateRoute from './components/Route/privateRoute'
 
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
@@ -45,8 +46,8 @@ function App() {
             <Route path={"home"} element={<HomePage />} />
 
             <Route path="login" element={<LoginPage />} />
-            <Route path="auth/kakao/callback" element={<Auth />} />
-            <Route path="myinfo" element={<MyInfoPage />} />
+            <Route path="auth/kakao/callback" element={<Auth/>}/>
+            <Route path="myinfo" element={<PrivateRoute> <MyInfoPage /> </PrivateRoute>} />
 
             <Route path="tos" element={<TosPage />} />
             <Route path="service-center" element={<ServicePage />} />
@@ -58,7 +59,7 @@ function App() {
             <Route path="deploy-survey" element={<DeploySurveyPage />} />
             <Route path="set-survey-per-tar" element={<SetSurveyPerTarPage />} />
 
-            <Route path="response" element={<ResponseSurveyPage />} />
+            <Route path="response/:surveyId" element={<ResponseSurveyPage />} />
             <Route path="finish-response" element={<FinishResponsePage />} />
             <Route path="survey-result">
               <Route path="statistic" element={<SurveyResult />} />

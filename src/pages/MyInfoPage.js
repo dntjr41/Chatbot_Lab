@@ -17,7 +17,15 @@ const kakaoUnlink = () => {
     window.Kakao.API.request({
       url: '/v1/user/unlink',
       success: function(response) {
+        localStorage.removeItem('token');
+        localStorage.removeItem('id');
+        localStorage.removeItem('nickName');
+        localStorage.removeItem('profileImage');
+        localStorage.removeItem('email');
+
         console.log(response);
+
+        document.location.href('/Home');
       },
       fail: function(error) {
         console.log(error);
@@ -29,7 +37,15 @@ const kakaoUnlink = () => {
     window.Kakao.API.request({
       url: '/v1/user/logout',
       success: function(response) {
+        localStorage.removeItem('token');
+        localStorage.removeItem('id');
+        localStorage.removeItem('nickName');
+        localStorage.removeItem('profileImage');
+        localStorage.removeItem('email');
+        
         console.log(response);
+
+        document.location.href('/Home');
       },
       fail: function(error) {
         console.log(error);
@@ -40,35 +56,7 @@ const kakaoUnlink = () => {
 
 const MyInfoPage = function () {
 
-    const [user_id, setUserId] = useState();
-    const [nickName, setNickName] = useState();
-    const [profileImage, setProfileImage] = useState();
-    const [email, setEmail] = useState();
-
-    const getProfile = async () => {
-        try {
-          // Kakao SDK API를 이용해 사용자 정보 획득
-          let data = await window.Kakao.API.request({
-            url: "/v2/user/me",
-          });
-          // 사용자 정보 변수에 저장
-          setUserId(data.id);
-          setNickName(data.properties.nickname);
-          setProfileImage(data.properties.profile_image);
-          setEmail(data.kakao_account.email);
-
-          localStorage.setItem('id', data.id);
-          localStorage.setItem('nickName', data.properties.nickname);
-          localStorage.setItem('profileImage', data.properties.profile_image);
-          localStorage.setItem('email', data.kakao_account.email);
-
-        } catch (err) {
-          console.log(err);
-        }
-      };
-      useEffect(() => {    
-        getProfile();
-      }, []);
+  
       return (
         <div className="UserInfo">
           <Header color="green"/>
@@ -88,7 +76,7 @@ const MyInfoPage = function () {
                           <img
                             alt="..."
                             className="rounded-circle"
-                            src={profileImage}
+                            src={localStorage.getItem('profileImage')}
                           />
                         </a>
                       </div>
@@ -109,18 +97,29 @@ const MyInfoPage = function () {
                         >
                           연동 해제하기
                         </Button>
-                        
+                        {/*
+                        <Button
+                          variant="danger"
+                          className="mr-4"
+                          color="info"
+                          href="#pablo"
+                          onClick={kakaoLogout}
+                          size="sm"
+                        >
+                          로그아웃(테스트)
+                        </Button>
+                        */}
                       </div>
                     </Col>
                     <Col className="order-lg-1" lg="4">
                       <div className="card-profile-stats d-flex justify-content-center">
-                      <div className="user_info">{nickName}님의 마이페이지</div>
+                      <div className="user_info">{localStorage.getItem('nickName')}님의 마이페이지</div>
                       </div>
                     </Col>
                   </Row>
                   <div className="text-left">
-                  <div className="user_info">회원 ID : {user_id}</div>
-                  <div className="user_info">연동된 계정 : {email} / Kakao</div>
+                  <div className="user_info">회원 ID : {localStorage.getItem('id')}</div>
+                  <div className="user_info">연동된 계정 : {localStorage.getItem('email')} / Kakao</div>
                   </div>
 
               

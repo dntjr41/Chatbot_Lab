@@ -32,18 +32,18 @@ function QuestionnaireSetting(props) {
     }
     useEffect(() => {
         { getSurveyListById() }
-    },[]);
+    }, []);
 
     /* onclick 함수들 */
     // to responseSurveyPage
     function preview() {
-        navigate("/response", { state: { surveyId: selectedQuestionnaireID["surveyId"], isPreview: true } });
+        navigate("/response/" + selectedQuestionnaireID["surveyId"], { state: { isPreview: true } });
     }
     //* API copy survey by survey ID *//
     const surveyCopyUrl = "http://localhost:8080/api/survey/copy/surveyId=" + selectedQuestionnaireID["surveyId"];
     const surveyCopy = async () => {
         try {
-            const res = await axios.post(surveyCopyUrl)
+            const res = await axios.put(surveyCopyUrl)
                 .then(function (response) {
                     // handle success
                     console.log(response);

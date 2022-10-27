@@ -1,5 +1,5 @@
 import React from 'react';
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import qs from "qs";
 import { useNavigate } from "react-router-dom";
@@ -10,6 +10,12 @@ const Auth = () => {
     const CLIENT_SECRET = "DEnIz7VmtjOrxBNgxVroEl0uivOs3HxE";
     const code = new URL(window.location.href).searchParams.get("code");
     let navigate = useNavigate();
+
+    const [user_id, setUserId] = useState();
+    const [nick, setNickName] = useState();
+    const [profileImage, setProfileImage] = useState();
+    const [mail, setEmail] = useState();
+
 
     const getToken = async () => {
     const payload = qs.stringify({
@@ -30,11 +36,38 @@ const Auth = () => {
       // access token 설정
       window.Kakao.Auth.setAccessToken(res.data.access_token);
       localStorage.setItem("token", res.data.access_token);
+
+
+      let data = await window.Kakao.API.request({
+        url: "/v2/user/me",
+      });
+      // 사용자 정보 변수에 저장
+      setUserId(data.id);
+      setNickName(data.properties.nickname);
+      setProfileImage(data.properties.profile_image);
+      setEmail(data.kakao_account.email);
+
+      localStorage.setItem('id', data.id);
+      localStorage.setItem('nickName', data.properties.nickname);
+      localStorage.setItem('profileImage', data.properties.profile_image);
+      localStorage.setItem('email', data.kakao_account.email);
+
+      axios
+      .post("http://localhost:8080/api/user/create", {
+        userId: data.id,
+        nickName: data.properties.nickname,
+        profileImg: data.properties.profile_image,
+        eMail: data.kakao_account.email,
+      });
+      console.log("hello");
+      
       navigate("/myinfo");
     } catch (err) {
       console.log(err);
     }
   };
+
+ 
   useEffect(() => {
     getToken();
   }, []);

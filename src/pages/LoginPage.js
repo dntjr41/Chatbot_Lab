@@ -40,14 +40,6 @@ class Login extends React.Component {
         <main ref="main">
           <section className="section section-shaped section-lg">
             <div className="shape shape-style-1 bg-gradient-default">
-              <span />
-              <span />
-              <span />
-              <span />
-              <span />
-              <span />
-              <span />
-              <span />
             </div>
             <Header color="green"/>
             <Container className="pt-lg-7 py-5">
@@ -60,9 +52,9 @@ class Login extends React.Component {
                       </div>
                       <div className="btn-wrapper text-center">
                      
-                      <GoogleLogin/>
-                      <FaceBookLogin/>
-                      <NaverLogin/>
+                      {/*<GoogleLogin/>*/}
+                      {/*<FaceBookLogin/>*/}
+                      {/*<NaverLogin/>*/}
                       <KakaoLogin />
                         
                       </div>
