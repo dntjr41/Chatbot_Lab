@@ -2,6 +2,7 @@ import './App.css';
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+import PrivateRoute from './components/Route/privateRoute'
 
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
@@ -45,8 +46,8 @@ function App() {
             <Route path={"home"} element={<HomePage />} />
 
             <Route path="login" element={<LoginPage />} />
-            <Route path="auth/kakao/callback" element={<Auth />} />
-            <Route path="myinfo" element={<MyInfoPage />} />
+            <Route path="auth/kakao/callback" element={<Auth/>}/>
+            <Route path="myinfo" element={<PrivateRoute> <MyInfoPage /> </PrivateRoute>} />
 
             <Route path="tos" element={<TosPage />} />
             <Route path="service-center" element={<ServicePage />} />
