@@ -1,6 +1,6 @@
 import axiosInstance from '../api';
 import { useSelector, useDispatch } from 'react-redux';
-import { CHANGE_TITLE, CHANGE_CONTENT } from "../modules/createSurveySlice";
+import { CHANGE_TITLE, CHANGE_CONTENT, RESET_STATE } from "../modules/createSurveySlice";
 
 import Header from "../components/Header";
 import QuestionCardList from "../components/CreateSurvey/QuestionCardList";
@@ -28,6 +28,7 @@ const CreateSurveyPage = function () {
     const navigate = useNavigate();
     useEffect(() => {
         console.log("use effect");
+        console.log(surveyInfo);
         if (userId === null) {
             alert("로그인이 필요합니다");
             navigate("/login");
@@ -59,6 +60,7 @@ const CreateSurveyPage = function () {
             //응답 실패
             console.error(error);
         }
+        dispatch(RESET_STATE());
     }
 
     const createSurvey = async () => {
@@ -75,6 +77,7 @@ const CreateSurveyPage = function () {
             //응답 실패
             console.error(error);
         }
+        dispatch(RESET_STATE());
     }
 
     return (

@@ -58,7 +58,7 @@ function App() {
             <Route path="deploy-survey" element={<DeploySurveyPage />} />
             <Route path="set-survey-per-tar" element={<SetSurveyPerTarPage />} />
 
-            <Route path="response" element={<ResponseSurveyPage />} />
+            <Route path="response/:surveyId" element={<ResponseSurveyPage />} />
             <Route path="finish-response" element={<FinishResponsePage />} />
             <Route path="survey-result">
               <Route path="statistic" element={<SurveyResult />} />

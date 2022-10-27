@@ -32,12 +32,12 @@ function QuestionnaireSetting(props) {
     }
     useEffect(() => {
         { getSurveyListById() }
-    },[]);
+    }, []);
 
     /* onclick 함수들 */
     // to responseSurveyPage
     function preview() {
-        navigate("/response", { state: { surveyId: selectedQuestionnaireID["surveyId"], isPreview: true } });
+        navigate("/response/" + selectedQuestionnaireID["surveyId"], { state: { isPreview: true } });
     }
     //* API copy survey by survey ID *//
     const surveyCopyUrl = "http://localhost:8080/api/survey/copy/surveyId=" + selectedQuestionnaireID["surveyId"];
