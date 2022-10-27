@@ -17,7 +17,7 @@ const KakaoLogin = () => {
       try {
         const res = await axios
           .get(
-            `http://localhost:8080/user/kakao/callback?code=${code}`
+            //`http://localhost:8080/user/kakao/callback?code=${code}`
           )
 
           .then((response) => {
@@ -36,7 +36,7 @@ const KakaoLogin = () => {
         const res = await axios
 
           .get(
-            "http://localhost:8080/user/kakao/callback?code=${code}",
+            //"http://localhost:8080/user/kakao/callback?code=${code}",
             {
               headers: {
                 Authorization: token,
@@ -50,7 +50,7 @@ const KakaoLogin = () => {
             console.log(data);
 
             if (data) {
-              navigate("/myinfo");//유저 정보 데이터 성공 시 mypage로 이동
+              navigate("/Home");//유저 정보 데이터 성공 시 mypage로 이동
             }
           });
       } catch (e) {
