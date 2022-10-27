@@ -33,8 +33,8 @@ function QuestionnaireCardContainer(props) {
           <QuestionnaireCard
             id={ selectedSurveyList[currentIdx]}
             title={ selectedSurveyList[currentIdx]["surveyTitle"]}
-            startTime={selectedSurveyList[currentIdx]["startTime"]}
-            endTime={selectedSurveyList[currentIdx]["endTime"]}
+            startTime={selectedSurveyList[currentIdx]["surveyStart"]}
+            endTime={selectedSurveyList[currentIdx]["surveyEnd"]}
             representativeImg={selectedSurveyList[currentIdx]["surveyTitle"]}
             />
         </Col>

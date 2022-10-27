@@ -10,7 +10,7 @@ import Tooltip from 'react-bootstrap/Tooltip';
 import '../../css/QuestionnairePage.css';
 
 import QuestionnaireSetting from './questionnaireSetting';
-
+import moment from 'moment';
 import { SET_SQID } from '../../modules/questionnairesSlice';
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -23,7 +23,7 @@ function QuestionnaireCard(props) {
   }));
 
   const qState = "전체";
-  const currentTime = new Date('2022-10-08');
+  const currentdatetime = moment(Date.now()).format('YYYY-MM-DDTHH:mm:ss');
 
   // 설문 상태 계산해서 push 함수
   const items = []
@@ -33,9 +33,9 @@ function QuestionnaireCard(props) {
         {
           props.startTime && props.endTime
             ? <>제작중</>
-            : props.startTime < currentTime
+            : props.startTime < currentdatetime
               ? <>예약중</>
-              : props.endTime < currentTime
+              : props.endTime < currentdatetime
                 ? <>배포중</>
                 : <>종료</>
         }
@@ -56,6 +56,7 @@ function QuestionnaireCard(props) {
   }
   const [show, setShow] = useState(false);
   const target = useRef(null);
+  const [surveyState, setSurveyState] = useState(null);
 
   return (
     <div>
@@ -71,18 +72,29 @@ function QuestionnaireCard(props) {
         <Card.Body className="text-center">
           <Card.Title><b>{props.title}</b></Card.Title>
           <ListGroup>
-            <ListGroup.Item>{props.startTime? props.startTime + "~"+ props.endTime : "배포기간 미지정"}</ListGroup.Item>
+            <ListGroup.Item>
+
+              {props.startTime ?
+                <text id="dateTimeTextSize">
+                  {moment(props.startTime).format('YYYY-MM-DD HH시') + " ~ " }
+                  <br/>
+                  {moment(props.endTime).format('YYYY-MM-DD HH시')}
+                </text>
+                : "배포기간 미지정"
+              }
+
+            </ListGroup.Item>
             {items}
           </ListGroup>
           <div className="d-grid gap-2">
-            <Button 
-              ref={target} variant="dark" className="QustCardOptionButtonFloat ButtonPurple" 
+            <Button
+              ref={target} variant="dark" className="QustCardOptionButtonFloat ButtonPurple"
               onMouseEnter={questionnaireSettingButtonOnMouseEnter}
               onMouseLeave={questionnaireSettingButtonOnMouseLeave}>설정
             </Button>
             <Overlay target={target.current} show={show} placement="right">
               {(props) => (
-                <Tooltip id="overlay-example" {...props} 
+                <Tooltip id="overlay-example" {...props}
                   onMouseEnter={questionnaireSettingButtonOnMouseEnter}
                   onMouseLeave={questionnaireSettingButtonOnMouseLeave}
                 >
