@@ -2,12 +2,16 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import { useEffect } from "react";
 
+import axiosInstance from "../api";
+
 import Header from "../components/Header";
 import StatisticCardList from "../components/SurveyResult/StatisticCardList";
 
 import '../css/SurveyResultPage.css'
 
 import { Col, Container, Tab, Nav } from "react-bootstrap";
+import { useDispatch } from "react-redux";
+import { GET_STATISTIC } from "../modules/surveyResultSlice";
 
 // 설문 결과 페이지
 // └헤더
@@ -19,6 +23,7 @@ import { Col, Container, Tab, Nav } from "react-bootstrap";
 // └결과 분석 컴포넌트
 
 const SurveyResult = function () {
+    const dispatch = useDispatch();
     const userId = useSelector(state => state.createSurvey.userId); // 나중에 유저 정보를 담고 있는 다른 store에서 가져와야함
     const surveyTitle = useSelector(state => state.surveyResult.surveyTitle);
     const surveyContent = useSelector(state => state.surveyResult.surveyContent);
@@ -35,6 +40,21 @@ const SurveyResult = function () {
 
         console.log("통계 정보 가져오기");
         // 나중에 설문지 id와 유저id를 대조하고 다르면 홈으로 리다이렉트시켜야함
+        const getSurveyTemplate = async () => {
+            console.log("템플릿 가져오기");
+            try {
+                //응답 성공 
+                axiosInstance.get('/response/result/statistic/' + 7)
+                    .then((response) => {
+                        console.log(response.data);
+                        dispatch(GET_STATISTIC(response.data));
+                    })
+            } catch (error) {
+                //응답 실패
+                console.error(error);
+            }
+        }
+        getSurveyTemplate();
     }, [userId, navigate]);
 
     return (
