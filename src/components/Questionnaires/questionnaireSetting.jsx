@@ -43,7 +43,7 @@ function QuestionnaireSetting(props) {
     const surveyCopyUrl = "http://localhost:8080/api/survey/copy/surveyId=" + selectedQuestionnaireID["surveyId"];
     const surveyCopy = async () => {
         try {
-            const res = await axios.post(surveyCopyUrl)
+            const res = await axios.put(surveyCopyUrl)
                 .then(function (response) {
                     // handle success
                     console.log(response);
