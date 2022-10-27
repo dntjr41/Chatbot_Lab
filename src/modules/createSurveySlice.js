@@ -5,7 +5,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const surveyState = {
-    userId: null,
+    userId: 1,
     surveyTitle: "", // 설문 제목
     surveyContent: "", // 설문 부연설명
     questionCardList: [{

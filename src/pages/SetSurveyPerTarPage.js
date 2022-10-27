@@ -1,4 +1,6 @@
 import React, {useState, useEffect} from 'react';
+import { useLocation } from "react-router";
+import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 
 import { useSelector, useDispatch } from 'react-redux';
@@ -13,6 +15,8 @@ import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import GroupNav from '../components/SetSurveyPerTar/GroupNav.js';
 import Calendar from '../components/SetSurveyPerTar/Calender.js';
+import axiosInstance from '../api.js';
+import { useForceUpdate } from 'framer-motion';
 
 // 배포 전 날짜 및 그룹 설정 페이지
 // └헤더
@@ -34,25 +38,70 @@ import Calendar from '../components/SetSurveyPerTar/Calender.js';
 // Json - 사용자 ID (PK), 설문 ID (FK), 설문 제목, 설문 기간, 
 //        설문 대상, 설문 응답 문구, 설문 응답 딥링크
 
-const SetSurveyPerTarPage = function (name) {
+const SetSurveyPerTarPage = function () {
+    
+    const navigate = useNavigate();
     const dispatch = useDispatch();
-    const surveyId = useSelector(state => state.surveyId);
-    const userId = useSelector(state => state.userId);
-    const surveyTime = useSelector(state => state.surveyTime);
-    const link = useSelector(state => state.link);
-    const surveyInfo = useSelector(state => state.surveyInfo);
+    const location = useLocation();
+    const surveyId = location.state.surveyId;
 
+    const [surveyInfo, setState] = useState([]);
+    const url = "http://localhost:8080/api/survey/userId=" + 1;
+    
+    const getData = async () => {
+        try {
+            const res = await axios.get(url)
+            .then(function (response) {
+                setState(response.data.filter(value => value.surveyId == surveyId)[0]);
+            })
+
+        } catch (err) {
+            console.log(err);
+        }
+    }
+    useEffect(() => {
+        { getData() }
+    }, []);
+
+    console.log(surveyInfo);
+    useForceUpdate();
+
+    const surveyTitle = surveyInfo.surveyTitle;
+    const surveyStart = surveyInfo.surveyTitle;
+    const surveyEnd = surveyInfo.surveyEnd;
+    const surveyDescription = surveyInfo.surveyDescription;
+    const surveyUrl = surveyInfo.surveyUrl;
+    const userId = surveyInfo.userId;
+
+    var surveyTemp = {
+        surveyId: surveyId,
+        userId: userId,
+        surveyTitle: surveyTitle,
+        surveyDescription: surveyDescription,
+        surveyStart: surveyStart,
+        surveyEnd: surveyEnd,
+        surveyUrl: surveyUrl
+    };
+
+    console.log(surveyTemp);
+
+    const newSurveyStart = location.state.surveyStart;
+    const newSurveyEnd = location.state.surveyEnd;
+    
     // 기간 설정 업데이트
-    const inputPeriod = () => {
-        // dispatch(SET_PERIOD(surveyTime));
-        console.log(surveyTime);
+    const inputPeriod = () => {     
+        surveyTemp.surveyStart = newSurveyStart;
+        surveyTemp.surveyEnd = newSurveyEnd;
+
+        console.log(surveyTemp);
     }
 
     // 링크 생성
     const linkUpdate = () => {
-        var link = "localhost:3000/response/" + surveyId;
-        dispatch(CREATE_LINK(link));
-        console.log(link);
+        var link = "localhost:3000/response/" + surveyInfo.surveyId;
+
+        surveyTemp.surveyId = surveyInfo.surveyId;
+        surveyTemp.surveyUrl = link;
     }
 
     // 설문 공유 (Deploy Survey) 페이지로 이동
@@ -60,9 +109,19 @@ const SetSurveyPerTarPage = function (name) {
         inputPeriod();
         linkUpdate();
 
-        console.log(name);
-        console.log(surveyInfo);
-        alert(JSON.stringify(surveyInfo.link));
+        console.log(JSON.stringify(surveyTemp));
+        try {
+            // 여기서 서버에 전송해줘야 하는데
+            // 구현 관련해서 Spring에 Edit해주는 부분 구현해야 함
+            axiosInstance.post('/survey', JSON.stringify(surveyTemp))
+            .then((response) => {
+                console.log(response.data);
+            })
+        } catch (error) {
+            console.error(error);
+        }
+
+        navigate("/deploy-survey", { state: {surveyId: surveyId}});
     }
 
     return (
@@ -85,9 +144,7 @@ const SetSurveyPerTarPage = function (name) {
                 </Container>
             </Container>
 
-            <Link to="/deploy-survey">
-                <button className="deployBtn" onClick={gotoDeploySurvey}>2. 설문 공유하기</button>
-            </Link>
+            <button className="deployBtn" onClick={gotoDeploySurvey}>2. 설문 공유하기</button>
         </div>
     )
 }

@@ -16,34 +16,12 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const surveyInfo = {
     surveyId: "",
-    surveyTitle: "",
-    surveyContent: "",
     userId: "",
-    surveyTime: { 
-        start: "", 
-        end: ""
-    },
-    
-    uesrGroup: { 
-        groupName: "", 
-        groupMember: [{ 
-            memberName: "",
-            memberEmail: "",
-            memberPhone: ""
-        }],
-        groupCount: ""
-    },
-    
-    target: {
-        groupName: "",
-        targetName: "",
-        targetEmail: "",
-        targetPhone: "",
-        targetCount: ""
-    },
-
-    deployMethod: "",
-    link: ""
+    surveyTitle: "",
+    surveyDescription: "",
+    surveyStart: "",
+    surveyEnd: "",
+    surveyUrl: ""
 }
 
 const setSurveyInfo = createSlice({
@@ -55,16 +33,16 @@ const setSurveyInfo = createSlice({
         // 설문 기간 설정
         // 시작일, 시작시간 - 종료일, 종료시간
         SET_PERIOD_START: (state, action) => {
-            state.surveyTime.start = action.payload;
+            state.surveyStart = action.payload;
         },
 
         SET_PERIOD_END: (state, action) => {
-            state.surveyTime.end = action.payload;
+            state.surveyEnd = action.payload;
         },
 
         // 링크 생성
         CREATE_LINK: (state, action) => {
-            state.link = action.payload;
+            state.surveyUrl = action.payload;
         },
 
         // 그룹 추가
@@ -81,6 +59,6 @@ const setSurveyInfo = createSlice({
     }
 });
 
-export const { SET_PERIOD_START, SET_PERIOD_END, ADD_GROUP, ADD_TARGET, DEPLOY_METHOD, CREATE_LINK } = setSurveyInfo.actions;
+export const { SET_PERIOD_START, SET_PERIOD_END, ADD_GROUP, ADD_TARGET, CREATE_LINK } = setSurveyInfo.actions;
 
 export default setSurveyInfo.reducer;

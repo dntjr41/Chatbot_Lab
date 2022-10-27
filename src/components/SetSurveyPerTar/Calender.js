@@ -1,5 +1,5 @@
 import { DateRange } from 'react-date-range';
-import { Component } from 'react';
+import React, {useState, useEffect, Component} from 'react';
 import Dropdown from 'react-multilevel-dropdown';
 import { Row, Col, Button, Container } from 'react-bootstrap';
 import moment from 'moment';
@@ -9,15 +9,11 @@ import SetSurveyPerTarPage from '../../pages/SetSurveyPerTarPage';
 import { useDispatch, useSelector } from 'react-redux';
 import './Calender.css';
 
-import React, {useState, useEffect} from 'react';
-import axios from 'axios';
-import surveyInfo, { SET_PERIOD_START, SET_PERIOD_END } from '../../modules/surveyInfo';
+import { useNavigate } from 'react-router-dom';
 
 export default function Calendar() {
-  const dispatch = useDispatch();
-  const surveyTimeStart = useSelector(surveyInfo => surveyInfo.surveyTime);
-  const surveyTimeEnd = useSelector(surveyInfo => surveyInfo.surveyTime);
-
+  
+  const navigate = useNavigate();
   const [state, setState] = useState([
     {
       startDate: new Date(),
@@ -28,20 +24,21 @@ export default function Calendar() {
     }
   ]);
 
-  var startDateValue = state[0].startDate;
-  var endDateValue = state[0].endDate;
+  let startDateValue = state[0].startDate.toISOString().slice(0, 11);
+  let endDateValue = state[0].endDate.toISOString().slice(0, 11);
 
   const startTimeBtn = (params, e) => {
-    startDateValue = startDateValue.setHours(params);
-
-    dispatch(SET_PERIOD_START(startDateValue));
-    console.log(startDateValue);
+    startDateValue = startDateValue + params + ":00:00.000";
   }
   
   const endTimeBtn = (params, e) => {
-    endDateValue = endDateValue.setHours(params);
+    endDateValue = endDateValue + params + ":00:00.000";
+  }
 
-    dispatch(SET_PERIOD_END(endDateValue));
+  const setSurveyTime = () => {
+    navigate("/set-survey-per-tar", { state: {surveyStart: startDateValue, surveyEnd: endDateValue}});
+
+    console.log(startDateValue);
     console.log(endDateValue);
   }
 
@@ -59,11 +56,11 @@ export default function Calendar() {
         <Col className="periodNavigationTime">
         <Col><Dropdown title="시작 시간 선택" position='right'> <Dropdown.Item>오전(AM)
             <Dropdown.Submenu className="AM" position='right'>
-                <Dropdown.Item onClick={(e)=>{startTimeBtn("1", e)}} children="1:00"/><Dropdown.Item onClick={(e)=>{startTimeBtn("2", e)}} children="2:00"/>
-                <Dropdown.Item onClick={(e)=>{startTimeBtn("3", e)}} children="3:00"/><Dropdown.Item onClick={(e)=>{startTimeBtn("4", e)}} children="4:00"/>
-                <Dropdown.Item onClick={(e)=>{startTimeBtn("5", e)}} children="5:00"/><Dropdown.Item onClick={(e)=>{startTimeBtn("6", e)}} children="6:00"/>
-                <Dropdown.Item onClick={(e)=>{startTimeBtn("7", e)}} children="7:00"/><Dropdown.Item onClick={(e)=>{startTimeBtn("8", e)}} children="8:00"/>
-                <Dropdown.Item onClick={(e)=>{startTimeBtn("9", e)}} children="9:00"/><Dropdown.Item onClick={(e)=>{startTimeBtn("10", e)}} children="10:00"/>
+                <Dropdown.Item onClick={(e)=>{startTimeBtn("01", e)}} children="1:00"/><Dropdown.Item onClick={(e)=>{startTimeBtn("02", e)}} children="2:00"/>
+                <Dropdown.Item onClick={(e)=>{startTimeBtn("03", e)}} children="3:00"/><Dropdown.Item onClick={(e)=>{startTimeBtn("04", e)}} children="4:00"/>
+                <Dropdown.Item onClick={(e)=>{startTimeBtn("05", e)}} children="5:00"/><Dropdown.Item onClick={(e)=>{startTimeBtn("06", e)}} children="6:00"/>
+                <Dropdown.Item onClick={(e)=>{startTimeBtn("07", e)}} children="7:00"/><Dropdown.Item onClick={(e)=>{startTimeBtn("08", e)}} children="8:00"/>
+                <Dropdown.Item onClick={(e)=>{startTimeBtn("09", e)}} children="9:00"/><Dropdown.Item onClick={(e)=>{startTimeBtn("10", e)}} children="10:00"/>
                 <Dropdown.Item onClick={(e)=>{startTimeBtn("11", e)}} children="11:00"/><Dropdown.Item onClick={(e)=>{startTimeBtn("12", e)}} children="12:00"/>         
             </Dropdown.Submenu></Dropdown.Item>
             <Dropdown.Item >오후(PM)
@@ -77,14 +74,13 @@ export default function Calendar() {
             </Dropdown.Submenu></Dropdown.Item>
         </Dropdown></Col>
 
-
         <Col><Dropdown title="종료 시간 선택" position='right'> <Dropdown.Item>오전(AM)
         <Dropdown.Submenu className="AM" position='right'>
-                <Dropdown.Item onClick={(e)=>{endTimeBtn("1", e)}} children="1:00"/><Dropdown.Item onClick={(e)=>{endTimeBtn("2", e)}} children="2:00"/>
-                <Dropdown.Item onClick={(e)=>{endTimeBtn("3", e)}} children="3:00"/><Dropdown.Item onClick={(e)=>{endTimeBtn("4", e)}} children="4:00"/>
-                <Dropdown.Item onClick={(e)=>{endTimeBtn("5", e)}} children="5:00"/><Dropdown.Item onClick={(e)=>{endTimeBtn("6", e)}} children="6:00"/>
-                <Dropdown.Item onClick={(e)=>{endTimeBtn("7", e)}} children="7:00"/><Dropdown.Item onClick={(e)=>{endTimeBtn("8", e)}} children="8:00"/>
-                <Dropdown.Item onClick={(e)=>{endTimeBtn("9", e)}} children="9:00"/><Dropdown.Item onClick={(e)=>{endTimeBtn("10", e)}} children="10:00"/>
+                <Dropdown.Item onClick={(e)=>{endTimeBtn("01", e)}} children="1:00"/><Dropdown.Item onClick={(e)=>{endTimeBtn("02", e)}} children="2:00"/>
+                <Dropdown.Item onClick={(e)=>{endTimeBtn("03", e)}} children="3:00"/><Dropdown.Item onClick={(e)=>{endTimeBtn("04", e)}} children="4:00"/>
+                <Dropdown.Item onClick={(e)=>{endTimeBtn("05", e)}} children="5:00"/><Dropdown.Item onClick={(e)=>{endTimeBtn("06", e)}} children="6:00"/>
+                <Dropdown.Item onClick={(e)=>{endTimeBtn("07", e)}} children="7:00"/><Dropdown.Item onClick={(e)=>{endTimeBtn("08", e)}} children="8:00"/>
+                <Dropdown.Item onClick={(e)=>{endTimeBtn("09", e)}} children="9:00"/><Dropdown.Item onClick={(e)=>{endTimeBtn("10", e)}} children="10:00"/>
                 <Dropdown.Item onClick={(e)=>{endTimeBtn("11", e)}} children="11:00"/><Dropdown.Item onClick={(e)=>{endTimeBtn("12", e)}} children="12:00"/>         
             </Dropdown.Submenu></Dropdown.Item>
             <Dropdown.Item >오후(PM)
@@ -98,6 +94,7 @@ export default function Calendar() {
             </Dropdown.Submenu></Dropdown.Item>
         </Dropdown></Col>
         </Col>
+        <Col><button className="periodOKButton" onClick={setSurveyTime}>기간 선택 완료</button></Col>
       </Container>
     </div>
   )
