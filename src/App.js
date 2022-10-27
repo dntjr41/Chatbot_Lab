@@ -61,7 +61,7 @@ function App() {
             <Route path="response/:surveyId" element={<ResponseSurveyPage />} />
             <Route path="finish-response" element={<FinishResponsePage />} />
             <Route path="survey-result">
-              <Route path="statistic" element={<SurveyResult />} />
+              <Route path="statistic/:surveyId" element={<SurveyResult />} />
               <Route path="analysis" element={<NoPage />} />
             </Route>
 

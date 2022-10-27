@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import { useEffect } from "react";
 
 import axiosInstance from "../api";
@@ -24,6 +24,7 @@ import { GET_STATISTIC } from "../modules/surveyResultSlice";
 
 const SurveyResult = function () {
     const dispatch = useDispatch();
+    const params = useParams();
     const userId = useSelector(state => state.createSurvey.userId); // 나중에 유저 정보를 담고 있는 다른 store에서 가져와야함
     const surveyTitle = useSelector(state => state.surveyResult.surveyTitle);
     const surveyContent = useSelector(state => state.surveyResult.surveyContent);
@@ -37,14 +38,13 @@ const SurveyResult = function () {
             alert("로그인이 필요합니다");
             navigate("/login");
         }
-
-        console.log("통계 정보 가져오기");
+        
         // 나중에 설문지 id와 유저id를 대조하고 다르면 홈으로 리다이렉트시켜야함
         const getSurveyTemplate = async () => {
-            console.log("템플릿 가져오기");
+            console.log("설문 결과 가져오기"+params.surveyId);
             try {
                 //응답 성공 
-                axiosInstance.get('/response/result/statistic/' + 7)
+                axiosInstance.get('/response/result/statistic/' + params.surveyId)
                     .then((response) => {
                         console.log(response.data);
                         dispatch(GET_STATISTIC(response.data));
