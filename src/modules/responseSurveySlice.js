@@ -47,10 +47,14 @@ const responseSurveySlice = createSlice({
                 }
                 return state.questionCardList = [...state.questionCardList, questionCard];
             })
+        },
+        RESET_STATE: (state) => {
+            // state 초기화
+            Object.assign(state, responseState);
         }
     }
 })
 
-export const { ANS_CHOICE_CHECK, ANS_CHOICE_RADIO, ANS_SUBJECTIVE_INPUT, GET_TEMPLATE } = responseSurveySlice.actions;
+export const { ANS_CHOICE_CHECK, ANS_CHOICE_RADIO, ANS_SUBJECTIVE_INPUT, GET_TEMPLATE, RESET_STATE } = responseSurveySlice.actions;
 
 export default responseSurveySlice.reducer;

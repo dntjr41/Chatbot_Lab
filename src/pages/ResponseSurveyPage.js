@@ -1,13 +1,13 @@
 import axiosInstance from '../api';
 import { useSelector } from 'react-redux';
-import { GET_TEMPLATE } from "../modules/responseSurveySlice";
+import { GET_TEMPLATE, RESET_STATE } from "../modules/responseSurveySlice";
 
 import Header from "../components/Header";
 import ResponseCardList from "../components/ResponseSurvey/ResponseCardList";
 
 import "../css/ResponseSurveyPage.css";
 import { Container, Row, Col } from "react-bootstrap";
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 // 피설문자관점 응답 페이지
@@ -17,16 +17,22 @@ import { useDispatch } from 'react-redux';
 //   └질문 카드 컴포넌트 리스트
 //   └제출 버튼
 
-const ResponsePage = function ({ surveyId }) {
+const ResponsePage = function () {
     const dispatch = useDispatch();
     const responseInfo = useSelector(state => state.responseSurvey);
+    const location = useLocation();
+    const params = useParams();
+    const pageInfo = {
+        surveyId: params.surveyId,
+        isPreview: location.state !== null ? location.state.isPreview : false
+    };
 
     useEffect(() => {
         const getSurveyTemplate = async () => {
-            console.log("템플릿 가져오기");
+            console.log("템플릿 가져오기" + pageInfo.surveyId);
             try {
                 //응답 성공 
-                axiosInstance.get('/response/' + surveyId)
+                axiosInstance.get('/response/' + pageInfo.surveyId)
                     .then((response) => {
                         console.log(response.data);
                         dispatch(GET_TEMPLATE(response.data));
@@ -37,7 +43,7 @@ const ResponsePage = function ({ surveyId }) {
             }
         }
         getSurveyTemplate();
-    }, [dispatch, surveyId]);
+    }, [dispatch, pageInfo.surveyId]);
 
 
     // 설문 제출
@@ -48,7 +54,7 @@ const ResponsePage = function ({ surveyId }) {
             console.log("응답 제출");
             try {
                 //응답 성공 
-                axiosInstance.post('/response/submit',responseInfo)
+                axiosInstance.post('/response/submit', responseInfo)
                     .then((response) => {
                         console.log(response.data);
                     })
@@ -58,6 +64,7 @@ const ResponsePage = function ({ surveyId }) {
             }
         }
         submit();
+        dispatch(RESET_STATE());
     }
 
     return (
@@ -72,16 +79,16 @@ const ResponsePage = function ({ surveyId }) {
                     <Col className="m-5 fs-2"><div>{responseInfo.surveyContent}</div></Col>
                 </Row>
                 <Row>
-                    <ResponseCardList />
+                    <fieldset disabled={pageInfo.isPreview ? true : false}>
+                        <ResponseCardList pageInfo={pageInfo} />
+                    </fieldset>
                 </Row>
-                <div className="text-center my-5">
+                <div className={"text-center my-5 " + (pageInfo.isPreview ? "d-none" : "")}>
                     <Link to="/finish-response"><button className="response-survey-sumbit fs-2" type="button" onClick={submitSurvey}>제출</button></Link>
                 </div>
-            </Container>
-        </div>
+            </Container >
+        </div >
     )
 };
-
-ResponsePage.defaultProps = { surveyId: 8 };
 
 export default ResponsePage;
