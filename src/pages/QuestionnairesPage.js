@@ -17,8 +17,9 @@ function QuestionnairesPage() {
   const {surveyList} = useSelector((state) => ({
     surveyList: state.questionnairesReducer.surveyList
   }));
+  const userId = localStorage.getItem("id");
   // API get surveyList by user ID
-  const urlInstance = "/survey/userId=" + 1;
+  const urlInstance = "/survey/userId=" + userId;
   const getSurveyListById = async () => {
     try {
       const res = await axiosInstance.get(urlInstance)

@@ -41,7 +41,7 @@ function QuestionnaireSetting(props) {
         console.log("preview");
     }
     //* API copy survey by survey ID *//
-    const surveyCopyUrlInstance = "/survey/copy/surveyId=" + selectedQuestionnaireID["surveyId"];
+    const surveyCopyUrlInstance = "/survey/copy/surveyId=" + selectedQuestionnaireID;
     const surveyCopy = async () => {
         try {
             const res = await axiosInstance.put(surveyCopyUrlInstance)
@@ -56,10 +56,10 @@ function QuestionnaireSetting(props) {
     }
     // to CreateSurveyPage
     function surveyAlter() {
-        navigate("/create-survey/" + selectedQuestionnaireID["surveyId"]);
+        navigate("/create-survey/" + selectedQuestionnaireID);
     }
     // API delete survey by survey ID
-    const surveyDeleteUrlInstance = "/survey/surveyId=" + selectedQuestionnaireID["surveyId"];
+    const surveyDeleteUrlInstance = "/survey/surveyId=" + selectedQuestionnaireID;
     const surveyDelete = async () => {
         try {
             const res = await axiosInstance.delete(surveyDeleteUrlInstance)
@@ -73,7 +73,7 @@ function QuestionnaireSetting(props) {
         }
     }
     function surveyResultAnalysis() {
-        navigate("/survey-result/statistic" + selectedQuestionnaireID["surveyId"]);
+        navigate("/survey-result/statistic" + selectedQuestionnaireID);
     }
     return (
         <ListGroup>

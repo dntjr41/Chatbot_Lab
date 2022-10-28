@@ -24,7 +24,10 @@ function Pager() {
     let totalPage = Math.ceil(myQuestionnaireCount / 8);
     // Pagination.Item 배열
     let items = [];
-    if (active === 1 || active === 2) {
+    if(totalPage === 0){
+
+    }
+    else if (active === 1 || active === 2) {
         for (let number = 1; number <= totalPage && number < 6; number++) {
             items.push(
                 <Pagination.Item key={number} active={number === active} onClick={(e) => { questionnairePageOnClick(number, e) }}>
