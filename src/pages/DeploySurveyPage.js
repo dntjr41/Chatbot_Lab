@@ -1,13 +1,16 @@
 import React, {useState, useEffect, useRef} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Row, Col, Container} from 'react-bootstrap';
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import axios from 'axios';
 import QRCode from 'qrcode.react';
 
 import Header from "../components/Header";
 import '../css/DeploySurveyPage.css';
 
+import axiosInstance from '../api';
 import surveyInfo from '../modules/surveyInfo';
+import { useForceUpdate } from 'framer-motion';
 
 // 배포 (설문 공유) 페이지
 // └헤더
@@ -23,9 +26,38 @@ import surveyInfo from '../modules/surveyInfo';
 
 const DeploySurveyPage = function () {
 
-    const surveyTitle = useSelector(state => state.surveyTitle);
-    const surveyTime = useSelector(state => state.surveyTime);
-    const link = useSelector(state => state.link);
+    const location = useLocation();
+    const surveyId = location.state.surveyId;
+    const [surveyInfo, setState] = useState([]);
+    const url = "http://localhost:8080/api/survey/userId=" + 1;
+    
+    const getData = async () => {
+        try {
+            const res = await axios.get(url)
+            .then(function (response) {
+                setState(response.data.filter(value => value.surveyId == surveyId)[0]);
+            })
+
+        } catch (err) {
+            console.log(err);
+        }
+    }
+    useEffect(() => {
+        { getData() }
+    }, []);
+
+    console.log(surveyInfo);
+    useForceUpdate();
+
+    const surveyTitle = surveyInfo.surveyTitle;
+    const surveyStart = surveyInfo.surveyStart;
+    const surveyEnd = surveyInfo.surveyEnd;
+    const link = surveyInfo.surveyUrl;
+
+    console.log(surveyTitle);
+    console.log(surveyStart);
+    console.log(surveyEnd);
+    console.log(link);
 
     // 링크 복사하기
     const downloadLink = () => {
@@ -37,7 +69,7 @@ const DeploySurveyPage = function () {
         const qrCodeURL = document.getElementById('qrCodeEl')
         .toDataURL("image/png").replace("image/png", "image/octet-stream");
     
-        console.log(qrCodeURL)
+        // console.log(qrCodeURL)
         let aEl = document.createElement("a");
         aEl.href = qrCodeURL;
         aEl.download = "QR_Code.png";
@@ -53,16 +85,16 @@ const DeploySurveyPage = function () {
             <Container className="MainFrame">
                 <div className="deploySurvey">
                     <Col className="deployInfo">
-                        <Col className="info">설문 제목 - {surveyTitle}Test Survey 01</Col>
-                        <Col className="info">설문 기간 - {surveyTime}2022년 10월 15일 오후 11:00 ~ 2022년 10월 16일 오전 11:00</Col>
+                        <Col className="info">설문 제목 - {surveyTitle}</Col>
+                        <Col className="info">설문 기간 - {surveyStart + " ~ " + surveyEnd}</Col>
                     </Col>
                     
                     <Col className="deployLink">                     
-                        <Col>링크 - {link}https://github.com/dntjr41/KAKAO_Chatbot_Lab <button className="linkBtn" onClick={downloadLink}/> &nbsp;</Col>
+                        <Col>링크 - {link} <button className="linkBtn" onClick={downloadLink}/> &nbsp;</Col>
                     </Col>
 
                     <div className="deployQR">
-                        <Col><QRCode id="qrCodeEl" value="https://github.com/dntjr41/KAKAO_Chatbot_Lab"/></Col>
+                        <Col><QRCode id="qrCodeEl" value={link}/></Col>
                         <Col>QR 코드 <button className="qrBtn" onClick={downloadQR} /></Col>
                     </div>
                 </div>
