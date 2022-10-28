@@ -1,17 +1,27 @@
 import "../css/Layout.css";
 
-import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Stack from 'react-bootstrap/Stack';
-import { Link } from "react-router-dom";
-import { BsQuestionCircle, BsPersonSquare, BsHouseDoor } from "react-icons/bs";
-import { Container } from "react-bootstrap";
+import { Link, useNavigate } from "react-router-dom";
+import { BsQuestionCircle, BsPersonSquare } from "react-icons/bs";
 
 // 헤더 컴포넌트
 // └헤더 상단바
 // └헤더 하단바(페이지별에 따라 다른 색상구성)
 
 const Header = function (props) {
+    const navigate = useNavigate();
+    const userId = localStorage.getItem("id");
+
+    const login = () => {
+        console.log("로그인 시도");
+        navigate("/login");
+    };
+
+    const logout = () => {
+        console.log("로그아웃 시도");
+        // 로그아웃 처리 필요
+    };
     return (
         <div>
             <div className="header-top px-5">
@@ -22,7 +32,7 @@ const Header = function (props) {
                 <Col className="align-self-center" md={{ span: 3, offset: 6 }}>
                     <Stack direction="horizontal" gap={4}>
                         <Link to="/faq" className="ms-auto"><BsQuestionCircle size="32" /></Link>
-                        <Link to="/login" className="header-login">로그인</Link>
+                        <div className="header-login" onClick={userId === null ? login : logout}>{userId === null ? "로그인" : "로그아웃"}</div>
                         <Link to="/myinfo"><BsPersonSquare size="32" /></Link>
                     </Stack>
                 </Col>
