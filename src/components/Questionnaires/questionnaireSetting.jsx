@@ -18,8 +18,9 @@ function QuestionnaireSetting(props) {
     const { surveyList } = useSelector((state) => ({
         surveyList: state.questionnairesReducer.surveyList
     }));
+    const userId = localStorage.getItem("id");
     // API get surveyList by user ID
-    const getSurveyUrlInstance = "/survey/userId=" + 1;
+    const getSurveyUrlInstance = "/survey/userId=" + userId;
     const getSurveyListById = async () => {
         try {
             const res = await axiosInstance.get(getSurveyUrlInstance)
@@ -38,7 +39,7 @@ function QuestionnaireSetting(props) {
     /* onclick 함수들 */
     // to responseSurveyPage
     function preview() {
-        console.log("preview");
+        navigate("/response/" + selectedQuestionnaireID, { state: { isPreview: true } });
     }
     //* API copy survey by survey ID *//
     const surveyCopyUrlInstance = "/survey/copy/surveyId=" + selectedQuestionnaireID;
@@ -73,7 +74,7 @@ function QuestionnaireSetting(props) {
         }
     }
     function surveyResultAnalysis() {
-        navigate("/survey-result/statistic" + selectedQuestionnaireID);
+        navigate("/survey-result/statistic/" + selectedQuestionnaireID);
     }
     return (
         <ListGroup>

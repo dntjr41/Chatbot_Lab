@@ -18,7 +18,7 @@
 }
 
 .NavItem{
-  color: white;
+  color: black;
 }
 
 .TemplateUnknown{
@@ -29,6 +29,9 @@
   background-color: #662D91;
 }
 
+.align-center { 
+  text-align: center; 
+}
 
 #dateTimeTextSize {
   font-size: 13px;
