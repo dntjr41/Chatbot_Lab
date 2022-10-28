@@ -1,6 +1,6 @@
 import axiosInstance from '../api';
 import { useSelector, useDispatch } from 'react-redux';
-import { CHANGE_TITLE, CHANGE_CONTENT, RESET_STATE } from "../modules/createSurveySlice";
+import { SET_USER, CHANGE_TITLE, CHANGE_CONTENT, RESET_STATE } from "../modules/createSurveySlice";
 
 import Header from "../components/Header";
 import QuestionCardList from "../components/CreateSurvey/QuestionCardList";
@@ -21,19 +21,20 @@ import { useNavigate } from "react-router-dom";
 
 const CreateSurveyPage = function () {
     const dispatch = useDispatch();
-    const userId = useSelector(state => state.createSurvey.userId); // 나중에 유저 정보를 담고 있는 다른 store에서 가져와야함
+    const navigate = useNavigate();
+    const userId = localStorage.getItem("id");
     const surveyInfo = useSelector(state => state.createSurvey);
 
-    // 로그인한 상태(userId에 값이 있는 상태)가 아니라면 login 페이지로 리다이렉트시킴
-    const navigate = useNavigate();
+    // 로컬스토리지로부터 가져온 userId가 null이라면 로그인 페이지로 리다이렉트시킴
+    // 로컬스토리지에 userId에 값이 있다면(로그인 되어 있다면) 설문 정보 state에 userId를 추가시킴
     useEffect(() => {
-        console.log("use effect");
-        console.log(surveyInfo);
+        console.log(userId);
         if (userId === null) {
             alert("로그인이 필요합니다");
             navigate("/login");
         }
-    }, [userId, navigate]);
+        dispatch(SET_USER(userId));
+    }, [userId, dispatch, navigate]);
 
     // 설문의 제목 입력 업데이트
     // title(string): 입력된 값
@@ -47,6 +48,7 @@ const CreateSurveyPage = function () {
         dispatch(CHANGE_CONTENT(content));
     }
 
+    // 설문 저장 요청 후 홈 페이지로 이동
     const saveSurvey = async () => {
         console.log(JSON.stringify(surveyInfo));
         try {
@@ -63,6 +65,7 @@ const CreateSurveyPage = function () {
         dispatch(RESET_STATE());
     }
 
+    // 설문 저장 요청 후 공유 페이지로 이동
     const createSurvey = async () => {
         console.log(JSON.stringify(surveyInfo));
         try {
@@ -81,11 +84,10 @@ const CreateSurveyPage = function () {
     }
 
     return (
-        // 설문 제목, 부연설명에 대한 redux 처리 필요
         <div className="create-survey-layout">
             <Header color="green" />
-            <div className="create-survey-title">설문지 작성</div>
-            <Container className="create-survey-form">
+            {/* <div className="create-survey-title">설문지 작성</div> */}
+            <Container className="create-survey-form mt-5">
                 <Row>
                     <Col className="mt-5 mx-5 fs-1"><Form.Control plaintext placeholder="설문 제목을 입력하세요" value={surveyInfo.surveyTitle} onChange={(e) => inputTitle(e.target.value)} /></Col>
                 </Row>

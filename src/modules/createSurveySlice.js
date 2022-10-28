@@ -5,7 +5,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const surveyState = {
-    userId: 1,
+    userId: null,
     surveyTitle: "", // 설문 제목
     surveyContent: "", // 설문 부연설명
     questionCardList: [{
@@ -77,6 +77,12 @@ const createSurveySlice = createSlice({
             // listIdx(int): 질문 리스트의 몇번째인지, optIdx(int): 옵션 리스트의 몇번째인지
             state.questionCardList[action.payload.listIdx].questionOptions[action.payload.optIdx] = !state.questionCardList[action.payload.listIdx].questionOptions[action.payload.optIdx];
         },
+        SET_USER: (state, action) => {
+            // 유저ID 설정
+            console.log(action.payload);
+            state.userId = action.payload;
+            console.log("바뀐 userId: " + state.userId);
+        },
         RESET_STATE: (state) => {
             // state 초기화
             Object.assign(state, surveyState);
@@ -84,6 +90,6 @@ const createSurveySlice = createSlice({
     }
 });
 
-export const { ADD_ANSWER, DEL_ANSWER, ADD_CARD, COPY_CARD, DEL_CARD, CHANGE_TITLE, CHANGE_CONTENT, CHANGE_QUE_TITLE, CHANGE_QUE_ANSWER, CHECK_OPT, RESET_STATE } = createSurveySlice.actions;
+export const { ADD_ANSWER, DEL_ANSWER, ADD_CARD, COPY_CARD, DEL_CARD, CHANGE_TITLE, CHANGE_CONTENT, CHANGE_QUE_TITLE, CHANGE_QUE_ANSWER, CHECK_OPT, SET_USER, RESET_STATE } = createSurveySlice.actions;
 
 export default createSurveySlice.reducer;
