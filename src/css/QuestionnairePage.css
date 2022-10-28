@@ -28,3 +28,10 @@
 .ButtonPurple{
   background-color: #662D91;
 }
+
+
+#dateTimeTextSize {
+  font-size: 13px;
+  font-family: 'IBM Plex Sans KR', sans-serif;
+  line-height:60%;
+}

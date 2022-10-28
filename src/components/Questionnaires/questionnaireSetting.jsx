@@ -1,10 +1,11 @@
 import ListGroup from 'react-bootstrap/ListGroup';
 
 import { SET_SL, SET_SSL } from '../../modules/questionnairesSlice';
-import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
 import React, { useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
+
+import axiosInstance from '../../api';
 
 function QuestionnaireSetting(props) {
     const { selectedQuestionnaireID } = useSelector((state) => ({
@@ -18,10 +19,10 @@ function QuestionnaireSetting(props) {
         surveyList: state.questionnairesReducer.surveyList
     }));
     // API get surveyList by user ID
-    const getSurveyUrl = "http://localhost:8080/api/survey/userId=" + 1;
+    const getSurveyUrlInstance = "/survey/userId=" + 1;
     const getSurveyListById = async () => {
         try {
-            const res = await axios.get(getSurveyUrl)
+            const res = await axiosInstance.get(getSurveyUrlInstance)
                 .then(function (response) {
                     dispatch(SET_SL(response.data))
                     dispatch(SET_SSL(surveyList))
@@ -37,13 +38,13 @@ function QuestionnaireSetting(props) {
     /* onclick 함수들 */
     // to responseSurveyPage
     function preview() {
-        navigate("/response/" + selectedQuestionnaireID["surveyId"], { state: { isPreview: true } });
+        console.log("preview");
     }
     //* API copy survey by survey ID *//
-    const surveyCopyUrl = "http://localhost:8080/api/survey/copy/surveyId=" + selectedQuestionnaireID["surveyId"];
+    const surveyCopyUrlInstance = "/survey/copy/surveyId=" + selectedQuestionnaireID["surveyId"];
     const surveyCopy = async () => {
         try {
-            const res = await axios.put(surveyCopyUrl)
+            const res = await axiosInstance.put(surveyCopyUrlInstance)
                 .then(function (response) {
                     // handle success
                     console.log(response);
@@ -55,13 +56,13 @@ function QuestionnaireSetting(props) {
     }
     // to CreateSurveyPage
     function surveyAlter() {
-        console.log("surveyAlter");
+        navigate("/create-survey/" + selectedQuestionnaireID["surveyId"]);
     }
     // API delete survey by survey ID
-    const surveyDeleteUrl = "http://localhost:8080/api/survey/surveyId=" + selectedQuestionnaireID["surveyId"];
+    const surveyDeleteUrlInstance = "/survey/surveyId=" + selectedQuestionnaireID["surveyId"];
     const surveyDelete = async () => {
         try {
-            const res = await axios.delete(surveyDeleteUrl)
+            const res = await axiosInstance.delete(surveyDeleteUrlInstance)
                 .then(function (response) {
                     // handle success
                     console.log(response);
@@ -72,9 +73,8 @@ function QuestionnaireSetting(props) {
         }
     }
     function surveyResultAnalysis() {
-        console.log("surveyResultAnalysis");
+        navigate("/survey-result/statistic" + selectedQuestionnaireID["surveyId"]);
     }
-
     return (
         <ListGroup>
             <ListGroup.Item action onClick={preview} >
@@ -89,9 +89,13 @@ function QuestionnaireSetting(props) {
             <ListGroup.Item action onClick={surveyDelete} >
                 설문 삭제
             </ListGroup.Item>
-            <ListGroup.Item action onClick={surveyResultAnalysis} disabled>
-                결과 분석
-            </ListGroup.Item>
+            {props.resultActive ?
+                <ListGroup.Item action onClick={surveyResultAnalysis}>
+                    결과 분석
+                </ListGroup.Item> :
+                null
+            }
+
         </ListGroup>
     )
 }

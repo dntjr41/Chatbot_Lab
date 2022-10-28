@@ -33,6 +33,15 @@ function Pager() {
             )
         }
     }
+    else if (active === 3 && totalPage === 3){
+        for (let number = 1; number <= 3; number++) {
+            items.push(
+                <Pagination.Item key={number} active={number === active} onClick={(e) => { questionnairePageOnClick(number, e) }}>
+                    {number}
+                </Pagination.Item>
+            )
+        }
+    }
     else if (active === totalPage || active === totalPage - 1) {
         for (let number = totalPage - 4; number <= totalPage; number++) {
             items.push(
