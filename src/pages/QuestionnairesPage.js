@@ -5,7 +5,7 @@ import Pager from "../components/Questionnaires/pager";
 import Header from "../components/Header";
 import "../css/QuestionnairePage.css"
 
-import axios from 'axios';
+import axiosInstance from '../api';
 
 import { SET_SL, SET_SSL } from '../modules/questionnairesSlice';
 import { useSelector, useDispatch } from 'react-redux';
@@ -18,10 +18,10 @@ function QuestionnairesPage() {
     surveyList: state.questionnairesReducer.surveyList
   }));
   // API get surveyList by user ID
-  const url = "http://localhost:8080/api/survey/userId=" + 1;
+  const urlInstance = "/survey/userId=" + 1;
   const getSurveyListById = async () => {
     try {
-      const res = await axios.get(url)
+      const res = await axiosInstance.get(urlInstance)
         .then(function (response) {
           dispatch(SET_SL(response.data))
           dispatch(SET_SSL(surveyList))
