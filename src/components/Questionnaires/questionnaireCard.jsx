@@ -31,36 +31,25 @@ function QuestionnaireCard(props) {
     items.push(
       <ListGroup.Item>
         {
-          props.startTime && props.endTime
-            ? <>제작중</>
-            : props.startTime < currentdatetime
-              ? <>예약중</>
-              : props.endTime < currentdatetime
-                ? <>배포중</>
-                : <>종료</>
+          props.surveyState
         }
       </ListGroup.Item>
     )
   }
-  // 설정 버튼 누르면 -> ID전달
-  const { selectedQuestionnaireID } = useSelector((state) => ({
-    selectedQuestionnaireID: state.questionnairesReducer.selectedQuestionnaireID,
-  }))
+
   const questionnaireSettingButtonOnMouseEnter = () => {
     dispatch(SET_SQID(props.id));
     setShow(true);
-    console.log(props.id);
+    console.log(resultActive);
   }
   const questionnaireSettingButtonOnMouseLeave = () => {
     setShow(false);
   }
   const [show, setShow] = useState(false);
   const target = useRef(null);
-  const [surveyState, setSurveyState] = useState(null);
-
+  const resultActive = props.surveyState === "종료"
   return (
     <div>
-
       <Card
         bg='light'
         key={props.id}
@@ -98,7 +87,7 @@ function QuestionnaireCard(props) {
                   onMouseEnter={questionnaireSettingButtonOnMouseEnter}
                   onMouseLeave={questionnaireSettingButtonOnMouseLeave}
                 >
-                  <QuestionnaireSetting />
+                  <QuestionnaireSetting resultActive={resultActive} />
                 </Tooltip>
               )}
             </Overlay>

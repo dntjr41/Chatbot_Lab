@@ -37,7 +37,7 @@ function QuestionnaireSetting(props) {
 
     /* onclick 함수들 */
     // to responseSurveyPage
-    function preview () {
+    function preview() {
         console.log("preview");
     }
     //* API copy survey by survey ID *//
@@ -75,24 +75,27 @@ function QuestionnaireSetting(props) {
     function surveyResultAnalysis() {
         navigate("/survey-result/statistic" + selectedQuestionnaireID["surveyId"]);
     }
-        
     return (
         <ListGroup>
-        <ListGroup.Item action onClick={preview} >
-            설문 보기
-        </ListGroup.Item >
-        <ListGroup.Item action onClick={surveyCopy} >
-            설문 복사 
-        </ListGroup.Item>
-        <ListGroup.Item action onClick={surveyAlter} >
-            설문 수정
-        </ListGroup.Item>
-        <ListGroup.Item action onClick={surveyDelete} >
-            설문 삭제
-        </ListGroup.Item>
-        <ListGroup.Item action onClick={surveyResultAnalysis}>
-            결과 분석
-        </ListGroup.Item>
+            <ListGroup.Item action onClick={preview} >
+                설문 보기
+            </ListGroup.Item >
+            <ListGroup.Item action onClick={surveyCopy} >
+                설문 복사
+            </ListGroup.Item>
+            <ListGroup.Item action onClick={surveyAlter} >
+                설문 수정
+            </ListGroup.Item>
+            <ListGroup.Item action onClick={surveyDelete} >
+                설문 삭제
+            </ListGroup.Item>
+            {props.resultActive ?
+                <ListGroup.Item action onClick={surveyResultAnalysis}>
+                    결과 분석
+                </ListGroup.Item> :
+                null
+            }
+
         </ListGroup>
     )
 }

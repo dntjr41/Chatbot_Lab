@@ -65,10 +65,23 @@ const questionnaireSlice = createSlice({
             state.selectedSurveyList = []
             var currentdatetime = moment(Date.now()).format('YYYY-MM-DDTHH:mm:ss');
             var i = 0;
+            var surveyState = ""
             if (state.questionnaireSelectionOption === 0) { // 전체
                 for (i = 0; i < state.surveyList.length; i++) {
-                    state.selectedSurveyList = [...state.selectedSurveyList, state.surveyList[i]];
-                    console.log(state.surveyList[i]["surveyStart"]);
+                    if (state.surveyList[i]["surveyStart"] == null || state.surveyList[i]["surveyEnd"] == null) {
+                        surveyState = "제작 중"
+                    }
+                    else if (state.surveyList[i]["surveyStart"] > currentdatetime && state.surveyList[i]["surveyEnd"] > currentdatetime) {
+                        surveyState = "예약 중"
+                    }
+                    else if (state.surveyList[i]["surveyEnd"] > currentdatetime && state.surveyList[i]["surveyStart"] < currentdatetime) {
+                        surveyState = "배포 중"
+                    }
+                    else if (state.surveyList[i]["surveyEnd"] < currentdatetime) {
+                        surveyState = "종료"
+                    }
+                    state.selectedSurveyList = [...state.selectedSurveyList, state.surveyList[i]]; 
+                    state.selectedSurveyList[i]["surveyState"] = surveyState     
                 }
             }
             if (state.questionnaireSelectionOption === 1) { // 제작 중

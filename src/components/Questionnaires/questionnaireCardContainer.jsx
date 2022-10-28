@@ -31,11 +31,12 @@ function QuestionnaireCardContainer(props) {
       items.push(
         <Col xs="auto">
           <QuestionnaireCard
-            id={ selectedSurveyList[currentIdx]}
+            id={ selectedSurveyList[currentIdx]["surveyId"]}
             title={ selectedSurveyList[currentIdx]["surveyTitle"]}
             startTime={selectedSurveyList[currentIdx]["surveyStart"]}
             endTime={selectedSurveyList[currentIdx]["surveyEnd"]}
             representativeImg={selectedSurveyList[currentIdx]["surveyTitle"]}
+            surveyState={selectedSurveyList[currentIdx]["surveyState"]}
             />
         </Col>
       )
