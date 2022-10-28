@@ -33,8 +33,9 @@
 }
 
 .header-login {
-    color: #662D91;
+    color: black;
     text-decoration: none;
+    cursor:pointer;
 }
 
 /* 헤더의 하단 */

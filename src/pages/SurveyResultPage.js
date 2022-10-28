@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import { useEffect } from "react";
 
 import axiosInstance from "../api";
@@ -24,27 +24,26 @@ import { GET_STATISTIC } from "../modules/surveyResultSlice";
 
 const SurveyResult = function () {
     const dispatch = useDispatch();
-    const userId = useSelector(state => state.createSurvey.userId); // 나중에 유저 정보를 담고 있는 다른 store에서 가져와야함
+    const params = useParams();
+    const navigate = useNavigate();
+    const userId = localStorage.getItem("id")
     const surveyTitle = useSelector(state => state.surveyResult.surveyTitle);
     const surveyContent = useSelector(state => state.surveyResult.surveyContent);
     const surveyTime = useSelector(state => state.surveyResult.surveyTime);
 
-    // 로그인한 상태(userId에 값이 있는 상태)가 아니라면 login 페이지로 리다이렉트시킴
-    const navigate = useNavigate();
     useEffect(() => {
-        console.log("use effect");
+        console.log(userId);
         if (userId === null) {
             alert("로그인이 필요합니다");
             navigate("/login");
         }
 
-        console.log("통계 정보 가져오기");
         // 나중에 설문지 id와 유저id를 대조하고 다르면 홈으로 리다이렉트시켜야함
         const getSurveyTemplate = async () => {
-            console.log("템플릿 가져오기");
+            console.log("설문 결과 가져오기" + params.surveyId);
             try {
                 //응답 성공 
-                axiosInstance.get('/response/result/statistic/' + 7)
+                axiosInstance.get('/response/result/statistic/' + params.surveyId)
                     .then((response) => {
                         console.log(response.data);
                         dispatch(GET_STATISTIC(response.data));
@@ -55,7 +54,7 @@ const SurveyResult = function () {
             }
         }
         getSurveyTemplate();
-    }, [userId, navigate]);
+    }, [params.surveyId, userId, dispatch, navigate]);
 
     return (
         <div className="survey-result-layout">

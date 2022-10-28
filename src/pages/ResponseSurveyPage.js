@@ -70,8 +70,8 @@ const ResponsePage = function () {
     return (
         <div className="response-layout">
             <Header color="green" />
-            <div className="response-title">설문지 응답</div>
-            <Container className="response-survey-form">
+            {/* <div className="response-title">설문지 응답</div> */}
+            <Container className="response-survey-form mt-5">
                 <Row>
                     <Col className="mt-5 mx-5 fs-1"><div>{responseInfo.surveyTitle}</div></Col>
                 </Row>
