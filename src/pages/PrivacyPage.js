@@ -88,3 +88,4 @@ const PrivacyPage = function () {
 }
 
 export default PrivacyPage;
+export {items};

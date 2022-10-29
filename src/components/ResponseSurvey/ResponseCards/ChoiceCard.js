@@ -22,7 +22,7 @@ const ChoiceCard = function ({ questionCard, listIdx }) {
 
     return (
         <div className="response-survey-card">
-            <Col className="mb-5 fs-4">Q{questionCard.questionOrder}. {questionCard.questionTitle} {questionCard.questionOptions[1] ? "(중복가능)" : ""}</Col>
+            <Col className="mb-5 fs-4 fw-bold">Q{questionCard.questionOrder}. {questionCard.questionTitle} {questionCard.questionOptions[1] ? "(중복가능)" : ""}</Col>
             {
                 questionCard.questionAnswers.map((answer, answerIdx) =>
                     <Form.Check

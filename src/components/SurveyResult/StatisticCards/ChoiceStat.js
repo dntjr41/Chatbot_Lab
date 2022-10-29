@@ -10,13 +10,13 @@ const ChoiceStat = function ({ statCard }) {
 
     return (
         <div className="survey-result-stat">
-            <Col className="mb-5 fs-4">Q{statCard.questionOrder}. {statCard.title}</Col>
+            <Col className="mb-5 fs-4 fw-bold">Q{statCard.questionOrder}. {statCard.title}</Col>
             {
                 statCard.answers.map((answer, answerIdx) =>
                     <Stack className="survey-result-choiceAnswer mb-4 fs-5" key={answerIdx} direction="horizontal">
                         <div className="survey-result-choiceBar" style={{ width: (answer.cnt / total * 100) + "%" }} />
                         <div>{answer.value}</div>
-                        <div className="ms-auto">{(answer.cnt / total * 100).toFixed(1) + "%"}</div>
+                        <div className="ms-auto">{answer.cnt}</div>
                     </Stack>
                 )
             }

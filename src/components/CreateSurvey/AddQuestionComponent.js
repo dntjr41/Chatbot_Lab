@@ -39,30 +39,30 @@ const AddQuestionComponent = function () {
 
     const cardMenu = (
         <div className="create-survey-addcard mt-3">
-            <Row className="primary-color-grad pb-2">
+            <Row className="pb-2">
                 <Col md={8}>
                     <Row className="mb-2 fs-2"><Col>카드</Col></Row>
-                    <Row className="fs-6">
+                    <Row className="fs-6 mb-1">
                         <Col><button type="button" onClick={addChoicCard}>객관식</button></Col>
                         <Col><button type="button" onClick={addSubjectiveCard}>주관식</button></Col>
                     </Row>
-                    <Row className="fs-6">
+                    <Row className="fs-6 mb-1">
                         <Col><button type="button">이미지</button></Col>
                         <Col><button type="button">동영상</button></Col>
                     </Row>
-                    <Row className="fs-6">
+                    <Row className="fs-6 mb-1">
                         <Col><button type="button">드롭다운</button></Col>
                         <Col><button type="button">감정바</button></Col>
                     </Row>
-                    <Row className="fs-6">
+                    <Row className="fs-6 mb-1">
                         <Col><button type="button">날짜</button></Col>
                         <Col><button type="button">시간</button></Col>
                     </Row>
                 </Col>
                 <Col md={4}>
                     <Row className="mb-2 fs-2"><Col>메뉴</Col></Row>
-                    <Row className="fs-6"><Col><button type="button">질문은행</button></Col></Row>
-                    <Row className="fs-6"><Col><button type="button">섹션추가</button></Col></Row>
+                    <Row className="fs-6 mb-1"><Col><button type="button">질문은행</button></Col></Row>
+                    <Row className="fs-6 mb-1"><Col><button type="button">섹션추가</button></Col></Row>
                 </Col>
             </Row>
         </div>

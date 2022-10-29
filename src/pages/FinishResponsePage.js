@@ -28,7 +28,7 @@ const FinishResponsePage = function () {
                     <Col>설문에 응답해주셔서 감사합니다.</Col>
                 </Row>
                 <Row style={{ marginBottom: "65px" }}>
-                    <Link to="/response" onClick={backToResponse}>응답 수정하기</Link>
+                    <Link to="#" onClick={backToResponse}>응답 수정하기</Link>
                 </Row>
                 <Row>
                     <Link to="/home"><button className="finish-response-exit" type="button" onClick={gotoHome}>SurMoonVey알아보기</button></Link>
