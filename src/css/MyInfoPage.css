@@ -3,18 +3,22 @@
   .secessionBtn {
     flex:1;
     float: center;
-    width: 30%;
-    padding:10px;
+    align-self: center;
+    justify-content: center;
  
   }
 
-  .UserInfo img {
+  .UserInfo_img {
     width: 180px;
     border-radius: 50%;
 }
 
 .UserInfo{
     text-align: left;
+}
+
+.UserInfo_text{
+  text-align: center;
 }
 
 .link_info{
