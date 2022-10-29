@@ -1,7 +1,16 @@
 import Card from 'react-bootstrap/Card';
 import testimg from '../../../../src/images/Logo square.png'
 import Button from 'react-bootstrap/Button';
-const questionnaireTemplateCard = (props) => {
+import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+
+function QuestionnaireTemplateCard(props) {
+  const navigate = useNavigate();
+  const [templateSelect, setTemplateSelect] = useState(false);
+  /*
+  useEffect(() => {
+      {navigate("/create-survey/" + templateSelect);}
+  },[templateSelect])*/
   return (
     <Card
       bg='light'
@@ -20,10 +29,10 @@ const questionnaireTemplateCard = (props) => {
         }
       </Card.Body>
       <Card.Footer className="text-center d-grid gap-2">
-        <Button variant="dark" size="sg">선택</Button>
+        <Button variant="dark" size="sg" onClick={setTemplateSelect(props.id)}>선택</Button>
       </Card.Footer>
     </Card>
   )
 }
 
-export default questionnaireTemplateCard
+export default QuestionnaireTemplateCard

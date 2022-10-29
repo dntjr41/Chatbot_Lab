@@ -40,7 +40,7 @@ function QuestionnairesPage() {
       <Header color="purple" />
       <div id="questionnaire-page">
         <br />
-        <h1 className="Title"><b>&nbsp;&nbsp;&nbsp;&nbsp;설문 제작함</b></h1>
+        <h1 className="Title align-center"><b>설문 제작함</b></h1>
         <br />
         <QuestionnaireCardContainer />
         <br />
