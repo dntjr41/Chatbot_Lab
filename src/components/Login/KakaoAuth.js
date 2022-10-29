@@ -25,15 +25,18 @@ const Auth = () => {
       code: code,
       client_secret: CLIENT_SECRET,
     });
+    axios.defaults.withCredentials = false;
     try {
       // access token 가져오기
       const res = await axios.post(
         "https://kauth.kakao.com/oauth/token",
         payload
       );
+      
       // Kakao Javascript SDK 초기화
       window.Kakao.init(REST_API_KEY);
       // access token 설정
+      
       window.Kakao.Auth.setAccessToken(res.data.access_token);
       localStorage.setItem("token", res.data.access_token);
 
@@ -61,7 +64,7 @@ const Auth = () => {
       });
       console.log("hello");
       
-      navigate("/myinfo");
+      navigate("/Home");
     } catch (err) {
       console.log(err);
     }
