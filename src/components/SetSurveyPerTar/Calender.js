@@ -28,11 +28,11 @@ export default function Calendar() {
   let endDateValue = state[0].endDate.toISOString().slice(0, 11);
 
   const startTimeBtn = (params, e) => {
-    startDateValue = startDateValue + params + ":00:00.000";
+    startDateValue = startDateValue + params + ":00:00.000Z";
   }
   
   const endTimeBtn = (params, e) => {
-    endDateValue = endDateValue + params + ":00:00.000";
+    endDateValue = endDateValue + params + ":00:00.000Z";
   }
 
   const setSurveyTime = () => {

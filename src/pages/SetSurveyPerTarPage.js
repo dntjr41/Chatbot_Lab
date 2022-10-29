@@ -44,19 +44,19 @@ const SetSurveyPerTarPage = function () {
     const dispatch = useDispatch();
     const location = useLocation();
     const surveyId = location.state.surveyId;
-
+    const userID = localStorage.getItem("id");
     const [surveyInfo, setState] = useState([]);
-    const url = "http://localhost:8080/api/survey/userId=" + 1;
     
     const getData = async () => {
         try {
-            const res = await axios.get(url)
-            .then(function (response) {
-                setState(response.data.filter(value => value.surveyId == surveyId)[0]);
+            axiosInstance.get('/survey/userId=' + userID)
+            .then((response) => {
+                console.log(response.data);
+                setState(response.data.filter(value => value.surveyId === surveyId)[0]);
             })
-
-        } catch (err) {
-            console.log(err);
+        
+        } catch (error) {
+            console.error(error);
         }
     }
     useEffect(() => {
@@ -83,7 +83,11 @@ const SetSurveyPerTarPage = function () {
         surveyUrl: surveyUrl
     };
 
-    console.log(surveyTemp);
+    var surveyUpdate = {
+        surveyStart: surveyTemp.surveyStart,
+        surveyEnd: surveyTemp.surveyEnd,
+        surveyUrl: surveyTemp.surveyUrl
+    }
 
     const newSurveyStart = location.state.surveyStart;
     const newSurveyEnd = location.state.surveyEnd;
@@ -105,15 +109,24 @@ const SetSurveyPerTarPage = function () {
     }
 
     // 설문 공유 (Deploy Survey) 페이지로 이동
-    const gotoDeploySurvey = () => {
+    const gotoDeploySurvey = async () => {
         inputPeriod();
         linkUpdate();
 
         console.log(JSON.stringify(surveyTemp));
+
+        surveyUpdate.surveyStart = surveyTemp.surveyStart;
+        surveyUpdate.surveyEnd = surveyTemp.surveyEnd;
+        surveyUpdate.surveyUrl = surveyTemp.surveyUrl;
+        
+        {/* 서버로 정보 보내서 업데이트 하는 부분에서 CORS 에러 발생하는데,
+            시간 상 여기서 더 구현하는 것은 무리일 것 같고,
+            우선 진행한 다음 추후 업데이트 해야할 것 같습니다.
+        */}
+
         try {
-            // 여기서 서버에 전송해줘야 하는데
-            // 구현 관련해서 Spring에 Edit해주는 부분 구현해야 함
-            axiosInstance.post('/survey', JSON.stringify(surveyTemp))
+            axiosInstance.put('/survey/updateSurvey/' + userID + "/"
+                            + surveyTemp.surveyId + "/" + JSON.stringify(surveyUpdate))
             .then((response) => {
                 console.log(response.data);
             })
@@ -121,7 +134,10 @@ const SetSurveyPerTarPage = function () {
             console.error(error);
         }
 
-        navigate("/deploy-survey", { state: {surveyId: surveyId}});
+
+
+        navigate("/deploy-survey", { state: {surveyId: surveyTemp.surveyId, surveyStart: surveyTemp.surveyStart,
+                                            surveyEnd: surveyTemp.surveyEnd, surveyUrl: surveyTemp.surveyUrl}});
     }
 
     return (

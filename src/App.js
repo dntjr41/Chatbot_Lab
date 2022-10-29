@@ -25,6 +25,7 @@ import SurveyResult from './pages/SurveyResultPage';
 import NoPage from './pages/NoPage';
 import ScrollTop from './components/ScrollTop';
 
+import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
 
@@ -36,6 +37,8 @@ import "./App.css";
 // *: 나머지 페이지(404 띄움)
 
 function App() {
+  axios.defaults.withCredentials = true;
+
   return (
     <div className="App">
       <BrowserRouter>

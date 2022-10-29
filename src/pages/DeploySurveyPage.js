@@ -28,18 +28,20 @@ const DeploySurveyPage = function () {
 
     const location = useLocation();
     const surveyId = location.state.surveyId;
+    const userID = localStorage.getItem("id");
+    
     const [surveyInfo, setState] = useState([]);
-    const url = "http://localhost:8080/api/survey/userId=" + 1;
     
     const getData = async () => {
         try {
-            const res = await axios.get(url)
-            .then(function (response) {
-                setState(response.data.filter(value => value.surveyId == surveyId)[0]);
+            axiosInstance.get('/survey/userId=' + userID)
+            .then((response) => {
+                console.log(response.data);
+                setState(response.data.filter(value => value.surveyId === surveyId)[0]);
             })
-
-        } catch (err) {
-            console.log(err);
+        
+        } catch (error) {
+            console.error(error);
         }
     }
     useEffect(() => {
@@ -47,17 +49,19 @@ const DeploySurveyPage = function () {
     }, []);
 
     console.log(surveyInfo);
-    useForceUpdate();
 
-    const surveyTitle = surveyInfo.surveyTitle;
+    /* 받아오는건 제대로 받아와 지는데, 앞부분에서 업데이트가 안돼서
+       우선 Navigate로 정보 전달하고, 받아온 정보 보여주는 식으로 진행했습니다.
+
     const surveyStart = surveyInfo.surveyStart;
     const surveyEnd = surveyInfo.surveyEnd;
     const link = surveyInfo.surveyUrl;
+    */
 
-    console.log(surveyTitle);
-    console.log(surveyStart);
-    console.log(surveyEnd);
-    console.log(link);
+    const surveyTitle = surveyInfo.surveyTitle;
+    const surveyStart = location.state.surveyStart;
+    const surveyEnd = location.state.surveyEnd;
+    const link = location.state.surveyUrl;
 
     // 링크 복사하기
     const downloadLink = () => {
