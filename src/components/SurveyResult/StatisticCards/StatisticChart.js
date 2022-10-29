@@ -14,7 +14,7 @@ const StatisticChart = function ({ data }) {
             innerRadius={0.35}
             padAngle={2}
             activeOuterRadiusOffset={8}
-            colors={{ scheme: 'greens' }}
+            colors={{ scheme: 'purple_red' }}
             borderWidth={2}
             borderColor={{
                 from: 'color',
