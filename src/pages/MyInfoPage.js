@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Button } from 'react-bootstrap';
 import { Card, Container, Row, Col } from "reactstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useHistory } from "react-router-dom";
 import Header from "../components/Header";
+import axios from "axios";
+import qs from "qs";
+
 import '../css/MyInfoPage.css'
+import { confirmAlert } from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 
 // 내 정보 페이지
 // └헤더
@@ -13,7 +18,17 @@ import '../css/MyInfoPage.css'
 //   └설문지 
 // └탈퇴하기 버튼
 
+
+const REST_API_KEY = "bac376255674f663efac55e7ab39fba9";
+const REDIRECT_URI = "http://localhost:3000/auth/kakao/callback";
+const CLIENT_SECRET = "DEnIz7VmtjOrxBNgxVroEl0uivOs3HxE";
+const code = new URL(window.location.href).searchParams.get("code");
+
+
+
+
 const kakaoUnlink = () => {
+
     window.Kakao.API.request({
       url: '/v1/user/unlink',
       success: function(response) {
@@ -32,6 +47,8 @@ const kakaoUnlink = () => {
       },
     });
   } 
+
+  
 
   const kakaoLogout = () => {
     window.Kakao.API.request({
@@ -56,7 +73,48 @@ const kakaoUnlink = () => {
 
 const MyInfoPage = function () {
 
+  const userId = localStorage.getItem("id");
+  const navigate = useNavigate();
   
+  const useModal = () => {
+    confirmAlert({
+      title: '로그인 된 소셜 계정과 설문베이에 대한 연동을 해제하시겠습니까?',
+      message: '계속 하시겠습니까?',
+      buttons: [
+        {
+          label: '네',
+          onClick: () => { window.Kakao.API.request({
+            url: '/v1/user/unlink',
+            success: function(response) {
+              localStorage.removeItem('token');
+              localStorage.removeItem('id');
+              localStorage.removeItem('nickName');
+              localStorage.removeItem('profileImage');
+              localStorage.removeItem('email');
+      
+              console.log(response);
+              
+              navigate("/Home");
+            },
+            fail: function(error) {
+              console.log(error);
+            },
+          });}
+        },
+        {
+          label: '아니오',
+        }
+      ]
+    })
+  }
+
+  useEffect(() => {
+    console.log(userId);
+    if (userId === null) {
+        alert("로그인이 필요합니다");
+        navigate("/login");
+    }});
+    
       return (
         <div className="UserInfo">
           <Header color="green"/>
@@ -91,8 +149,8 @@ const MyInfoPage = function () {
                           variant="danger"
                           className="mr-4"
                           color="info"
-                          href="#pablo"
-                          onClick={kakaoUnlink}
+                          href="#pablo"                          
+                          onClick={useModal}
                           size="sm"
                         >
                           연동 해제하기
