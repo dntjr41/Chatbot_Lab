@@ -79,9 +79,7 @@ const createSurveySlice = createSlice({
         },
         SET_USER: (state, action) => {
             // 유저ID 설정
-            console.log(action.payload);
             state.userId = action.payload;
-            console.log("바뀐 userId: " + state.userId);
         },
         RESET_STATE: (state) => {
             // state 초기화

@@ -28,7 +28,6 @@ const CreateSurveyPage = function () {
     // 로컬스토리지로부터 가져온 userId가 null이라면 로그인 페이지로 리다이렉트시킴
     // 로컬스토리지에 userId에 값이 있다면(로그인 되어 있다면) 설문 정보 state에 userId를 추가시킴
     useEffect(() => {
-        console.log(userId);
         if (userId === null) {
             alert("로그인이 필요합니다");
             navigate("/login");
@@ -50,13 +49,11 @@ const CreateSurveyPage = function () {
 
     // 설문 저장 요청 후 홈 페이지로 이동
     const saveSurvey = async () => {
-        console.log(JSON.stringify(surveyInfo));
         try {
             //응답 성공 
             axiosInstance.post('/survey', JSON.stringify(surveyInfo))
                 .then((response) => {
                     alert("설문 임시 저장 및 홈 페이지로 이동");
-                    console.log(response);
                 })
         } catch (error) {
             //응답 실패
@@ -67,13 +64,11 @@ const CreateSurveyPage = function () {
 
     // 설문 저장 요청 후 공유 페이지로 이동
     const createSurvey = async () => {
-        console.log(JSON.stringify(surveyInfo));
         try {
             //응답 성공 
             axiosInstance.post('/survey', JSON.stringify(surveyInfo))
                 .then((response) => {
                     alert("설문 저장 및 공유 페이지로 이동");
-                    console.log(response.data);
                     navigate("/set-survey-per-tar", { state: { surveyId: response.data } });
                 })
         } catch (error) {
