@@ -4,7 +4,7 @@
   max-width: 1100px;
   margin: auto;
   padding: 10px;
-  background: linear-gradient(249.5deg, #662D91 -14.02%, #A64DFF 108.18%);
+  background: #F0EBF8;
 }
 
 .NewQustButtonFloat{
@@ -18,7 +18,7 @@
 }
 
 .NavItem{
-  color: white;
+  color: black;
 }
 
 .TemplateUnknown{
@@ -29,6 +29,9 @@
   background-color: #662D91;
 }
 
+.align-center { 
+  text-align: center; 
+}
 
 #dateTimeTextSize {
   font-size: 13px;
