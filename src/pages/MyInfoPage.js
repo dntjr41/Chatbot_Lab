@@ -1,14 +1,21 @@
 import React, { useEffect, useState } from "react";
-import { Button } from 'react-bootstrap';
-import { Card, Container, Row, Col } from "reactstrap";
-import { Link, useNavigate, useHistory } from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 import Header from "../components/Header";
-import axios from "axios";
-import qs from "qs";
+import { Button } from 'react-bootstrap';
+import Grid from "../components/elements/Grid";
+import Text from "../components/elements/Text";
+import Box from "@mui/material/Box";
+
+import styled from "@emotion/styled";
+import { StyledTab, StyledTabs } from "../components/elements/Tab";
+import TabContext from "@mui/lab/TabContext";
+import TabPanel from "@mui/lab/TabPanel";
+
 
 import '../css/MyInfoPage.css'
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
+
 
 // 내 정보 페이지
 // └헤더
@@ -17,8 +24,6 @@ import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 // └나의 설문
 //   └설문지 
 // └탈퇴하기 버튼
-
-
 
 const MyInfoPage = function () {
 
@@ -29,9 +34,13 @@ const CLIENT_SECRET = "DEnIz7VmtjOrxBNgxVroEl0uivOs3HxE";
 const KAKAO_AUTH_URI = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
 const code = new URL(window.location.href).searchParams.get("code");
 
-  const userId = localStorage.getItem("id");
-  const navigate = useNavigate();
+const userId = localStorage.getItem("id");
+const navigate = useNavigate();
   
+const [TabValue, setTabValue] = React.useState("1");
+const TabhandleChange = (event, newValue) => {
+  setTabValue(newValue);
+};
   const useModal = () => {
     confirmAlert({
       title: '로그인 된 소셜 계정과 설문베이에 대한 연동을 해제하시겠습니까?',
@@ -57,78 +66,218 @@ const code = new URL(window.location.href).searchParams.get("code");
     }
   });
     
-      return (
-        <div className="UserInfo">
-          <Header color="green"/>
-          <section className="section-profile-cover section-shaped my-0 ">
-            <div className="shape shape-style-1 shape-default alpha-4">
+  return (
+    <>
+    <Header/>
+    <div className="px-5">
+      <UserContainer>
+        <Title
+          F_size="28px"
+          margin_bottom="16px"
+          style={{  fontFamily: 'IBM Plex Sans KR' }}
+        >
+          <h3>
+            <span>{localStorage.getItem('nickName')}</span> 님의 마이페이지
+          </h3>
+          <h5>
+            환영합니다
+          </h5>
+        </Title>
+        <UserInfoContainer>
+          <UserDataContainer>
+            <img style={{
+          borderRadius: "50%"}} src={localStorage.getItem('profileImage')}/>
+            <UserNameContainer style={{ marginLeft: "40px", marginTop: "32x" }}>
+            <div
+                style={{
+                  width: "400px",
+                  height: "36px",
+                  backgroundColor: "#D3D3D3",
+                  borderRadius: "16px",
+                  display: "flex",
+                  justifyContent: "center",
+                  justifyItems: "center",
+                  marginTop: "12px",
+                  marginBottom: "12px",
+                }}
+              >
+                <h3 style={{ margin: "auto", fontSize: "16px" }}>
+                   나의 ID  ({localStorage.getItem('id')})
+                </h3>
+              </div>
+              <div
+                style={{
+                  width: "400px",
+                  height: "36px",
+                  backgroundColor: "#FEE500",
+                  borderRadius: "16px",
+                  display: "flex",
+                  justifyContent: "center",
+                  justifyItems: "center",
+                  marginTop: "12px",
+                  marginBottom: "56px",
+                }}
+              >
+                <h3 style={{ margin: "auto", fontSize: "16px" }}>
+                   카카오 계정과 연동 됨 ({localStorage.getItem('email')})
+                </h3>
+              </div>
+              <CreateButton
+                onClick={() => { navigate("/questionnaires") }}
+              >
+                지금 설문 만들기
+              </CreateButton>
+            </UserNameContainer>
+          </UserDataContainer>
+          <InviteContainer>
+            <div
+              style={{
+                width: "200px",
+                height: "36px",
+                display: "flex",
+                justifyContent: "center",
+                justifyItems: "center",
+                marginBottom: "12px",
+              }}
+            >  
             </div>
-       
-          </section>
-          <section className="section">
-            <Container className="pt-lg-7 py-5">
-              <Card className="card-profile shadow mt--300 ">
-                <div className="px-4">
-                  <Row className="justify-content-center">
-                    <Col className="order-lg-3" lg="1">
-                      <div className="card-profile-image">
-                        <a href="#pablo" onClick={(e) => e.preventDefault()}>
-                          <img
-                            alt="..."
-                            className="rounded-circle"
-                            src={localStorage.getItem('profileImage')}
-                          />
-                        </a>
-                      </div>
-                    </Col>
-                    <Col
-                      className="order-lg-3 text-lg-center align-self-lg-center"
-                      lg="4"
-                    >
-                      <div className="card-profile-actions py-4 mt-lg-0">
-
-                        <Button
-                          variant="danger"
-                          className="mr-4"
-                          color="info"                     
-                          onClick={useModal}
-                          size="sm"
-                        >
-                          연동 해제하기
-                        </Button>
-                      </div>
-                    </Col>
-                    <Col className="order-lg-1" lg="4">
-                      <div className="card-profile-stats d-flex justify-content-center">
-                      <div className="user_info">{localStorage.getItem('nickName')}님의 마이페이지</div>
-                      </div>
-                    </Col>
-                  </Row>
-                  <div className="text-left">
-                  <div className="user_info">회원 ID : {localStorage.getItem('id')}</div>
-                  <div className="user_info">연동된 계정 : {localStorage.getItem('email')} / Kakao</div>
-                  </div>
-
-              
-                  <div className="mt-5 py-5 border-top">
-                  <div className="text-end">
-                        <Link to="/questionnaires" className="link_info" style={{ textDecoration: 'none'}} >바로가기 </Link>
-                        </div>
-                    <Row className="justify-content-right">
-                      <Col lg="9">
-                        <p className="user_info">나의 설문</p>
+  
             
-                      </Col>
-                    </Row>
-                  </div>
-                </div>
-              </Card>
-            </Container>
-          </section>     
-        </div>
-      );
-
+          </InviteContainer>
+        </UserInfoContainer>
+        
+      </UserContainer>
+      
+      <Box sx={{ width: "100%", typography: "body1" }}>
+      <div class="col text-center">
+      <Button
+        variant="danger"
+        className="mr-4"
+        color="info"                     
+        onClick={useModal}
+        size="large"
+       >
+        연동 해제하기
+      </Button>
+      </div>
+        <TabContext value={TabValue}>
+          <Box sx={{ borderBottom: 1, borderColor: "white", mb: 4 }}>
+            <StyledTabs
+              onChange={TabhandleChange}
+              aria-label="lab API tabs"
+              TabIndicatorProps={{
+                children: <span className="MuiTabs-indicatorSpan" />,
+              }}
+            >
+              <StyledTab
+                label="나의 설문자 그룹"
+                value="1"
+                sx={{
+                  fontWeight: "bold",
+                  fontFamily: "IBM Plex Sans KR",
+                }}
+              />
+              <StyledTab
+                label="내가 만든 설문"
+                value="2"
+                sx={{ fontWeight: "bold", fontFamily: "IBM Plex Sans KR" }}
+              />
+            </StyledTabs>
+          </Box>
+          <TabPanel value="1" sx={{ p: "0px" }}>
+            <Grid margin="auto" position="relative">
+    
+            </Grid>
+          </TabPanel>
+          <TabPanel value="2" sx={{ p: "0px" }}>
+          <div className="text-end">
+           <Link to="/questionnaires" className="link_info" style={{ textDecoration: 'none', fontSize: '12pt'}} >바로가기 </Link>
+          </div>
+            <Grid
+              padding="40px"
+              position="relative"
+              width="100%"
+              heignt="823px"
+              B_radius="20px"
+              Border="2px solid #9400D3"
+            >
+              <Grid is_flex margin_top="44px" B_bottom="1px solid #C4C4C4">
+                
+              </Grid>
+            
+            </Grid>
+            <Grid></Grid>
+          </TabPanel>
+        </TabContext>   
+      </Box>
+    </div>
+    </>
+  );
 };
-
+const UserContainer = styled.div`
+  width: 1200px;
+  height: 320px;
+  margin-top: 120px;
+  margin-bottom: 100px;
+`;
+const UserInfoContainer = styled.div`
+  width: 1200px;
+  height: 200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+const UserDataContainer = styled.div`
+  width: 700px;
+  height: 200px;
+  display: flex;
+  flex-direction: row;
+`;
+const UserNameContainer = styled.div`
+  width: 440px;
+  height: 176px;
+`;
+const InviteContainer = styled.div`
+  width: 252px;
+  height: 88px;
+  margin-top: 76px;
+`;
+const CreateButton = styled.button`
+  display: block;
+  /* margin: auto; */
+  width: 160px;
+  height: 40px;
+  margin-top: auto;
+  margin-bottom: auto;
+  border-radius: 8px;
+  border: solid 2px purple;
+  background-color: rgb(0, 0, 0, 0);
+  font-size: 16px;
+  color: purple;
+  font-weight: bold;
+  margin-right: 16px;
+  /* font-weight: bold; */
+  cursor: pointer;
+  transition: 0.3s;
+  :hover {
+    transition: 0.3s;
+    background-color: #D8BFD8;
+    color: white;
+  }
+`;
+const Title = styled.div`
+  h3 {
+    font-size: 32px;
+    font-family: "IBM Plex Sans KR";
+  }
+  h5 {
+    font-size: 16px;
+    font-family: "GmarketSansLight";
+  }
+  span {
+    font-size: 32px;
+    font-family: "GmarketSansMedium";
+  }
+`;
 
 export default MyInfoPage;

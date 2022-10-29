@@ -4,7 +4,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import KakaoLogin from "../components/Login/KakaoLogin";
 import NaverLogin from "../components/Login/NaverLogin";
-import GoogleLogin from "../components/Login/GoogleLogin";
+//import GoogleLogin from "../components/Login/GoogleLogin";
 import FaceBookLogin from "../components/Login/FaceBookLogin";
 
 import React from "react";
