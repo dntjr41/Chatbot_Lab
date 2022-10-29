@@ -29,12 +29,10 @@ const ResponsePage = function () {
 
     useEffect(() => {
         const getSurveyTemplate = async () => {
-            console.log("템플릿 가져오기" + pageInfo.surveyId);
             try {
                 //응답 성공 
                 axiosInstance.get('/response/' + pageInfo.surveyId)
                     .then((response) => {
-                        console.log(response.data);
                         dispatch(GET_TEMPLATE(response.data));
                     })
             } catch (error) {
@@ -48,15 +46,11 @@ const ResponsePage = function () {
 
     // 설문 제출
     const submitSurvey = () => {
-        // alert("응답 제출")
-        console.log(responseInfo);
         const submit = async () => {
-            console.log("응답 제출");
             try {
                 //응답 성공 
                 axiosInstance.post('/response/submit', responseInfo)
                     .then((response) => {
-                        console.log(response.data);
                     })
             } catch (error) {
                 //응답 실패
@@ -73,7 +67,7 @@ const ResponsePage = function () {
             {/* <div className="response-title">설문지 응답</div> */}
             <Container className="response-survey-form mt-5">
                 <Row>
-                    <Col className="mt-5 mx-5 fs-1"><div>{responseInfo.surveyTitle}</div></Col>
+                    <Col className="mt-5 mx-5 fs-1 fw-bold"><div>{responseInfo.surveyTitle}</div></Col>
                 </Row>
                 <Row>
                     <Col className="m-5 fs-2"><div>{responseInfo.surveyContent}</div></Col>

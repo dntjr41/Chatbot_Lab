@@ -16,7 +16,7 @@ const SubjectiveCard = function ({ questionCard, listIdx }) {
     }
     return (
         <div className="response-survey-card">
-            <Col className="mb-5 fs-4">Q{questionCard.questionOrder}. {questionCard.questionTitle}</Col>
+            <Col className="mb-5 fs-4 fw-bold">Q{questionCard.questionOrder}. {questionCard.questionTitle}</Col>
             <Form.Control
                 className="response-survey-subjective fs-5"
                 as="textarea"
