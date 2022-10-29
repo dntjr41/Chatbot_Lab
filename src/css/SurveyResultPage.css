@@ -1,8 +1,7 @@
 /* 결과 분석 페이지에서 쓰일 css */
 .survey-result-layout {
     padding-bottom: 100px;
-    /* background: linear-gradient(264.61deg, #87DF41 -9.34%, #00AB4F 101.57%); */
-    background: #F9F9F9
+    background: #F0EBF8
 }
 
 .survey-result-info {
@@ -21,8 +20,8 @@
 
 .survey-result-download {
     /* background-color: #662D91; */
-    background-color: #00AB4F;
-    border: 1px solid #00AB4F;
+    background-color: #662D91;
+    border: 1px solid #662D91;
     text-align: center;
     width: 160px;
     height: 60px;
@@ -42,9 +41,9 @@
     position: absolute;
     margin-left: -10px;
     height: 40px;
-    background: #00AB4F;
+    background: #662D91;
     border-radius: 10px;
-    opacity: 0.3;
+    opacity: 0.25;
 }
 
 .survey-result-choiceAnswer {

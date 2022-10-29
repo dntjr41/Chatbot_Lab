@@ -32,7 +32,6 @@ const SurveyResult = function () {
     const surveyTime = useSelector(state => state.surveyResult.surveyTime);
 
     useEffect(() => {
-        console.log(userId);
         if (userId === null) {
             alert("로그인이 필요합니다");
             navigate("/login");
@@ -40,12 +39,10 @@ const SurveyResult = function () {
 
         // 나중에 설문지 id와 유저id를 대조하고 다르면 홈으로 리다이렉트시켜야함
         const getSurveyTemplate = async () => {
-            console.log("설문 결과 가져오기" + params.surveyId);
             try {
                 //응답 성공 
                 axiosInstance.get('/response/result/statistic/' + params.surveyId)
                     .then((response) => {
-                        console.log(response.data);
                         dispatch(GET_STATISTIC(response.data));
                     })
             } catch (error) {
@@ -75,8 +72,8 @@ const SurveyResult = function () {
                         </Nav.Item>
                     </Nav>
                     <div className="survey-result-info p-3 fs-1">
-                        <Col className="mb-3">설문 제목 - {surveyTitle}</Col>
-                        <Col className="mb-3">설문 기간 - {surveyTime.start} ~ {surveyTime.end}</Col>
+                        <Col className="mb-3 fw-bold">설문 제목 - {surveyTitle}</Col>
+                        <Col className="mb-3 fw-normal">설문 기간 - {surveyTime.start} ~ {surveyTime.end}</Col>
                         <Col className="survey-result-bottomLine fs-2">{surveyContent}</Col>
                     </div>
                     <Tab.Content>
