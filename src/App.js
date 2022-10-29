@@ -7,6 +7,7 @@ import PrivateRoute from './components/Route/privateRoute'
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import Auth from "./components/Login/KakaoAuth";
+import Auth2 from "./components/Login/KakaoAuth2";
 import MyInfoPage from './pages/MyInfoPage';
 
 import TosPage from './pages/TosPage';
@@ -50,6 +51,7 @@ function App() {
 
             <Route path="login" element={<LoginPage />} />
             <Route path="auth/kakao/callback" element={<Auth/>}/>
+            <Route path="auth/kakao/unlink" element={<Auth2/>}/>
             <Route path="myinfo" element={<PrivateRoute> <MyInfoPage /> </PrivateRoute>} />
 
             <Route path="tos" element={<TosPage />} />

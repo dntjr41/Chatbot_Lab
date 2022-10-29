@@ -38,6 +38,7 @@ const Header = function (props) {
                 localStorage.removeItem('nickName');
                 localStorage.removeItem('profileImage');
                 localStorage.removeItem('email');
+                alert("로그아웃 되었습니다.")
                 navigate("/Home");}
             },
             {

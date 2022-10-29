@@ -19,59 +19,15 @@ import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 // └탈퇴하기 버튼
 
 
-const REST_API_KEY = "bac376255674f663efac55e7ab39fba9";
-const REDIRECT_URI = "http://localhost:3000/auth/kakao/callback";
-const CLIENT_SECRET = "DEnIz7VmtjOrxBNgxVroEl0uivOs3HxE";
-const code = new URL(window.location.href).searchParams.get("code");
-
-
-
-
-const kakaoUnlink = () => {
-
-    window.Kakao.API.request({
-      url: '/v1/user/unlink',
-      success: function(response) {
-        localStorage.removeItem('token');
-        localStorage.removeItem('id');
-        localStorage.removeItem('nickName');
-        localStorage.removeItem('profileImage');
-        localStorage.removeItem('email');
-
-        console.log(response);
-
-        document.location.href('/Home');
-      },
-      fail: function(error) {
-        console.log(error);
-      },
-    });
-  } 
-
-  
-
-  const kakaoLogout = () => {
-    window.Kakao.API.request({
-      url: '/v1/user/logout',
-      success: function(response) {
-        localStorage.removeItem('token');
-        localStorage.removeItem('id');
-        localStorage.removeItem('nickName');
-        localStorage.removeItem('profileImage');
-        localStorage.removeItem('email');
-        
-        console.log(response);
-
-        document.location.href('/Home');
-      },
-      fail: function(error) {
-        console.log(error);
-      },
-    });
-  } 
-  
 
 const MyInfoPage = function () {
+
+  
+const REST_API_KEY = "bac376255674f663efac55e7ab39fba9";
+const REDIRECT_URI = "http://localhost:3000/auth/kakao/unlink";
+const CLIENT_SECRET = "DEnIz7VmtjOrxBNgxVroEl0uivOs3HxE";
+const KAKAO_AUTH_URI = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
+const code = new URL(window.location.href).searchParams.get("code");
 
   const userId = localStorage.getItem("id");
   const navigate = useNavigate();
@@ -83,24 +39,9 @@ const MyInfoPage = function () {
       buttons: [
         {
           label: '네',
-          onClick: () => { window.Kakao.API.request({
-            url: '/v1/user/unlink',
-            success: function(response) {
-              localStorage.removeItem('token');
-              localStorage.removeItem('id');
-              localStorage.removeItem('nickName');
-              localStorage.removeItem('profileImage');
-              localStorage.removeItem('email');
-      
-              console.log(response);
-              
-              navigate("/Home");
-            },
-            fail: function(error) {
-              console.log(error);
-            },
-          });}
+          onClick: () => { window.location.assign(KAKAO_AUTH_URI) }
         },
+
         {
           label: '아니오',
         }
@@ -113,7 +54,8 @@ const MyInfoPage = function () {
     if (userId === null) {
         alert("로그인이 필요합니다");
         navigate("/login");
-    }});
+    }
+  });
     
       return (
         <div className="UserInfo">
@@ -148,25 +90,12 @@ const MyInfoPage = function () {
                         <Button
                           variant="danger"
                           className="mr-4"
-                          color="info"
-                          href="#pablo"                          
+                          color="info"                     
                           onClick={useModal}
                           size="sm"
                         >
                           연동 해제하기
                         </Button>
-                        {/*
-                        <Button
-                          variant="danger"
-                          className="mr-4"
-                          color="info"
-                          href="#pablo"
-                          onClick={kakaoLogout}
-                          size="sm"
-                        >
-                          로그아웃(테스트)
-                        </Button>
-                        */}
                       </div>
                     </Col>
                     <Col className="order-lg-1" lg="4">
@@ -195,13 +124,7 @@ const MyInfoPage = function () {
                 </div>
               </Card>
             </Container>
-          </section>
-    
-        
-         
-          
-         
-            
+          </section>     
         </div>
       );
 
