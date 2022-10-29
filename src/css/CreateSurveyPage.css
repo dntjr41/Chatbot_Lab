@@ -78,13 +78,13 @@
 
 .create-survey-addQue {
   background-color: white;
-  color: #662D91 ;
+  color: #662D91;
   width: 48px;
   height: 48px;
 }
 
 .create-survey-addcard {
-  background-color: white;
+  background-color: #ebe3f7;
   width: 50%;
   padding: 10px 12px 0px 12px;
   margin: auto;
@@ -94,5 +94,6 @@
 
 .create-survey-addcard button {
   width: 100%;
-  border-radius: 2px;
+  border-radius: 5px;
+  border: 0px;
 }
