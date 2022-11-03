@@ -55,8 +55,11 @@ const Header = function (props) {
                     <Link to="/home"><button className="header-logohome"></button></Link>
                 </Col>
 
+             
+
                 <Col className="align-self-center" md={{ span: 3, offset: 6 }}>
                     <Stack direction="horizontal" gap={4}>
+                        <Link to="/questionnaires" className="header-question">설문 제작함</Link>
                         <Link to="/faq" className="ms-auto"><BsQuestionCircle size="32" /></Link>
                         <div className="header-login" onClick={userId === null ? login : logoutModal}>{userId === null ? "로그인" : "로그아웃"}</div>
                         <Link to="/myinfo"><BsPersonSquare size="32" /></Link>
