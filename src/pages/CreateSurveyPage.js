@@ -54,6 +54,7 @@ const CreateSurveyPage = function () {
             axiosInstance.post('/survey', JSON.stringify(surveyInfo))
                 .then((response) => {
                     alert("설문 임시 저장 및 홈 페이지로 이동");
+                    navigate("/questionnaires", { state: { surveyId: response.data } });
                 })
         } catch (error) {
             //응답 실패
@@ -93,7 +94,7 @@ const CreateSurveyPage = function () {
                     <QuestionCardList />
                 </Row>
                 <div className="text-center my-5">
-                    <Link to="/questionnaires"><button className="create-survey-submit mx-5 fs-2" type="button" onClick={saveSurvey}>임시저장</button></Link>
+                    <button className="create-survey-submit mx-5 fs-2" type="button" onClick={saveSurvey}>임시저장</button>
                     <button className="create-survey-submit mx-5 fs-2" type="button" onClick={createSurvey}>공유</button>
                 </div>
             </Container>

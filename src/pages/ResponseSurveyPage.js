@@ -49,7 +49,7 @@ const ResponsePage = function () {
         const submit = async () => {
             try {
                 //응답 성공 
-                axiosInstance.post('/response/submit', responseInfo)
+                axiosInstance.post('/response', responseInfo)
                     .then((response) => {
                     })
             } catch (error) {

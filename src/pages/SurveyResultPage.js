@@ -41,7 +41,7 @@ const SurveyResult = function () {
         const getSurveyTemplate = async () => {
             try {
                 //응답 성공 
-                axiosInstance.get('/response/result/statistic/' + params.surveyId)
+                axiosInstance.get('/response/statistic/' + params.surveyId)
                     .then((response) => {
                         dispatch(GET_STATISTIC(response.data));
                     })
