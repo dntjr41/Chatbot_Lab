@@ -96,7 +96,7 @@ const Home = () => {
                         F_family="GmarketSansLight"
                         onClick={goToQuestion}
                       >
-                        설문 더 보기 +
+                        설문 만들기 +
                       </button>
                       </div>
                     </MuiGrid>
@@ -204,6 +204,10 @@ const Home = () => {
               }}
             >
             </div>
+
+            <button id="questionnaires" onClick={() => navigate("/questionnaires")}>
+                설문 만들러 가기
+              </button>
           </InsideTextDiv>
 
           {/* <img alt="" src={BxSlide} width="100%" /> */}
@@ -266,7 +270,7 @@ const Home = () => {
                         F_family="GmarketSansLight"
                         onClick={goToQuestion}
                       >
-                        설문 더보기 +
+                        설문 만들기 +
                       </button>
                     </div>
                   </MuiGrid>
@@ -424,7 +428,7 @@ const InsideTextDiv = styled.div`
       color: black;
     }
   }
-  #howtouse {
+  #questionnaires {
     /* margin: auto; */
     margin: 4px 16px;
     width: 172px;
@@ -544,98 +548,8 @@ const Wrap = styled.div`
   background-color: #f9f9f9;
 `;
 
-const TitleText = styled.h3`
-  font-size: 16px;
-  font-family: "GmarketSansMedium";
-  margin: 0px;
-`;
-
-const NickWrap = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: start;
-  align-items: center;
-`;
-
-const NickText = styled.h3`
-  font-size: 12px;
-  font-family: "GmarketSansLight";
-  margin: 0px;
-  margin-top: 4px;
-`;
-
-const MemberNum = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  h3 {
-    font-size: 12px;
-    font-family: "GmarketSansLight";
-  }
-`;
-
-const RowForDiv = styled.div`
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-`;
 
 ////////////////////////////////////
-
-const ContentWrap = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  justify-content: start;
-  width: 100%;
-`;
-
-const TitleWrap = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: start;
-  width: 100%;
-  margin-top: 12px;
-`;
-
-const RestWrap = styled.div`
-  width: 48px;
-  border: solid 1px #587730;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  h3 {
-    margin: 4px;
-    /* margin-top: 4px;
-    margin-bottom: 4px; */
-    /* margin: 0px; */
-    font-size: 12px;
-    color: #587730;
-  }
-`;
-
-const WorkOutWrap = styled.div`
-  width: 48px;
-  border: solid 1px red;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  h3 {
-    margin: 4px;
-    /* margin: 0px; */
-    font-size: 12px;
-    color: red;
-  }
-`;
-
-const NickANumWrap = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-`;
 
 const MainTitle = styled.div`
   width: 100%;
@@ -684,75 +598,8 @@ const MMainTitle = styled.div`
   }
 `;
 
-const MSearchBarWrap = styled.div`
-  width: 100%;
-  height: 52px;
-  /* background-color: black; */
-  border-radius: 24px;
-  border: solid 1px #757575;
-  display: flex;
-  align-items: center;
-  margin-bottom: ${(props) => props.width * 0.03}px;
-  margin-left: auto;
-  margin-right: auto;
-`;
 
-const MSearchBarInput = styled.input`
-  width: 100%;
-  height: 48px;
-  border: solid 0px;
-  border-right: solid 1px #757575;
-  background-color: rgb(0, 0, 0, 0);
-  border-top-left-radius: 24px;
-  border-bottom-left-radius: 24px;
-  padding-left: 16px;
-  font-size: 12px;
-  font-family: "GmarketSansLight";
-
-  :focus {
-    outline: none;
-    border: solid 0px #757575;
-  }
-`;
-
-const MSearchButton = styled.button`
-  background-color: rgb(0, 0, 0, 0);
-  border: solid 0px;
-  cursor: pointer;
-`;
-
-const SearchBarWrap = styled.div`
-  width: 70%;
-  height: 52px;
-  /* background-color: black; */
-  border-radius: 24px;
-  border: solid 1px #757575;
-  display: flex;
-  align-items: center;
-  margin-bottom: 48px;
-  margin-left: auto;
-  margin-right: auto;
-`;
-
-const SearchBarInput = styled.input`
-  width: 100%;
-  height: 48px;
-  border: solid 0px;
-  border-right: solid 1px #757575;
-  background-color: rgb(0, 0, 0, 0);
-  border-top-left-radius: 24px;
-  border-bottom-left-radius: 24px;
-  padding-left: 16px;
-  font-size: 16px;
-  font-family: "GmarketSansLight";
-
-  :focus {
-    outline: none;
-    border: solid 0px #757575;
-  }
-`;
-
-const SearchButton = styled.button`
+const QuestionButton = styled.button`
   background-color: rgb(0, 0, 0, 0);
   border: solid 0px;
   cursor: pointer;
