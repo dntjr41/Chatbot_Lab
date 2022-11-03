@@ -125,16 +125,14 @@ const SetSurveyPerTarPage = function () {
         */}
 
         try {
-            axiosInstance.put('/survey/updateSurvey/' + userID + "/"
-                            + surveyTemp.surveyId + "/" + JSON.stringify(surveyUpdate))
+            axiosInstance.put('/survey/updateSurvey/surveyId=' 
+                                + surveyInfo.surveyId, JSON.stringify(surveyUpdate))
             .then((response) => {
                 console.log(response.data);
             })
         } catch (error) {
             console.error(error);
         }
-
-
 
         navigate("/deploy-survey", { state: {surveyId: surveyTemp.surveyId, surveyStart: surveyTemp.surveyStart,
                                             surveyEnd: surveyTemp.surveyEnd, surveyUrl: surveyTemp.surveyUrl}});
