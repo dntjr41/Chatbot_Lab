@@ -58,7 +58,7 @@
 .response-survey-choice input[type="checkbox"]:checked+label,
 .response-survey-choice input[type="radio"]:checked+label {
     border: 2px solid #662D91;
-    font-weight: 600;
+    /* font-weight: 600; */
     border-radius: 10px;
     color: #662D91;
 }
