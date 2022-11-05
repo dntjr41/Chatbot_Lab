@@ -41,6 +41,7 @@ const responseSurveySlice = createSlice({
             state.surveyId = responseData.surveyId;
             state.surveyTitle = responseData.surveyTitle;
             state.surveyContent = responseData.surveyContent;
+            state.questionCardList = [];
             responseData.questionCardList.map((questionCard) => {
                 if (questionCard.questionType === 4) {
                     questionCard.questionAnswer = "";

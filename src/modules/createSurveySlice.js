@@ -81,6 +81,35 @@ const createSurveySlice = createSlice({
             // 유저ID 설정
             state.userId = action.payload;
         },
+        SET_TEMPLATE: (state, action) => {
+            // 설문지 템플릿 서버로부터 가져와서 업데이트
+            const responseData = action.payload;
+            state.surveyId = responseData.surveyId;
+            state.surveyTitle = responseData.surveyTitle;
+            state.surveyContent = responseData.surveyContent;
+            state.questionCardList = [];
+            responseData.questionCardList.map((questionCard) => {
+                if (questionCard.questionType === 1) {
+                    return state.questionCardList = [...state.questionCardList,
+                    {
+                        questionTitle: questionCard.questionTitle,
+                        questionType: questionCard.questionType,
+                        questionAnswers: questionCard.questionAnswers.map((answer) => {
+                            return answer.value;
+                        }),
+                        questionOptions: questionCard.questionOptions
+                    }]
+                }
+                else {
+                    return state.questionCardList = [...state.questionCardList,
+                    {
+                        questionTitle: questionCard.questionTitle,
+                        questionType: questionCard.questionType,
+                        questionOptions: questionCard.questionOptions
+                    }]
+                }
+            })
+        },
         RESET_STATE: (state) => {
             // state 초기화
             Object.assign(state, surveyState);
@@ -88,6 +117,6 @@ const createSurveySlice = createSlice({
     }
 });
 
-export const { ADD_ANSWER, DEL_ANSWER, ADD_CARD, COPY_CARD, DEL_CARD, CHANGE_TITLE, CHANGE_CONTENT, CHANGE_QUE_TITLE, CHANGE_QUE_ANSWER, CHECK_OPT, SET_USER, RESET_STATE } = createSurveySlice.actions;
+export const { ADD_ANSWER, DEL_ANSWER, ADD_CARD, COPY_CARD, DEL_CARD, CHANGE_TITLE, CHANGE_CONTENT, CHANGE_QUE_TITLE, CHANGE_QUE_ANSWER, CHECK_OPT, SET_USER, SET_TEMPLATE, RESET_STATE } = createSurveySlice.actions;
 
 export default createSurveySlice.reducer;
