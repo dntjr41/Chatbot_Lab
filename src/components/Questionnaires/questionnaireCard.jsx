@@ -1,18 +1,21 @@
-import React, { useEffect, useState, useRef } from "react";
-
+import React, { useState, useRef } from "react";
+// bootstrap
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
-import testimg from '../../../src/images/Logo square.png';
 import Overlay from 'react-bootstrap/Overlay';
 import Tooltip from 'react-bootstrap/Tooltip';
-
-import '../../css/QuestionnairePage.css';
-
+// components
 import QuestionnaireSetting from './questionnaireSetting';
-import moment from 'moment';
+// imgs
+import testimg from '../../../src/images/Logo square.png';
+// redux
 import { SET_SQID } from '../../modules/questionnairesSlice';
 import { useSelector, useDispatch } from 'react-redux';
+// moment
+import moment from 'moment';
+// css
+import '../../css/QuestionnairePage.css';
 
 // title(설문 제목), onDeploy(배포여부), startTime(시작일), endTime(종료일), representativeImg(대표 이미지)
 function QuestionnaireCard(props) {
@@ -22,14 +25,11 @@ function QuestionnaireCard(props) {
     questionnaireSelectionOption: state.questionnairesReducer.questionnaireSelectionOption,
   }));
 
-  const qState = "전체";
-  const currentdatetime = moment(Date.now()).format('YYYY-MM-DDTHH:mm:ss');
-
-  // 설문 상태 계산해서 push 함수
+  /* 한 페이지에 정렬할 설문 카드*/
   const items = []
   if (questionnaireSelectionOption === 0) {
     items.push(
-      <ListGroup.Item>
+      <ListGroup.Item key={"questionnairescard:state:"+ props.id}>
         {
           props.surveyState
         }
@@ -40,19 +40,19 @@ function QuestionnaireCard(props) {
   const questionnaireSettingButtonOnMouseEnter = () => {
     dispatch(SET_SQID(props.id));
     setShow(true);
-    console.log(resultActive);
   }
   const questionnaireSettingButtonOnMouseLeave = () => {
     setShow(false);
   }
   const [show, setShow] = useState(false);
   const target = useRef(null);
-  const resultActive = props.surveyState === "종료"
+  const resultActive = (props.surveyState === "종료")
+  /* main */
   return (
     <div>
       <Card
         bg='light'
-        key={props.id}
+        key={"questionnairescard" +props.id}
         text='dark'
         style={{ width: '15rem' }}
         className="mb-2"
@@ -61,7 +61,7 @@ function QuestionnaireCard(props) {
         <Card.Body className="text-center">
           <Card.Title><b>{props.title}</b></Card.Title>
           <ListGroup>
-            <ListGroup.Item>
+            <ListGroup.Item key={"questionnairescard:time:"+ props.id}>
 
               {props.startTime ?
                 <text id="dateTimeTextSize">

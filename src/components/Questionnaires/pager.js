@@ -1,5 +1,6 @@
+// boot-strap
 import Pagination from 'react-bootstrap/Pagination';
-
+// redux
 import { SET_QPO } from '../../modules/questionnairesSlice';
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -70,7 +71,7 @@ function Pager() {
                 <Pagination.First onClick={(e) => { questionnairePageOnClick(1, e) }} />
                 <Pagination.Prev
                     onClick={(e) => {
-                        if (active != 1) {
+                        if (active !== 1) {
                             questionnairePageOnClick(active - 1, e)
                         }
                     }}
@@ -78,7 +79,7 @@ function Pager() {
                 {items}
                 <Pagination.Next
                     onClick={(e) => {
-                        if (active != totalPage) {
+                        if (active !== totalPage) {
                             questionnairePageOnClick(active + 1, e)
                         }
                     }}

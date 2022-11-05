@@ -1,16 +1,19 @@
+// bootstrap
 import Modal from 'react-bootstrap/Modal';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
+// component
 import NewQuestionnarieCard from './newQuestionnarieCard';
-
+// img
 import newQust from '../../../images/newQuestionnaireButton/newQust.png';
 import prevQustTemp from '../../../images/newQuestionnaireButton/prevQustTemp.png';
 import qustTemp from '../../../images/newQuestionnaireButton/qustTemp.png';
 
 function NewQuestionnairePopup(props) {
+    // main
     return (
-        <Modal 
+        <Modal
             size="lg"
             aria-labelledby="contained-modal-title-vcenter"
             centered
@@ -21,7 +24,7 @@ function NewQuestionnairePopup(props) {
             </Modal.Header>
             <Modal.Body>
                 <Form variant="info" className="d-flex justify-content-around">
-        
+
                     <Row className="align-items-center">
                         <Col xs="auto">
                             <NewQuestionnarieCard newQuestionnaireOption="새 설문 작성" cardImg={newQust} />
@@ -37,5 +40,5 @@ function NewQuestionnairePopup(props) {
             </Modal.Body>
         </Modal>
     )
-}    
+}
 export default NewQuestionnairePopup

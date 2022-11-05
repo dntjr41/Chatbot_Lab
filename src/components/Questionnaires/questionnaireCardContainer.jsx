@@ -1,16 +1,17 @@
 import React from "react";
-
+// bootstrap
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
-
+// components
 import QuestionnaireNav from './questionnaireNav';
 import QuestionnaireCard from './questionnaireCard';
-
-import { useSelector, useDispatch } from 'react-redux';
-
+// redux
+import { useSelector } from 'react-redux';
+// css
 import '../../css/QuestionnairePage.css';
 import '../../App.css'
+
 function QuestionnaireCardContainer(props) {
   /* redux */
   // 현재 보여주는 페이지
@@ -21,7 +22,7 @@ function QuestionnaireCardContainer(props) {
   const {selectedSurveyList} = useSelector((state) => ({
     selectedSurveyList: state.questionnairesReducer.selectedSurveyList,
   }));
-
+  /* 설문 카드 렌더링 */
   // page에 따른 card
   let items = [];
   // card page에 디스플레이 할 것들만 생성
@@ -29,7 +30,7 @@ function QuestionnaireCardContainer(props) {
     const currentIdx = (questionnairePageOption - 1) * 8 + number;
     if (selectedSurveyList[currentIdx] != null) {
       items.push(
-        <Col xs="auto">
+        <Col xs="auto" key={ "cardid" + selectedSurveyList[currentIdx]["surveyId"]}>
           <QuestionnaireCard
             id={ selectedSurveyList[currentIdx]["surveyId"]}
             title={ selectedSurveyList[currentIdx]["surveyTitle"]}
@@ -42,13 +43,13 @@ function QuestionnaireCardContainer(props) {
       )
     }
   }
-
+  
+  /* main */
   return (
     <div className="color-second CardContainer">
       <div className="NavPadding">
         <QuestionnaireNav />
       </div>
-
       <Form variant="info" className="justify-content-around">
         <Row className="align-items-center justify-content-md-center">
           {items}

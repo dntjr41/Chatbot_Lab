@@ -1,13 +1,11 @@
+// bootstrap
 import Modal from 'react-bootstrap/Modal';
+// component
 import QuestionnaireTemplateNav from './questionnaireTemplateNav';
 import QuestionnaireTemplateContainer from './questionnaireTemplateContainer';
 
-import { } from '../../../modules/questionnairesSlice';
-import { useSelector, useDispatch } from 'react-redux';
-const questionnaireTemplatePopup = (props) => {
-    /* 리덕스 */
-    // 템플릿 옵션
-    
+const questionnaireTemplatePopup = (props) => {    
+    /* main */
     return (
         <Modal 
             size="lg"

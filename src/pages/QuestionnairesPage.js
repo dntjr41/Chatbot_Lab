@@ -1,28 +1,32 @@
+import React, { useEffect } from 'react';
+// components
+import Header from "../components/Header";
 import QuestionnaireCardContainer from "../components/Questionnaires/questionnaireCardContainer";
 import NewQuestionnaireButton from "../components/Questionnaires/newQuestionnaireButton";
 import Pager from "../components/Questionnaires/pager";
-
-import Header from "../components/Header";
+// css
 import "../css/QuestionnairePage.css"
-
+// axios
 import axiosInstance from '../api';
-
+// redux
 import { SET_SL, SET_SSL } from '../modules/questionnairesSlice';
 import { useSelector, useDispatch } from 'react-redux';
-import React, { useEffect } from 'react';
 
 function QuestionnairesPage() {
   /* redux */
+  /* 설문 정보 from server */
   const dispatch = useDispatch();
-  const {surveyList} = useSelector((state) => ({
+  const { surveyList } = useSelector((state) => ({
     surveyList: state.questionnairesReducer.surveyList
   }));
+
   const userId = localStorage.getItem("id");
   // API get surveyList by user ID
-  const urlInstance = "/survey/userId=" + userId;
+  const urlInstance = "/survey/user/" + userId;
   const getSurveyListById = async () => {
     try {
-      const res = await axiosInstance.get(urlInstance)
+      await axiosInstance.get(urlInstance,
+      )
         .then(function (response) {
           dispatch(SET_SL(response.data))
           dispatch(SET_SSL(surveyList))
@@ -32,9 +36,10 @@ function QuestionnairesPage() {
     }
   }
   useEffect(() => {
-    { getSurveyListById() }
+    getSurveyListById()
   }, []);
-  
+
+  /* main */
   return (
     <main >
       <Header color="purple" />
@@ -49,7 +54,6 @@ function QuestionnairesPage() {
       </div>
     </main>
   );
-
 }
 
 export default QuestionnairesPage;

@@ -1,24 +1,27 @@
-import Button from 'react-bootstrap/Button';
 import React from "react";
+// bootstrap
+import Button from 'react-bootstrap/Button';
+// component
 import NewQuestionnairePopup from './newQuestionnaire/newQuestionnariePopup';
 import QuestionnaireTemplatePopup from './questionnarieTemplate/qustionnarieTemplatePopup';
-
+// redux
 import { SET_NQPS_ON , SET_NQPS_OFF , SET_QTPS_OFF } from '../../modules/questionnairesSlice';
 import { useSelector, useDispatch } from 'react-redux';
-
+// css
 import '../../css/QuestionnairePage.css';
 
 function NewQuestionnaireButton() {
     /* 리덕스 */
     const dispatch = useDispatch();
-    // 새설문 팝업 on off
+    /* 새설문 팝업 on */
     const {newQuestionnairePopupShow} = useSelector((state) => ({ 
         newQuestionnairePopupShow: state.questionnairesReducer.newQuestionnairePopupShow
     })) 
-    // 템플릿 팝업 on off
+    /* 템플릿 팝업 on */
     const {questionnaireTemplatePopupShow} = useSelector((state) => ({
         questionnaireTemplatePopupShow: state.questionnairesReducer.questionnaireTemplatePopupShow,
     }))
+    /* Button onclick event */
     const newQuestionnaireButtonOnClick = () => {
         dispatch(SET_NQPS_ON());
     }

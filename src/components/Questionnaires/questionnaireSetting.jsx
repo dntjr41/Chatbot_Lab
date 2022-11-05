@@ -1,29 +1,29 @@
+import React from 'react';
+import { useNavigate } from "react-router-dom";
+// bootstrap
 import ListGroup from 'react-bootstrap/ListGroup';
-
+// redux
 import { SET_SL, SET_SSL } from '../../modules/questionnairesSlice';
 import { useSelector, useDispatch } from 'react-redux';
-import React, { useEffect } from 'react';
-import { useNavigate } from "react-router-dom";
-
+// axios
 import axiosInstance from '../../api';
 
 function QuestionnaireSetting(props) {
-    const { selectedQuestionnaireID } = useSelector((state) => ({
-        selectedQuestionnaireID: state.questionnairesReducer.selectedQuestionnaireID
-    }));
     /* redux */
-    // 새로고침을 위한 부분
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const { surveyList } = useSelector((state) => ({
         surveyList: state.questionnairesReducer.surveyList
     }));
+    const { selectedQuestionnaireID } = useSelector((state) => ({
+        selectedQuestionnaireID: state.questionnairesReducer.selectedQuestionnaireID
+    }));
+    /* 설문 list 변경 시 새로고침을 위한 부분 */
     const userId = localStorage.getItem("id");
-    // API get surveyList by user ID
-    const getSurveyUrlInstance = "/survey/userId=" + userId;
+    const urlInstance = "/survey/user/" + userId;
     const getSurveyListById = async () => {
         try {
-            const res = await axiosInstance.get(getSurveyUrlInstance)
+            await axiosInstance.get(urlInstance)
                 .then(function (response) {
                     dispatch(SET_SL(response.data))
                     dispatch(SET_SSL(surveyList))
@@ -32,38 +32,33 @@ function QuestionnaireSetting(props) {
             console.log(err);
         }
     }
-    useEffect(() => {
-        { getSurveyListById() }
-    }, []);
 
-    /* onclick 함수들 */
-    // to responseSurveyPage
+    /* 설문 응답 미리보기 페이지로 이동 */
     function preview() {
         navigate("/response/" + selectedQuestionnaireID, { state: { isPreview: true } });
     }
-    //* API copy survey by survey ID *//
-    const surveyCopyUrlInstance = "/survey/copy/surveyId=" + selectedQuestionnaireID;
+    /* 설문 복사 */
+    const surveyCopyUrlInstance = "/survey/" + selectedQuestionnaireID +"/duplicate";
     const surveyCopy = async () => {
         try {
-            const res = await axiosInstance.put(surveyCopyUrlInstance)
+            await axiosInstance.put(surveyCopyUrlInstance)
                 .then(function (response) {
                     // handle success
-                    console.log(response);
                     getSurveyListById();
                 })
         } catch (err) {
             console.log(err);
         }
     }
-    // to CreateSurveyPage
+    /* 설문 수정 페이지로 이동*/
     function surveyAlter() {
         navigate("/update-survey/" + selectedQuestionnaireID);
     }
-    // API delete survey by survey ID
-    const surveyDeleteUrlInstance = "/survey/surveyId=" + selectedQuestionnaireID;
+    /* 설문 삭제 */
+    const surveyDeleteUrlInstance = "/survey/" + selectedQuestionnaireID;
     const surveyDelete = async () => {
         try {
-            const res = await axiosInstance.delete(surveyDeleteUrlInstance)
+            await axiosInstance.delete(surveyDeleteUrlInstance)
                 .then(function (response) {
                     // handle success
                     console.log(response);
@@ -73,9 +68,12 @@ function QuestionnaireSetting(props) {
             console.log(err);
         }
     }
+    /* 설문 결과 페이지로 이동 */
     function surveyResultAnalysis() {
         navigate("/survey-result/statistic/" + selectedQuestionnaireID);
     }
+
+    /* main */
     return (
         <ListGroup>
             <ListGroup.Item action onClick={preview} >
@@ -96,7 +94,6 @@ function QuestionnaireSetting(props) {
                 </ListGroup.Item> :
                 null
             }
-
         </ListGroup>
     )
 }
