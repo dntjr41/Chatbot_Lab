@@ -84,55 +84,71 @@ const CreateSurveyPage = function () {
 
     // 설문 저장 요청 후 홈 페이지로 이동
     const saveSurvey = async () => {
-        try {
-            //응답 성공 
-            axiosInstance.post('/survey', JSON.stringify(surveyInfo))
-                .then((response) => {
-                    // 설문 작성한 state 초기화 후 modal닫고 질문지제작함(홈)으로 이동
-                    dispatch(RESET_STATE());
-                    handleModalClose();
-                    console.log("설문 임시저장 완료");
-                    navigate("/questionnaires", { state: { surveyId: response.data } });
-                })
-        } catch (error) {
-            //응답 실패
-            console.error(error);
+        if (surveyId !== null) {
+            try {
+                //응답 성공 
+                axiosInstance.put('/survey/' + surveyId + '/template', JSON.stringify(surveyInfo))
+                    .then((response) => {
+                        // 설문 작성한 state 초기화 후 modal닫고 질문지제작함(홈)으로 이동
+                        dispatch(RESET_STATE());
+                        handleModalClose();
+                        console.log("설문 수정 완료");
+                        navigate("/questionnaires", { state: { surveyId: response.data } });
+                    })
+            } catch (error) {
+                //응답 실패
+                console.error(error);
+            }
         }
-    }
-
-    // 설문 수정 요청 후 홈 페이지로 이동
-    const updateSurvey = async () => {
-        try {
-            //응답 성공 
-            console.log(JSON.stringify(surveyInfo));
-            axiosInstance.put('/survey/' + surveyId + '/template', JSON.stringify(surveyInfo))
-                .then((response) => {
-                    // 설문 작성한 state 초기화 후 modal닫고 질문지제작함(홈)으로 이동
-                    dispatch(RESET_STATE());
-                    handleModalClose();
-                    console.log("설문 수정 완료");
-                    navigate("/questionnaires", { state: { surveyId: response.data } });
-                })
-        } catch (error) {
-            //응답 실패
-            console.error(error);
+        else {
+            try {
+                //응답 성공 
+                axiosInstance.post('/survey', JSON.stringify(surveyInfo))
+                    .then((response) => {
+                        // 설문 작성한 state 초기화 후 modal닫고 질문지제작함(홈)으로 이동
+                        dispatch(RESET_STATE());
+                        handleModalClose();
+                        console.log("설문 임시저장 완료");
+                        navigate("/questionnaires", { state: { surveyId: response.data } });
+                    })
+            } catch (error) {
+                //응답 실패
+                console.error(error);
+            }
         }
     }
 
     // 설문 저장 요청 후 공유 페이지로 이동
     const createSurvey = async () => {
-        try {
-            //응답 성공 
-            axiosInstance.post('/survey', JSON.stringify(surveyInfo))
-                .then((response) => {
-                    // 설문 작성한 state 초기화 후 설문 공유 페이지로 이동
-                    dispatch(RESET_STATE());
-                    console.log("설문 공유 페이지 이동");
-                    navigate("/set-survey-per-tar", { state: { surveyId: response.data } });
-                })
-        } catch (error) {
-            //응답 실패
-            console.error(error);
+        if (surveyId !== null) {
+            try {
+                //응답 성공 
+                axiosInstance.put('/survey/' + surveyId + '/template', JSON.stringify(surveyInfo))
+                    .then((response) => {
+                        // 설문 작성한 state 초기화 후 설문 공유 페이지로 이동
+                        dispatch(RESET_STATE());
+                        console.log("설문 수정 완료");
+                        navigate("/set-survey-per-tar", { state: { surveyId: response.data } });
+                    })
+            } catch (error) {
+                //응답 실패
+                console.error(error);
+            }
+        }
+        else {
+            try {
+                //응답 성공 
+                axiosInstance.post('/survey', JSON.stringify(surveyInfo))
+                    .then((response) => {
+                        // 설문 작성한 state 초기화 후 설문 공유 페이지로 이동
+                        dispatch(RESET_STATE());
+                        console.log("설문 공유 페이지 이동");
+                        navigate("/set-survey-per-tar", { state: { surveyId: response.data } });
+                    })
+            } catch (error) {
+                //응답 실패
+                console.error(error);
+            }
         }
     }
 
@@ -159,7 +175,7 @@ const CreateSurveyPage = function () {
                     </Modal.Header>
                     <Modal.Body>설문을 저장 하시겠습니까?</Modal.Body>
                     <Modal.Footer>
-                        <Button variant="primary" onClick={surveyId !== null ? updateSurvey : saveSurvey}>예</Button>
+                        <Button variant="primary" onClick={saveSurvey}>예</Button>
                         <Button variant="secondary" onClick={handleModalClose}>아니요</Button>
                     </Modal.Footer>
                 </Modal>
