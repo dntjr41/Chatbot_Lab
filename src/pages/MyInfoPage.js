@@ -68,7 +68,7 @@ const MyInfoPage = function () {
   return (
     <>
       <Header />
-      <div className="px-5">
+      <MainContainer>
         <UserContainer>
           <Title
             F_size="28px"
@@ -191,7 +191,8 @@ const MyInfoPage = function () {
             </TabPanel>
             <TabPanel value="2" sx={{ p: "0px" }}>
               <div className="text-end">
-                <Link to="/questionnaires" className="link_info" style={{ textDecoration: 'none', fontSize: '12pt' }} >바로가기 </Link>
+                <Link to="/questionnaires" className="link_info" style={{ textDecoration: 'none', fontSize: '12pt',
+              fontFamily: "IBM Plex Sans KR" }} >바로가기 </Link>
               </div>
               <Grid
                 padding="40px"
@@ -210,15 +211,26 @@ const MyInfoPage = function () {
             </TabPanel>
           </TabContext>
         </Box>
-      </div>
+      </MainContainer>
     </>
   );
 };
+const MainContainer = styled.div`
+  background-color: #F0EBF8;
+  width: 80%;
+  border: 1px solid #F0EBF8;
+  border-radius: 30px;
+  margin-top: 120px;
+  margin-bottom: 100px;
+  transform : translate(10%, 0%);
+`;
+
 const UserContainer = styled.div`
   width: 1200px;
   height: 320px;
-  margin-top: 120px;
-  margin-bottom: 100px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-left: 120px;
 `;
 const UserInfoContainer = styled.div`
   width: 1200px;
@@ -251,7 +263,7 @@ const CreateButton = styled.button`
   margin-bottom: auto;
   border-radius: 8px;
   border: solid 2px purple;
-  background-color: rgb(0, 0, 0, 0);
+  background-color: white;
   font-size: 16px;
   color: purple;
   font-weight: bold;

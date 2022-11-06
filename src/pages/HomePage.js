@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import {
   Container,
@@ -89,7 +89,7 @@ const Home = () => {
                         }}
                       >
 
-                      <button
+                      <PlusButton
                         cursor="pointer"
                         F_size="16px"
                         F_color="#757575"
@@ -97,7 +97,7 @@ const Home = () => {
                         onClick={goToQuestion}
                       >
                         설문 만들기 +
-                      </button>
+                      </PlusButton>
                       </div>
                     </MuiGrid>
                   </div>
@@ -114,7 +114,7 @@ const Home = () => {
                     marginTop: "32px",
                   }}
                 >
-                  <button
+                  <PlusButton 
                     cursor="pointer"
                     F_size="16px"
                     F_color="#757575"
@@ -122,7 +122,7 @@ const Home = () => {
                     onClick={goToFaq}
                   >
                     이용방법 보기 +
-                  </button>
+                  </PlusButton>
                 </div>
                 <div {...animatedAboutTitle}>
                   <p F_size="24px" F_align="center" margin_top="120px">
@@ -198,16 +198,15 @@ const Home = () => {
               style={{
                 display: "flex",
                 flexDirection: "row",
-                // justifyContent: "center",
-                // alignItems: "center",
+                justifyContent: "center",
+                alignItems: "center",
                 width: "100%",
               }}
             >
-            </div>
-
-            <button id="questionnaires" onClick={() => navigate("/questionnaires")}>
+              <button id="questionnaires" onClick={() => navigate("/questionnaires")}>
                 설문 만들러 가기
               </button>
+            </div>
           </InsideTextDiv>
 
           {/* <img alt="" src={BxSlide} width="100%" /> */}
@@ -226,9 +225,8 @@ const Home = () => {
                   <br /> 설문조사 제작의 필수 요소를 모두 담았습니다.
                   <br />
                   <br />
-                  설문베이에서 제공하는 템플릿과 설문 대상자 그룹 관리로
-                  <br /> 편리하게 제작 및 공유해보고
-                  <br />
+                  설문베이에서 제공하는 템플릿과 설문 대상자 그룹 관리로 편리하게 제작 및 공유해보고
+                  <br /> 
                   <br />
                   설문조사의 결과에 대한 <br />
                   전문적인 분석 또한 받아보아요.
@@ -263,7 +261,7 @@ const Home = () => {
                         width: "100%",
                       }}
                     >
-                      <button
+                      <PlusButton
                         cursor="pointer"
                         F_size="16px"
                         F_color="#757575"
@@ -271,7 +269,7 @@ const Home = () => {
                         onClick={goToQuestion}
                       >
                         설문 만들기 +
-                      </button>
+                      </PlusButton>
                     </div>
                   </MuiGrid>
                 </div>
@@ -289,7 +287,7 @@ const Home = () => {
                   marginTop: "32px",
                 }}
               >
-                <button
+                <PlusButton
                   cursor="pointer"
                   F_size="16px"
                   F_color="#757575"
@@ -297,7 +295,7 @@ const Home = () => {
                   onClick={goToFaq}
                 >
                   이용방법 보기 +
-                </button>
+                </PlusButton>
               </div>
               <div {...animatedAboutTitle}>
                 <p F_size="42px" F_align="center" margin_top="240px">
@@ -395,16 +393,17 @@ const InsideTextDiv = styled.div`
   justify-content: center;
   h1 {
     font-size: ${(props) => props.width * 0.018}px;
-    font-family: "GmarketSansMedium";
+    font-family: "IBM Plex Sans KR";
     margin: 8px 32px;
     span {
-      font-family: "GmarketSansMedium";
-      color: greenyellow;
+      font-weight: bold;
+      font-family: "IBM Plex Sans KR";
+      color: Orchid;
     }
   }
   h3 {
     font-size: ${(props) => props.width * 0.018}px;
-    font-family: "GmarketSansMedium";
+    font-family: "IBM Plex Sans KR";
     margin: 4px 16px 120px 32px;
   }
   button {
@@ -446,12 +445,15 @@ const InsideTextDiv = styled.div`
     transition: 0.3s;
     :hover {
       transition: 0.3s;
-      border: solid 2px greenyellow;
-      background-color: greenyellow;
+      border: solid 2px Plum;
+      background-color: Plum;
       color: black;
     }
   }
+
 `;
+
+
 
 const InviteLiveNow = styled.div`
   width: 100%;
@@ -468,12 +470,12 @@ const InviteLiveNow = styled.div`
     justify-content: center;
     align-items: flex-start;
     h1 {
-      font-family: "GmarketSansMedium";
-      font-size: ${(props) => props.width * 0.016}px;
+      font-family: "IBM Plex Sans KR";
+      font-size: ${(props) => props.width * 0.024}px;
     }
     h3 {
       font-family: "GmarketSansLight";
-      font-size: ${(props) => props.width * 0.008}px;
+      font-size: ${(props) => props.width * 0.012}px;
     }
   }
   #invite-image {
@@ -511,7 +513,7 @@ const DescribeUse = styled.div`
   }
   h3 {
     margin-bottom: ${(props) => props.width * 0.04}px;
-    font-family: "GmarketSansMedium";
+    font-family: "IBM Plex Sans KR";
     font-size: ${(props) => props.width * 0.016}px;
   }
 `;
@@ -563,7 +565,7 @@ const MainTitle = styled.div`
 
   h3 {
     font-size: 36px;
-    font-family: "GmarketSansMedium";
+    font-family: "IBM Plex Sans KR";
     margin: 0px;
     margin-bottom: 16px;
     color: black;
@@ -587,7 +589,7 @@ const MMainTitle = styled.div`
 
   h3 {
     font-size: ${(props) => props.width * 0.05}px;
-    font-family: "GmarketSansMedium";
+    font-family: "IBM Plex Sans KR";
     margin: 0px;
     margin-bottom: 16px;
   }
@@ -596,6 +598,29 @@ const MMainTitle = styled.div`
     font-family: "GmarketSansLight";
     margin: 0px;
   }
+`;
+
+const PlusButton = styled.button`
+    margin: 4px 16px;
+    width: 150px;
+    height: 40px;
+    border-radius: 8px;
+    border: solid 2px black;
+    background-color: white;
+    font-size: 16px;
+    color: black;
+    font-weight: bold;
+    margin-right: 16px;
+    z-index: 13000;
+    /* font-weight: bold; */
+    cursor: pointer;
+    transition: 0.3s;
+    :hover {
+    transition: 0.3s;
+    border: solid 2px Plum;
+    background-color: Plum;
+    color: black;
+    }
 `;
 
 
