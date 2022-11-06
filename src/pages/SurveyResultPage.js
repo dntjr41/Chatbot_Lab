@@ -31,26 +31,42 @@ const SurveyResult = function () {
     const surveyContent = useSelector(state => state.surveyResult.surveyContent);
     const surveyTime = useSelector(state => state.surveyResult.surveyTime);
 
+    // 로컬스토리지로부터 가져온 userId가 null이라면 로그인 페이지로 리다이렉트시킴
+    // 로컬스토리지에 userId에 값이 있다면(로그인 되어 있다면) 설문 통계 결과를 가져옴
     useEffect(() => {
-        if (userId === null) {
-            alert("로그인이 필요합니다");
-            navigate("/login");
-        }
-
-        // 나중에 설문지 id와 유저id를 대조하고 다르면 홈으로 리다이렉트시켜야함
-        const getSurveyTemplate = async () => {
+        console.log("설문지 통계 확인 effect");
+        // 해당 설문지를 만든 유저가 일치한지 체크 
+        const getSurveyStatistic = async () => {
             try {
                 //응답 성공 
-                axiosInstance.get('/response/statistic/' + params.surveyId)
+                axiosInstance.get("/user/survey/" + params.surveyId)
                     .then((response) => {
-                        dispatch(GET_STATISTIC(response.data));
+                        // 설문지id와 사용자id가 일치하면
+                        // 설문지 통계 정보 가져오기
+                        if (Number(userId) === response.data) {
+                            axiosInstance.get('/response/statistic/' + params.surveyId)
+                                .then((response) => {
+                                    dispatch(GET_STATISTIC(response.data));
+                                })
+                        }
+                        else {
+                            alert("접근 권한이 없습니다");
+                            navigate("/home");
+                        }
                     })
-            } catch (error) {
+            }
+            catch (error) {
                 //응답 실패
                 console.error(error);
             }
         }
-        getSurveyTemplate();
+
+        if (userId === null) {
+            alert("로그인이 필요합니다");
+            navigate("/login");
+        }
+        getSurveyStatistic();
+
     }, [params.surveyId, userId, dispatch, navigate]);
 
     return (

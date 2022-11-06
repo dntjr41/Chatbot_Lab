@@ -52,7 +52,7 @@ function QuestionnaireSetting(props) {
     }
     /* 설문 수정 페이지로 이동*/
     function surveyAlter() {
-        navigate("/update-survey/" + selectedQuestionnaireID);
+        navigate("/create-survey", { state: { surveyId: selectedQuestionnaireID } });
     }
     /* 설문 삭제 */
     const surveyDeleteUrlInstance = "/survey/" + selectedQuestionnaireID;
