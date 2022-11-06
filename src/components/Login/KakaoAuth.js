@@ -56,7 +56,7 @@ const Auth = () => {
       localStorage.setItem('email', data.kakao_account.email);
 
       axios
-      .post("http://localhost:8080/api/user/create", {
+      .post("http://localhost:8080/api/user", {
         userId: data.id,
         nickName: data.properties.nickname,
         profileImg: data.properties.profile_image,
