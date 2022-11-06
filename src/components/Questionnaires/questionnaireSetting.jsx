@@ -57,7 +57,7 @@ function QuestionnaireSetting(props) {
     }
     // to CreateSurveyPage
     function surveyAlter() {
-        navigate("/update-survey/" + selectedQuestionnaireID);
+        navigate("/create-survey", { state: { surveyId: selectedQuestionnaireID } });
     }
     // API delete survey by survey ID
     const surveyDeleteUrlInstance = "/survey/surveyId=" + selectedQuestionnaireID;
