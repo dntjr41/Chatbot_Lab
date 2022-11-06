@@ -34,7 +34,7 @@ const DeploySurveyPage = function () {
     
     const getData = async () => {
         try {
-            axiosInstance.get('/survey/userId=' + userID)
+            axiosInstance.get('/survey/user/' + userID)
             .then((response) => {
                 console.log(response.data);
                 setState(response.data.filter(value => value.surveyId === surveyId)[0]);
