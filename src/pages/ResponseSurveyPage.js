@@ -7,7 +7,7 @@ import ResponseCardList from "../components/ResponseSurvey/ResponseCardList";
 
 import "../css/ResponseSurveyPage.css";
 import { Container, Row, Col } from "react-bootstrap";
-import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 // 피설문자관점 응답 페이지

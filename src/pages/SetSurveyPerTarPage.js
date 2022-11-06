@@ -1,19 +1,14 @@
 import React, {useState, useEffect} from 'react';
 import { useLocation } from "react-router";
 import { useNavigate } from "react-router-dom";
-import axios from 'axios';
 
-import { useSelector, useDispatch } from 'react-redux';
-import { Row, Col, Container } from 'react-bootstrap';
-import surveyInfo, { SET_PERIOD_START, SET_PERIOD_END, CREATE_LINK} from '../modules/surveyInfo.js';
-import { Link } from "react-router-dom";
+import { Col, Container } from 'react-bootstrap';
 
 import Header from "../components/Header";
 import '../css/SetSurveyPerTarPage.css';
 
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
-import GroupNav from '../components/SetSurveyPerTar/GroupNav.js';
 import Calendar from '../components/SetSurveyPerTar/Calender.js';
 import axiosInstance from '../api.js';
 import { useForceUpdate } from 'framer-motion';
@@ -41,7 +36,6 @@ import { useForceUpdate } from 'framer-motion';
 const SetSurveyPerTarPage = function () {
     
     const navigate = useNavigate();
-    const dispatch = useDispatch();
     const location = useLocation();
     const surveyId = location.state.surveyId;
     const userID = localStorage.getItem("id");

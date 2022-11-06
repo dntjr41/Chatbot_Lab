@@ -1,6 +1,6 @@
 import '../css/ServicePage.css';
 import Header from "../components/Header";
-import { Row, Col, Container} from 'react-bootstrap';
+import { Col, Container} from 'react-bootstrap';
 
 // 고객 센터 페이지
 // └헤더

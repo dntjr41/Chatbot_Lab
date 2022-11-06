@@ -1,16 +1,12 @@
-import React, {useState, useEffect, useRef} from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { Row, Col, Container} from 'react-bootstrap';
+import React, { useState, useEffect } from 'react';
+import { Col, Container } from 'react-bootstrap';
 import { Link, useLocation } from "react-router-dom";
-import axios from 'axios';
 import QRCode from 'qrcode.react';
 
 import Header from "../components/Header";
 import '../css/DeploySurveyPage.css';
 
 import axiosInstance from '../api';
-import surveyInfo from '../modules/surveyInfo';
-import { useForceUpdate } from 'framer-motion';
 
 // 배포 (설문 공유) 페이지
 // └헤더
@@ -29,17 +25,17 @@ const DeploySurveyPage = function () {
     const location = useLocation();
     const surveyId = location.state.surveyId;
     const userID = localStorage.getItem("id");
-    
+
     const [surveyInfo, setState] = useState([]);
-    
+
     const getData = async () => {
         try {
             axiosInstance.get('/survey/user/' + userID)
-            .then((response) => {
-                console.log(response.data);
-                setState(response.data.filter(value => value.surveyId === surveyId)[0]);
-            })
-        
+                .then((response) => {
+                    console.log(response.data);
+                    setState(response.data.filter(value => value.surveyId === surveyId)[0]);
+                })
+
         } catch (error) {
             console.error(error);
         }
@@ -71,8 +67,8 @@ const DeploySurveyPage = function () {
     // QR코드 다운로드하기
     const downloadQR = () => {
         const qrCodeURL = document.getElementById('qrCodeEl')
-        .toDataURL("image/png").replace("image/png", "image/octet-stream");
-    
+            .toDataURL("image/png").replace("image/png", "image/octet-stream");
+
         // console.log(qrCodeURL)
         let aEl = document.createElement("a");
         aEl.href = qrCodeURL;
@@ -92,13 +88,13 @@ const DeploySurveyPage = function () {
                         <Col className="info">설문 제목 - {surveyTitle}</Col>
                         <Col className="info">설문 기간 - {surveyStart + " ~ " + surveyEnd}</Col>
                     </Col>
-                    
-                    <Col className="deployLink">                     
-                        <Col>링크 - {link} <button className="linkBtn" onClick={downloadLink}/> &nbsp;</Col>
+
+                    <Col className="deployLink">
+                        <Col>링크 - {link} <button className="linkBtn" onClick={downloadLink} /> &nbsp;</Col>
                     </Col>
 
                     <div className="deployQR">
-                        <Col><QRCode id="qrCodeEl" value={link}/></Col>
+                        <Col><QRCode id="qrCodeEl" value={link} /></Col>
                         <Col>QR 코드 <button className="qrBtn" onClick={downloadQR} /></Col>
                     </div>
                 </div>

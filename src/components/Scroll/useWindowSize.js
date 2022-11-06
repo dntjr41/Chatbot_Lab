@@ -1,4 +1,3 @@
-import { debounce, throttle } from "lodash";
 import React, { useRef } from "react";
 function useWindowSize() {
   const windowRef = useRef(false);

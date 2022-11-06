@@ -1,29 +1,29 @@
 import '../css/ToggleStyles.css';
 import '../css/PrivacyPage.css';
 import Header from "../components/Header";
-import { Row, Col, Container} from 'react-bootstrap';
+import { Col } from 'react-bootstrap';
 import React from "react";
 import { useState } from "react";
-import { SubWrap, motion, AnimateSharedLayout, AnimatePresence } from 'framer-motion';
+import { motion, AnimateSharedLayout, AnimatePresence } from 'framer-motion';
 
 // 개인정보처리방침 페이지
 // └헤더
 
 function Item({ item }) {
     const [isOpen, setIsOpen] = useState(false);
-  
+
     const toggleOpen = () => setIsOpen(!isOpen);
-  
+
     return (
-      <motion.li className="AnimateLi" layout onClick={toggleOpen} initial={{ borderRadius: 10 }}>
-        <motion.h2>{item.title}</motion.h2>
-        
-        <motion.div layout />
-        <AnimatePresence>{isOpen && (<motion.h5>{item.subtitle}</motion.h5>)}</AnimatePresence>
-      </motion.li>
+        <motion.li className="AnimateLi" layout onClick={toggleOpen} initial={{ borderRadius: 10 }}>
+            <motion.h2>{item.title}</motion.h2>
+
+            <motion.div layout />
+            <AnimatePresence>{isOpen && (<motion.h5>{item.subtitle}</motion.h5>)}</AnimatePresence>
+        </motion.li>
     );
 }
-  
+
 const items = [
     {
         id: "1",
@@ -78,7 +78,7 @@ const PrivacyPage = function () {
                 <AnimateSharedLayout className="AnimateLayout">
                     <motion.ul className="AnimateUl" layout initial={{ borderRadius: 25 }}>
                         {items.map(item => (
-                            <Item key={item} item={item}/>
+                            <Item key={item} item={item} />
                         ))}
                     </motion.ul>
                 </AnimateSharedLayout>
@@ -88,4 +88,4 @@ const PrivacyPage = function () {
 }
 
 export default PrivacyPage;
-export {items};
+export { items };

@@ -2,8 +2,6 @@ import React from "react";
 import FacebookLogin from "@greatsumini/react-facebook-login";
 import '../../css/LoginPage.css'
 
-import fb from "../../../src/images/login/Facebook.png";
-
 const Facebooklogin = () => {
   const responseFacebook = (response) => {
     console.log(response);
