@@ -39,7 +39,8 @@ const CreateSurveyPage = function () {
         dispatch(SET_USER(userId));
     }, [userId, dispatch, navigate]);
 
-    //
+    // 설문지 리스트에서 설문지 ID를 받아서 페이지를 열었다면
+    // 해당 설문지의 템플릿 정보를 서버로부터 가져와서 템플릿 초기화
     useEffect(() => {
         console.log("설문지 수정or생성 확인 effect");
         if (surveyId !== null) {
@@ -48,7 +49,6 @@ const CreateSurveyPage = function () {
                     //응답 성공 
                     axiosInstance.get('/response/' + surveyId)
                         .then((response) => {
-                            console.log(response.data);
                             dispatch(SET_TEMPLATE(response.data));
                         })
                 } catch (error) {
@@ -84,8 +84,9 @@ const CreateSurveyPage = function () {
 
     // 설문 저장 요청 후 홈 페이지로 이동
     const saveSurvey = async () => {
-        if (surveyId !== null) {
-            try {
+        try {
+            // 설문지 ID가 있다면 설문지 수정하기
+            if (surveyId !== null) {
                 //응답 성공 
                 axiosInstance.put('/survey/' + surveyId + '/template', JSON.stringify(surveyInfo))
                     .then((response) => {
@@ -93,15 +94,11 @@ const CreateSurveyPage = function () {
                         dispatch(RESET_STATE());
                         handleModalClose();
                         console.log("설문 수정 완료");
-                        navigate("/questionnaires", { state: { surveyId: response.data } });
+                        navigate("/questionnaires");
                     })
-            } catch (error) {
-                //응답 실패
-                console.error(error);
             }
-        }
-        else {
-            try {
+            // 설문지 ID가 없다면 설문지 생성
+            else {
                 //응답 성공 
                 axiosInstance.post('/survey', JSON.stringify(surveyInfo))
                     .then((response) => {
@@ -109,19 +106,20 @@ const CreateSurveyPage = function () {
                         dispatch(RESET_STATE());
                         handleModalClose();
                         console.log("설문 임시저장 완료");
-                        navigate("/questionnaires", { state: { surveyId: response.data } });
+                        navigate("/questionnaires");
                     })
-            } catch (error) {
-                //응답 실패
-                console.error(error);
             }
+
+        } catch (error) {
+            //응답 실패
+            console.error(error);
         }
     }
 
     // 설문 저장 요청 후 공유 페이지로 이동
     const createSurvey = async () => {
-        if (surveyId !== null) {
-            try {
+        try {
+            if (surveyId !== null) {
                 //응답 성공 
                 axiosInstance.put('/survey/' + surveyId + '/template', JSON.stringify(surveyInfo))
                     .then((response) => {
@@ -130,13 +128,8 @@ const CreateSurveyPage = function () {
                         console.log("설문 수정 완료");
                         navigate("/set-survey-per-tar", { state: { surveyId: response.data } });
                     })
-            } catch (error) {
-                //응답 실패
-                console.error(error);
             }
-        }
-        else {
-            try {
+            else {
                 //응답 성공 
                 axiosInstance.post('/survey', JSON.stringify(surveyInfo))
                     .then((response) => {
@@ -145,10 +138,10 @@ const CreateSurveyPage = function () {
                         console.log("설문 공유 페이지 이동");
                         navigate("/set-survey-per-tar", { state: { surveyId: response.data } });
                     })
-            } catch (error) {
-                //응답 실패
-                console.error(error);
             }
+        } catch (error) {
+            //응답 실패
+            console.error(error);
         }
     }
 
