@@ -91,9 +91,6 @@ const Home = () => {
 
                       <PlusButton
                         cursor="pointer"
-                        F_size="16px"
-                        F_color="#757575"
-                        F_family="GmarketSansLight"
                         onClick={goToQuestion}
                       >
                         설문 만들기 +
@@ -116,19 +113,16 @@ const Home = () => {
                 >
                   <PlusButton 
                     cursor="pointer"
-                    F_size="16px"
-                    F_color="#757575"
-                    F_family="GmarketSansLight"
                     onClick={goToFaq}
                   >
                     이용방법 보기 +
                   </PlusButton>
                 </div>
                 <div {...animatedAboutTitle}>
-                  <p F_size="24px" F_align="center" margin_top="120px">
+                  <p margin_top="120px">
                     설문베이는 무엇인가요?
                   </p>
-                  <p F_size="12px" F_align="center" margin_top="24px">
+                  <p margin_top="24px">
                     설문베이는 다양한 기능과 함께 설문을 만들어 이를 공유하고
                     <br />
                     전문적인 결과 분석까지 받을 수 있는 설문 플랫폼입니다.
@@ -139,10 +133,10 @@ const Home = () => {
             <MFooterBxSlideCon width={width} src={Intro}></MFooterBxSlideCon>
 
             <div {...animatedHowToTitle}>
-              <p F_size="24px" F_align="center" margin_top="80px">
+              <p margin_top="80px">
                 설문베이의 장점은 무엇인가요?
               </p>
-              <p F_size="12px" F_align="center" margin_top="24px">
+              <p margin_top="24px">
                 설문베이는 다음과 같은 장점을 가지고 있습니다.
               </p>
             </div>
@@ -263,9 +257,6 @@ const Home = () => {
                     >
                       <PlusButton
                         cursor="pointer"
-                        F_size="16px"
-                        F_color="#757575"
-                        F_family="GmarketSansLight"
                         onClick={goToQuestion}
                       >
                         설문 만들기 +
@@ -289,19 +280,16 @@ const Home = () => {
               >
                 <PlusButton
                   cursor="pointer"
-                  F_size="16px"
-                  F_color="#757575"
-                  F_family="GmarketSansLight"
                   onClick={goToFaq}
                 >
                   이용방법 보기 +
                 </PlusButton>
               </div>
               <div {...animatedAboutTitle}>
-                <p F_size="42px" F_align="center" margin_top="240px">
+                <p margin_top="240px">
                 설문베이는 무엇인가요?
                 </p>
-                <p F_size="18px" F_align="center" margin_top="24px">
+                <p margin_top="24px">
                   설문베이는 다양한 기능과 함께 설문을 만들어 이를 공유하고
                   전문적인 결과 분석까지 받을 수 있는 설문 플랫폼입니다.
                 </p>
@@ -319,10 +307,10 @@ const Home = () => {
           </FooterBxSlideCon>
 
           <div {...animatedHowToTitle}>
-            <p F_size="42px" F_align="center" margin_top="80px">
+            <p margin_top="80px">
               설문베이의 장점은 무엇인가요?
             </p>
-            <p F_size="18px" F_align="center" margin_top="24px">
+            <p margin_top="24px">
               설문베이는 다음과 같은 장점을 가지고 있습니다.
             </p>
           </div>

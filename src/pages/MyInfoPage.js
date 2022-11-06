@@ -71,7 +71,6 @@ const MyInfoPage = function () {
       <MainContainer>
         <UserContainer>
           <Title
-            F_size="28px"
             margin_bottom="16px"
             style={{ fontFamily: 'IBM Plex Sans KR' }}
           >
