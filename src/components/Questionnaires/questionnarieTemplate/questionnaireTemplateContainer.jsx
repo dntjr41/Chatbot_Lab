@@ -6,6 +6,8 @@ import Row from 'react-bootstrap/Row';
 import QuestionnaireTemplateCard from './questionnaireTemplateCard';
 // redux
 import { useSelector } from 'react-redux';
+// template
+import QuestionnaireTemplate from "./questionnaireTemplate.json";
 
 function QuestionnaireTemplateContainer(props) {
   /* redux */
@@ -16,8 +18,43 @@ function QuestionnaireTemplateContainer(props) {
     surveyList: state.questionnairesReducer.surveyList
   }));
   let items = [];
+  if (templateSelectOption === 0) {
+    items.push(
+      <Col xs="auto" key={"templateCardId" + "eventAttendTemplate"}>
+        <QuestionnaireTemplateCard
+          id={null}
+          title={QuestionnaireTemplate.eventAttendTemplate.surveyTitle}
+          surveyDescription={QuestionnaireTemplate.eventAttendTemplate.surveyContent}
+          representativeImg={QuestionnaireTemplate.eventAttendTemplate.surveyContent}
+          templateData={QuestionnaireTemplate.eventAttendTemplate}
+        />
+      </Col>
+    )
+    items.push(
+      <Col xs="auto" key={"templateCardId" + "customerExperienceTemplate"}>
+        <QuestionnaireTemplateCard
+          id={null}
+          title={QuestionnaireTemplate.customerExperienceTemplate.surveyTitle}
+          surveyDescription={QuestionnaireTemplate.customerExperienceTemplate.surveyContent}
+          representativeImg={QuestionnaireTemplate.customerExperienceTemplate.surveyContent}
+          templateData={QuestionnaireTemplate.customerExperienceTemplate}
+        />
+      </Col>
+    )
+    items.push(
+      <Col xs="auto" key={"templateCardId" + "contactInformationTemplate"}>
+        <QuestionnaireTemplateCard
+          id={null}
+          title={QuestionnaireTemplate.contactInformationTemplate.surveyTitle}
+          surveyDescription={QuestionnaireTemplate.contactInformationTemplate.surveyContent}
+          representativeImg={QuestionnaireTemplate.contactInformationTemplate.surveyContent}
+          templateData={QuestionnaireTemplate.contactInformationTemplate}
+        />
+      </Col>
+    )
+  }
   /* 이전 설문 템플릿 */
-  if (templateSelectOption === 1) {
+  else if (templateSelectOption === 1) {
     for (let number = 0; number < surveyList.length; number++) {
       if (surveyList[number] != null) {
         items.push(

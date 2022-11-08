@@ -7,17 +7,44 @@ import Button from 'react-bootstrap/Button';
 import testimg from '../../../../src/images/Logo square.png'
 // redux
 import { SET_QTPS_OFF } from '../../../modules/questionnairesSlice';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { SET_TEMPLATE } from "../../../modules/createSurveySlice";
+// axios
+import axiosInstance from '../../../api';
 
 function QuestionnaireTemplateCard(props) {
   const navigate = useNavigate();
   /* redux */
   const dispatch = useDispatch();
+  const { templateSelectOption } = useSelector((state) => ({ // 0: 기본 제공 템플릿, 1: 이전 작성 설문 템플릿
+    templateSelectOption: state.questionnairesReducer.templateSelectOption,
+  }));
+  // 설문지 리스트에서 설문지 ID를 받아서 페이지를 열었다면
+  // 해당 설문지의 템플릿 정보를 서버로부터 가져와서 템플릿 초기화
+  const getSurveyTemplate = async () => {
+    try {
+      //응답 성공 
+      axiosInstance.get('/response/' + props.id)
+        .then((response) => {
+          dispatch(SET_TEMPLATE(response.data));
+        })
+    } catch (error) {
+      //응답 실패
+      console.error(error);
+    }
+  }
   const templateSelectOnClick = () => {
     dispatch(SET_QTPS_OFF())
-    navigate("/update-survey/" + props.id)
+    if (templateSelectOption === 0) {
+      dispatch(SET_TEMPLATE(props.templateData))
+      navigate("/create-survey")
+    }
+    else {
+      getSurveyTemplate()
+      navigate("/create-survey")
+    }
   }
-  
+
   /* main */
   return (
     <Card

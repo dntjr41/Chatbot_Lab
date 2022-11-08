@@ -1,0 +1,140 @@
+{
+    "eventAttendTemplate": {
+        "surveyTitle": "행사 참석 여부",
+        "surveyContent": "행사 참석 여부에 대해 알아볼 수 있습니다.",
+        "questionCardList": [
+            {
+                "questionType": 1,
+                "questionTitle": "참석할 수 있으신가요?",
+                "questionAnswers": [
+                    {"value": "참석합니다."},
+                    {"value": "참석하지 않습니다."}
+                ], 
+                "questionOptions": [
+                    true,
+                    false,
+                    false
+                ]
+            },
+            {
+                "questionType": 4,
+                "questionTitle": "참석하는 사람들의 성함을 알려주세요",
+                "questionOptions": [
+                    true
+                ]
+            },
+            {
+                "questionType": 1,
+                "questionTitle": "행사에 관해 어떻게 알게 되셨나요?",
+                "questionAnswers": [
+                    {"value": "웹사이트"},
+                    {"value": "친구"},
+                    {"value": "뉴스레터"},
+                    {"value": "광고"}
+                ],
+                "questionOptions": [
+                    true,
+                    false,
+                    false
+                ]
+            },
+            {
+                "questionType": 4,
+                "questionTitle": "의견 또는 질문",
+                "questionOptions": [
+                    true
+                ]
+            }
+        ]
+    },
+    "contactInformationTemplate": {
+        "surveyTitle": "연락처 정보",
+        "surveyContent": "기본적인 연락처 정보를 얻을 수 있습니다.",
+        "questionCardList": [
+            {
+                "questionType": 1,
+                "questionTitle": "행사에 관해 어떻게 알게 되셨나요?",
+                "questionAnswers": [
+                    {"value": "의견"},
+                    {"value": "질문"},
+                    {"value": "버그 신고"},
+                    {"value": "기능 요청"}
+                ],
+                "questionOptions": [
+                    true, 
+                    false, 
+                    false
+                ]
+            },
+            {
+                "questionType": 4,
+                "questionTitle": "이름",
+                "questionOptions": [
+                    true
+                ]
+            },
+            {
+                "questionType": 4,
+                "questionTitle": "이메일",
+                "questionOptions": [
+                    true
+                ]
+            },
+            {
+                "questionType": 4,
+                "questionTitle": "주소",
+                "questionOptions": [
+                    true
+                ]
+            },
+            {
+                "questionType": 4,
+                "questionTitle": "전화번호",
+                "questionOptions": [
+                    true
+                ]
+            },
+            {
+                "questionType": 4,
+                "questionTitle": "의견",
+                "questionOptions": [
+                    true
+                ]
+            }
+        ]
+    },
+    "customerExperienceTemplate": {
+        "surveyTitle": "고객 의견",
+        "surveyContent": "고객 경험에 대해 질문 할 수 있습니다.",
+        "questionCardList": [
+            {
+                "questionType": 4,
+                "questionTitle": "의견",
+                "questionOptions": [
+                    true
+                ]
+            },
+            {
+                "questionType": 4,
+                "questionTitle": "제안사항",
+                "questionOptions": [
+                    true
+                ]
+            },
+            {
+                "questionType": 4,
+                "questionTitle": "이름",
+                "questionOptions": [
+                    true
+                ]
+            },
+            {
+                "questionType": 4,
+                "questionTitle": "연락처",
+                "questionOptions": [
+                    true
+                ]
+            }
+        ]
+    }
+}
