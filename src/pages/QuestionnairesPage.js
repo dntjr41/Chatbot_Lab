@@ -22,7 +22,7 @@ function QuestionnairesPage() {
 
   const userId = localStorage.getItem("id");
   // API get surveyList by user ID
-  const urlInstance = "/survey/user/" + userId;
+  const urlInstance = "/survey-info/user/" + userId;
   const getSurveyListById = async () => {
     try {
       await axiosInstance.get(urlInstance,

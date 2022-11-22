@@ -20,7 +20,7 @@ function QuestionnaireSetting(props) {
     }));
     /* 설문 list 변경 시 새로고침을 위한 부분 */
     const userId = localStorage.getItem("id");
-    const urlInstance = "/survey/user/" + userId;
+    const urlInstance = "/survey-info/user/" + userId;
     const getSurveyListById = async () => {
         try {
             await axiosInstance.get(urlInstance)
