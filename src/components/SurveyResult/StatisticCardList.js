@@ -12,6 +12,7 @@ const StatisticCardList = function () {
     const statCardList = useSelector(state => state.surveyResult.surveyStatistic);
 
     const downloadStat = () => {
+        console.log(statCardList);
         alert("다운로드 csv파일");
     }
 

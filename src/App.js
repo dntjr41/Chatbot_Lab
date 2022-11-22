@@ -23,6 +23,7 @@ import CreateSurveyPage from './pages/CreateSurveyPage';
 import ResponseSurveyPage from './pages/ResponseSurveyPage';
 import FinishResponsePage from './pages/FinishResponsePage';
 import SurveyResult from './pages/SurveyResultPage';
+import SurveyAnalysis from './pages/SurveyAnalysisPage';
 import NoPage from './pages/NoPage';
 import ScrollTop from './components/ScrollTop';
 
@@ -68,7 +69,7 @@ function App() {
             <Route path="finish-response" element={<FinishResponsePage />} />
             <Route path="survey-result">
               <Route path="statistic/:surveyId" element={<SurveyResult />} />
-              <Route path="analysis" element={<NoPage />} />
+              <Route path="analysis/:surveyId" element={<SurveyAnalysis />} />
             </Route>
 
             <Route path="*" element={<NoPage />} />

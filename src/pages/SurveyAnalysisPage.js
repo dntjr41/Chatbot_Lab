@@ -6,7 +6,6 @@ import axiosInstance from "../api";
 
 import Header from "../components/Header";
 import StatisticCardList from "../components/SurveyResult/StatisticCardList";
-import AnalysisCardList from "../components/SurveyResult/AnalysisCardList";
 
 import '../css/SurveyResultPage.css'
 
@@ -23,7 +22,7 @@ import { GET_STATISTIC } from "../modules/surveyResultSlice";
 //   └다운로드 버튼
 // └결과 분석 컴포넌트
 
-const SurveyResult = function () {
+const SurveyAnalysis = function () {
     const dispatch = useDispatch();
     const params = useParams();
     const navigate = useNavigate();
@@ -98,7 +97,7 @@ const SurveyResult = function () {
                             <StatisticCardList />
                         </Tab.Pane>
                         <Tab.Pane eventKey="analysis">
-                            <AnalysisCardList />
+                            <h1>분석 화면</h1>
                         </Tab.Pane>
                     </Tab.Content>
                 </Tab.Container>
@@ -108,4 +107,4 @@ const SurveyResult = function () {
     )
 }
 
-export default SurveyResult;
+export default SurveyAnalysis;
