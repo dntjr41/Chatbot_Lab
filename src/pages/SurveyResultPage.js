@@ -44,7 +44,7 @@ const SurveyResult = function () {
                         // 설문지id와 사용자id가 일치하면
                         // 설문지 통계 정보 가져오기
                         if (Number(userId) === response.data) {
-                            axiosInstance.get('/response/statistic/' + params.surveyId)
+                            axiosInstance.get('/statistic/' + params.surveyId)
                                 .then((response) => {
                                     dispatch(GET_STATISTIC(response.data));
                                 })

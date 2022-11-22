@@ -43,7 +43,7 @@ const SetSurveyPerTarPage = function () {
     
     const getData = async () => {
         try {
-            axiosInstance.get('/survey/user/' + userID)
+            axiosInstance.get('/survey-info/user/' + userID)
             .then((response) => {
                 console.log(response.data);
                 setState(response.data.filter(value => value.surveyId === surveyId)[0]);
