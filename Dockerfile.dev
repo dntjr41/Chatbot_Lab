@@ -1,6 +1,12 @@
+# 개발 시 사용되는 Dockerfile
 FROM node:alpine
+
 WORKDIR "/usr/src/app"
+
 COPY package.json ./
+
 RUN npm install --force
+
 COPY ./ ./
+
 CMD ["npm","run","start"]

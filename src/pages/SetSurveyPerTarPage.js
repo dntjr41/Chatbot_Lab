@@ -96,7 +96,7 @@ const SetSurveyPerTarPage = function () {
 
     // 링크 생성
     const linkUpdate = () => {
-        var link = "localhost:3000/response/" + surveyInfo.surveyId;
+        var link = process.env.REACT_APP_API_URL+":"+process.env.REACT_APP_PORT+"/response/" + surveyInfo.surveyId;
 
         surveyTemp.surveyId = surveyInfo.surveyId;
         surveyTemp.surveyUrl = link;
