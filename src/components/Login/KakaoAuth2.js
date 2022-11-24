@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 const Auth2 = () => {
     const REST_API_KEY = "bac376255674f663efac55e7ab39fba9";
-    const REDIRECT_URI = "http://localhost:3000/auth/kakao/unlink";
+    const REDIRECT_URI = process.env.REACT_APP_API_URL+":"+process.env.REACT_APP_PORT+"/auth/kakao/unlink";
     const CLIENT_SECRET = "DEnIz7VmtjOrxBNgxVroEl0uivOs3HxE";
     const code = new URL(window.location.href).searchParams.get("code");
     let navigate = useNavigate();
