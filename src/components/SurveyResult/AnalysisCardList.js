@@ -4,6 +4,8 @@ import ChoiceAnaly from "./AnalysisCards/ChoiceAnaly";
 import SubjectiveAnaly from "./AnalysisCards/SubjectiveAnaly";
 
 import '../../css/SurveyResultPage.css';
+import axios from "axios";
+import axiosInstance from "../../api";
 
 /*
 여기서 받아오는걸 어디서 받아오는지 모르겠는데
@@ -14,12 +16,22 @@ import '../../css/SurveyResultPage.css';
 플라스크에서 선택한 데이터를 바탕으로 분석 진행 ->
 받은 결과를 보여주는 형식
 */
+axios.defaults.withCredentials = true;
 
 const AnalysisCardList = function () {
     const statCardList = useSelector(state => state.surveyResult.surveyStatistic);
 
     const showAnaly = () => {
+        console.log(statCardList);
         alert("플라스크로 데이터 전송");
+
+        axios.post('http://127.0.0.1:8087/react_to_flask', statCardList).
+        then(function (response) {
+            console.log(response);
+        }).
+        catch(function (error) {
+            console.log(error);
+        });
     }
 
     const downloadAnaly = () => {
@@ -54,7 +66,6 @@ const AnalysisCardList = function () {
             </div>
 
         </>
-
     )
 }
 
