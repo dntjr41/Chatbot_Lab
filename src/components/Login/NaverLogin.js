@@ -12,7 +12,7 @@ const NaverLogin = ()=> {
         naverScript.onload=()=>{
             const naverLogin=new window.naver.LoginWithNaverId({
                 clientId: "lYaASbDuslwwC_tbOgvi",
-                callbackUrl: "http://localhost:3000/Login",
+                callbackUrl: process.env.REACT_APP_API_URL+":"+process.env.REACT_APP_PORT+"/Login",
                 callbackHandle: true,
                 isPopup: false,
                 loginButton: {

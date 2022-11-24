@@ -8,7 +8,7 @@ const axiosInstance = axios.create({
 
 		// 등등의 header
 	},
-	baseURL: "http://localhost:8080/api", // baseUrl
+	baseURL: process.env.REACT_APP_API_URL + ":" + process.env.REACT_APP_API_PORT + "/api", // baseUrl
 });
 
 export default axiosInstance;
