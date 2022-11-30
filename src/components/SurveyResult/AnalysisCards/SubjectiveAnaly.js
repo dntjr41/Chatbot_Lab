@@ -4,6 +4,8 @@ const SubjectiveAnaly = function ({ statCard }) {
     return (
         <div className="survey-result-stat">
             <Col className="mb-5 fs-4 fw-bold">Q{statCard.questionOrder}. {statCard.title}</Col>
+            
+            { /*
             <div className="survey-result-subjectiveAnswer mb-4 fs-5">
                 <Table striped bordered hover>
                     <tbody  >
@@ -15,7 +17,8 @@ const SubjectiveAnaly = function ({ statCard }) {
                     </tbody>
                 </Table>
             </div>
-
+            */}
+            
         </div >
     )
 }

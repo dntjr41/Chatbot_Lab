@@ -2,6 +2,7 @@ import { Col, Stack } from "react-bootstrap";
 import StatisticChart from "../StatisticCards/StatisticChart";
 // 응답 카드 컴포넌트(객관식)
 
+
 const ChoiceAnaly = function ({ statCard }) {
     let total = 0;
     total = statCard.answers.reduce(function add(sum, answer) {
@@ -11,7 +12,8 @@ const ChoiceAnaly = function ({ statCard }) {
     return (
         <div className="survey-result-stat">
             <Col className="mb-5 fs-4 fw-bold">Q{statCard.questionOrder}. {statCard.title}</Col>
-            {
+            
+            { /*
                 statCard.answers.map((answer, answerIdx) =>
                     <Stack className="survey-result-choiceAnswer mb-4 fs-5" key={answerIdx} direction="horizontal">
                         <div className="survey-result-choiceBar" style={{ width: (answer.cnt / total * 100) + "%" }} />
@@ -19,8 +21,8 @@ const ChoiceAnaly = function ({ statCard }) {
                         <div className="ms-auto">{answer.cnt}</div>
                     </Stack>
                 )
-            }
             <StatisticChart data={statCard.answers} />
+        */}
         </div>
     )
 }
