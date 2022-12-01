@@ -1,0 +1,31 @@
+.highlight {
+    font-size:x-large;
+    font-weight: bold;
+    color:blueviolet;
+}
+
+.highlight-positive {
+    font-size:x-large;
+    font-weight: bold;
+    color:rgb(10, 139, 5);
+}
+
+.highlight-negative {
+    font-size:x-large;
+    font-weight: bold;
+    color:rgb(255, 56, 56);
+}
+
+.highlight-neutral {
+    font-size:x-large;
+    font-weight: bold;
+    color:rgb(236, 214, 17);
+}
+
+.emoticon {
+    width: 70px;
+    height: 70px;
+    border: 2px solid blueviolet;
+    border-radius: 15%;
+    margin-left: 10px;
+}
