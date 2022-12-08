@@ -56,7 +56,7 @@ const Auth = () => {
       localStorage.setItem('email', data.kakao_account.email);
 
       axios
-      .post(process.env.REACT_APP_API_URL+":8080/api/user", {
+      .post(process.env.REACT_APP_API_URL + ":" + process.env.REACT_APP_API_PORT+"/api/user", {
         userId: data.id,
         nickName: data.properties.nickname,
         profileImg: data.properties.profile_image,
